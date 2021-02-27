@@ -16,72 +16,72 @@ $EndDescr
 $Comp
 L Connector_Generic:Conn_02x20_Odd_Even J2
 U 1 1 60371623
-P 7600 2850
-F 0 "J2" V 7696 3829 50  0000 L CNN
-F 1 "Conn_02x20_Odd_Even" V 7605 3829 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 7600 2850 50  0001 C CNN
-F 3 "~" H 7600 2850 50  0001 C CNN
-	1    7600 2850
+P 9400 2700
+F 0 "J2" V 9496 3679 50  0000 L CNN
+F 1 "Conn_02x20_Odd_Even" V 9405 3679 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 9400 2700 50  0001 C CNN
+F 3 "~" H 9400 2700 50  0001 C CNN
+	1    9400 2700
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector_Generic:Conn_02x20_Odd_Even J3
 U 1 1 603774BB
-P 7700 4500
-F 0 "J3" V 7704 3413 50  0000 R CNN
-F 1 "Conn_02x20_Odd_Even" V 7795 3413 50  0000 R CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 7700 4500 50  0001 C CNN
-F 3 "~" H 7700 4500 50  0001 C CNN
-	1    7700 4500
+P 9500 4350
+F 0 "J3" V 9504 3263 50  0000 R CNN
+F 1 "Conn_02x20_Odd_Even" V 9595 3263 50  0000 R CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 9500 4350 50  0001 C CNN
+F 3 "~" H 9500 4350 50  0001 C CNN
+	1    9500 4350
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	7200 4800 7200 4950
+	9000 4650 9000 4800
 Wire Wire Line
-	7200 4950 8100 4950
+	9000 4800 9900 4800
 Wire Wire Line
-	8100 4950 8100 4800
-Text Label 8100 5000 3    50   ~ 0
+	9900 4800 9900 4650
+Text Label 9900 4850 3    50   ~ 0
 GND
 Wire Wire Line
-	8100 4950 8100 5000
-Connection ~ 8100 4950
-Text Label 8100 4250 1    50   ~ 0
+	9900 4800 9900 4850
+Connection ~ 9900 4800
+Text Label 9900 4100 1    50   ~ 0
 5V
 Wire Wire Line
-	8100 4250 8100 4300
-Text Label 7200 4250 1    50   ~ 0
+	9900 4100 9900 4150
+Text Label 9000 4100 1    50   ~ 0
 3V3
 Wire Wire Line
-	7200 4250 7200 4300
-Text Label 8100 3100 3    50   ~ 0
+	9000 4100 9000 4150
+Text Label 9900 2950 3    50   ~ 0
 3V3
 Wire Wire Line
-	8100 3100 8100 3050
-Text Label 7200 3100 3    50   ~ 0
+	9900 2950 9900 2900
+Text Label 9000 2950 3    50   ~ 0
 5V
 Wire Wire Line
-	7200 3100 7200 3050
+	9000 2950 9000 2900
 Wire Wire Line
-	7200 2550 7200 2400
+	9000 2400 9000 2250
 Wire Wire Line
-	7200 2400 8100 2400
+	9000 2250 9900 2250
 Wire Wire Line
-	8100 2400 8100 2550
-Text Label 8100 2350 1    50   ~ 0
+	9900 2250 9900 2400
+Text Label 9900 2200 1    50   ~ 0
 GND
 Wire Wire Line
-	8100 2350 8100 2400
-Connection ~ 8100 2400
+	9900 2200 9900 2250
+Connection ~ 9900 2250
 $Comp
 L FK_fpga_shield_custom_symbols:nvt2010pw U2
 U 1 1 6038132A
-P 3850 950
-F 0 "U2" H 3850 1725 50  0000 C CNN
-F 1 "nvt2010pw" H 3850 1634 50  0000 C CNN
-F 2 "" V 3850 950 50  0001 C CNN
-F 3 "" V 3850 950 50  0001 C CNN
-	1    3850 950 
+P 3100 1400
+F 0 "U2" H 3100 2175 50  0000 C CNN
+F 1 "nvt2010pw" H 3100 2084 50  0000 C CNN
+F 2 "" V 3100 1400 50  0001 C CNN
+F 3 "" V 3100 1400 50  0001 C CNN
+	1    3100 1400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -300,4 +300,6 @@ F 3 "" H 3400 3850 50  0001 C CNN
 	1    3400 3850
 	1    0    0    -1  
 $EndComp
+Text Notes 600  5750 0    50   ~ 0
+External oscillator not reqired\nper datasheet when 5V powered.\nTODO: consider adding footprint\njust in case
 $EndSCHEMATC
