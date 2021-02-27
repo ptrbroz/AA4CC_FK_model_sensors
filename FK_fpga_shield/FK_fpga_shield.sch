@@ -302,4 +302,41 @@ F 3 "" H 3400 3850 50  0001 C CNN
 $EndComp
 Text Notes 600  5750 0    50   ~ 0
 External oscillator not reqired\nper datasheet when 5V powered.\nTODO: consider adding footprint\njust in case
+$Comp
+L FK_fpga_shield_custom_symbols:molex-35363-0660 J?
+U 1 1 603AA77E
+P 2150 1100
+F 0 "J?" H 1650 1150 50  0000 C CNN
+F 1 "molex-35363-0660" H 1300 1050 50  0000 C CNN
+F 2 "FK_fpga_shield_custom_footprints:molex-35363-0660" H 2400 1100 50  0001 C CNN
+F 3 "" H 2400 1100 50  0001 C CNN
+	1    2150 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 1050 2750 1050
+Wire Wire Line
+	2750 1150 2450 1150
+$Comp
+L FK_fpga_shield_custom_symbols:molex-35363-0660 J?
+U 1 1 603AE109
+P 2150 1300
+F 0 "J?" H 1650 1350 50  0000 C CNN
+F 1 "molex-35363-0660" H 1300 1250 50  0000 C CNN
+F 2 "FK_fpga_shield_custom_footprints:molex-35363-0660" H 2400 1300 50  0001 C CNN
+F 3 "" H 2400 1300 50  0001 C CNN
+	1    2150 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L FK_fpga_shield_custom_symbols:molex-35363-0660 J?
+U 1 1 603AE4E4
+P 2150 1500
+F 0 "J?" H 1650 1550 50  0000 C CNN
+F 1 "molex-35363-0660" H 1300 1450 50  0000 C CNN
+F 2 "FK_fpga_shield_custom_footprints:molex-35363-0660" H 2400 1500 50  0001 C CNN
+F 3 "" H 2400 1500 50  0001 C CNN
+	1    2150 1500
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
