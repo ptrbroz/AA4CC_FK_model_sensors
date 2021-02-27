@@ -37,17 +37,6 @@ GND
 Wire Wire Line
 	6400 3750 6000 3750
 $Comp
-L Connector:Conn_01x06_Male J1
-U 1 1 6037CC3D
-P 4550 3650
-F 0 "J1" H 4550 3950 50  0000 C CNN
-F 1 "molex-35363-0660" V 4450 3650 50  0000 C CNN
-F 2 "FK_connectors:molex-35363-0660" H 4550 3650 50  0001 C CNN
-F 3 "~" H 4550 3650 50  0001 C CNN
-	1    4550 3650
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R_Small R1
 U 1 1 603847AB
 P 5150 3450
@@ -63,26 +52,16 @@ Wire Wire Line
 Text Label 4850 4100 3    50   ~ 0
 GND
 Wire Wire Line
-	4750 3950 4850 3950
-Wire Wire Line
-	4750 3750 4850 3750
-Wire Wire Line
 	4850 3750 4850 3950
-Wire Wire Line
-	4750 3450 4850 3450
 Wire Wire Line
 	4850 3450 4850 3750
 Connection ~ 4850 3750
 Wire Wire Line
 	5350 3450 5350 3550
 Wire Wire Line
-	5350 3550 4750 3550
-Wire Wire Line
 	5350 3450 6400 3450
 Wire Wire Line
 	5750 3650 5750 3750
-Wire Wire Line
-	5750 3850 4750 3850
 Wire Wire Line
 	5550 3550 5550 3650
 Wire Wire Line
@@ -131,7 +110,6 @@ Wire Wire Line
 Connection ~ 5350 3450
 Wire Wire Line
 	5050 3450 4850 3450
-Connection ~ 4850 3450
 $Comp
 L Device:C_Small C1
 U 1 1 60384566
@@ -143,4 +121,41 @@ F 3 "~" H 5050 3750 50  0001 C CNN
 	1    5050 3750
 	0    -1   -1   0   
 $EndComp
+$Comp
+L FK_fpga_shield_custom_symbols:molex-35363-0660 J3
+U 1 1 603A634D
+P 4000 3700
+F 0 "J3" H 3975 4115 50  0000 C CNN
+F 1 "molex-35363-0660" H 3975 4024 50  0000 C CNN
+F 2 "FK_connectors:molex-35363-0660" H 4250 3700 50  0001 C CNN
+F 3 "" H 4250 3700 50  0001 C CNN
+	1    4000 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 3850 4750 3850
+Wire Wire Line
+	5350 3550 4750 3550
+Text Label 4750 3550 2    50   ~ 0
+B
+Text Label 4750 3850 2    50   ~ 0
+A
+Text Label 4750 3650 2    50   ~ 0
+5V
+Text Label 3550 3650 2    50   ~ 0
+GND
+Text Label 3550 3750 2    50   ~ 0
+5V
+Wire Wire Line
+	3550 3750 3700 3750
+Wire Wire Line
+	3650 3650 3550 3650
+Text Label 4450 3750 2    50   ~ 0
+B
+Text Label 4450 3650 2    50   ~ 0
+A
+Wire Wire Line
+	4450 3650 4300 3650
+Wire Wire Line
+	4450 3750 4300 3750
 $EndSCHEMATC
