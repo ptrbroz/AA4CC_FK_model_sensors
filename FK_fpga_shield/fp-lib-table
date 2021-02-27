@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name FK_fpga_shield_custom_footprints)(type KiCad)(uri ${KIPRJMOD}/FK_fpga_shield_custom_footprints.pretty)(options "")(descr ""))
+  (lib (name 54819-0519)(type KiCad)(uri ${KIPRJMOD}/54819-0519)(options "")(descr ""))
+)
