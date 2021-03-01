@@ -121,17 +121,6 @@ F 3 "~" H 5050 3750 50  0001 C CNN
 	1    5050 3750
 	0    -1   -1   0   
 $EndComp
-$Comp
-L FK_fpga_shield_custom_symbols:molex-35363-0660 J3
-U 1 1 603A634D
-P 4000 3700
-F 0 "J3" H 3975 4115 50  0000 C CNN
-F 1 "molex-35363-0660" H 3975 4024 50  0000 C CNN
-F 2 "FK_connectors:molex-35363-0660" H 4250 3700 50  0001 C CNN
-F 3 "" H 4250 3700 50  0001 C CNN
-	1    4000 3700
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5750 3850 4750 3850
 Wire Wire Line
@@ -158,4 +147,15 @@ Wire Wire Line
 	4450 3650 4300 3650
 Wire Wire Line
 	4450 3750 4300 3750
+$Comp
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J1
+U 1 1 603CD8A1
+P 4000 3700
+F 0 "J1" H 3975 4115 50  0000 C CNN
+F 1 "molex-51382-0400-microclasp" H 3975 4024 50  0000 C CNN
+F 2 "FK_connectors:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 4250 3700 50  0001 C CNN
+F 3 "" H 4250 3700 50  0001 C CNN
+	1    4000 3700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

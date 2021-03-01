@@ -302,4 +302,19 @@ F 3 "" H 3400 3850 50  0001 C CNN
 $EndComp
 Text Notes 600  5750 0    50   ~ 0
 External oscillator not reqired\nper datasheet when 5V powered.\nTODO: consider adding footprint\njust in case
+$Comp
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J?
+U 1 1 603CD5AD
+P 2050 1100
+F 0 "J?" H 2025 1515 50  0000 C CNN
+F 1 "molex-51382-0400-microclasp" H 2025 1424 50  0000 C CNN
+F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 2300 1100 50  0001 C CNN
+F 3 "" H 2300 1100 50  0001 C CNN
+	1    2050 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 1050 2750 1050
+Wire Wire Line
+	2750 1150 2350 1150
 $EndSCHEMATC

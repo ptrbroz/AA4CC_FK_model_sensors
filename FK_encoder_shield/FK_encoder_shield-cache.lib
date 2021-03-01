@@ -65,11 +65,11 @@ X ~ 2 0 -100 30 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# FK_fpga_shield_custom_symbols_molex-35363-0660
+# FK_fpga_shield_custom_symbols_molex-51382-0400-microclasp
 #
-DEF FK_fpga_shield_custom_symbols_molex-35363-0660 J 0 40 Y Y 1 F N
-F0 "J" 0 -250 50 H V C CNN
-F1 "FK_fpga_shield_custom_symbols_molex-35363-0660" 0 -150 50 H V C CNN
+DEF FK_fpga_shield_custom_symbols_molex-51382-0400-microclasp J 0 40 Y Y 1 F N
+F0 "J" -750 -50 50 H V C CNN
+F1 "FK_fpga_shield_custom_symbols_molex-51382-0400-microclasp" -1250 50 50 H V C CNN
 F2 "" 250 0 50 H I C CNN
 F3 "" 250 0 50 H I C CNN
 DRAW
@@ -80,10 +80,10 @@ P 4 0 1 0 0 -100 -200 -100 -200 0 0 0 N
 P 5 0 1 0 0 0 0 100 200 100 200 -100 0 -100 N
 P 6 0 1 0 0 100 -50 50 0 0 -50 0 0 50 -50 100 N
 P 7 0 1 0 -250 100 -200 100 -250 50 -200 0 -250 0 -200 50 -250 100 N
-X C_B 1 300 -50 100 L 50 50 1 1 I
-X 5V 2 -300 -50 100 R 50 50 1 1 I
-X C_A 3 300 50 100 L 50 50 1 1 I
-X GND 4 -350 50 100 R 50 50 1 1 I
+X GND 1 -350 50 100 R 50 50 1 1 I
+X C_A 2 300 50 100 L 50 50 1 1 I
+X 5V 3 -300 -50 100 R 50 50 1 1 I
+X C_B 4 300 -50 100 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #

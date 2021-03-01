@@ -195,10 +195,10 @@ F 3 "" H 1150 5150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_Small R?
+L Device:R_Small R1
 U 1 1 603B5184
 P 1500 4850
-F 0 "R?" H 1559 4896 50  0000 L CNN
+F 0 "R1" H 1559 4896 50  0000 L CNN
 F 1 "4k7" H 1559 4805 50  0000 L CNN
 F 2 "" H 1500 4850 50  0001 C CNN
 F 3 "~" H 1500 4850 50  0001 C CNN
@@ -206,10 +206,10 @@ F 3 "~" H 1500 4850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_Small R?
+L Device:R_Small R2
 U 1 1 603B60A2
 P 1500 5050
-F 0 "R?" H 1559 5096 50  0000 L CNN
+F 0 "R2" H 1559 5096 50  0000 L CNN
 F 1 "10k" H 1559 5005 50  0000 L CNN
 F 2 "" H 1500 5050 50  0001 C CNN
 F 3 "~" H 1500 5050 50  0001 C CNN
@@ -235,10 +235,10 @@ Wire Wire Line
 Text Label 2850 3550 0    50   ~ 0
 5V
 $Comp
-L Device:C_Small C?
+L Device:C_Small C2
 U 1 1 603B9C1A
 P 3100 3750
-F 0 "C?" H 3192 3796 50  0000 L CNN
+F 0 "C2" H 3192 3796 50  0000 L CNN
 F 1 "100n" H 3192 3705 50  0000 L CNN
 F 2 "" H 3100 3750 50  0001 C CNN
 F 3 "~" H 3100 3750 50  0001 C CNN
@@ -246,10 +246,10 @@ F 3 "~" H 3100 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C?
+L Device:C_Small C3
 U 1 1 603B9F93
 P 3400 3750
-F 0 "C?" H 3492 3796 50  0000 L CNN
+F 0 "C3" H 3492 3796 50  0000 L CNN
 F 1 "100n" H 3492 3705 50  0000 L CNN
 F 2 "" H 3400 3750 50  0001 C CNN
 F 3 "~" H 3400 3750 50  0001 C CNN
@@ -257,10 +257,10 @@ F 3 "~" H 3400 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:CP_Small C?
+L Device:CP_Small C4
 U 1 1 603BB726
 P 3700 3750
-F 0 "C?" H 3788 3796 50  0000 L CNN
+F 0 "C4" H 3788 3796 50  0000 L CNN
 F 1 "4.7u" H 3788 3705 50  0000 L CNN
 F 2 "" H 3700 3750 50  0001 C CNN
 F 3 "~" H 3700 3750 50  0001 C CNN
@@ -290,10 +290,10 @@ Connection ~ 3400 3850
 Wire Wire Line
 	3400 3850 3700 3850
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0104
 U 1 1 603BD551
 P 3400 3850
-F 0 "#PWR?" H 3400 3600 50  0001 C CNN
+F 0 "#PWR0104" H 3400 3600 50  0001 C CNN
 F 1 "GND" H 3405 3677 50  0000 C CNN
 F 2 "" H 3400 3850 50  0001 C CNN
 F 3 "" H 3400 3850 50  0001 C CNN
@@ -303,40 +303,18 @@ $EndComp
 Text Notes 600  5750 0    50   ~ 0
 External oscillator not reqired\nper datasheet when 5V powered.\nTODO: consider adding footprint\njust in case
 $Comp
-L FK_fpga_shield_custom_symbols:molex-35363-0660 J?
-U 1 1 603AA77E
-P 2150 1100
-F 0 "J?" H 1650 1150 50  0000 C CNN
-F 1 "molex-35363-0660" H 1300 1050 50  0000 C CNN
-F 2 "FK_fpga_shield_custom_footprints:molex-35363-0660" H 2400 1100 50  0001 C CNN
-F 3 "" H 2400 1100 50  0001 C CNN
-	1    2150 1100
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J4
+U 1 1 603CD5AD
+P 2050 1100
+F 0 "J4" H 2025 1515 50  0000 C CNN
+F 1 "molex-51382-0400-microclasp" H 2025 1424 50  0000 C CNN
+F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 2300 1100 50  0001 C CNN
+F 3 "" H 2300 1100 50  0001 C CNN
+	1    2050 1100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2450 1050 2750 1050
+	2350 1050 2750 1050
 Wire Wire Line
-	2750 1150 2450 1150
-$Comp
-L FK_fpga_shield_custom_symbols:molex-35363-0660 J?
-U 1 1 603AE109
-P 2150 1300
-F 0 "J?" H 1650 1350 50  0000 C CNN
-F 1 "molex-35363-0660" H 1300 1250 50  0000 C CNN
-F 2 "FK_fpga_shield_custom_footprints:molex-35363-0660" H 2400 1300 50  0001 C CNN
-F 3 "" H 2400 1300 50  0001 C CNN
-	1    2150 1300
-	1    0    0    -1  
-$EndComp
-$Comp
-L FK_fpga_shield_custom_symbols:molex-35363-0660 J?
-U 1 1 603AE4E4
-P 2150 1500
-F 0 "J?" H 1650 1550 50  0000 C CNN
-F 1 "molex-35363-0660" H 1300 1450 50  0000 C CNN
-F 2 "FK_fpga_shield_custom_footprints:molex-35363-0660" H 2400 1500 50  0001 C CNN
-F 3 "" H 2400 1500 50  0001 C CNN
-	1    2150 1500
-	1    0    0    -1  
-$EndComp
+	2750 1150 2350 1150
 $EndSCHEMATC
