@@ -1996,10 +1996,10 @@ Wire Wire Line
 Wire Wire Line
 	1500 9450 1550 9450
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J25
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J21
 U 1 1 605D863C
 P 1200 10300
-F 0 "J25" H 700 10300 50  0000 C CNN
+F 0 "J21" H 700 10300 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 550 10700 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 1450 10300 50  0001 C CNN
 F 3 "" H 1450 10300 50  0001 C CNN
@@ -2007,10 +2007,10 @@ F 3 "" H 1450 10300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J24
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J22
 U 1 1 605D8642
 P 1200 10100
-F 0 "J24" H 700 10100 50  0000 C CNN
+F 0 "J22" H 700 10100 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 550 10300 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 1450 10100 50  0001 C CNN
 F 3 "" H 1450 10100 50  0001 C CNN
@@ -2029,10 +2029,10 @@ F 3 "" H 1450 9900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J22
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J24
 U 1 1 605D864E
 P 1200 9700
-F 0 "J22" H 700 9700 50  0000 C CNN
+F 0 "J24" H 700 9700 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 550 9500 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 1450 9700 50  0001 C CNN
 F 3 "" H 1450 9700 50  0001 C CNN
@@ -2040,10 +2040,10 @@ F 3 "" H 1450 9700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J21
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J25
 U 1 1 605D8654
 P 1200 9500
-F 0 "J21" H 700 9500 50  0000 C CNN
+F 0 "J25" H 700 9500 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 550 9100 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 1450 9500 50  0001 C CNN
 F 3 "" H 1450 9500 50  0001 C CNN
@@ -2384,10 +2384,10 @@ Wire Wire Line
 Wire Wire Line
 	5800 1250 5850 1250
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J30
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J26
 U 1 1 606B4BED
 P 5500 2100
-F 0 "J30" H 5000 2100 50  0000 C CNN
+F 0 "J26" H 5000 2100 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 4850 2500 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 5750 2100 50  0001 C CNN
 F 3 "" H 5750 2100 50  0001 C CNN
@@ -2395,10 +2395,10 @@ F 3 "" H 5750 2100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J29
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J27
 U 1 1 606B4BF3
 P 5500 1900
-F 0 "J29" H 5000 1900 50  0000 C CNN
+F 0 "J27" H 5000 1900 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 4850 2100 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 5750 1900 50  0001 C CNN
 F 3 "" H 5750 1900 50  0001 C CNN
@@ -2417,10 +2417,10 @@ F 3 "" H 5750 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J27
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J29
 U 1 1 606B4BFF
 P 5500 1500
-F 0 "J27" H 5000 1500 50  0000 C CNN
+F 0 "J29" H 5000 1500 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 4850 1300 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 5750 1500 50  0001 C CNN
 F 3 "" H 5750 1500 50  0001 C CNN
@@ -2428,10 +2428,10 @@ F 3 "" H 5750 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J26
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J30
 U 1 1 606B4C05
 P 5500 1300
-F 0 "J26" H 5000 1300 50  0000 C CNN
+F 0 "J30" H 5000 1300 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 4850 900 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 5750 1300 50  0001 C CNN
 F 3 "" H 5750 1300 50  0001 C CNN
@@ -2772,10 +2772,10 @@ Wire Wire Line
 Wire Wire Line
 	5800 3350 5850 3350
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J35
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J31
 U 1 1 6071A9CC
 P 5500 4200
-F 0 "J35" H 5000 4200 50  0000 C CNN
+F 0 "J31" H 5000 4200 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 4850 4600 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 5750 4200 50  0001 C CNN
 F 3 "" H 5750 4200 50  0001 C CNN
@@ -2783,10 +2783,10 @@ F 3 "" H 5750 4200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J34
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J32
 U 1 1 6071A9D2
 P 5500 4000
-F 0 "J34" H 5000 4000 50  0000 C CNN
+F 0 "J32" H 5000 4000 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 4850 4200 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 5750 4000 50  0001 C CNN
 F 3 "" H 5750 4000 50  0001 C CNN
@@ -2805,10 +2805,10 @@ F 3 "" H 5750 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J32
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J34
 U 1 1 6071A9DE
 P 5500 3600
-F 0 "J32" H 5000 3600 50  0000 C CNN
+F 0 "J34" H 5000 3600 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 4850 3400 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 5750 3600 50  0001 C CNN
 F 3 "" H 5750 3600 50  0001 C CNN
@@ -2816,10 +2816,10 @@ F 3 "" H 5750 3600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J31
+L FK_fpga_shield_custom_symbols:molex-51382-0400-microclasp J35
 U 1 1 6071A9E4
 P 5500 3400
-F 0 "J31" H 5000 3400 50  0000 C CNN
+F 0 "J35" H 5000 3400 50  0000 C CNN
 F 1 "molex-51382-0400-microclasp" V 4850 3000 50  0000 C CNN
 F 2 "FK_fpga_shield_custom_footprints:Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL" H 5750 3400 50  0001 C CNN
 F 3 "" H 5750 3400 50  0001 C CNN
@@ -2992,9 +2992,9 @@ F 3 "" H 1450 1300 50  0001 C CNN
 	1    1200 1300
 	1    0    0    -1  
 $EndComp
-Text Label 12400 6600 2    50   ~ 0
+Text Label 12950 6950 3    50   ~ 0
 RX
-Text Label 12400 6500 2    50   ~ 0
+Text Label 12950 6450 1    50   ~ 0
 TX
 Text Label 3550 2050 0    50   ~ 0
 1a
@@ -3018,8 +3018,6 @@ Text Label 3550 1250 0    50   ~ 0
 5a
 Text Label 12950 4700 1    50   ~ 0
 1a
-Text Label 12950 5200 3    50   ~ 0
-1b
 Text Label 13050 4700 1    50   ~ 0
 2a
 Text Label 13050 5200 3    50   ~ 0
@@ -3047,4 +3045,246 @@ F 3 "" H 1450 3550 50  0001 C CNN
 	1    1200 3550
 	1    0    0    -1  
 $EndComp
+Text Label 3550 4200 0    50   ~ 0
+6b
+Text Label 3550 4100 0    50   ~ 0
+6a
+Text Label 3550 4000 0    50   ~ 0
+7b
+Text Label 3550 3900 0    50   ~ 0
+7a
+Text Label 3550 3800 0    50   ~ 0
+8b
+Text Label 3550 3700 0    50   ~ 0
+8a
+Text Label 3550 3600 0    50   ~ 0
+9b
+Text Label 3550 3500 0    50   ~ 0
+9a
+Text Label 3550 3400 0    50   ~ 0
+10b
+Text Label 3550 3300 0    50   ~ 0
+10a
+Text Label 3550 6250 0    50   ~ 0
+11b
+Text Label 3550 6150 0    50   ~ 0
+11a
+Text Label 3550 6050 0    50   ~ 0
+12b
+Text Label 3550 5950 0    50   ~ 0
+12a
+Text Label 3550 5850 0    50   ~ 0
+13b
+Text Label 3550 5750 0    50   ~ 0
+13a
+Text Label 3550 5650 0    50   ~ 0
+14b
+Text Label 3550 5550 0    50   ~ 0
+14a
+Text Label 3550 5450 0    50   ~ 0
+15b
+Text Label 3550 5350 0    50   ~ 0
+15a
+Text Label 3550 8300 0    50   ~ 0
+16b
+Text Label 3550 8200 0    50   ~ 0
+16a
+Text Label 3550 8100 0    50   ~ 0
+17b
+Text Label 3550 8000 0    50   ~ 0
+17a
+Text Label 3550 7900 0    50   ~ 0
+18b
+Text Label 3550 7800 0    50   ~ 0
+18a
+Text Label 3550 7700 0    50   ~ 0
+19b
+Text Label 3550 7600 0    50   ~ 0
+19a
+Text Label 3550 7500 0    50   ~ 0
+20b
+Text Label 3550 7400 0    50   ~ 0
+20a
+Text Label 3550 10350 0    50   ~ 0
+21b
+Text Label 3550 10250 0    50   ~ 0
+21a
+Text Label 3550 10150 0    50   ~ 0
+22b
+Text Label 3550 10050 0    50   ~ 0
+22a
+Text Label 3550 9950 0    50   ~ 0
+23b
+Text Label 3550 9850 0    50   ~ 0
+23a
+Text Label 3550 9750 0    50   ~ 0
+24b
+Text Label 3550 9650 0    50   ~ 0
+24a
+Text Label 3550 9550 0    50   ~ 0
+25b
+Text Label 3550 9450 0    50   ~ 0
+25a
+Text Label 7850 2150 0    50   ~ 0
+26b
+Text Label 7850 2050 0    50   ~ 0
+26a
+Text Label 7850 1950 0    50   ~ 0
+27b
+Text Label 7850 1850 0    50   ~ 0
+27a
+Text Label 7850 1750 0    50   ~ 0
+28b
+Text Label 7850 1650 0    50   ~ 0
+28a
+Text Label 7850 1550 0    50   ~ 0
+29b
+Text Label 7850 1450 0    50   ~ 0
+29a
+Text Label 7850 1350 0    50   ~ 0
+30b
+Text Label 7850 1250 0    50   ~ 0
+30a
+Text Label 7850 4250 0    50   ~ 0
+31b
+Text Label 7850 4150 0    50   ~ 0
+31a
+Text Label 7850 4050 0    50   ~ 0
+32b
+Text Label 7850 3950 0    50   ~ 0
+32a
+Text Label 7850 3850 0    50   ~ 0
+33b
+Text Label 7850 3750 0    50   ~ 0
+33a
+Text Label 7850 3650 0    50   ~ 0
+34b
+Text Label 7850 3550 0    50   ~ 0
+34a
+Text Label 7850 3450 0    50   ~ 0
+35b
+Text Label 7850 3350 0    50   ~ 0
+35a
+Text Label 13550 5200 3    50   ~ 0
+6b
+Text Label 13550 4700 1    50   ~ 0
+6a
+Text Label 13650 5200 3    50   ~ 0
+7b
+Text Label 13650 4700 1    50   ~ 0
+7a
+Text Label 13750 5200 3    50   ~ 0
+8b
+Text Label 13750 4700 1    50   ~ 0
+8a
+Text Label 13850 5200 3    50   ~ 0
+9b
+Text Label 13850 4700 1    50   ~ 0
+9a
+Text Label 13950 5200 3    50   ~ 0
+10b
+Text Label 13950 4700 1    50   ~ 0
+10a
+Text Label 12950 5200 3    50   ~ 0
+1b
+Text Label 14050 5200 3    50   ~ 0
+11b
+Text Label 14050 4700 1    50   ~ 0
+11a
+Text Label 14150 5200 3    50   ~ 0
+12b
+Text Label 14150 4700 1    50   ~ 0
+12a
+Text Label 14250 5200 3    50   ~ 0
+13b
+Text Label 14250 4700 1    50   ~ 0
+13a
+Text Label 14450 5200 3    50   ~ 0
+14b
+Text Label 14450 4700 1    50   ~ 0
+14a
+Text Label 14550 5200 3    50   ~ 0
+15b
+Text Label 14550 4700 1    50   ~ 0
+15a
+Text Label 14650 5200 3    50   ~ 0
+16b
+Text Label 14650 4700 1    50   ~ 0
+16a
+Text Label 14750 5200 3    50   ~ 0
+17b
+Text Label 14750 4700 1    50   ~ 0
+17a
+Text Label 14850 5200 3    50   ~ 0
+18b
+Text Label 14850 4700 1    50   ~ 0
+18a
+Text Label 14850 6450 1    50   ~ 0
+19b
+Text Label 14850 6950 3    50   ~ 0
+19a
+Text Label 14750 6450 1    50   ~ 0
+20b
+Text Label 14750 6950 3    50   ~ 0
+20a
+Text Label 14650 6450 1    50   ~ 0
+21b
+Text Label 14650 6950 3    50   ~ 0
+21a
+Text Label 14550 6450 1    50   ~ 0
+22b
+Text Label 14550 6950 3    50   ~ 0
+22a
+Text Label 14450 6450 1    50   ~ 0
+23b
+Text Label 14450 6950 3    50   ~ 0
+23a
+Text Label 14250 6450 1    50   ~ 0
+24b
+Text Label 14250 6950 3    50   ~ 0
+24a
+Text Label 14150 6450 1    50   ~ 0
+25b
+Text Label 14150 6950 3    50   ~ 0
+25a
+Text Label 14050 6950 3    50   ~ 0
+26a
+Text Label 13950 6950 3    50   ~ 0
+27a
+Text Label 13850 6950 3    50   ~ 0
+28a
+Text Label 13750 6950 3    50   ~ 0
+29a
+Text Label 13650 6950 3    50   ~ 0
+30a
+Text Label 13950 6450 1    50   ~ 0
+27b
+Text Label 13850 6450 1    50   ~ 0
+28b
+Text Label 13750 6450 1    50   ~ 0
+29b
+Text Label 13650 6450 1    50   ~ 0
+30b
+Text Label 14050 6450 1    50   ~ 0
+26b
+Text Label 13550 6450 1    50   ~ 0
+31b
+Text Label 13550 6950 3    50   ~ 0
+31a
+Text Label 13350 6450 1    50   ~ 0
+32b
+Text Label 13350 6950 3    50   ~ 0
+32a
+Text Label 13250 6450 1    50   ~ 0
+33b
+Text Label 13250 6950 3    50   ~ 0
+33a
+Text Label 13150 6450 1    50   ~ 0
+34b
+Text Label 13150 6950 3    50   ~ 0
+34a
+Text Label 13050 6450 1    50   ~ 0
+35b
+Text Label 13050 6950 3    50   ~ 0
+35a
 $EndSCHEMATC
