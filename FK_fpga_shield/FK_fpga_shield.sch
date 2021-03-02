@@ -2992,9 +2992,9 @@ F 3 "" H 1450 1300 50  0001 C CNN
 	1    1200 1300
 	1    0    0    -1  
 $EndComp
-Text Label 12950 6950 3    50   ~ 0
-RX
 Text Label 12950 6450 1    50   ~ 0
+RX
+Text Label 12950 6950 3    50   ~ 0
 TX
 Text Label 3550 2050 0    50   ~ 0
 1a
@@ -3287,4 +3287,32 @@ Text Label 13050 6450 1    50   ~ 0
 35b
 Text Label 13050 6950 3    50   ~ 0
 35a
+$Comp
+L Connector:Barrel_Jack J?
+U 1 1 61D44947
+P 10300 6600
+F 0 "J?" H 10357 6925 50  0000 C CNN
+F 1 "Barrel_Jack" H 10357 6834 50  0000 C CNN
+F 2 "" H 10350 6560 50  0001 C CNN
+F 3 "~" H 10350 6560 50  0001 C CNN
+	1    10300 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61D45B36
+P 10750 6700
+F 0 "#PWR?" H 10750 6450 50  0001 C CNN
+F 1 "GND" H 10755 6527 50  0000 C CNN
+F 2 "" H 10750 6700 50  0001 C CNN
+F 3 "" H 10750 6700 50  0001 C CNN
+	1    10750 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10600 6700 10750 6700
+Text Label 10750 6500 0    50   ~ 0
+5V
+Wire Wire Line
+	10600 6500 10750 6500
 $EndSCHEMATC

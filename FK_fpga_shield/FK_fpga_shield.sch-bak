@@ -2992,9 +2992,9 @@ F 3 "" H 1450 1300 50  0001 C CNN
 	1    1200 1300
 	1    0    0    -1  
 $EndComp
-Text Label 12950 6950 3    50   ~ 0
-RX
 Text Label 12950 6450 1    50   ~ 0
+RX
+Text Label 12950 6950 3    50   ~ 0
 TX
 Text Label 3550 2050 0    50   ~ 0
 1a
@@ -3267,24 +3267,24 @@ Text Label 13650 6450 1    50   ~ 0
 30b
 Text Label 14050 6450 1    50   ~ 0
 26b
-Text Label 13550 6250 1    50   ~ 0
+Text Label 13550 6450 1    50   ~ 0
 31b
-Text Label 12950 7650 0    50   ~ 0
+Text Label 13550 6950 3    50   ~ 0
 31a
-Text Label 13450 6250 1    50   ~ 0
+Text Label 13350 6450 1    50   ~ 0
 32b
-Text Label 12950 7550 0    50   ~ 0
+Text Label 13350 6950 3    50   ~ 0
 32a
-Text Label 13350 6250 1    50   ~ 0
+Text Label 13250 6450 1    50   ~ 0
 33b
-Text Label 12950 7450 0    50   ~ 0
+Text Label 13250 6950 3    50   ~ 0
 33a
-Text Label 13250 6250 1    50   ~ 0
+Text Label 13150 6450 1    50   ~ 0
 34b
-Text Label 12950 7350 0    50   ~ 0
+Text Label 13150 6950 3    50   ~ 0
 34a
-Text Label 13150 6250 1    50   ~ 0
+Text Label 13050 6450 1    50   ~ 0
 35b
-Text Label 12950 7250 0    50   ~ 0
+Text Label 13050 6950 3    50   ~ 0
 35a
 $EndSCHEMATC
