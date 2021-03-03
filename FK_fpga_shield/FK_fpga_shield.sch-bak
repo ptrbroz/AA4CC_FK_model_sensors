@@ -2992,9 +2992,9 @@ F 3 "" H 1450 1300 50  0001 C CNN
 	1    1200 1300
 	1    0    0    -1  
 $EndComp
-Text Label 12950 6450 1    50   ~ 0
+Text Label 13550 6450 1    50   ~ 0
 RX
-Text Label 12950 6950 3    50   ~ 0
+Text Label 13350 6450 1    50   ~ 0
 TX
 Text Label 3550 2050 0    50   ~ 0
 1a
@@ -3207,25 +3207,25 @@ Text Label 14550 5200 3    50   ~ 0
 15b
 Text Label 14550 4700 1    50   ~ 0
 15a
-Text Label 14650 5200 3    50   ~ 0
+Text Label 14850 5200 3    50   ~ 0
 16b
-Text Label 14650 4700 1    50   ~ 0
+Text Label 14850 4700 1    50   ~ 0
 16a
 Text Label 14750 5200 3    50   ~ 0
 17b
 Text Label 14750 4700 1    50   ~ 0
 17a
-Text Label 14850 5200 3    50   ~ 0
+Text Label 14650 5200 3    50   ~ 0
 18b
-Text Label 14850 4700 1    50   ~ 0
+Text Label 14650 4700 1    50   ~ 0
 18a
-Text Label 14850 6450 1    50   ~ 0
-19b
-Text Label 14850 6950 3    50   ~ 0
-19a
 Text Label 14750 6450 1    50   ~ 0
-20b
+19b
 Text Label 14750 6950 3    50   ~ 0
+19a
+Text Label 14850 6450 1    50   ~ 0
+20b
+Text Label 14850 6950 3    50   ~ 0
 20a
 Text Label 14650 6450 1    50   ~ 0
 21b
@@ -3267,24 +3267,52 @@ Text Label 13650 6450 1    50   ~ 0
 30b
 Text Label 14050 6450 1    50   ~ 0
 26b
-Text Label 13550 6450 1    50   ~ 0
-31b
 Text Label 13550 6950 3    50   ~ 0
-31a
-Text Label 13350 6450 1    50   ~ 0
-32b
+31b
 Text Label 13350 6950 3    50   ~ 0
-32a
+31a
 Text Label 13250 6450 1    50   ~ 0
-33b
+32b
 Text Label 13250 6950 3    50   ~ 0
-33a
+32a
 Text Label 13150 6450 1    50   ~ 0
-34b
+33b
 Text Label 13150 6950 3    50   ~ 0
+33a
+Text Label 12950 6450 1    50   ~ 0
+34b
+Text Label 12950 6950 3    50   ~ 0
 34a
 Text Label 13050 6450 1    50   ~ 0
 35b
 Text Label 13050 6950 3    50   ~ 0
 35a
+$Comp
+L Connector:Barrel_Jack J36
+U 1 1 61D44947
+P 10300 6600
+F 0 "J36" H 10357 6925 50  0000 C CNN
+F 1 "Barrel_Jack" H 10357 6834 50  0000 C CNN
+F 2 "" H 10350 6560 50  0001 C CNN
+F 3 "~" H 10350 6560 50  0001 C CNN
+	1    10300 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0112
+U 1 1 61D45B36
+P 10750 6700
+F 0 "#PWR0112" H 10750 6450 50  0001 C CNN
+F 1 "GND" H 10755 6527 50  0000 C CNN
+F 2 "" H 10750 6700 50  0001 C CNN
+F 3 "" H 10750 6700 50  0001 C CNN
+	1    10750 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10600 6700 10750 6700
+Text Label 10750 6500 0    50   ~ 0
+5V
+Wire Wire Line
+	10600 6500 10750 6500
 $EndSCHEMATC
