@@ -2090,8 +2090,6 @@ F 3 "" H 3450 10750 50  0001 C CNN
 	1    3450 10750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3600 10450 3450 10450
 Text Label 3600 10550 3    50   ~ 0
 3V3
 Wire Wire Line
@@ -3267,33 +3265,20 @@ Text Label 13150 6450 1    50   ~ 0
 Text Label 13150 6950 3    50   ~ 0
 33a
 $Comp
-L Connector:Barrel_Jack J36
-U 1 1 61D44947
-P 10300 6600
-F 0 "J36" H 10357 6925 50  0000 C CNN
-F 1 "Barrel_Jack" H 10357 6834 50  0000 C CNN
-F 2 "" H 10350 6560 50  0001 C CNN
-F 3 "~" H 10350 6560 50  0001 C CNN
-	1    10300 6600
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR0112
 U 1 1 61D45B36
-P 10750 6700
-F 0 "#PWR0112" H 10750 6450 50  0001 C CNN
-F 1 "GND" H 10755 6527 50  0000 C CNN
-F 2 "" H 10750 6700 50  0001 C CNN
-F 3 "" H 10750 6700 50  0001 C CNN
-	1    10750 6700
+P 9400 7000
+F 0 "#PWR0112" H 9400 6750 50  0001 C CNN
+F 1 "GND" H 9405 6827 50  0000 C CNN
+F 2 "" H 9400 7000 50  0001 C CNN
+F 3 "" H 9400 7000 50  0001 C CNN
+	1    9400 7000
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	10600 6700 10750 6700
-Text Label 10750 6500 0    50   ~ 0
+Text Label 9600 6300 0    50   ~ 0
 5V
 Wire Wire Line
-	10600 6500 10750 6500
+	9500 6500 9600 6500
 Text Label 12950 6950 3    50   ~ 0
 35a
 Text Label 13050 6950 3    50   ~ 0
@@ -3384,4 +3369,148 @@ $EndComp
 Connection ~ 10550 3200
 Wire Wire Line
 	10550 3200 10750 3200
+Wire Wire Line
+	9600 6500 9600 6300
+Wire Wire Line
+	9500 6700 9600 6700
+Wire Wire Line
+	9600 6500 10650 6500
+Connection ~ 9600 6500
+Wire Wire Line
+	9600 6700 10650 6700
+Connection ~ 9600 6700
+$Comp
+L Connector:Barrel_Jack_MountingPin J36
+U 1 1 60468A7D
+P 9200 6600
+F 0 "J36" H 9257 6917 50  0000 C CNN
+F 1 "Barrel_Jack_MountingPin" H 9257 6826 50  0000 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal" H 9250 6560 50  0001 C CNN
+F 3 "~" H 9250 6560 50  0001 C CNN
+	1    9200 6600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 6900 9400 6900
+Wire Wire Line
+	9400 6900 9400 7000
+Wire Wire Line
+	9400 6900 9600 6900
+Wire Wire Line
+	9600 6700 9600 6900
+Connection ~ 9400 6900
+$Comp
+L Device:C_Small C?
+U 1 1 6051B8E6
+P 8000 4350
+F 0 "C?" H 7800 4400 50  0000 L CNN
+F 1 "100n" H 7650 4300 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 8000 4350 50  0001 C CNN
+F 3 "~" H 8000 4350 50  0001 C CNN
+	1    8000 4350
+	0    -1   -1   0   
+$EndComp
+Connection ~ 7900 4350
+Wire Wire Line
+	8100 4350 8100 4650
+Wire Wire Line
+	8100 4650 7750 4650
+$Comp
+L Device:C_Small C?
+U 1 1 60572E7D
+P 8000 2250
+F 0 "C?" H 7800 2300 50  0000 L CNN
+F 1 "100n" H 7650 2200 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 8000 2250 50  0001 C CNN
+F 3 "~" H 8000 2250 50  0001 C CNN
+	1    8000 2250
+	0    1    1    0   
+$EndComp
+Connection ~ 7900 2250
+Wire Wire Line
+	8100 2250 8100 2550
+Wire Wire Line
+	8100 2550 7750 2550
+$Comp
+L Device:C_Small C?
+U 1 1 605CB24D
+P 3700 2250
+F 0 "C?" H 3500 2300 50  0000 L CNN
+F 1 "100n" H 3350 2200 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3700 2250 50  0001 C CNN
+F 3 "~" H 3700 2250 50  0001 C CNN
+	1    3700 2250
+	0    1    1    0   
+$EndComp
+Connection ~ 3600 2250
+Wire Wire Line
+	3800 2250 3800 2550
+Wire Wire Line
+	3800 2550 3450 2550
+$Comp
+L Device:C_Small C?
+U 1 1 6062316B
+P 3700 4300
+F 0 "C?" H 3500 4350 50  0000 L CNN
+F 1 "100n" H 3350 4250 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3700 4300 50  0001 C CNN
+F 3 "~" H 3700 4300 50  0001 C CNN
+	1    3700 4300
+	0    1    1    0   
+$EndComp
+Connection ~ 3600 4300
+Wire Wire Line
+	3800 4300 3800 4600
+Wire Wire Line
+	3800 4600 3450 4600
+$Comp
+L Device:C_Small C?
+U 1 1 6067B91E
+P 3700 6350
+F 0 "C?" H 3500 6400 50  0000 L CNN
+F 1 "100n" H 3350 6300 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3700 6350 50  0001 C CNN
+F 3 "~" H 3700 6350 50  0001 C CNN
+	1    3700 6350
+	0    1    1    0   
+$EndComp
+Connection ~ 3600 6350
+Wire Wire Line
+	3800 6350 3800 6650
+Wire Wire Line
+	3800 6650 3450 6650
+$Comp
+L Device:C_Small C?
+U 1 1 606D48EA
+P 3700 8400
+F 0 "C?" H 3500 8450 50  0000 L CNN
+F 1 "100n" H 3350 8350 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3700 8400 50  0001 C CNN
+F 3 "~" H 3700 8400 50  0001 C CNN
+	1    3700 8400
+	0    1    1    0   
+$EndComp
+Connection ~ 3600 8400
+Wire Wire Line
+	3800 8400 3800 8700
+Wire Wire Line
+	3800 8700 3450 8700
+Wire Wire Line
+	3600 10450 3450 10450
+$Comp
+L Device:C_Small C?
+U 1 1 6072F97B
+P 3700 10450
+F 0 "C?" H 3500 10500 50  0000 L CNN
+F 1 "100n" H 3350 10400 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3700 10450 50  0001 C CNN
+F 3 "~" H 3700 10450 50  0001 C CNN
+	1    3700 10450
+	0    1    1    0   
+$EndComp
+Connection ~ 3600 10450
+Wire Wire Line
+	3800 10450 3800 10750
+Wire Wire Line
+	3800 10750 3450 10750
 $EndSCHEMATC
