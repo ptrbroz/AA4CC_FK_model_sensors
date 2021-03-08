@@ -270,8 +270,6 @@ F 3 "" H 12600 1000 50  0001 C CNN
 	1    12600 1000
 	1    0    0    -1  
 $EndComp
-Text Notes 12950 2200 0    50   ~ 0
-todo led indicators
 $Comp
 L FK_fpga_shield_custom_symbols:nvt2010pw U2
 U 1 1 6038132A
@@ -3753,4 +3751,127 @@ Wire Wire Line
 Connection ~ 8100 6700
 Wire Wire Line
 	8100 6700 8850 6700
+$Comp
+L Device:R_Small R80
+U 1 1 610D1E94
+P 13200 1800
+F 0 "R80" H 13259 1846 50  0000 L CNN
+F 1 "270" H 13259 1755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 13200 1800 50  0001 C CNN
+F 3 "~" H 13200 1800 50  0001 C CNN
+	1    13200 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R81
+U 1 1 610D21C6
+P 13500 1800
+F 0 "R81" H 13559 1846 50  0000 L CNN
+F 1 "270" H 13559 1755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 13500 1800 50  0001 C CNN
+F 3 "~" H 13500 1800 50  0001 C CNN
+	1    13500 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED_Small D_TX1
+U 1 1 610D2603
+P 13200 2000
+F 0 "D_TX1" V 13246 1930 50  0000 R CNN
+F 1 "LED_TX" H 13300 2100 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13200 2000 50  0001 C CNN
+F 3 "~" V 13200 2000 50  0001 C CNN
+	1    13200 2000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:LED_Small D_RX1
+U 1 1 610D420B
+P 13500 2000
+F 0 "D_RX1" V 13500 1850 50  0000 R CNN
+F 1 "LED RX" H 13550 1900 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13500 2000 50  0001 C CNN
+F 3 "~" V 13500 2000 50  0001 C CNN
+	1    13500 2000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	13200 1700 13350 1700
+Wire Wire Line
+	13350 1700 13350 1500
+Wire Wire Line
+	13350 1500 13500 1500
+Connection ~ 13350 1700
+Wire Wire Line
+	13350 1700 13500 1700
+Text Label 13500 1500 0    50   ~ 0
+5V
+Wire Wire Line
+	13200 2100 13200 2400
+Wire Wire Line
+	13200 2400 12750 2400
+Wire Wire Line
+	12750 2500 13500 2500
+Wire Wire Line
+	13500 2500 13500 2100
+$Comp
+L Connector_Generic:Conn_02x04_Top_Bottom J37
+U 1 1 617C9849
+P 13950 2850
+F 0 "J37" H 14000 3167 50  0000 C CNN
+F 1 "Conn_02x04_Top_Bottom" H 14000 3076 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical" H 13950 2850 50  0001 C CNN
+F 3 "~" H 13950 2850 50  0001 C CNN
+	1    13950 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13500 2500 13500 2850
+Wire Wire Line
+	13500 2850 13750 2850
+Connection ~ 13500 2500
+Wire Wire Line
+	13200 2400 13650 2400
+Wire Wire Line
+	13650 2400 13650 2750
+Wire Wire Line
+	13650 2750 13750 2750
+Connection ~ 13200 2400
+Wire Wire Line
+	13750 2950 13200 2950
+Wire Wire Line
+	13200 2950 13200 2700
+Wire Wire Line
+	13200 2700 12750 2700
+Wire Wire Line
+	13750 3050 13350 3050
+Wire Wire Line
+	13350 3050 13350 2600
+Wire Wire Line
+	13350 2600 12750 2600
+Wire Wire Line
+	14250 2850 14400 2850
+Wire Wire Line
+	14400 2850 14400 3200
+Wire Wire Line
+	14400 3200 12750 3200
+Wire Wire Line
+	12750 3200 12750 2800
+Text Label 14250 2750 0    50   ~ 0
+5V
+$Comp
+L power:GND #PWR0114
+U 1 1 61AAB2C6
+P 14250 3050
+F 0 "#PWR0114" H 14250 2800 50  0001 C CNN
+F 1 "GND" H 14250 2850 50  0000 C CNN
+F 2 "" H 14250 3050 50  0001 C CNN
+F 3 "" H 14250 3050 50  0001 C CNN
+	1    14250 3050
+	1    0    0    -1  
+$EndComp
+Text Label 14250 2950 0    50   ~ 0
+3V3
+Text Notes 4600 8300 0    1181 ~ 0
+TODO:\nresistor values\nmove choke?\nsilkscreen etc
 $EndSCHEMATC
