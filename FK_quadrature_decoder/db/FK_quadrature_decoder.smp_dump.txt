@@ -1,0 +1,15 @@
+
+State Machine - |FK_quadrature_decoder|uart_spammer:inst3|\spam:state
+Name \spam:state.sent_2 \spam:state.await_2 \spam:state.sent_1 \spam:state.await_1 \spam:state.spammer_ready 
+\spam:state.spammer_ready 0 0 0 0 0 
+\spam:state.await_1 0 0 0 1 1 
+\spam:state.sent_1 0 0 1 0 1 
+\spam:state.await_2 0 1 0 0 1 
+\spam:state.sent_2 1 0 0 0 1 
+
+State Machine - |FK_quadrature_decoder|uart_tx:inst1|tx_state
+Name tx_state.tx_stop_bit tx_state.tx_data_bit tx_state.tx_start_bit tx_state.tx_ready 
+tx_state.tx_ready 0 0 0 0 
+tx_state.tx_start_bit 0 0 1 1 
+tx_state.tx_data_bit 0 1 0 1 
+tx_state.tx_stop_bit 1 0 0 1 

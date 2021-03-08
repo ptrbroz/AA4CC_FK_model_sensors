@@ -1,5 +1,5 @@
 Fitter report for FK_quadrature_decoder
-Mon Feb 22 22:49:52 2021
+Mon Mar 08 11:49:03 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Mon Feb 22 22:49:52 2021           ;
+; Fitter Status                      ; Successful - Mon Mar 08 11:49:03 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; FK_quadrature_decoder                           ;
 ; Top-level Entity Name              ; FK_quadrature_decoder                           ;
@@ -501,7 +501,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/projects/aa4cc/kyvadla/FK_quadrature_decoder/FK_quadrature_decoder/FK_quadrature_decoder.pin.
+The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_quadrature_decoder/FK_quadrature_decoder.pin.
 
 
 +---------------------------------------------------------------------+
@@ -2104,22 +2104,22 @@ Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.08 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.06 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 4 pins must meet Altera requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at R8
     Info (169178): Pin GPIO-0[0] uses I/O standard 3.3-V LVTTL at D3
     Info (169178): Pin GPIO-0[1] uses I/O standard 3.3-V LVTTL at C3
     Info (169178): Pin KEY[0] uses I/O standard 3.3-V LVTTL at J15
-Info (144001): Generated suppressed messages file C:/projects/aa4cc/kyvadla/FK_quadrature_decoder/FK_quadrature_decoder/FK_quadrature_decoder.fit.smsg
+Info (144001): Generated suppressed messages file C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_quadrature_decoder/FK_quadrature_decoder.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 291 warnings
-    Info: Peak virtual memory: 4825 megabytes
-    Info: Processing ended: Mon Feb 22 22:49:53 2021
+    Info: Peak virtual memory: 4917 megabytes
+    Info: Processing ended: Mon Mar 08 11:49:03 2021
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:05
 
@@ -2127,6 +2127,6 @@ Info: Quartus II 64-Bit Fitter was successful. 0 errors, 291 warnings
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/projects/aa4cc/kyvadla/FK_quadrature_decoder/FK_quadrature_decoder/FK_quadrature_decoder.fit.smsg.
+The suppressed messages can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_quadrature_decoder/FK_quadrature_decoder.fit.smsg.
 
 
