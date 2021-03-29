@@ -3376,12 +3376,12 @@ Connection ~ 9600 6700
 $Comp
 L Connector:Barrel_Jack_MountingPin J36
 U 1 1 60468A7D
-P 7750 6600
-F 0 "J36" H 7807 6917 50  0000 C CNN
-F 1 "Barrel_Jack_MountingPin" H 7807 6826 50  0000 C CNN
-F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal" H 7800 6560 50  0001 C CNN
-F 3 "~" H 7800 6560 50  0001 C CNN
-	1    7750 6600
+P 6300 6600
+F 0 "J36" H 6357 6917 50  0000 C CNN
+F 1 "Barrel_Jack_MountingPin" H 6357 6826 50  0000 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal" H 6350 6560 50  0001 C CNN
+F 3 "~" H 6350 6560 50  0001 C CNN
+	1    6300 6600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -3723,17 +3723,6 @@ F 3 "~" H 10100 5450 50  0001 C CNN
 	1    10100 5450
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:L_Core_Iron_Coupled_1243 L1
-U 1 1 60A35E84
-P 9050 6600
-F 0 "L1" H 9050 6881 50  0000 C CNN
-F 1 "WE_744823422" H 9050 6790 50  0000 C CNN
-F 2 "Inductor_THT:L_CommonMode_Wuerth_WE-CMB-M" H 9050 6600 50  0001 C CNN
-F 3 "~" H 9050 6600 50  0001 C CNN
-	1    9050 6600
-	1    0    0    1   
-$EndComp
 Wire Wire Line
 	9250 6500 9600 6500
 Wire Wire Line
@@ -3741,16 +3730,11 @@ Wire Wire Line
 Wire Wire Line
 	9600 6700 9600 7000
 Wire Wire Line
-	8050 6500 8850 6500
+	6600 6700 6650 6700
 Wire Wire Line
-	8050 6700 8100 6700
+	6650 6700 6650 6900
 Wire Wire Line
-	8100 6700 8100 6900
-Wire Wire Line
-	8100 6900 7750 6900
-Connection ~ 8100 6700
-Wire Wire Line
-	8100 6700 8850 6700
+	6650 6900 6300 6900
 $Comp
 L Device:R_Small R80
 U 1 1 610D1E94
@@ -3860,10 +3844,10 @@ Wire Wire Line
 Text Label 14250 2750 0    50   ~ 0
 5V
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0114
 U 1 1 61AAB2C6
 P 14250 3050
-F 0 "#PWR?" H 14250 2800 50  0001 C CNN
+F 0 "#PWR0114" H 14250 2800 50  0001 C CNN
 F 1 "GND" H 14250 2850 50  0000 C CNN
 F 2 "" H 14250 3050 50  0001 C CNN
 F 3 "" H 14250 3050 50  0001 C CNN
@@ -3872,4 +3856,38 @@ F 3 "" H 14250 3050 50  0001 C CNN
 $EndComp
 Text Label 14250 2950 0    50   ~ 0
 3V3
+Text Notes 2250 -600 0    1181 ~ 0
+TODO:\nresistor values\nmove choke?\nsilkscreen etc
+$Comp
+L FK_fpga_shield_custom_symbols:BNX016-01 FL1
+U 1 1 607BD150
+P 8150 6450
+F 0 "FL1" H 8050 6817 50  0000 C CNN
+F 1 "BNX016-01" H 8050 6726 50  0000 C CNN
+F 2 "FIL_BNX016-01" H 8150 6450 50  0001 L BNN
+F 3 "" H 8150 6450 50  0001 L BNN
+F 4 "Murata" H 8150 6450 50  0001 L BNN "MANUFACTURER"
+F 5 "8.5mm" H 8150 6450 50  0001 L BNN "MAXIMUM_PACKAGE_HEIGHT"
+F 6 "Manufacturer recommendations" H 8150 6450 50  0001 L BNN "STANDARD"
+F 7 "" H 8150 6450 50  0001 L BNN "PARTREV"
+	1    8150 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 6850 7050 6700
+Wire Wire Line
+	7050 6700 6650 6700
+Connection ~ 6650 6700
+Wire Wire Line
+	6600 6500 7050 6500
+Wire Wire Line
+	7050 6500 7050 6350
+Wire Wire Line
+	9050 6350 9250 6350
+Wire Wire Line
+	9250 6350 9250 6500
+Wire Wire Line
+	9050 6850 9250 6850
+Wire Wire Line
+	9250 6850 9250 6700
 $EndSCHEMATC

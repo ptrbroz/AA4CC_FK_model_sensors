@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name FK_fpga_shield_custom_symbols)(type Legacy)(uri ${KIPRJMOD}/FK_fpga_shield_custom_symbols.lib)(options "")(descr ""))
+  (lib (name BNX016-01)(type Legacy)(uri ${KIPRJMOD}/BNX016-01/BNX016-01.lib)(options "")(descr ""))
 )

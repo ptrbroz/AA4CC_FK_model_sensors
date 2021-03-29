@@ -1,4 +1,4 @@
-18631692440333401
+18633309464113087
 54819-0519
 54819-0519
 USB - OTG, miniUSB Type B<p>Molex
@@ -50630,6 +50630,13 @@ One digit LED 7 segment SA39-11 SC39-11 SA39-12 SC39-12
 0
 10
 10
+FK_fpga_shield_custom_footprints
+FIL_BNX016-01
+
+
+0
+6
+6
 FK_fpga_shield_custom_footprints
 Molex_MicroClasp_55935-0410_1x04_P2.00mm_Horizontal_3DMODEL
 Molex MicroClasp Wire-to-Board System, 55935-0410, with PCB locator, 4 Pins (http://www.molex.com/pdm_docs/sd/559350210_sd.pdf), generated with kicad-footprint-generator
