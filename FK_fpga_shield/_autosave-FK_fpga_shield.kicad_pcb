@@ -623,7 +623,7 @@
   )
 
   (module MountingHole:MountingHole_3.2mm_M3 (layer F.Cu) (tedit 56D1B4CB) (tstamp 60704B1B)
-    (at 227.9 63.5)
+    (at 199.2 63.5)
     (descr "Mounting Hole 3.2mm, no annular, M3")
     (tags "mounting hole 3.2mm no annular m3")
     (path /60A39CC5)
@@ -663,7 +663,7 @@
   )
 
   (module MountingHole:MountingHole_3.2mm_M3 (layer F.Cu) (tedit 56D1B4CB) (tstamp 606FDE57)
-    (at 95.5 134.2)
+    (at 96.5 134.2)
     (descr "Mounting Hole 3.2mm, no annular, M3")
     (tags "mounting hole 3.2mm no annular m3")
     (path /60894E31)
@@ -9548,7 +9548,7 @@
   (gr_line (start 143.4 82.2) (end 143.4 77) (layer F.SilkS) (width 0.12))
   (gr_line (start 140.8 82.2) (end 143.4 82.2) (layer F.SilkS) (width 0.12))
   (gr_line (start 140.8 77) (end 140.8 82.2) (layer F.SilkS) (width 0.12))
-  (gr_text "DNP (added for redundancy)" (at 108.2 104.4) (layer F.SilkS) (tstamp 6070FBBE)
+  (gr_text "DNP (added for redundancy)" (at 119 104.4) (layer F.SilkS) (tstamp 6070FBBE)
     (effects (font (size 1 0.75) (thickness 0.15)))
   )
   (gr_line (start 110.4 98.7) (end 110.4 99.1) (layer F.SilkS) (width 0.12) (tstamp 6070FBCD))

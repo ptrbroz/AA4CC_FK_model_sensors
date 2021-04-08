@@ -1,4 +1,4 @@
-18633309464113087
+18634927339619919
 54819-0519
 54819-0519
 USB - OTG, miniUSB Type B<p>Molex
@@ -50644,6 +50644,13 @@ connector Molex MicroClasp horizontal
 0
 4
 4
+FK_fpga_shield_custom_footprints
+aa4ccLogo_BIG
+
+
+0
+0
+0
 FK_fpga_shield_custom_footprints
 molex-35363-0660
 Through hole angled pin header, 1x06, 2.00mm pitch
