@@ -1,4 +1,4 @@
-18634927339619919
+18636545234858572
 54819-0519
 54819-0519
 USB - OTG, miniUSB Type B<p>Molex
@@ -50658,6 +50658,13 @@ Through hole angled pin header, 1x06, 2.00mm pitch
 0
 6
 4
+FK_fpga_shield_custom_footprints
+signature_5x5
+
+
+0
+0
+0
 Ferrite_THT
 LairdTech_28C0236-0JW-10
 Ferrite, vertical, LairdTech 28C0236-0JW-10, https://assets.lairdtech.com/home/brandworld/files/28C0236-0JW-10.pdf, JW Miller core https://www.bourns.com/products/magnetic-products/j.w.-miller-through-hole-ferrite-beads-emi-filters
