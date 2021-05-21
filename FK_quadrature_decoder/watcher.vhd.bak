@@ -1,0 +1,27 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity watcher IS
+generic(
+			DATA_MAX_BYTES : integer := 59;
+			DATA_SMALL_BYTES : integer := 5
+		);
+port(
+		clock : in std_logic;
+		areset : in std_logic;
+		tx_send : out std_logic;
+		tx_byte : out std_logic_vector(7 downto 0);
+		tx_is_ready : in std_logic;
+		watcher_data : in std_logic_vector(DATA_MAX_BYTES*8-1 downto 0); 
+		watcher_data_len : in integer range 0 to DATA_MAX_BYTES;
+		watcher_data_valid : in std_logic;
+		watcher_data_ack : out std_logic;
+		boss_data : in std_logic_vector(DATA_SMALL_BYTES*8-1 downto 0); 
+		boss_data_len : in integer range 0 to DATA_SMALL_BYTES;
+		boss_data_valid : in std_logic;
+		boss_data_ack : out std_logic;
+		boss_select : in std_logic
+		);
+end uart_out_manager;

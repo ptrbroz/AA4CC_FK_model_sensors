@@ -6,22 +6,22 @@ use ieee.numeric_std.all;
 entity quadrature_decoder_pb IS
 generic(
 		DEBOUNCE_COUNT : integer := 1000;
-		RESOLUTION : integer := 4000
+		RESOLUTION : integer := 8192
 		);
 port(
 		clock : in std_logic;
 		areset : in std_logic;
 		Ain : in std_logic;
 		Bin : in std_logic;
-		position : out std_logic_vector(15 downto 0)
+		position : out std_logic_vector(12 downto 0)
 		);
 end quadrature_decoder_pb;
 
 architecture arch1 of quadrature_decoder_pb is
 
-signal counterSignal : integer range -(RESOLUTION/2) to RESOLUTION/2 := 0; 
-constant MIN_POS : integer := -(RESOLUTION/2) + 1;
-constant MAX_POS : integer := RESOLUTION/2;
+signal counterSignal : integer range 0 to RESOLUTION := 0; 
+constant MIN_POS : integer := 0;
+constant MAX_POS : integer := RESOLUTION-1;
 
 
 begin
@@ -31,7 +31,7 @@ begin
 
 	decode : process(clock, areset) is
 		
-		variable positionCounter : integer range -(RESOLUTION/2) to RESOLUTION/2 := 1000; --TODO start at zero! 15 for debugging purposes
+		variable positionCounter : integer range MIN_POS to MAX_POS := RESOLUTION/2;
 		variable Aprev : std_logic := '0';
 		variable Anew : std_logic := '0';
 		variable Bprev : std_logic := '0';
@@ -46,7 +46,7 @@ begin
 	
 	if areset = '1' then
 	
-		positionCounter := 0;
+		positionCounter := RESOLUTION/2;
 		Aprev := Ain;
 		Bprev := Bin;
 		Adebounce := -1;
