@@ -16,7 +16,7 @@ port(
 		gpio_b_channels : in std_logic_vector(MAX_ENCODERS-1 downto 0);
 		--todo settings
 		data_out : out std_logic_vector(DATA_MAX_BYTES*8 - 1 downto 0);
-		data_out_len : out integer range DATA_MAX_BYTES to 0;
+		data_out_len : out std_logic_vector(5 downto 0); 
 		data_out_ready : out std_logic;
 		data_out_ack : in std_logic
 		);
@@ -149,7 +149,7 @@ begin
 					end if;
 					
 				when w_prepare_len =>
-					data_out_len <= dataIndex/8;
+					data_out_len <= std_logic_vector(to_unsigned(dataIndex/8, data_out_len'length));
 					state := w_ready_message;
 				
 				when w_ready_message =>

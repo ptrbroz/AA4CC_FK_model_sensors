@@ -15,11 +15,11 @@ port(
 		tx_byte : out std_logic_vector(7 downto 0);
 		tx_is_ready : in std_logic;
 		watcher_data : in std_logic_vector(DATA_MAX_BYTES*8-1 downto 0); 
-		watcher_data_len : in integer range 0 to DATA_MAX_BYTES;
+		watcher_data_len : in std_logic_vector(5 downto 0); 
 		watcher_data_valid : in std_logic;
 		watcher_data_ack : out std_logic;
 		boss_data : in std_logic_vector(DATA_SMALL_BYTES*8-1 downto 0); 
-		boss_data_len : in integer range 0 to DATA_SMALL_BYTES;
+		boss_data_len : in std_logic_vector(5 downto 0); 
 		boss_data_valid : in std_logic;
 		boss_data_ack : out std_logic;
 		boss_select : in std_logic
@@ -44,7 +44,7 @@ architecture arch1 of uart_out_manager is
 begin
 
 	data 					<= watcher_data			when (boss_select = '0') else (others => '0');--FIX LATER:(DATA_MAX_BYTES*8-1 downto DATA_SMALL_BYTES => '0') & boss_data;
-	data_len 			<= watcher_data_len 		when (boss_select = '0') else boss_data_len;
+	data_len 			<= to_integer(unsigned(watcher_data_len)) 		when (boss_select = '0') else to_integer(unsigned(boss_data_len));
 	data_valid 			<= watcher_data_valid 	when (boss_select = '0') else boss_data_valid;
 	watcher_data_ack 	<= data_ack				   when (boss_select = '0') else '0';
 	boss_data_ack 		<= data_ack 				when (boss_select = '1') else '0';

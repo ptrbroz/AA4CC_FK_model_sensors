@@ -56,7 +56,7 @@ applicable agreement for further details.
 	(input)
 	(rect -80 248 88 264)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "GPIO-0[0]" (rect 5 0 55 12)(font "Arial" ))
+	(text "GPIO-0[0]" (rect 5 0 54 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -73,7 +73,7 @@ applicable agreement for further details.
 	(input)
 	(rect -80 288 88 304)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "GPIO-0_IN[0]" (rect 5 0 73 12)(font "Arial" ))
+	(text "GPIO-0_IN[0]" (rect 5 0 72 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -102,203 +102,6 @@ applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 	(annotation_block (location)(rect 1640 256 1696 272))
-)
-(symbol
-	(rect 280 280 664 424)
-	(text "watcher" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst" (rect 8 128 25 140)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clock" (rect 0 0 25 12)(font "Arial" ))
-		(text "clock" (rect 21 27 46 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "areset" (rect 0 0 30 12)(font "Arial" ))
-		(text "areset" (rect 21 43 51 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "gpio_a_channels[max_encoders-1..0]" (rect 0 0 182 12)(font "Arial" ))
-		(text "gpio_a_channels[max_encoders-1..0]" (rect 21 59 203 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "gpio_b_channels[max_encoders-1..0]" (rect 0 0 182 12)(font "Arial" ))
-		(text "gpio_b_channels[max_encoders-1..0]" (rect 21 75 203 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "data_out_ack" (rect 0 0 66 12)(font "Arial" ))
-		(text "data_out_ack" (rect 21 91 87 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96))
-	)
-	(port
-		(pt 384 32)
-		(output)
-		(text "data_out[data_max_bytes*8-1..0]" (rect 0 0 165 12)(font "Arial" ))
-		(text "data_out[data_max_bytes*8-1..0]" (rect 224 27 389 39)(font "Arial" ))
-		(line (pt 384 32)(pt 368 32)(line_width 3))
-	)
-	(port
-		(pt 384 48)
-		(output)
-		(text "data_out_len[data_max_bytes..0]" (rect 0 0 165 12)(font "Arial" ))
-		(text "data_out_len[data_max_bytes..0]" (rect 224 43 389 55)(font "Arial" ))
-		(line (pt 384 48)(pt 368 48)(line_width 3))
-	)
-	(port
-		(pt 384 64)
-		(output)
-		(text "data_out_ready" (rect 0 0 76 12)(font "Arial" ))
-		(text "data_out_ready" (rect 299 59 375 71)(font "Arial" ))
-		(line (pt 384 64)(pt 368 64))
-	)
-	(parameter
-		"MAX_ENCODERS"
-		"35"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"DATA_MAX_BYTES"
-		"59"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"CLK_IN_FREQ"
-		"50000000"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 368 128))
-	)
-	(annotation_block (parameter)(rect 416 192 664 248))
-)
-(symbol
-	(rect 752 232 1080 440)
-	(text "uart_out_manager" (rect 5 0 93 12)(font "Arial" ))
-	(text "inst2" (rect 8 192 31 204)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clock" (rect 0 0 25 12)(font "Arial" ))
-		(text "clock" (rect 21 27 46 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "areset" (rect 0 0 30 12)(font "Arial" ))
-		(text "areset" (rect 21 43 51 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "tx_is_ready" (rect 0 0 57 12)(font "Arial" ))
-		(text "tx_is_ready" (rect 21 59 78 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "watcher_data[data_max_bytes*8-1..0]" (rect 0 0 187 12)(font "Arial" ))
-		(text "watcher_data[data_max_bytes*8-1..0]" (rect 21 75 208 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "watcher_data_len[0..data_max_bytes]" (rect 0 0 187 12)(font "Arial" ))
-		(text "watcher_data_len[0..data_max_bytes]" (rect 21 91 208 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 3))
-	)
-	(port
-		(pt 0 112)
-		(input)
-		(text "watcher_data_valid" (rect 0 0 94 12)(font "Arial" ))
-		(text "watcher_data_valid" (rect 21 107 115 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112))
-	)
-	(port
-		(pt 0 128)
-		(input)
-		(text "boss_data[data_small_bytes*8-1..0]" (rect 0 0 178 12)(font "Arial" ))
-		(text "boss_data[data_small_bytes*8-1..0]" (rect 21 123 199 135)(font "Arial" ))
-		(line (pt 0 128)(pt 16 128)(line_width 3))
-	)
-	(port
-		(pt 0 144)
-		(input)
-		(text "boss_data_len[0..data_small_bytes]" (rect 0 0 178 12)(font "Arial" ))
-		(text "boss_data_len[0..data_small_bytes]" (rect 21 139 199 151)(font "Arial" ))
-		(line (pt 0 144)(pt 16 144)(line_width 3))
-	)
-	(port
-		(pt 0 160)
-		(input)
-		(text "boss_data_valid" (rect 0 0 80 12)(font "Arial" ))
-		(text "boss_data_valid" (rect 21 155 101 167)(font "Arial" ))
-		(line (pt 0 160)(pt 16 160))
-	)
-	(port
-		(pt 0 176)
-		(input)
-		(text "boss_select" (rect 0 0 59 12)(font "Arial" ))
-		(text "boss_select" (rect 21 171 80 183)(font "Arial" ))
-		(line (pt 0 176)(pt 16 176))
-	)
-	(port
-		(pt 328 32)
-		(output)
-		(text "tx_send" (rect 0 0 38 12)(font "Arial" ))
-		(text "tx_send" (rect 275 27 313 39)(font "Arial" ))
-		(line (pt 328 32)(pt 312 32))
-	)
-	(port
-		(pt 328 48)
-		(output)
-		(text "tx_byte[7..0]" (rect 0 0 63 12)(font "Arial" ))
-		(text "tx_byte[7..0]" (rect 254 43 317 55)(font "Arial" ))
-		(line (pt 328 48)(pt 312 48)(line_width 3))
-	)
-	(port
-		(pt 328 64)
-		(output)
-		(text "watcher_data_ack" (rect 0 0 88 12)(font "Arial" ))
-		(text "watcher_data_ack" (rect 233 59 321 71)(font "Arial" ))
-		(line (pt 328 64)(pt 312 64))
-	)
-	(port
-		(pt 328 80)
-		(output)
-		(text "boss_data_ack" (rect 0 0 74 12)(font "Arial" ))
-		(text "boss_data_ack" (rect 245 75 319 87)(font "Arial" ))
-		(line (pt 328 80)(pt 312 80))
-	)
-	(parameter
-		"DATA_MAX_BYTES"
-		"59"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"DATA_SMALL_BYTES"
-		"5"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 312 192))
-	)
-	(annotation_block (parameter)(rect 800 448 1040 496))
 )
 (symbol
 	(rect 480 440 592 488)
@@ -443,36 +246,206 @@ applicable agreement for further details.
 		(line (pt 0 0)(pt 0 0))
 	)
 )
-(connector
-	(pt 752 328)
-	(pt 664 328)
-	(bus)
+(symbol
+	(rect 280 280 656 424)
+	(text "watcher" (rect 5 0 42 12)(font "Arial" ))
+	(text "inst" (rect 8 128 25 140)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 25 12)(font "Arial" ))
+		(text "clock" (rect 21 27 46 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "areset" (rect 0 0 30 12)(font "Arial" ))
+		(text "areset" (rect 21 43 51 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "gpio_a_channels[max_encoders-1..0]" (rect 0 0 182 12)(font "Arial" ))
+		(text "gpio_a_channels[max_encoders-1..0]" (rect 21 59 203 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "gpio_b_channels[max_encoders-1..0]" (rect 0 0 182 12)(font "Arial" ))
+		(text "gpio_b_channels[max_encoders-1..0]" (rect 21 75 203 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "data_out_ack" (rect 0 0 66 12)(font "Arial" ))
+		(text "data_out_ack" (rect 21 91 87 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 376 32)
+		(output)
+		(text "data_out[data_max_bytes*8-1..0]" (rect 0 0 165 12)(font "Arial" ))
+		(text "data_out[data_max_bytes*8-1..0]" (rect 216 27 355 39)(font "Arial" ))
+		(line (pt 376 32)(pt 360 32)(line_width 3))
+	)
+	(port
+		(pt 376 48)
+		(output)
+		(text "data_out_len[5..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "data_out_len[5..0]" (rect 281 43 355 55)(font "Arial" ))
+		(line (pt 376 48)(pt 360 48)(line_width 3))
+	)
+	(port
+		(pt 376 64)
+		(output)
+		(text "data_out_ready" (rect 0 0 76 12)(font "Arial" ))
+		(text "data_out_ready" (rect 291 59 355 71)(font "Arial" ))
+		(line (pt 376 64)(pt 360 64))
+	)
+	(parameter
+		"MAX_ENCODERS"
+		"35"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"DATA_MAX_BYTES"
+		"59"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CLK_IN_FREQ"
+		"50000000"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 360 128))
+	)
+	(annotation_block (parameter)(rect 416 192 664 248))
 )
-(connector
-	(pt 664 312)
-	(pt 752 312)
-	(bus)
-)
-(connector
-	(pt 664 344)
-	(pt 752 344)
+(symbol
+	(rect 752 232 1072 440)
+	(text "uart_out_manager" (rect 5 0 93 12)(font "Arial" ))
+	(text "inst2" (rect 8 192 31 204)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 25 12)(font "Arial" ))
+		(text "clock" (rect 21 27 46 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "areset" (rect 0 0 30 12)(font "Arial" ))
+		(text "areset" (rect 21 43 51 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "tx_is_ready" (rect 0 0 57 12)(font "Arial" ))
+		(text "tx_is_ready" (rect 21 59 78 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "watcher_data[data_max_bytes*8-1..0]" (rect 0 0 187 12)(font "Arial" ))
+		(text "watcher_data[data_max_bytes*8-1..0]" (rect 21 75 208 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "watcher_data_len[5..0]" (rect 0 0 110 12)(font "Arial" ))
+		(text "watcher_data_len[5..0]" (rect 21 91 131 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "watcher_data_valid" (rect 0 0 94 12)(font "Arial" ))
+		(text "watcher_data_valid" (rect 21 107 115 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "boss_data[data_small_bytes*8-1..0]" (rect 0 0 178 12)(font "Arial" ))
+		(text "boss_data[data_small_bytes*8-1..0]" (rect 21 123 199 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "boss_data_len[5..0]" (rect 0 0 96 12)(font "Arial" ))
+		(text "boss_data_len[5..0]" (rect 21 139 117 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "boss_data_valid" (rect 0 0 80 12)(font "Arial" ))
+		(text "boss_data_valid" (rect 21 155 101 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "boss_select" (rect 0 0 59 12)(font "Arial" ))
+		(text "boss_select" (rect 21 171 80 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176))
+	)
+	(port
+		(pt 320 32)
+		(output)
+		(text "tx_send" (rect 0 0 38 12)(font "Arial" ))
+		(text "tx_send" (rect 267 27 299 39)(font "Arial" ))
+		(line (pt 320 32)(pt 304 32))
+	)
+	(port
+		(pt 320 48)
+		(output)
+		(text "tx_byte[7..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "tx_byte[7..0]" (rect 246 43 299 55)(font "Arial" ))
+		(line (pt 320 48)(pt 304 48)(line_width 3))
+	)
+	(port
+		(pt 320 64)
+		(output)
+		(text "watcher_data_ack" (rect 0 0 88 12)(font "Arial" ))
+		(text "watcher_data_ack" (rect 225 59 299 71)(font "Arial" ))
+		(line (pt 320 64)(pt 304 64))
+	)
+	(port
+		(pt 320 80)
+		(output)
+		(text "boss_data_ack" (rect 0 0 74 12)(font "Arial" ))
+		(text "boss_data_ack" (rect 237 75 299 87)(font "Arial" ))
+		(line (pt 320 80)(pt 304 80))
+	)
+	(parameter
+		"DATA_MAX_BYTES"
+		"59"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"DATA_SMALL_BYTES"
+		"5"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 304 192))
+	)
+	(annotation_block (parameter)(rect 800 448 1040 496))
 )
 (connector
 	(pt 752 408)
 	(pt 712 408)
-)
-(connector
-	(pt 1080 280)
-	(pt 1136 280)
-	(bus)
-)
-(connector
-	(pt 1080 264)
-	(pt 1136 264)
-)
-(connector
-	(pt 1080 296)
-	(pt 1112 296)
 )
 (connector
 	(pt 1112 296)
@@ -670,8 +643,41 @@ applicable agreement for further details.
 	(pt 712 376)
 	(bus)
 )
+(connector
+	(pt 1064 280)
+	(pt 1072 280)
+	(bus)
+)
+(connector
+	(pt 1072 280)
+	(pt 1136 280)
+	(bus)
+)
+(connector
+	(pt 1072 264)
+	(pt 1136 264)
+)
+(connector
+	(pt 1072 296)
+	(pt 1112 296)
+)
+(connector
+	(pt 656 312)
+	(pt 752 312)
+	(bus)
+)
+(connector
+	(pt 656 328)
+	(pt 752 328)
+	(bus)
+)
+(connector
+	(pt 656 344)
+	(pt 752 344)
+)
 (junction (pt 224 184))
 (junction (pt 712 184))
 (junction (pt 528 72))
 (junction (pt 128 456))
 (junction (pt 712 408))
+(junction (pt 1072 280))
