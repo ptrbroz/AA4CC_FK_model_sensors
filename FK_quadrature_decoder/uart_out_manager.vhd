@@ -43,7 +43,7 @@ architecture arch1 of uart_out_manager is
 
 begin
 
-	data 					<= watcher_data			when (boss_select = '0') else (DATA_MAX_BYTES*8-1 downto DATA_SMALL_BYTES => '0') & boss_data;
+	data 					<= watcher_data			when (boss_select = '0') else (others => '0');--FIX LATER:(DATA_MAX_BYTES*8-1 downto DATA_SMALL_BYTES => '0') & boss_data;
 	data_len 			<= watcher_data_len 		when (boss_select = '0') else boss_data_len;
 	data_valid 			<= watcher_data_valid 	when (boss_select = '0') else boss_data_valid;
 	watcher_data_ack 	<= data_ack				   when (boss_select = '0') else '0';

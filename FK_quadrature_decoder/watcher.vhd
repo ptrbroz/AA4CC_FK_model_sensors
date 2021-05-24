@@ -47,8 +47,7 @@ architecture arch1 of watcher is
 											w_assemble_message,
 											w_prepare_len,
 											w_ready_message,
-											w_wait_for_ack,
-											w_unready_message
+											w_wait_for_ack
 											);
 											
 	signal inPositions : position_array_t;
@@ -82,7 +81,7 @@ begin
 	begin
 	
 	if areset = '1' then
-		clocksLeft := 2500000; --todo change
+		counter := 0; --todo change
 	else
 		if rising_edge(clock) then
 			if counter >= clocksMax then
@@ -100,20 +99,20 @@ begin
 	
 	
 	watcher_fsm : process(clock, areset) is
-		variable state : watcher_fsm_state_t := w_wait_timer;
+		variable state : watcher_fsm_state_t := w_wait_for_timer;
 		variable encoderIndex : integer range 0 to MAX_ENCODERS - 1 := 0;
 		variable dataIndex : integer range 0 to data_out'length	- 1 := 0;
-		variable encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (1 => '1', 3 => '1', 4 => '1', 7 => '1', others => '0');
+		constant encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		variable savedPositions : position_array_t;
-		variable resolutionBits : integer range 2 to 13;
+		variable resolutionBits : integer range 2 to 13 := 10;
 		
 	begin
 	
 	if areset = '1' then
-		state := w_wait_timer; 
+		state := w_wait_for_timer; 
 		encoderIndex := 0;
 		dataIndex := 0;
-		encoderEnableVector := (1 => '1', 3 => '1', 4 => '1', 7 => '1', others => '0');
+		--encoderEnableVector := (1 => '1', 3 => '1', 4 => '1', 7 => '1', others => '0');
 	else
 		if rising_edge(clock) then
 		
