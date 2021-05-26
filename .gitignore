@@ -8,3 +8,14 @@ FK_quadrature_decoder/db/
 FK_quadrature_decoder/greybox_tmp/
 FK_quadrature_decoder/incremental_db/
 FK_quadrature_decoder/simulation/
+FK_quadrature_decoder/FK_quadrature_decoder.asm.rpt
+FK_quadrature_decoder/FK_quadrature_decoder.done
+FK_quadrature_decoder/FK_quadrature_decoder.eda.rpt
+FK_quadrature_decoder/FK_quadrature_decoder.fit.rpt
+FK_quadrature_decoder/FK_quadrature_decoder.fit.summary
+FK_quadrature_decoder/FK_quadrature_decoder.flow.rpt
+FK_quadrature_decoder/FK_quadrature_decoder.map.rpt
+FK_quadrature_decoder/FK_quadrature_decoder.map.summary
+FK_quadrature_decoder/FK_quadrature_decoder.pow.rpt
+FK_quadrature_decoder/FK_quadrature_decoder.pow.summary
+FK_quadrature_decoder/FK_quadrature_decoder.sta.rpt
