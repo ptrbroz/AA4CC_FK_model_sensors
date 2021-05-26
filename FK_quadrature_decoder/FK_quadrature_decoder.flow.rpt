@@ -1,5 +1,5 @@
 Flow report for FK_quadrature_decoder
-Mon May 24 23:05:48 2021
+Wed May 26 11:18:02 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon May 24 23:05:42 2021           ;
+; Flow Status                        ; Successful - Wed May 26 11:17:59 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; FK_quadrature_decoder                           ;
 ; Top-level Entity Name              ; FK_quadrature_decoder                           ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Device                             ; EP4CE22F17C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 11,249 / 22,320 ( 50 % )                        ;
-;     Total combinational functions  ; 11,227 / 22,320 ( 50 % )                        ;
-;     Dedicated logic registers      ; 1,162 / 22,320 ( 5 % )                          ;
-; Total registers                    ; 1162                                            ;
+; Total logic elements               ; 1,456 / 22,320 ( 7 % )                          ;
+;     Total combinational functions  ; 935 / 22,320 ( 4 % )                            ;
+;     Dedicated logic registers      ; 1,194 / 22,320 ( 5 % )                          ;
+; Total registers                    ; 1194                                            ;
 ; Total pins                         ; 5 / 154 ( 3 % )                                 ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                             ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+-----------------------+
 ; Option            ; Setting               ;
 +-------------------+-----------------------+
-; Start date & time ; 05/24/2021 23:00:00   ;
+; Start date & time ; 05/26/2021 11:17:42   ;
 ; Main task         ; Compilation           ;
 ; Revision Name     ; FK_quadrature_decoder ;
 +-------------------+-----------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 185410939438754.162189000021336       ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 185410939438754.162202066206980       ; --            ; --          ; --         ;
 ; FLOW_ENABLE_POWER_ANALYZER          ; On                                    ; Off           ; --          ; --         ;
 ; IP_TOOL_NAME                        ; LPM_CONSTANT                          ; --            ; --          ; --         ;
 ; IP_TOOL_NAME                        ; LPM_CONSTANT                          ; --            ; --          ; --         ;
@@ -93,6 +93,8 @@ applicable agreement for further details.
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --            ; --          ; --         ;
 ; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE  ; 12.5 %                                ; 12.5%         ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --         ;
+; VHDL_INPUT_VERSION                  ; VHDL_2008                             ; VHDL_1993     ; --          ; --         ;
+; VHDL_SHOW_LMF_MAPPING_MESSAGES      ; Off                                   ; --            ; --          ; --         ;
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
 
 
@@ -101,12 +103,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:05:01     ; 1.0                     ; 4714 MB             ; 00:05:00                           ;
-; Fitter                    ; 00:00:29     ; 1.0                     ; 5034 MB             ; 00:00:28                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 4572 MB             ; 00:00:02                           ;
-; PowerPlay Power Analyzer  ; 00:00:07     ; 1.0                     ; 4636 MB             ; 00:00:08                           ;
-; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 4721 MB             ; 00:00:05                           ;
-; Total                     ; 00:05:44     ; --                      ; --                  ; 00:05:43                           ;
+; Analysis & Synthesis      ; 00:00:05     ; 1.0                     ; 4669 MB             ; 00:00:04                           ;
+; Fitter                    ; 00:00:06     ; 1.0                     ; 4937 MB             ; 00:00:06                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 4544 MB             ; 00:00:01                           ;
+; PowerPlay Power Analyzer  ; 00:00:03     ; 1.0                     ; 4594 MB             ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 4642 MB             ; 00:00:02                           ;
+; Total                     ; 00:00:18     ; --                      ; --                  ; 00:00:16                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

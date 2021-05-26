@@ -1,12 +1,12 @@
-PowerPlay Power Analyzer Status : Successful - Mon May 24 23:05:42 2021
+PowerPlay Power Analyzer Status : Successful - Wed May 26 11:17:59 2021
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : FK_quadrature_decoder
 Top-level Entity Name : FK_quadrature_decoder
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Power Models : Final
-Total Thermal Power Dissipation : 229.02 mW
-Core Dynamic Thermal Power Dissipation : 126.04 mW
-Core Static Thermal Power Dissipation : 79.75 mW
+Total Thermal Power Dissipation : 108.49 mW
+Core Dynamic Thermal Power Dissipation : 7.72 mW
+Core Static Thermal Power Dissipation : 77.54 mW
 I/O Thermal Power Dissipation : 23.22 mW
 Power Estimation Confidence : Low: user provided insufficient toggle rate data

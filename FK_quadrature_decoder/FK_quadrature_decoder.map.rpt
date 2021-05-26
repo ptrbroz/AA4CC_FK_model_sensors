@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FK_quadrature_decoder
-Mon May 24 23:05:01 2021
+Wed May 26 11:17:46 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -60,43 +60,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  52. Parameter Settings for User Entity Instance: watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx
  53. Parameter Settings for User Entity Instance: watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx
  54. Parameter Settings for User Entity Instance: constant1:inst3|lpm_constant:LPM_CONSTANT_component
- 55. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx"
- 56. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx"
- 57. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx"
- 58. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx"
- 59. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx"
- 60. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx"
- 61. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx"
- 62. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx"
- 63. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx"
- 64. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx"
- 65. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx"
- 66. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx"
- 67. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx"
- 68. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx"
- 69. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx"
- 70. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx"
- 71. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx"
- 72. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx"
- 73. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx"
- 74. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx"
- 75. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx"
- 76. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx"
- 77. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx"
- 78. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx"
- 79. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx"
- 80. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx"
- 81. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx"
- 82. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx"
- 83. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx"
- 84. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx"
- 85. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx"
- 86. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx"
- 87. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx"
- 88. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx"
- 89. Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx"
- 90. Elapsed Time Per Partition
- 91. Analysis & Synthesis Messages
+ 55. Elapsed Time Per Partition
+ 56. Analysis & Synthesis Messages
 
 
 
@@ -122,15 +87,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May 24 23:05:00 2021           ;
+; Analysis & Synthesis Status        ; Successful - Wed May 26 11:17:46 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; FK_quadrature_decoder                           ;
 ; Top-level Entity Name              ; FK_quadrature_decoder                           ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 11,292                                          ;
-;     Total combinational functions  ; 11,227                                          ;
-;     Dedicated logic registers      ; 1,162                                           ;
-; Total registers                    ; 1162                                            ;
+; Total logic elements               ; 1,478                                           ;
+;     Total combinational functions  ; 934                                             ;
+;     Dedicated logic registers      ; 1,194                                           ;
+; Total registers                    ; 1194                                            ;
 ; Total pins                         ; 5                                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -147,6 +112,8 @@ applicable agreement for further details.
 ; Device                                                                     ; EP4CE22F17C6          ;                       ;
 ; Top-level entity name                                                      ; FK_quadrature_decoder ; FK_quadrature_decoder ;
 ; Family name                                                                ; Cyclone IV E          ; Cyclone IV GX         ;
+; VHDL Show LMF Mapping Messages                                             ; Off                   ;                       ;
+; VHDL Version                                                               ; VHDL_2008             ; VHDL_1993             ;
 ; Use smart compilation                                                      ; Off                   ; Off                   ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                    ; On                    ;
 ; Enable compact report table                                                ; Off                   ; Off                   ;
@@ -155,7 +122,6 @@ applicable agreement for further details.
 ; Preserve fewer node names                                                  ; On                    ; On                    ;
 ; Disable OpenCore Plus hardware evaluation                                  ; Off                   ; Off                   ;
 ; Verilog Version                                                            ; Verilog_2001          ; Verilog_2001          ;
-; VHDL Version                                                               ; VHDL_1993             ; VHDL_1993             ;
 ; State Machine Processing                                                   ; Auto                  ; Auto                  ;
 ; Safe State Machine                                                         ; Off                   ; Off                   ;
 ; Extract Verilog State Machines                                             ; On                    ; On                    ;
@@ -253,34 +219,34 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                          ;
-+---------------------------------------------+----------------------------------------+
-; Resource                                    ; Usage                                  ;
-+---------------------------------------------+----------------------------------------+
-; Estimated Total logic elements              ; 11,292                                 ;
-;                                             ;                                        ;
-; Total combinational functions               ; 11227                                  ;
-; Logic element usage by number of LUT inputs ;                                        ;
-;     -- 4 input functions                    ; 9496                                   ;
-;     -- 3 input functions                    ; 1515                                   ;
-;     -- <=2 input functions                  ; 216                                    ;
-;                                             ;                                        ;
-; Logic elements by mode                      ;                                        ;
-;     -- normal mode                          ; 11107                                  ;
-;     -- arithmetic mode                      ; 120                                    ;
-;                                             ;                                        ;
-; Total registers                             ; 1162                                   ;
-;     -- Dedicated logic registers            ; 1162                                   ;
-;     -- I/O registers                        ; 0                                      ;
-;                                             ;                                        ;
-; I/O pins                                    ; 5                                      ;
-; Embedded Multiplier 9-bit elements          ; 0                                      ;
-; Maximum fan-out node                        ; watcher:inst|\watcher_fsm:dataIndex[8] ;
-; Maximum fan-out                             ; 1893                                   ;
-; Total fan-out                               ; 46967                                  ;
-; Average fan-out                             ; 3.79                                   ;
-+---------------------------------------------+----------------------------------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 1,478          ;
+;                                             ;                ;
+; Total combinational functions               ; 934            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 196            ;
+;     -- 3 input functions                    ; 575            ;
+;     -- <=2 input functions                  ; 163            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 819            ;
+;     -- arithmetic mode                      ; 115            ;
+;                                             ;                ;
+; Total registers                             ; 1194           ;
+;     -- Dedicated logic registers            ; 1194           ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 5              ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 1194           ;
+; Total fan-out                               ; 6964           ;
+; Average fan-out                             ; 3.26           ;
++---------------------------------------------+----------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -288,12 +254,12 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                      ; Library Name ;
 +--------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------+--------------+
-; |FK_quadrature_decoder                                       ; 11227 (1)         ; 1162 (0)     ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |FK_quadrature_decoder                                                                   ; work         ;
+; |FK_quadrature_decoder                                       ; 934 (1)           ; 1194 (0)     ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |FK_quadrature_decoder                                                                   ; work         ;
 ;    |uart_out_manager:inst2|                                  ; 492 (492)         ; 499 (499)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|uart_out_manager:inst2                                            ; work         ;
-;    |uart_tx:inst4|                                           ; 39 (39)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|uart_tx:inst4                                                     ; work         ;
-;    |watcher:inst|                                            ; 10695 (10402)     ; 645 (545)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:inst                                                      ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|  ; 150 (150)         ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx| ; 143 (143)         ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx ; work         ;
+;    |uart_tx:inst4|                                           ; 37 (37)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|uart_tx:inst4                                                     ; work         ;
+;    |watcher:inst|                                            ; 404 (115)         ; 677 (573)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:inst                                                      ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|  ; 150 (150)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx| ; 139 (139)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx ; work         ;
 +--------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -309,19 +275,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |FK_quadrature_decoder|watcher:inst|\watcher_fsm:state                                                                                                                                                                                                                                       ;
-+---------------------------------------+-----------------------------------+------------------------------------+----------------------------------+---------------------------------------+--------------------------------------+-------------------------------------+-------------------------------------+
-; Name                                  ; \watcher_fsm:state.w_wait_for_ack ; \watcher_fsm:state.w_ready_message ; \watcher_fsm:state.w_prepare_len ; \watcher_fsm:state.w_assemble_message ; \watcher_fsm:state.w_assemble_header ; \watcher_fsm:state.w_save_positions ; \watcher_fsm:state.w_wait_for_timer ;
-+---------------------------------------+-----------------------------------+------------------------------------+----------------------------------+---------------------------------------+--------------------------------------+-------------------------------------+-------------------------------------+
-; \watcher_fsm:state.w_wait_for_timer   ; 0                                 ; 0                                  ; 0                                ; 0                                     ; 0                                    ; 0                                   ; 0                                   ;
-; \watcher_fsm:state.w_save_positions   ; 0                                 ; 0                                  ; 0                                ; 0                                     ; 0                                    ; 1                                   ; 1                                   ;
-; \watcher_fsm:state.w_assemble_header  ; 0                                 ; 0                                  ; 0                                ; 0                                     ; 1                                    ; 0                                   ; 1                                   ;
-; \watcher_fsm:state.w_assemble_message ; 0                                 ; 0                                  ; 0                                ; 1                                     ; 0                                    ; 0                                   ; 1                                   ;
-; \watcher_fsm:state.w_prepare_len      ; 0                                 ; 0                                  ; 1                                ; 0                                     ; 0                                    ; 0                                   ; 1                                   ;
-; \watcher_fsm:state.w_ready_message    ; 0                                 ; 1                                  ; 0                                ; 0                                     ; 0                                    ; 0                                   ; 1                                   ;
-; \watcher_fsm:state.w_wait_for_ack     ; 1                                 ; 0                                  ; 0                                ; 0                                     ; 0                                    ; 0                                   ; 1                                   ;
-+---------------------------------------+-----------------------------------+------------------------------------+----------------------------------+---------------------------------------+--------------------------------------+-------------------------------------+-------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |FK_quadrature_decoder|watcher:inst|\watcher_fsm:state                                                                                                                                                                                                                                                                                                                                                                                                ;
++---------------------------------------------+-----------------------------------+------------------------------------+------------------------------------+-------------------------------+----------------------------------+---------------------------------------------+-----------------------------------+-----------------------------------+--------------------------------------+-------------------------------------+-------------------------------------+
+; Name                                        ; \watcher_fsm:state.w_wait_for_ack ; \watcher_fsm:state.w_ready_message ; \watcher_fsm:state.w_align_message ; \watcher_fsm:state.w_calc_len ; \watcher_fsm:state.w_fin_encoder ; \watcher_fsm:state.w_append_bits_to_message ; \watcher_fsm:state.w_discard_bits ; \watcher_fsm:state.w_prep_encoder ; \watcher_fsm:state.w_assemble_header ; \watcher_fsm:state.w_save_positions ; \watcher_fsm:state.w_wait_for_timer ;
++---------------------------------------------+-----------------------------------+------------------------------------+------------------------------------+-------------------------------+----------------------------------+---------------------------------------------+-----------------------------------+-----------------------------------+--------------------------------------+-------------------------------------+-------------------------------------+
+; \watcher_fsm:state.w_wait_for_timer         ; 0                                 ; 0                                  ; 0                                  ; 0                             ; 0                                ; 0                                           ; 0                                 ; 0                                 ; 0                                    ; 0                                   ; 0                                   ;
+; \watcher_fsm:state.w_save_positions         ; 0                                 ; 0                                  ; 0                                  ; 0                             ; 0                                ; 0                                           ; 0                                 ; 0                                 ; 0                                    ; 1                                   ; 1                                   ;
+; \watcher_fsm:state.w_assemble_header        ; 0                                 ; 0                                  ; 0                                  ; 0                             ; 0                                ; 0                                           ; 0                                 ; 0                                 ; 1                                    ; 0                                   ; 1                                   ;
+; \watcher_fsm:state.w_prep_encoder           ; 0                                 ; 0                                  ; 0                                  ; 0                             ; 0                                ; 0                                           ; 0                                 ; 1                                 ; 0                                    ; 0                                   ; 1                                   ;
+; \watcher_fsm:state.w_discard_bits           ; 0                                 ; 0                                  ; 0                                  ; 0                             ; 0                                ; 0                                           ; 1                                 ; 0                                 ; 0                                    ; 0                                   ; 1                                   ;
+; \watcher_fsm:state.w_append_bits_to_message ; 0                                 ; 0                                  ; 0                                  ; 0                             ; 0                                ; 1                                           ; 0                                 ; 0                                 ; 0                                    ; 0                                   ; 1                                   ;
+; \watcher_fsm:state.w_fin_encoder            ; 0                                 ; 0                                  ; 0                                  ; 0                             ; 1                                ; 0                                           ; 0                                 ; 0                                 ; 0                                    ; 0                                   ; 1                                   ;
+; \watcher_fsm:state.w_calc_len               ; 0                                 ; 0                                  ; 0                                  ; 1                             ; 0                                ; 0                                           ; 0                                 ; 0                                 ; 0                                    ; 0                                   ; 1                                   ;
+; \watcher_fsm:state.w_align_message          ; 0                                 ; 0                                  ; 1                                  ; 0                             ; 0                                ; 0                                           ; 0                                 ; 0                                 ; 0                                    ; 0                                   ; 1                                   ;
+; \watcher_fsm:state.w_ready_message          ; 0                                 ; 1                                  ; 0                                  ; 0                             ; 0                                ; 0                                           ; 0                                 ; 0                                 ; 0                                    ; 0                                   ; 1                                   ;
+; \watcher_fsm:state.w_wait_for_ack           ; 1                                 ; 0                                  ; 0                                  ; 0                             ; 0                                ; 0                                           ; 0                                 ; 0                                 ; 0                                    ; 0                                   ; 1                                   ;
++---------------------------------------------+-----------------------------------+------------------------------------+------------------------------------+-------------------------------+----------------------------------+---------------------------------------------+-----------------------------------+-----------------------------------+--------------------------------------+-------------------------------------+-------------------------------------+
 
 
 Encoding Type:  One-Hot
@@ -356,6 +326,7 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 ; Register name                                                                                 ; Reason for Removal                                                                                        ;
 +-----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+; watcher:inst|\watcher_fsm:bitsToDiscard[2..4]                                                 ; Stuck at GND due to stuck port data_in                                                                    ;
 ; watcher:inst|\watcher_fsm:savedPositions[11][12]                                              ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][12]                                              ;
 ; watcher:inst|\watcher_fsm:savedPositions[12][12]                                              ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][12]                                              ;
 ; watcher:inst|\watcher_fsm:savedPositions[13][12]                                              ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][12]                                              ;
@@ -719,6 +690,106 @@ Encoding Type:  One-Hot
 ; watcher:inst|\watcher_fsm:savedPositions[7][2]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][2]                                               ;
 ; watcher:inst|\watcher_fsm:savedPositions[8][2]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][2]                                               ;
 ; watcher:inst|\watcher_fsm:savedPositions[9][2]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][2]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[11][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[12][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[13][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[14][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[15][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[16][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[17][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[18][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[19][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[1][1]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[20][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[21][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[22][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[23][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[24][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[25][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[26][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[27][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[28][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[29][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[2][1]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[30][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[31][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[32][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[33][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[34][1]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[3][1]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[4][1]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[5][1]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[6][1]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[7][1]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[8][1]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[9][1]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][1]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[11][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[12][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[13][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[14][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[15][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[16][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[17][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[18][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[19][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[1][0]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[20][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[21][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[22][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[23][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[24][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[25][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[26][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[27][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[28][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[29][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[2][0]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[30][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[31][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[32][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[33][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[34][0]                                               ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[3][0]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[4][0]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[5][0]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[6][0]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[7][0]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[8][0]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:savedPositions[9][0]                                                ; Merged with watcher:inst|\watcher_fsm:savedPositions[10][0]                                               ;
+; watcher:inst|\watcher_fsm:bitsToDiscard[1]                                                    ; Merged with watcher:inst|\watcher_fsm:bitsToDiscard[0]                                                    ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx|counterSignal[0]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx|counterSignal[0]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx|counterSignal[0]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx|counterSignal[0]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx|counterSignal[0]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx|counterSignal[0]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|counterSignal[0]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx|counterSignal[0]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx|counterSignal[0]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx|counterSignal[0]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[0]            ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx|\decode:positionCounter[12] ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:positionCounter[12] ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx|\decode:positionCounter[12] ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:positionCounter[12] ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx|\decode:positionCounter[12] ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:positionCounter[12] ;
@@ -2369,8 +2440,40 @@ Encoding Type:  One-Hot
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx|counterSignal[2]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[2]            ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx|counterSignal[2]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[2]            ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx|counterSignal[2]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[2]            ;
-; watcher:inst|\watcher_fsm:dataIndex[0]                                                        ; Merged with watcher:inst|\watcher_fsm:encoderIndex[0]                                                     ;
-; Total Number of Removed Registers = 2014                                                      ;                                                                                                           ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx|counterSignal[1]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx|counterSignal[1]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx|counterSignal[1]            ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx|counterSignal[1]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx|counterSignal[1]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx|counterSignal[1]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|counterSignal[1]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx|counterSignal[1]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx|counterSignal[1]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx|counterSignal[1]             ; Merged with watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|counterSignal[1]            ;
+; Total Number of Removed Registers = 2149                                                      ;                                                                                                           ;
 +-----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 
 
@@ -2379,12 +2482,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1162  ;
-; Number of registers using Synchronous Clear  ; 28    ;
-; Number of registers using Synchronous Load   ; 9     ;
-; Number of registers using Asynchronous Clear ; 606   ;
+; Total registers                              ; 1194  ;
+; Number of registers using Synchronous Clear  ; 37    ;
+; Number of registers using Synchronous Load   ; 21    ;
+; Number of registers using Asynchronous Clear ; 602   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1044  ;
+; Number of registers using Clock Enable       ; 1074  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -2395,43 +2498,9 @@ Encoding Type:  One-Hot
 ; Inverted Register                                                                             ; Fan out ;
 +-----------------------------------------------------------------------------------------------+---------+
 ; uart_tx:inst4|tx_bit_cntr[3]                                                                  ; 2       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:positionCounter[12] ; 2       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[10]       ; 13      ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[9]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[8]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[7]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[6]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[5]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[4]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[3]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[2]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[1]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[0]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[10]       ; 15      ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[0]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[9]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[8]        ; 5       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[7]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[6]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[5]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[4]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[3]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[2]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[1]        ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[10]        ; 9       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[7]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[9]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[8]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[6]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[5]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[4]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[3]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[2]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[1]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[0]         ; 3       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[10]        ; 9       ;
-; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[9]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[10]        ; 10      ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[8]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[9]         ; 4       ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[7]         ; 3       ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[6]         ; 3       ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[5]         ; 3       ;
@@ -2440,35 +2509,71 @@ Encoding Type:  One-Hot
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[2]         ; 3       ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[1]         ; 3       ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Adebounce[0]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[10]        ; 9       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[9]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[8]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[7]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[6]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[5]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[4]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[3]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[2]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[1]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[0]         ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[10]       ; 17      ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[9]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[8]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[7]        ; 4       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[6]        ; 4       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[5]        ; 4       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[4]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[3]        ; 4       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[2]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[1]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[0]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[10]       ; 14      ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[9]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[8]        ; 4       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[7]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[6]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[5]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[4]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[3]        ; 4       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[2]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[1]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[0]        ; 3       ;
+; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:positionCounter[12] ; 2       ;
 ; watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:positionCounter[12]  ; 2       ;
 ; Total number of inverted registers = 47                                                       ;         ;
 +-----------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:positionCounter[0] ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:positionCounter[0]  ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |FK_quadrature_decoder|uart_out_manager:inst2|\manager_fsm:savedDataIndex[2]                                        ;
-; 4:1                ; 464 bits  ; 928 LEs       ; 464 LEs              ; 464 LEs                ; Yes        ; |FK_quadrature_decoder|uart_out_manager:inst2|\manager_fsm:savedData[65]                                            ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |FK_quadrature_decoder|uart_tx:inst4|tx_bit_cntr[2]                                                                 ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_tx:inst4|tx_br_cntr[0]                                                                  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[2]       ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[2]        ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|Adebounce                  ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|Bdebounce                  ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|Adebounce                   ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|Bdebounce                   ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 33 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|positionCounter            ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 33 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|positionCounter             ;
-; 35:1               ; 11 bits   ; 253 LEs       ; 11 LEs               ; 242 LEs                ; No         ; |FK_quadrature_decoder|watcher:inst|Mux2                                                                            ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|Selector470                                                                     ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |FK_quadrature_decoder|uart_tx:inst4|Selector2                                                                      ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |FK_quadrature_decoder|uart_tx:inst4|Selector3                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
+; 4:1                ; 471 bits  ; 942 LEs       ; 0 LEs                ; 942 LEs                ; Yes        ; |FK_quadrature_decoder|watcher:inst|data_out[296]                                                             ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |FK_quadrature_decoder|uart_out_manager:inst2|\manager_fsm:savedDataIndex[1]                                  ;
+; 4:1                ; 464 bits  ; 928 LEs       ; 464 LEs              ; 464 LEs                ; Yes        ; |FK_quadrature_decoder|uart_out_manager:inst2|\manager_fsm:savedData[179]                                     ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:inst|\watcher_fsm:tempBitCounter[0]                                            ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |FK_quadrature_decoder|uart_tx:inst4|tx_bit_cntr[2]                                                           ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:inst|\watcher_fsm:totalBitCounter[2]                                           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_tx:inst4|tx_br_cntr[4]                                                            ;
+; 37:1               ; 12 bits   ; 288 LEs       ; 24 LEs               ; 264 LEs                ; Yes        ; |FK_quadrature_decoder|watcher:inst|\watcher_fsm:tempPosition[9]                                              ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[0] ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[9]  ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|Adebounce            ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|Bdebounce            ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|Adebounce             ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|Bdebounce             ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 39 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|positionCounter      ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 39 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|positionCounter       ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |FK_quadrature_decoder|uart_tx:inst4|Selector4                                                                ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |FK_quadrature_decoder|uart_tx:inst4|Selector3                                                                ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |FK_quadrature_decoder|watcher:inst|Selector9                                                                 ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; No         ; |FK_quadrature_decoder|watcher:inst|Selector3                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------+
@@ -2905,327 +3010,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx"                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx"                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; position[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:04:58     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -3235,7 +3025,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon May 24 22:59:59 2021
+    Info: Processing started: Wed May 26 11:17:41 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FK_quadrature_decoder -c FK_quadrature_decoder
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file quadrature_decoder_digikey.vhd
@@ -3270,7 +3060,7 @@ Info (12127): Elaborating entity "FK_quadrature_decoder" for the top level hiera
 Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:inst4"
 Info (12128): Elaborating entity "uart_out_manager" for hierarchy "uart_out_manager:inst2"
 Info (12128): Elaborating entity "watcher" for hierarchy "watcher:inst"
-Warning (10542): VHDL Variable Declaration warning at watcher.vhd(107): used initial value expression for variable "resolutionBits" because variable was never assigned a value
+Warning (10542): VHDL Variable Declaration warning at watcher.vhd(110): used initial value expression for variable "bitResolution" because variable was never assigned a value
 Info (12128): Elaborating entity "quadrature_decoder_pb" for hierarchy "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx"
 Warning (10492): VHDL Process Statement warning at quadrature_decoder_pb.vhd(50): signal "Ain" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at quadrature_decoder_pb.vhd(51): signal "Bin" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
@@ -3287,19 +3077,19 @@ Info (12128): Elaborating entity "constant64_lpm_constant_0d9" for hierarchy "co
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bprev" is converted into an equivalent circuit using register "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bprev~_emulated" and latch "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bprev~1"
     Warning (13310): Register "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Aprev" is converted into an equivalent circuit using register "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Aprev~_emulated" and latch "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Aprev~1"
+    Warning (13310): Register "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bprev" is converted into an equivalent circuit using register "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bprev~_emulated" and latch "watcher:inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bprev~1"
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 11323 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1513 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 11318 logic cells
+    Info (21061): Implemented 1508 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4714 megabytes
-    Info: Processing ended: Mon May 24 23:05:01 2021
-    Info: Elapsed time: 00:05:02
-    Info: Total CPU time (on all processors): 00:05:01
+    Info: Peak virtual memory: 4669 megabytes
+    Info: Processing ended: Wed May 26 11:17:46 2021
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 

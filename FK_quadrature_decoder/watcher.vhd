@@ -15,7 +15,7 @@ port(
 		gpio_a_channels : in std_logic_vector(MAX_ENCODERS-1 downto 0);
 		gpio_b_channels : in std_logic_vector(MAX_ENCODERS-1 downto 0);
 		--todo settings
-		data_out : out std_logic_vector(DATA_MAX_BYTES*8 - 1 downto 0);
+		data_out : buffer std_logic_vector(DATA_MAX_BYTES*8 - 1 downto 0);
 		data_out_len : out std_logic_vector(5 downto 0); 
 		data_out_ready : out std_logic;
 		data_out_ack : in std_logic
@@ -43,9 +43,13 @@ architecture arch1 of watcher is
 	type watcher_fsm_state_t is ( w_wait_for_timer,
 											--w_check_for_change, todo
 											w_save_positions,
-											w_assemble_header, 
-											w_assemble_message,
-											w_prepare_len,
+											w_assemble_header,
+											w_prep_encoder,
+											w_discard_bits,
+											w_append_bits_to_message,
+											w_fin_encoder,
+											w_calc_len,
+											w_align_message,
 											w_ready_message,
 											w_wait_for_ack
 											);
@@ -101,17 +105,20 @@ begin
 	watcher_fsm : process(clock, areset) is
 		variable state : watcher_fsm_state_t := w_wait_for_timer;
 		variable encoderIndex : integer range 0 to MAX_ENCODERS - 1 := 0;
-		variable dataIndex : integer range 0 to data_out'length	- 1 := 0;
 		constant encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		variable savedPositions : position_array_t;
-		variable resolutionBits : integer range 2 to 13 := 10;
+		variable bitResolution : integer range 2 to 13 := 10;
+		variable totalBitCounter : integer range 0 to data_out'length	- 1 := 0;
+		variable tempBitCounter  : integer range 0 to 31 := 0;
+		variable bitsToDiscard : integer range 0 to 31 := 0;
+		
+		variable tempPosition : std_logic_vector(12 downto 0);
 		
 	begin
 	
 	if areset = '1' then
 		state := w_wait_for_timer; 
 		encoderIndex := 0;
-		dataIndex := 0;
 		--encoderEnableVector := (1 => '1', 3 => '1', 4 => '1', 7 => '1', others => '0');
 	else
 		if rising_edge(clock) then
@@ -129,29 +136,68 @@ begin
 				when w_save_positions =>
 					savedPositions := inPositions;
 					state := w_assemble_header;
+					encoderIndex := 0;
+					totalBitCounter := 0;
+					tempBitCounter := 0;
+					bitsToDiscard := 13 - bitResolution;
 				
 				when w_assemble_header =>
-					data_out(15 downto 0) <= (others => '1'); --0xff 0xff header to identify data message
-					encoderIndex := 0;
-					dataIndex := 16;
-					state := w_assemble_message;
-					
-				when w_assemble_message =>
-					if encoderIndex >= MAX_ENCODERS - 1 then
-						state := w_prepare_len;
-					else
-						if encoderEnableVector(encoderIndex) = '1' then 
-							data_out(dataIndex + resolutionBits downto dataIndex) <= savedPositions(encoderIndex)(12 downto 12-resolutionBits);
-							data_out(dataIndex + resolutionBits + 1) <= '0'; --separator
-							dataIndex := dataIndex + resolutionBits + 1;
-						end if;
-						encoderIndex := encoderIndex + 1;
+					data_out(data_out'length - 1) <= '1';
+					data_out <= '0' & data_out(data_out'length - 1 downto 1);
+					totalBitCounter := totalBitCounter + 1;
+					tempBitCounter := tempBitCounter + 1;
+					if tempBitCounter = 16 then
+						state := w_prep_encoder;
 					end if;
 					
-				when w_prepare_len =>
-					data_out_len <= std_logic_vector(to_unsigned(dataIndex/8, data_out_len'length));
-					state := w_ready_message;
+				when w_prep_encoder =>
+					if encoderEnableVector(encoderIndex) = '0' then
+						encoderIndex := encoderIndex + 1;
+					else
+						tempPosition := savedPositions(encoderIndex);
+						tempBitCounter := 0;
+						state := w_discard_bits;
+					end if;
+					
+				when w_discard_bits =>
+					tempPosition := '0' & tempPosition(12 downto 1);
+					tempBitCounter := tempBitCounter + 1; --don't increment total bit counter as bits are not added to msg
+					if tempBitCounter = bitsToDiscard then
+						state := w_append_bits_to_message;
+					end if;
 				
+				when w_append_bits_to_message =>
+					data_out <= tempPosition(0) & data_out(data_out'length - 1 downto 1);
+					tempPosition := '0' & tempPosition(12 downto 1);
+					tempBitCounter := tempBitCounter + 1;
+					totalBitCounter := totalBitCounter + 1;
+					if tempBitCounter = 13 then
+						state := w_fin_encoder;
+					end if;
+					
+				when w_fin_encoder =>
+					data_out <= '0' & data_out(data_out'length - 1 downto 1); --separator
+					totalBitCounter := totalBitCounter + 1;
+					tempBitCounter := 0;
+					if encoderIndex = MAX_ENCODERS - 1 then
+						state := w_calc_len;
+					else
+						encoderIndex := encoderIndex + 1;
+						state := w_prep_encoder;
+					end if;
+					
+				when w_calc_len =>
+					data_out_len <= std_logic_vector(to_unsigned(totalBitCounter/8, data_out_len'length));
+					state := w_align_message;
+					
+				when w_align_message =>
+					if totalBitCounter = data_out'length then
+						state := w_ready_message;
+					else
+						data_out <= '0' & data_out(data_out'length - 1 downto 1);
+						totalBitCounter := totalBitCounter + 1;
+					end if;
+									
 				when w_ready_message =>
 					data_out_ready <= '1';
 					state := w_wait_for_ack;
@@ -161,7 +207,7 @@ begin
 					if data_out_ack = '1' then
 						state := w_wait_for_timer;
 					elsif timer_alarm = '1' then
-						--if uart manager is taking too long and timer run out again, prepare fresh batch of data
+						--if uart manager is taking too long and timer ran out again, prepare fresh batch of data
 						state := w_assemble_header;
 					end if;
 			end case;
