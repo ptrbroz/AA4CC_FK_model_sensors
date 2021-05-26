@@ -80,8 +80,10 @@ begin
 	
 	
 	watcher_timer : process(clock, areset) is
-		variable counter : integer range 0 to 3000000 := 0;
-		constant clocksMax : integer := 2500000;
+		--constant clocksMax : integer := 2500000;
+		constant clocksMax : integer := 100000000;
+		variable counter : integer range 0 to clocksMax+1 := 0;
+
 	begin
 	
 	if areset = '1' then

@@ -3,9 +3,11 @@ GPIO-1[24] <= uart_tx:inst4.trx
 CLOCK_50 => uart_tx:inst4.clock
 CLOCK_50 => uart_out_manager:inst2.clock
 CLOCK_50 => watcher:inst.clock
-pin_name1 => inst5.IN0
+KEY[0] => inst5.IN0
+KEY[0] => LED[0].DATAIN
 GPIO-0[0] => watcher:inst.gpio_a_channels[0]
 GPIO-0_IN[0] => watcher:inst.gpio_b_channels[0]
+LED[0] <= KEY[0].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |FK_quadrature_decoder|uart_tx:inst4
@@ -3062,6 +3064,11 @@ clock => \watcher_timer:counter[18].CLK
 clock => \watcher_timer:counter[19].CLK
 clock => \watcher_timer:counter[20].CLK
 clock => \watcher_timer:counter[21].CLK
+clock => \watcher_timer:counter[22].CLK
+clock => \watcher_timer:counter[23].CLK
+clock => \watcher_timer:counter[24].CLK
+clock => \watcher_timer:counter[25].CLK
+clock => \watcher_timer:counter[26].CLK
 clock => quadrature_decoder_pb:GENERATE_DECODERS:1:decoderx.clock
 clock => quadrature_decoder_pb:GENERATE_DECODERS:2:decoderx.clock
 clock => quadrature_decoder_pb:GENERATE_DECODERS:3:decoderx.clock
@@ -3126,6 +3133,11 @@ areset => \watcher_timer:counter[18].ACLR
 areset => \watcher_timer:counter[19].ACLR
 areset => \watcher_timer:counter[20].ACLR
 areset => \watcher_timer:counter[21].ACLR
+areset => \watcher_timer:counter[22].ACLR
+areset => \watcher_timer:counter[23].ACLR
+areset => \watcher_timer:counter[24].ACLR
+areset => \watcher_timer:counter[25].ACLR
+areset => \watcher_timer:counter[26].ACLR
 areset => quadrature_decoder_pb:GENERATE_DECODERS:1:decoderx.areset
 areset => quadrature_decoder_pb:GENERATE_DECODERS:2:decoderx.areset
 areset => quadrature_decoder_pb:GENERATE_DECODERS:3:decoderx.areset
