@@ -47,8 +47,8 @@ begin
 	if areset = '1' then
 	
 		positionCounter := RESOLUTION/2;
-		Aprev := Ain;
-		Bprev := Bin;
+		--Aprev := Ain;
+		--Bprev := Bin;
 		Adebounce := -1;
 		Bdebounce := -1;
 	

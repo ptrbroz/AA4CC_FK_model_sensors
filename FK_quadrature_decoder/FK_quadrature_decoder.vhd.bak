@@ -26,79 +26,10 @@ ENTITY FK_quadrature_decoder IS
 	(
 		CLOCK_50 :  IN  STD_LOGIC;
 		KEY0 :  IN  STD_LOGIC;
-		LED0 :  OUT  STD_LOGIC;
-		GPIO_0_IN0 :  IN  STD_LOGIC;
-		GPIO_0_IN1 :  IN  STD_LOGIC;
-		GPIO_1_IN0 :  IN  STD_LOGIC;
-		GPIO_1_IN1 :  IN  STD_LOGIC;
 		GPIO_0_0 :  IN  STD_LOGIC;
-		GPIO_0_1 :  IN  STD_LOGIC;
-		GPIO_0_2 :  IN  STD_LOGIC;
-		GPIO_0_3 :  IN  STD_LOGIC;
-		GPIO_0_4 :  IN  STD_LOGIC;
-		GPIO_0_5 :  IN  STD_LOGIC;
-		GPIO_0_6 :  IN  STD_LOGIC;
-		GPIO_0_7 :  IN  STD_LOGIC;
-		GPIO_0_8 :  IN  STD_LOGIC;
-		GPIO_0_9 :  IN  STD_LOGIC;
-		GPIO_0_10 :  IN  STD_LOGIC;
-		GPIO_0_11 :  IN  STD_LOGIC;
-		GPIO_0_12 :  IN  STD_LOGIC;
-		GPIO_0_13 :  IN  STD_LOGIC;
-		GPIO_0_14 :  IN  STD_LOGIC;
-		GPIO_0_15 :  IN  STD_LOGIC;
-		GPIO_0_16 :  IN  STD_LOGIC;
-		GPIO_0_17 :  IN  STD_LOGIC;
-		GPIO_0_18 :  IN  STD_LOGIC;
-		GPIO_0_19 :  IN  STD_LOGIC;
-		GPIO_0_20 :  IN  STD_LOGIC;
-		GPIO_0_21 :  IN  STD_LOGIC;
-		GPIO_0_22 :  IN  STD_LOGIC;
-		GPIO_0_23 :  IN  STD_LOGIC;
-		GPIO_0_24 :  IN  STD_LOGIC;
-		GPIO_0_25 :  IN  STD_LOGIC;
-		GPIO_0_26 :  IN  STD_LOGIC;
-		GPIO_0_27 :  IN  STD_LOGIC;
-		GPIO_0_28 :  IN  STD_LOGIC;
-		GPIO_0_29 :  IN  STD_LOGIC;
-		GPIO_0_30 :  IN  STD_LOGIC;
-		GPIO_0_31 :  IN  STD_LOGIC;
-		GPIO_0_32 :  IN  STD_LOGIC;
-		GPIO_0_33 :  IN  STD_LOGIC;
-		GPIO_1_0 :  IN  STD_LOGIC;
-		GPIO_1_1 :  IN  STD_LOGIC;
-		GPIO_1_2 :  IN  STD_LOGIC;
-		GPIO_1_3 :  IN  STD_LOGIC;
-		GPIO_1_4 :  IN  STD_LOGIC;
-		GPIO_1_5 :  IN  STD_LOGIC;
-		GPIO_1_6 :  IN  STD_LOGIC;
-		GPIO_1_7 :  IN  STD_LOGIC;
-		GPIO_1_8 :  IN  STD_LOGIC;
-		GPIO_1_9 :  IN  STD_LOGIC;
-		GPIO_1_10 :  IN  STD_LOGIC;
-		GPIO_1_11 :  IN  STD_LOGIC;
-		GPIO_1_12 :  IN  STD_LOGIC;
-		GPIO_1_13 :  IN  STD_LOGIC;
-		GPIO_1_14 :  IN  STD_LOGIC;
-		GPIO_1_15 :  IN  STD_LOGIC;
-		GPIO_1_16 :  IN  STD_LOGIC;
-		GPIO_1_17 :  IN  STD_LOGIC;
-		GPIO_1_18 :  IN  STD_LOGIC;
-		GPIO_1_19 :  IN  STD_LOGIC;
-		GPIO_1_20 :  IN  STD_LOGIC;
-		GPIO_1_21 :  IN  STD_LOGIC;
-		GPIO_1_22 :  IN  STD_LOGIC;
-		GPIO_1_23 :  IN  STD_LOGIC;
-		GPIO_1_24 :  OUT  STD_LOGIC;
-		GPIO_1_25 :  IN  STD_LOGIC;
-		GPIO_1_26 :  IN  STD_LOGIC;
-		GPIO_1_27 :  IN  STD_LOGIC;
-		GPIO_1_28 :  IN  STD_LOGIC;
-		GPIO_1_29 :  IN  STD_LOGIC;
-		GPIO_1_30 :  IN  STD_LOGIC;
-		GPIO_1_31 :  IN  STD_LOGIC;
-		GPIO_1_32 :  IN  STD_LOGIC;
-		GPIO_1_33 :  IN  STD_LOGIC
+		GPIO_0_IN0 :  IN  STD_LOGIC;
+		LED0 :  OUT  STD_LOGIC;
+		GPIO_1_24 :  OUT  STD_LOGIC
 	);
 END FK_quadrature_decoder;
 
@@ -242,102 +173,7 @@ SYNTHESIZED_WIRE_11 <= NOT(KEY0);
 b2v_inst6 : constant64
 PORT MAP(		 result => zeroconst);
 
---note regarding channel pin assignments: I'm not drunk, channels are  assigned in
---non-monotonic fashion for pcb routing reasons.
 
---upper gpio header
 achans(0) <= GPIO_0_0;
-achans(1) <= GPIO_0_1;
-achans(2) <= GPIO_0_3;
-achans(3) <= GPIO_0_5;
-achans(4) <= GPIO_0_7;
-achans(5) <= GPIO_0_9;
-achans(6) <= GPIO_0_11;
-achans(7) <= GPIO_0_13;
-achans(8) <= GPIO_0_15;
-achans(9) <= GPIO_0_17;
-achans(10) <= GPIO_0_19;
-achans(11) <= GPIO_0_21;
-achans(12) <= GPIO_0_23;
-achans(13) <= GPIO_0_25;
-achans(14) <= GPIO_0_27;
-achans(17) <= GPIO_0_29;
-achans(16) <= GPIO_0_31;
-achans(15) <= GPIO_0_33;
-
-bchans(0) <= GPIO_0_IN0;
-bchans(1) <= GPIO_0_IN1;
-bchans(2) <= GPIO_0_2;
-bchans(3) <= GPIO_0_4;
-bchans(4) <= GPIO_0_6;
-bchans(5) <= GPIO_0_8;
-bchans(6) <= GPIO_0_10;
-bchans(7) <= GPIO_0_12;
-bchans(8) <= GPIO_0_14;
-bchans(9) <= GPIO_0_16;
-bchans(10) <= GPIO_0_18;
-bchans(11) <= GPIO_0_20;
-bchans(12) <= GPIO_0_22;
-bchans(13) <= GPIO_0_24;
-bchans(14) <= GPIO_0_26;
-bchans(17) <= GPIO_0_28;
-bchans(16) <= GPIO_0_30;
-bchans(15) <= GPIO_0_32;
-
-
-
-
---lower gpio header
-bchans(19) <= GPIO_1_IN0;
-bchans(18) <= GPIO_1_IN1;
-bchans(20) <= GPIO_1_2;
-bchans(21) <= GPIO_1_4;
-bchans(22) <= GPIO_1_6;
-bchans(23) <= GPIO_1_8;
-bchans(24) <= GPIO_1_10;
-bchans(25) <= GPIO_1_12;
-bchans(26) <= GPIO_1_14;
-bchans(27) <= GPIO_1_16;
-bchans(28) <= GPIO_1_18;
-bchans(29) <= GPIO_1_20;
-bchans(31) <= GPIO_1_26;
-bchans(32) <= GPIO_1_28;
-bchans(33) <= GPIO_1_30;
-bchans(34) <= GPIO_1_32;
-
---uart tx => GPIO_1_24 see uart_tx entity above
---uart rx todo to GPIO_1_22
-
-achans(30) <= GPIO_1_25;
-bchans(30) <= GPIO_1_23;
-
-achans(19) <= GPIO_1_0;
-achans(18) <= GPIO_1_1;
-achans(20) <= GPIO_1_3;
-achans(21) <= GPIO_1_5;
-achans(22) <= GPIO_1_7;
-achans(23) <= GPIO_1_9;
-achans(24) <= GPIO_1_11;
-achans(25) <= GPIO_1_13;
-achans(26) <= GPIO_1_15;
-achans(27) <= GPIO_1_17;
-achans(28) <= GPIO_1_19;
-achans(29) <= GPIO_1_21;
-achans(31) <= GPIO_1_27;
-achans(32) <= GPIO_1_29;
-achans(33) <= GPIO_1_31;
-achans(34) <= GPIO_1_33;
-
-
-
-
-
-
-
-
-
-
-
-
 bchans(0) <= GPIO_0_IN0;
 END bdf_type;

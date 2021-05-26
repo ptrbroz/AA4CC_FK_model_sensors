@@ -4,3 +4,7 @@ FK_quadrature_decoder/db/FK_quadrature_decoder.ipinfo
 FK_quadrature_decoder/db/FK_quadrature_decoder.sld_design_entry.sci
 FK_quadrature_decoder/FK_quadrature_decoder.qws
 FK_quadrature_decoder/FK_quadrature_decoder.qws
+FK_quadrature_decoder/db/
+FK_quadrature_decoder/greybox_tmp/
+FK_quadrature_decoder/incremental_db/
+FK_quadrature_decoder/simulation/
