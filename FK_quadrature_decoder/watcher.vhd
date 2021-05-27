@@ -80,7 +80,7 @@ begin
 	
 	
 	watcher_timer : process(clock, areset) is
-		constant clocksMax : integer := 100000000;
+		constant clocksMax : integer :=    25000000;
 		--constant clocksMax : integer := 100000000;
 		variable counter : integer range 0 to clocksMax+1 := 0;
 
@@ -107,7 +107,7 @@ begin
 	watcher_fsm : process(clock, areset) is
 		variable state : watcher_fsm_state_t := w_wait_for_timer;
 		variable encoderIndex : integer range 0 to MAX_ENCODERS := 0;
-		constant encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (0=> '1', 1=>'1', others => '0');
+		constant encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (0=> '1', others => '0');
 		variable savedPositions : position_array_t;
 		variable bitResolution : integer range 2 to 13 := 10;
 		variable totalBitCounter : integer range 0 to data_out'length := 0;
