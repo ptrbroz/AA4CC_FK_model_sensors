@@ -19,3 +19,6 @@ FK_quadrature_decoder/FK_quadrature_decoder.map.summary
 FK_quadrature_decoder/FK_quadrature_decoder.pow.rpt
 FK_quadrature_decoder/FK_quadrature_decoder.pow.summary
 FK_quadrature_decoder/FK_quadrature_decoder.sta.rpt
+*.rpt
+*.done
+*.rpt

@@ -1,6 +1,6 @@
 import serial;
 
-port = serial.Serial('COM9', 230400, parity= serial.PARITY_NONE)
+port = serial.Serial('COM5', 230400, parity= serial.PARITY_NONE)
 
 state = 0;
 bytesGotten = [];
@@ -14,7 +14,7 @@ while(1):
         byte2 = port.read()
 
         #dumb check
-        if int(byte1) != 255 or int(byte2) != 255:
+        if byte1 != b'\xff' or byte2 != b'\xff':
             print("Alignment error! press enter to continue")
             print(f"Gotten bytes: {byte1} , {byte2}")
             input()
@@ -32,6 +32,6 @@ while(1):
             state = 2
 
     elif state == 2:
-        
+        state = 2
 
     

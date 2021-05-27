@@ -1,7 +1,7 @@
 import serial
 s = serial.Serial()
 s.baudrate = 230400
-s.port = 'COM1'
+s.port = 'COM5'
 
 s.open()
 

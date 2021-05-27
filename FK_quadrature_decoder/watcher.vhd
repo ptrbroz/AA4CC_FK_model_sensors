@@ -80,8 +80,8 @@ begin
 	
 	
 	watcher_timer : process(clock, areset) is
-		--constant clocksMax : integer := 2500000;
 		constant clocksMax : integer := 100000000;
+		--constant clocksMax : integer := 100000000;
 		variable counter : integer range 0 to clocksMax+1 := 0;
 
 	begin
@@ -106,11 +106,11 @@ begin
 	
 	watcher_fsm : process(clock, areset) is
 		variable state : watcher_fsm_state_t := w_wait_for_timer;
-		variable encoderIndex : integer range 0 to MAX_ENCODERS - 1 := 0;
-		constant encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
+		variable encoderIndex : integer range 0 to MAX_ENCODERS := 0;
+		constant encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (0=> '1', 1=>'1', others => '0');
 		variable savedPositions : position_array_t;
 		variable bitResolution : integer range 2 to 13 := 10;
-		variable totalBitCounter : integer range 0 to data_out'length	- 1 := 0;
+		variable totalBitCounter : integer range 0 to data_out'length := 0;
 		variable tempBitCounter  : integer range 0 to 31 := 0;
 		variable bitsToDiscard : integer range 0 to 31 := 0;
 		
@@ -153,7 +153,11 @@ begin
 					
 				when w_prep_encoder =>
 					if encoderEnableVector(encoderIndex) = '0' then
-						encoderIndex := encoderIndex + 1;
+						if encoderIndex = MAX_ENCODERS - 1 then
+							state := w_calc_len;
+						else 
+							encoderIndex := encoderIndex + 1;
+						end if;
 					else
 						tempPosition := savedPositions(encoderIndex);
 						tempBitCounter := 0;
@@ -188,7 +192,7 @@ begin
 					end if;
 					
 				when w_calc_len =>
-					data_out_len <= std_logic_vector(to_unsigned(totalBitCounter/8, data_out_len'length));
+					data_out_len <= std_logic_vector(to_unsigned(totalBitCounter/8, data_out_len'length) + 1); --todo fix this
 					state := w_align_message;
 					
 				when w_align_message =>

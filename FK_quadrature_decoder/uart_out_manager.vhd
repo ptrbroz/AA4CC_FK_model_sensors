@@ -32,7 +32,8 @@ architecture arch1 of uart_out_manager is
 										m_ack,
 										m_wait_for_ready,
 										m_prep_byte,
-										m_send
+										m_send,
+										m_wait_for_unready
 										);  
 										
 		signal data : std_logic_vector(DATA_MAX_BYTES*8-1 downto 0) := (others => '0');
@@ -96,10 +97,16 @@ begin
 				
 				when m_send =>
 					tx_send <= '1';
-					if savedDataIndex >= savedDataLen then
-						state := m_idle;
-					else
-						state := m_wait_for_ready;
+					state := m_wait_for_unready;
+				
+				when m_wait_for_unready =>
+					tx_send <= '1';
+					if tx_is_ready = '0' then
+						if savedDataIndex >= savedDataLen then
+							state := m_idle;
+						else
+							state := m_wait_for_ready;
+						end if;
 					end if;
 					
 				

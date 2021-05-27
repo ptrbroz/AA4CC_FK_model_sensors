@@ -330,14 +330,4 @@ achans(34) <= GPIO_1_33;
 
 
 
-
-
-
-
-
-
-
-
-
-bchans(0) <= GPIO_0_IN0;
 END bdf_type;
