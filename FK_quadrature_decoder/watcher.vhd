@@ -144,8 +144,7 @@ begin
 					bitsToDiscard := 13 - bitResolution;
 				
 				when w_assemble_header =>
-					data_out(data_out'length - 1) <= '1';
-					data_out <= '0' & data_out(data_out'length - 1 downto 1);
+					data_out <= '1' & data_out(data_out'length - 1 downto 1);
 					totalBitCounter := totalBitCounter + 1;
 					tempBitCounter := tempBitCounter + 1;
 					if tempBitCounter = 16 then
