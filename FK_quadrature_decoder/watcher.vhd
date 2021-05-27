@@ -80,7 +80,7 @@ begin
 	
 	
 	watcher_timer : process(clock, areset) is
-		constant clocksMax : integer :=    25000000;
+		constant clocksMax : integer :=    500000;
 		--constant clocksMax : integer := 100000000;
 		variable counter : integer range 0 to clocksMax+1 := 0;
 
@@ -113,7 +113,6 @@ begin
 		variable totalBitCounter : integer range 0 to data_out'length := 0;
 		variable tempBitCounter  : integer range 0 to 31 := 0;
 		variable bitsToDiscard : integer range 0 to 31 := 0;
-		
 		variable tempPosition : std_logic_vector(12 downto 0);
 		
 	begin

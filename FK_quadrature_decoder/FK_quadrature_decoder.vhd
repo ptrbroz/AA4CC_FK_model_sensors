@@ -87,9 +87,9 @@ ENTITY FK_quadrature_decoder IS
 		GPIO_1_19 :  IN  STD_LOGIC;
 		GPIO_1_20 :  IN  STD_LOGIC;
 		GPIO_1_21 :  IN  STD_LOGIC;
-		GPIO_1_22 :  IN  STD_LOGIC;
+		GPIO_1_22 :  OUT  STD_LOGIC;
 		GPIO_1_23 :  IN  STD_LOGIC;
-		GPIO_1_24 :  OUT  STD_LOGIC;
+		GPIO_1_24 :  IN  STD_LOGIC;
 		GPIO_1_25 :  IN  STD_LOGIC;
 		GPIO_1_26 :  IN  STD_LOGIC;
 		GPIO_1_27 :  IN  STD_LOGIC;
@@ -231,7 +231,7 @@ GENERIC MAP(DATA_BITS => 8,
 PORT MAP(clock => CLOCK_50,
 		 start => SYNTHESIZED_WIRE_9,
 		 data => SYNTHESIZED_WIRE_10,
-		 trx => GPIO_1_24,
+		 trx => GPIO_1_22,
 		 ready => SYNTHESIZED_WIRE_3);
 
 

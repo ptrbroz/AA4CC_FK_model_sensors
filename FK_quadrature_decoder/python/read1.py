@@ -21,7 +21,7 @@ testb = b'\02'
 print(f"test: 0x02 = {byteToArray(testb)}")
 print(f"test: {byteToArray(testb)} = {arrayToInteger(byteToArray(testb))}")
 
-port = serial.Serial('COM5', 230400, parity= serial.PARITY_NONE)
+port = serial.Serial('COM7', 230400, parity= serial.PARITY_NONE)
 
 state = 0;
 databytes = [];

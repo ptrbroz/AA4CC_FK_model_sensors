@@ -274,7 +274,7 @@ GPIO_1_15                    : N11       : input  : 2.5 V             :         
 GPIO_1_12                    : N12       : input  : 2.5 V             :         : 4         : Y              
 VCCD_PLL4                    : N13       : power  :                   : 1.2V    :           :                
 GPIO_1_27                    : N14       : input  : 2.5 V             :         : 5         : Y              
-GPIO_1_24                    : N15       : output : 2.5 V             :         : 5         : Y              
+GPIO_1_24                    : N15       : input  : 2.5 V             :         : 5         : Y              
 GPIO_1_23                    : N16       : input  : 2.5 V             :         : 5         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : P1        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : P2        :        :                   :         : 2         :                
@@ -305,7 +305,7 @@ GPIO_1_11                    : R10       : input  : 2.5 V             :         
 GPIO_1_9                     : R11       : input  : 2.5 V             :         : 4         : Y              
 GPIO_1_6                     : R12       : input  : 2.5 V             :         : 4         : Y              
 GPIO_1_4                     : R13       : input  : 2.5 V             :         : 4         : Y              
-GPIO_1_22                    : R14       : input  : 2.5 V             :         : 4         : Y              
+GPIO_1_22                    : R14       : output : 2.5 V             :         : 4         : Y              
 GND                          : R15       : gnd    :                   :         :           :                
 GPIO_1_18                    : R16       : input  : 2.5 V             :         : 5         : Y              
 VCCIO3                       : T1        : power  :                   : 2.5V    : 3         :                
