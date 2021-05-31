@@ -1,5 +1,7 @@
 import serial;
 
+port = serial.Serial('COM6', 230400, parity= serial.PARITY_NONE)
+
 def access_bit(data, num):
     base = int(num // 8)
     shift = int(num % 8)
@@ -21,26 +23,26 @@ testb = b'\02'
 print(f"test: 0x02 = {byteToArray(testb)}")
 print(f"test: {byteToArray(testb)} = {arrayToInteger(byteToArray(testb))}")
 
-port = serial.Serial('COM7', 230400, parity= serial.PARITY_NONE)
 
 state = 0;
 databytes = [];
 
-databytesExpected = 2
+databytesExpected = 4
 
 RESOLUTION_BITS = 10 
 
 while(1):
     ok = 0
     if port.read() == b'\xff':
-        if port.read() == b'\xff':
+        if port.read() == b'\xfc':
             ok = 1
     if not ok:
+        print("not ok")
         continue
 
     databytes = []
     for i in range(databytesExpected):
-        databytes.insert(0, port.read()) #append byte to start of list
+        databytes.append(port.read()) #append byte to start of list
 
     #print(databytes)
 
@@ -51,8 +53,9 @@ while(1):
     #print(bitList)
 
     x = RESOLUTION_BITS + 1
-    data1 = bitList[-x:] #extract last 11 bits of list
+    data1 = bitList[:x] #extract first 11 bits of list
 
+    print(f"gotten: {databytes}")
     print(f"Encoder position: {arrayToInteger(data1)} ...... (gotten from {data1}")
 
 

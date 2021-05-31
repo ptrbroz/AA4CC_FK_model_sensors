@@ -1,14 +1,14 @@
-Fitter Status : Successful - Thu May 27 15:51:12 2021
+Fitter Status : Successful - Mon May 31 20:36:36 2021
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : FK_quadrature_decoder
 Top-level Entity Name : FK_quadrature_decoder
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 6,861 / 22,320 ( 31 % )
-    Total combinational functions : 5,956 / 22,320 ( 27 % )
-    Dedicated logic registers : 3,280 / 22,320 ( 15 % )
-Total registers : 3280
+Total logic elements : 6,952 / 22,320 ( 31 % )
+    Total combinational functions : 6,055 / 22,320 ( 27 % )
+    Dedicated logic registers : 3,314 / 22,320 ( 15 % )
+Total registers : 3314
 Total pins : 75 / 154 ( 49 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )

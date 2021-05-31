@@ -90,8 +90,8 @@ begin
 					end if;
 
 				when m_prep_byte =>
-					tx_byte <= savedData(7 downto 0);
-					savedData := "00000000" & savedData(DATA_MAX_BYTES*8-1 downto 8);
+					tx_byte <= savedData(savedData'length - 1 downto savedData'length - 8);
+					savedData := savedData(savedData'length - 9 downto 0) & "00000000";
 					savedDataIndex := savedDataIndex + 1;
 					state := m_send;
 				
