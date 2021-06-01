@@ -135,10 +135,9 @@ begin
 			case state is
 			
 				when w_wait_for_timer =>
-					--if timer_alarm = '1' then
-					state := w_save_positions;
-					--end if;
-				
+					--state := w_save_positions;
+					state := w_wait_for_timer;
+					
 				when w_save_positions =>
 					savedPositions := inPositions;
 					state := w_assemble_header_ones;

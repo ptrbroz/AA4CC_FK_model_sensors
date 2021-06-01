@@ -153,7 +153,7 @@ GENERIC (DATA_MAX_BYTES : INTEGER;
 		 watcher_data_valid : IN STD_LOGIC;
 		 boss_data_valid : IN STD_LOGIC;
 		 boss_select : IN STD_LOGIC;
-		 boss_data : IN STD_LOGIC_VECTOR(39 DOWNTO 0);
+		 boss_data : IN STD_LOGIC_VECTOR(DATA_SMALL_BYTES*8 - 1 DOWNTO 0);
 		 boss_data_len : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
 		 watcher_data : IN STD_LOGIC_VECTOR(471 DOWNTO 0);
 		 watcher_data_len : IN STD_LOGIC_VECTOR(5 DOWNTO 0);

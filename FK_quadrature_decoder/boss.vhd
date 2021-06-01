@@ -92,7 +92,7 @@ set_encoder_resolution <= encoder_resolution;
 					case idByte is
 						when ID_CONFIG =>
 							bytesLeft := 5;
-							state := b_receive_bytes;
+							state := b_receive_bytes_wait;
 							afterState := b_config_update;
 						when others =>
 							state := b_idle;
@@ -133,15 +133,16 @@ set_encoder_resolution <= encoder_resolution;
 					
 				when b_assemble_reply_config_start =>
 					tempBitCounter := 0;
+					totalBitCounter := 0;
 					state := b_assemble_reply_config_header;
 					
 				when b_assemble_reply_config_header =>
 					boss_data <= boss_data(boss_data'length - 2 downto 0) & '1';
+					totalBitCounter := totalBitCounter + 1;
 					tempBitCounter := tempBitCounter + 1;
 					if tempBitCounter = 24 then
 						tempBitCounter := 7;
 						dataBitCounter := 0;
-						totalBitCounter := 0;
 						state := b_assemble_reply_config_data;
 					end if;
 					
