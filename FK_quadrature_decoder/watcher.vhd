@@ -44,7 +44,6 @@ architecture arch1 of watcher is
 											--w_check_for_change, todo
 											w_save_positions,
 											w_assemble_header_ones,
-											w_assemble_header_msg_type,
 											w_assemble_header_calc_encoders,
 											w_assemble_header_append_encoders,
 											w_assemble_header_append_resolution,
@@ -110,16 +109,16 @@ begin
 	watcher_fsm : process(clock, areset) is
 		variable state : watcher_fsm_state_t := w_wait_for_timer;
 		variable encoderIndex : integer range 0 to MAX_ENCODERS := 0;
-		constant encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (0=> '1', 1=> '1', 5=>'1', 6=>'1', 7=>'1', 8=>'1', others => '0');
+		constant encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		variable savedPositions : position_array_t;
-		variable bitResolution : integer range 7 to 13 := 11;
+		variable bitResolution : integer range 0 to 13 := 10	;
 		variable totalBitCounter : integer range 0 to data_out'length := 0;
 		variable tempBitCounter  : integer range 0 to 31 := 0;
 		variable bitsToDiscard : integer range 0 to 31 := 0;
 		variable tempPosition : std_logic_vector(12 downto 0);
 		variable encoderCount : integer range 0 to MAX_ENCODERS := 0;
 		variable encoderCountArray : std_logic_vector(5 downto 0) := (others => '0');
-		variable resolutionArray : std_logic_vector(2 downto 0) := (others => '0');
+		variable resolutionArray : std_logic_vector(3 downto 0) := (others => '0');
 		
 		
 	begin
@@ -127,7 +126,7 @@ begin
 	if areset = '1' then
 		state := w_wait_for_timer; 
 		encoderIndex := 0;
-		--encoderEnableVector := (1 => '1', 3 => '1', 4 => '1', 7 => '1', others => '0');
+		--encoderEnableVector := (1 => '1', 3 => '1', 4 => '1', 7 => '1', others => '1');
 	else
 		if rising_edge(clock) then
 		
@@ -136,10 +135,9 @@ begin
 			case state is
 			
 				when w_wait_for_timer =>
-					
-					if timer_alarm = '1' then
-						state := w_save_positions;
-					end if;
+					--if timer_alarm = '1' then
+					state := w_save_positions;
+					--end if;
 				
 				when w_save_positions =>
 					savedPositions := inPositions;
@@ -154,17 +152,12 @@ begin
 					totalBitCounter := totalBitCounter + 1;
 					tempBitCounter := tempBitCounter + 1;
 					if tempBitCounter = 14 then
-						state := w_assemble_header_msg_type;
+						state := w_assemble_header_calc_encoders;
 						tempBitCounter := 0;
+						encoderIndex := 0;
+						encoderCount := 0;
 					end if;
-					
-				when w_assemble_header_msg_type =>
-					data_out <= data_out(data_out'length - 2 downto 0) & '0' ;
-					totalBitCounter := totalBitCounter + 1;
-					state := w_assemble_header_calc_encoders;
-					encoderIndex := 0;
-					encoderCount := 0;
-				
+									
 				when w_assemble_header_calc_encoders =>
 					if encoderEnableVector(encoderIndex) = '1' then
 						encoderCount := encoderCount + 1;
@@ -186,7 +179,7 @@ begin
 					tempBitCounter := tempBitCounter + 1;
 					if tempBitCounter = encoderCountArray'length then
 						tempBitCounter := 0;
-						resolutionArray := std_logic_vector(to_unsigned(bitResolution - 7, 3));
+						resolutionArray := std_logic_vector(to_unsigned(bitResolution, 4));
 						state := w_assemble_header_append_resolution;
 					end if;
 					

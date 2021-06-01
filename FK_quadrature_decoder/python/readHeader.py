@@ -2,6 +2,7 @@ import serial
 import math
 import colorama
 
+
 port = serial.Serial('COM6', 230400, parity= serial.PARITY_NONE)
 
 def access_bit(data, num):
@@ -26,10 +27,6 @@ print(f"test: 0x02 = {byteToArray(testb)}")
 print(f"test: {byteToArray(testb)} = {arrayToInteger(byteToArray(testb))}")
 
 
-state = 0;
-
-
-RESOLUTION_BITS = 10 
 
 flicker = "/"  #just to indicate activity when there are no changes
 
@@ -43,9 +40,10 @@ while(1):
         continue
 
     b2 = port.read()
-    if b2 not in [b'\xfc', b'\xfd']:
+    if b2 not in [b'\xfc', b'\xfd', b'\xfe', b'\xff']:
         print("Message misaligned!")
         continue
+
 
     #if we got this far, we caught start of message correctly
     
@@ -55,8 +53,8 @@ while(1):
 
     headerBitArray = byteToArray(b2) + byteToArray(b3) #byte 1 does not carry data
 
-    encoderCount = arrayToInteger(headerBitArray[7:13])
-    resolution   = arrayToInteger(headerBitArray[13:16]) + 7 #don't forget resolution offset by 7
+    encoderCount = arrayToInteger(headerBitArray[6:12])
+    resolution   = arrayToInteger(headerBitArray[12:16])
 
     expectedDataBits = encoderCount*(resolution + 1) #+1 because of separator bits
     expectedBytes = math.ceil(expectedDataBits/8)
@@ -64,7 +62,8 @@ while(1):
     
     dataBytes = []
     for i in range(expectedBytes):
-        dataBytes.append(port.read()) 
+        dataBytes.append(port.read())
+
 
     bitList = []
     for byte in dataBytes:
@@ -83,9 +82,9 @@ while(1):
         flicker = "\\"
     else:
         flicker = "/"
-    print(f"[{flicker}] There are {encoderCount} encoders running at resolution of {resolution} bits.                      ")   
+    print(f"[{flicker}] I'm reading {encoderCount} encoders running at resolution of {resolution} bits.                       ")   
     for i, position in enumerate(positionsList):
-        print(f"Encoder index {i}'s position: [{position:04d}/{maxVal}]")
+        print(f"Encoder index {i+1}'s position: [{position:04d}/{maxVal}]")
 
     print("\r")
     for position in positionsList:

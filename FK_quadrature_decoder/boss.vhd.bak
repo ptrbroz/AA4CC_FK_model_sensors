@@ -1,0 +1,14 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity boss IS
+port(
+		clock : in std_logic;
+		areset : in std_logic;
+		byte_in : in std_logic_vector(7 downto 0);
+		byte_in_valid : in std_logic;
+		boss_data o
+		);
+end uart_out_manager;
