@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 entity uart_out_manager IS
 generic(
 			DATA_MAX_BYTES : integer := 59;
-			DATA_SMALL_BYTES : integer := 5
+			DATA_SMALL_BYTES : integer := 10
 		);
 port(
 		clock : in std_logic;

@@ -104,6 +104,29 @@ END FK_quadrature_decoder;
 
 ARCHITECTURE bdf_type OF FK_quadrature_decoder IS 
 
+
+COMPONENT boss IS
+generic(
+		MAX_ENCODERS : integer;
+		DATA_SMALL_BYTES : integer
+);
+port(
+		clock : in std_logic;
+		areset : in std_logic;
+		byte_in : in std_logic_vector(7 downto 0);
+		byte_in_valid : in std_logic;
+		boss_data : buffer std_logic_vector(DATA_SMALL_BYTES*8-1 downto 0); 
+		boss_data_len : out std_logic_vector(5 downto 0); 
+		boss_data_valid : out std_logic;
+		boss_data_ack : in std_logic;
+		boss_select : out std_logic;
+		set_encoder_vector : out std_logic_vector(MAX_ENCODERS-1 downto 0);
+		set_encoder_resolution : out integer range 0 to 13;
+		set_encoder_reset : out std_logic
+		);
+end COMPONENT;
+
+
 COMPONENT watcher
 GENERIC (CLK_IN_FREQ : INTEGER;
 			DATA_MAX_BYTES : INTEGER;
@@ -160,6 +183,22 @@ GENERIC (DATA_BITS : INTEGER;
 	);
 END COMPONENT;
 
+component uart_rx is
+generic (
+DATA_BITS : integer;
+UART_BAUD_RATE : integer;
+TARGET_MCLK : integer);
+port (
+     clock : in std_logic; 
+     --reset : in std_logic; 
+      data : out std_logic_vector(DATA_BITS-1 downto 0); 
+      data_valid : out std_logic; 
+      rxd  : in std_logic
+		);
+end component;
+
+
+
 COMPONENT constant64
 	PORT(		 result : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
 	);
@@ -178,9 +217,41 @@ SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC_VECTOR(5 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
 
+signal wire_boss_data : std_logic_vector(10*8-1 downto 0); 
+signal wire_boss_data_len : std_logic_vector(5 downto 0); 
+signal wire_boss_data_valid : std_logic;
+signal wire_boss_data_ack : std_logic;
+signal wire_boss_select : std_logic;
+
+signal wire_set_encoder_vector : std_logic_vector(35-1 downto 0);
+signal wire_set_encoder_resolution : integer range 0 to 13;
+signal wire_set_encoder_reset : std_logic;
+
+signal wire_rx_byte : std_logic_vector(7 downto 0);
+signal wire_rx_valid : std_logic;
 
 BEGIN 
 LED0 <= KEY0;
+
+boss_inst : boss
+generic map(
+		MAX_ENCODERS => 35,
+		DATA_SMALL_BYTES => 10
+)
+port map(
+		clock => CLOCK_50,
+		areset => SYNTHESIZED_WIRE_11,
+		byte_in => wire_rx_byte,
+		byte_in_valid => wire_rx_valid,
+		boss_data => wire_boss_data,
+		boss_data_len => wire_boss_data_len,
+		boss_data_valid => wire_boss_data_valid,
+		boss_data_ack  => wire_boss_data_ack,
+		boss_select => wire_boss_select,
+		set_encoder_vector => wire_set_encoder_vector,
+		set_encoder_resolution => wire_set_encoder_resolution,
+		set_encoder_reset => wire_set_encoder_reset
+		);
 
 
 
@@ -201,20 +272,21 @@ PORT MAP(clock => CLOCK_50,
 
 b2v_inst2 : uart_out_manager
 GENERIC MAP(DATA_MAX_BYTES => 59,
-			DATA_SMALL_BYTES => 5
+			DATA_SMALL_BYTES => 10
 			)
 PORT MAP(clock => CLOCK_50,
 		 areset => SYNTHESIZED_WIRE_11,
 		 tx_is_ready => SYNTHESIZED_WIRE_3,
 		 watcher_data_valid => SYNTHESIZED_WIRE_4,
-		 boss_data_valid => SYNTHESIZED_WIRE_12,
-		 boss_select => SYNTHESIZED_WIRE_12,
-		 boss_data => zeroconst(39 DOWNTO 0),
-		 boss_data_len => zeroconst(5 DOWNTO 0),
+		 boss_data_valid => wire_boss_data_valid,
+		 boss_select => wire_boss_select,
+		 boss_data => wire_boss_data,
+		 boss_data_len => wire_boss_data_len,
 		 watcher_data => SYNTHESIZED_WIRE_7,
 		 watcher_data_len => SYNTHESIZED_WIRE_8,
 		 tx_send => SYNTHESIZED_WIRE_9,
 		 watcher_data_ack => SYNTHESIZED_WIRE_1,
+		 boss_data_ack => wire_boss_data_ack,
 		 tx_byte => SYNTHESIZED_WIRE_10);
 
 
@@ -233,6 +305,19 @@ PORT MAP(clock => CLOCK_50,
 		 data => SYNTHESIZED_WIRE_10,
 		 trx => GPIO_1_22,
 		 ready => SYNTHESIZED_WIRE_3);
+		 
+		 
+rxcomp : uart_rx 
+generic map(
+DATA_BITS => 8,
+UART_BAUD_RATE => 230400,
+TARGET_MCLK => 50000000)
+port map(
+     clock => CLOCK_50,
+      data => wire_rx_byte,
+      data_valid => wire_rx_valid, 
+      rxd  => GPIO_1_24
+		);
 
 
 SYNTHESIZED_WIRE_11 <= NOT(KEY0);
