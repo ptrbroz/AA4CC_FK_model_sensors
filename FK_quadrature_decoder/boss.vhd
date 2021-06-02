@@ -21,7 +21,8 @@ port(
 		boss_select : out std_logic;
 		set_encoder_vector : out std_logic_vector(MAX_ENCODERS-1 downto 0);
 		set_encoder_resolution : out integer range 0 to 13;
-		set_encoder_reset : out std_logic
+		set_encoder_reset : out std_logic;
+		set_encoder_enable : out std_logic
 		);
 end boss;
 
@@ -42,10 +43,14 @@ type boss_fsm_state_t is ( b_idle,
 									);
 
 
-constant ID_CONFIG : std_logic_vector (7 downto 0) := "00000001";
+constant ID_CONFIG   : std_logic_vector (7 downto 0) := "00000001";
+constant ID_COMM_OFF : std_logic_vector (7 downto 0) := "00000010";
+constant ID_COMM_ON  : std_logic_vector (7 downto 0) := "00000100";
 
-signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := (others => '0');
+
+signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := --(1 => '1',2 => '1', 33=>'1', others => '0');
 signal encoder_resolution : integer range 0 to 13 := 11;
+signal encoder_enable : std_logic := '1';
 
 signal debug : std_logic := '0';
 
@@ -55,8 +60,9 @@ begin
 
 set_encoder_vector <= encoder_vector;
 set_encoder_resolution <= encoder_resolution;
+set_encoder_enable <= encoder_enable;
 
-debug_led <= debug;
+debug_led <= debug;	
 
 
 
@@ -74,6 +80,8 @@ debug_led <= debug;
 		variable dataBitCounter : integer range 0 to 100 := 0;
 		variable totalBitCounter : integer range 0 to 100 := 0;
 		
+		variable enableAfterAck : std_logic := '0';
+		
 	begin
 	
 	if areset = '1' then
@@ -82,8 +90,8 @@ debug_led <= debug;
 		if rising_edge(clock) then
 			
 			set_encoder_reset <= '0';
-			boss_data_valid <= '0';
-			boss_select <= '0';
+			boss_data_valid 	<= '0';
+			boss_select 		<= '0';
 			
 			case state is
 			
@@ -94,13 +102,21 @@ debug_led <= debug;
 					end if;
 				
 				when b_id_check =>
+					enableAfterAck := encoder_enable; 	
 					case idByte is
 						when ID_CONFIG =>
 							bytesLeft := 5;
 							state := b_receive_bytes_wait;
 							afterState := b_config_update;
-						when others =>
+							enableAfterAck := '1';
+						when ID_COMM_ON =>
+							--encoder_enable <= '1';
 							state := b_idle;
+						when ID_COMM_OFF =>
+							--encoder_enable <= '0';
+							state := b_idle;
+						when others =>
+							--ignore
 					end case;
 					
 				when b_receive_bytes =>
@@ -178,15 +194,16 @@ debug_led <= debug;
 					
 				when b_send_reply =>
 					boss_data_valid <= '1';
-					boss_select <= '1';
+					boss_select <= '0'; --todo revert
 					state := b_wait_for_ack;
 					debug <= '1';
 					
 				when b_wait_for_ack =>
 					boss_data_valid <= '1';
-					boss_select <= '1';
+					boss_select <= '0'; --todo revert
 					if boss_data_ack = '1' then
 						state := b_idle;
+						--encoder_enable <= enableAfterAck;
 					end if;
 				
 					

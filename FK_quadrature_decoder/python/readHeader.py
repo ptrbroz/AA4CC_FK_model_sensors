@@ -1,9 +1,11 @@
 import serial
 import math
-import colorama
+#import colorama
+import time
 
 
 port = serial.Serial('COM6', 230400, parity= serial.PARITY_NONE)
+
 
 def access_bit(data, num):
     base = int(num // 8)
@@ -22,32 +24,69 @@ def arrayToInteger(arr):
         power = power * 2
     return integer
 
-testb = b'\02'
-print(f"test: 0x02 = {byteToArray(testb)}")
-print(f"test: {byteToArray(testb)} = {arrayToInteger(byteToArray(testb))}")
+def initFpga(encoderVector, resolution, reset):
+    bytesToSend = []
+    bytesToSend.append(b'\x01') #initialization command id
+    #first four data bytes contain just encoder vector
+    for i in range(4):
+        subVector = encoderVector[i*8:(i+1)*8]
+        subByte = arrayToInteger(subVector).to_bytes(1, 'big')
+        bytesToSend.append(subByte)
+    #fifth data byte combines end of encoder vector and other settings
+    a = encoderVector[4*8:]                           #last 3 bits of encoder vector
+    b = byteToArray(resolution.to_bytes(1,'big'))[4:] #resolution represented as 4-bit unsigned
+    c = [reset]                                       #reset bit
+    lastByte = arrayToInteger(a + b + c).to_bytes(1, 'big')
+    bytesToSend.append(lastByte)
+    print(f"Sending {bytesToSend}")
+    for byte in bytesToSend:
+        port.write(byte)
+
+#def fpgaReplyToSettings:
+    
+    
+    
+    
 
 
+
+
+vector = [0]*35
+vector[0] = 1
+vector[1] = 1
+
+
+#initFpga(vector, 10, 1)
+
+#port.write(b'\x04')
+
+
+prevCount = None
+prevRes = None
 
 flicker = "/"  #just to indicate activity when there are no changes
-
 while(1):
+    time.sleep(.5)
+    port.flushInput()
+    port.flushOutput() 
     msg = []
 
     b1 = port.read()
 
     if b1 != b'\xff':
-        print("Message misaligned!")
         continue
 
     b2 = port.read()
     if b2 not in [b'\xfc', b'\xfd', b'\xfe', b'\xff']:
-        print("Message misaligned!")
         continue
-
 
     #if we got this far, we caught start of message correctly
     
     b3 = port.read()
+
+    #if b3 == b'\xff':
+    #    print(f"That's not my message! Got {b1} into {b2} into {b3}                                            ")
+    #    continue
 
     #parse header to determine how many bytes to expect
 
@@ -56,6 +95,7 @@ while(1):
     encoderCount = arrayToInteger(headerBitArray[6:12])
     resolution   = arrayToInteger(headerBitArray[12:16])
 
+
     expectedDataBits = encoderCount*(resolution + 1) #+1 because of separator bits
     expectedBytes = math.ceil(expectedDataBits/8)
 
@@ -63,6 +103,16 @@ while(1):
     dataBytes = []
     for i in range(expectedBytes):
         dataBytes.append(port.read())
+
+
+
+    if prevCount == None:
+        prevCount = encoderCount
+        prevRes = resolution
+    else:
+        if prevCount != encoderCount or prevRes != resolution:
+            continue
+
 
 
     bitList = []
@@ -78,20 +128,25 @@ while(1):
          
     maxVal = (2**(resolution)) - 1
 
+    
+
     if flicker == "/":
         flicker = "\\"
     else:
         flicker = "/"
+    #print(f"Bytes: {b1} {b2} {b3}   {dataBytes}                                  ")
     print(f"[{flicker}] I'm reading {encoderCount} encoders running at resolution of {resolution} bits.                       ")   
     for i, position in enumerate(positionsList):
         print(f"Encoder index {i+1}'s position: [{position:04d}/{maxVal}]")
+    print("")
 
+    
     print("\r")
+    print("\x1B[2A")
     for position in positionsList:
         print("\x1B[2A")
     print("\x1B[2A")
     print("\x1B[2A")
-
 
 
 

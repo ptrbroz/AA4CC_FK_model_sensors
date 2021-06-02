@@ -18,7 +18,10 @@ port(
 		data_out : buffer std_logic_vector(DATA_MAX_BYTES*8 - 1 downto 0);
 		data_out_len : out std_logic_vector(5 downto 0); 
 		data_out_ready : out std_logic;
-		data_out_ack : in std_logic
+		data_out_ack : in std_logic;
+		set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
+		set_encoder_resolution : in integer range 0 to 13;
+		set_enabled : in std_logic
 		);
 end watcher;
 
@@ -109,12 +112,11 @@ begin
 	watcher_fsm : process(clock, areset) is
 		variable state : watcher_fsm_state_t := w_wait_for_timer;
 		variable encoderIndex : integer range 0 to MAX_ENCODERS := 0;
-		constant encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
+		variable encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		variable savedPositions : position_array_t;
 		variable bitResolution : integer range 0 to 13 := 10	;
 		variable totalBitCounter : integer range 0 to data_out'length := 0;
 		variable tempBitCounter  : integer range 0 to 31 := 0;
-		variable bitsToDiscard : integer range 0 to 31 := 0;
 		variable tempPosition : std_logic_vector(12 downto 0);
 		variable encoderCount : integer range 0 to MAX_ENCODERS := 0;
 		variable encoderCountArray : std_logic_vector(5 downto 0) := (others => '0');
@@ -135,16 +137,18 @@ begin
 			case state is
 			
 				when w_wait_for_timer =>
-					--state := w_save_positions;
-					state := w_wait_for_timer;
+					if set_enabled = '1' then
+						state := w_save_positions;
+					end if;
 					
 				when w_save_positions =>
 					savedPositions := inPositions;
+					encoderEnableVector := set_encoder_vector;
+					bitResolution := set_encoder_resolution;
 					state := w_assemble_header_ones;
 					encoderIndex := 0;
 					totalBitCounter := 0;
 					tempBitCounter := 0;
-					bitsToDiscard := 13 - bitResolution;
 				
 				when w_assemble_header_ones =>
 					data_out <= data_out(data_out'length - 2 downto 0) & '1' ;
@@ -242,13 +246,21 @@ begin
 					end if;
 									
 				when w_ready_message =>
-					data_out_ready <= '1';
-					state := w_wait_for_ack;
+					if set_enabled = '0' then
+						state := w_wait_for_timer;
+					else
+						data_out_ready <= '1';
+						state := w_wait_for_ack;
+					end if;
 					
 				when w_wait_for_ack =>
-					data_out_ready <= '1';
-					if data_out_ack = '1' then
+					if set_enabled = '0' then
 						state := w_wait_for_timer;
+					else
+						data_out_ready <= '1';
+						if data_out_ack = '1' then
+							state := w_wait_for_timer;
+						end if;
 					end if;
 			end case;
 			
