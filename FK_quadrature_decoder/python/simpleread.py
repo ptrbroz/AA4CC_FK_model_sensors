@@ -1,16 +1,14 @@
 import serial
-s = serial.Serial()
-s.baudrate = 230400
-s.port = 'COM6'
+s = serial.Serial('COM6', 230400, parity= serial.PARITY_NONE)
 
-s.open()
 
 input()
 
 for i in range(6):
-    s.write(1)
+    s.write(b'\x01')
     print("wrote")
 
 
 while 1:
     print(s.read())
+

@@ -9,6 +9,7 @@ generic(
 		DATA_SMALL_BYTES : integer := 10
 );
 port(
+		debug_led : out std_logic;
 		clock : in std_logic;
 		areset : in std_logic;
 		byte_in : in std_logic_vector(7 downto 0);
@@ -46,6 +47,8 @@ constant ID_CONFIG : std_logic_vector (7 downto 0) := "00000001";
 signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := (others => '0');
 signal encoder_resolution : integer range 0 to 13 := 11;
 
+signal debug : std_logic := '0';
+
 									
 begin
 
@@ -53,7 +56,9 @@ begin
 set_encoder_vector <= encoder_vector;
 set_encoder_resolution <= encoder_resolution;
 
-	 
+debug_led <= debug;
+
+
 
 
 	boss_fsm : process(clock, areset) is
@@ -103,7 +108,7 @@ set_encoder_resolution <= encoder_resolution;
 						state := afterState;
 					else
 						if byte_in_valid = '1' then
-							configData := configData(39 downto 8) & byte_in;
+							configData := configData(31 downto 0) & byte_in;
 							bytesLeft := bytesLeft - 1;
 							state := b_receive_bytes_wait;
 						end if;
@@ -175,6 +180,7 @@ set_encoder_resolution <= encoder_resolution;
 					boss_data_valid <= '1';
 					boss_select <= '1';
 					state := b_wait_for_ack;
+					debug <= '1';
 					
 				when b_wait_for_ack =>
 					boss_data_valid <= '1';

@@ -27,6 +27,7 @@ ENTITY FK_quadrature_decoder IS
 		CLOCK_50 :  IN  STD_LOGIC;
 		KEY0 :  IN  STD_LOGIC;
 		LED0 :  OUT  STD_LOGIC;
+		LED1 :  out std_logic;
 		GPIO_0_IN0 :  IN  STD_LOGIC;
 		GPIO_0_IN1 :  IN  STD_LOGIC;
 		GPIO_1_IN0 :  IN  STD_LOGIC;
@@ -111,6 +112,7 @@ generic(
 		DATA_SMALL_BYTES : integer
 );
 port(
+		debug_led : out std_logic;
 		clock : in std_logic;
 		areset : in std_logic;
 		byte_in : in std_logic_vector(7 downto 0);
@@ -239,6 +241,7 @@ generic map(
 		DATA_SMALL_BYTES => 10
 )
 port map(
+		debug_led => LED1,
 		clock => CLOCK_50,
 		areset => SYNTHESIZED_WIRE_11,
 		byte_in => wire_rx_byte,

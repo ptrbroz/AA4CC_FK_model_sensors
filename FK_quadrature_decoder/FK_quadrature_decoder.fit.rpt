@@ -1,5 +1,5 @@
 Fitter report for FK_quadrature_decoder
-Wed Jun 02 01:45:53 2021
+Wed Jun 02 02:17:42 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -67,18 +67,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Wed Jun 02 01:45:53 2021           ;
+; Fitter Status                      ; Successful - Wed Jun 02 02:17:42 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; FK_quadrature_decoder                           ;
 ; Top-level Entity Name              ; FK_quadrature_decoder                           ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Device                             ; EP4CE22F17C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 1,390 / 22,320 ( 6 % )                          ;
-;     Total combinational functions  ; 797 / 22,320 ( 4 % )                            ;
-;     Dedicated logic registers      ; 1,234 / 22,320 ( 6 % )                          ;
-; Total registers                    ; 1234                                            ;
-; Total pins                         ; 75 / 154 ( 49 % )                               ;
+; Total logic elements               ; 1,388 / 22,320 ( 6 % )                          ;
+;     Total combinational functions  ; 827 / 22,320 ( 4 % )                            ;
+;     Dedicated logic registers      ; 1,235 / 22,320 ( 6 % )                          ;
+; Total registers                    ; 1235                                            ;
+; Total pins                         ; 76 / 154 ( 49 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                                 ;
@@ -162,6 +162,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Pin Name  ; Reason                               ;
 +-----------+--------------------------------------+
 ; LED0      ; Missing drive strength and slew rate ;
+; LED1      ; Missing drive strength and slew rate ;
 ; GPIO_1_22 ; Missing drive strength and slew rate ;
 +-----------+--------------------------------------+
 
@@ -223,7 +224,6 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Location ;                ;              ; I2C_SCLK      ; PIN_F2        ; QSF Assignment ;
 ; Location ;                ;              ; I2C_SDAT      ; PIN_F1        ; QSF Assignment ;
 ; Location ;                ;              ; KEY1          ; PIN_E1        ; QSF Assignment ;
-; Location ;                ;              ; LED1          ; PIN_A13       ; QSF Assignment ;
 ; Location ;                ;              ; LED2          ; PIN_B13       ; QSF Assignment ;
 ; Location ;                ;              ; LED3          ; PIN_A11       ; QSF Assignment ;
 ; Location ;                ;              ; LED4          ; PIN_D1        ; QSF Assignment ;
@@ -243,8 +243,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 2180 ( 0.00 % )    ;
-;     -- Achieved     ; 0 / 2180 ( 0.00 % )    ;
+;     -- Requested    ; 0 / 2213 ( 0.00 % )    ;
+;     -- Achieved     ; 0 / 2213 ( 0.00 % )    ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -267,7 +267,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 2180    ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 2213    ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 0       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -283,28 +283,28 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 1,390 / 22,320 ( 6 % ) ;
-;     -- Combinational with no register       ; 156                    ;
-;     -- Register only                        ; 593                    ;
-;     -- Combinational with a register        ; 641                    ;
+; Total logic elements                        ; 1,388 / 22,320 ( 6 % ) ;
+;     -- Combinational with no register       ; 153                    ;
+;     -- Register only                        ; 561                    ;
+;     -- Combinational with a register        ; 674                    ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 140                    ;
-;     -- 3 input functions                    ; 538                    ;
-;     -- <=2 input functions                  ; 119                    ;
-;     -- Register only                        ; 593                    ;
+;     -- 4 input functions                    ; 132                    ;
+;     -- 3 input functions                    ; 570                    ;
+;     -- <=2 input functions                  ; 125                    ;
+;     -- Register only                        ; 561                    ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 718                    ;
+;     -- normal mode                          ; 748                    ;
 ;     -- arithmetic mode                      ; 79                     ;
 ;                                             ;                        ;
-; Total registers*                            ; 1,234 / 23,018 ( 5 % ) ;
-;     -- Dedicated logic registers            ; 1,234 / 22,320 ( 6 % ) ;
+; Total registers*                            ; 1,235 / 23,018 ( 5 % ) ;
+;     -- Dedicated logic registers            ; 1,235 / 22,320 ( 6 % ) ;
 ;     -- I/O registers                        ; 0 / 698 ( 0 % )        ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 94 / 1,395 ( 7 % )     ;
+; Total LABs:  partially or completely used   ; 90 / 1,395 ( 6 % )     ;
 ; Virtual pins                                ; 0                      ;
-; I/O pins                                    ; 75 / 154 ( 49 % )      ;
+; I/O pins                                    ; 76 / 154 ( 49 % )      ;
 ;     -- Clock pins                           ; 3 / 7 ( 43 % )         ;
 ;     -- Dedicated input pins                 ; 0 / 9 ( 0 % )          ;
 ;                                             ;                        ;
@@ -319,11 +319,11 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 ; CRC blocks                                  ; 0 / 1 ( 0 % )          ;
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )          ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )          ;
-; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%           ;
-; Peak interconnect usage (total/H/V)         ; 6% / 6% / 8%           ;
-; Maximum fan-out                             ; 1234                   ;
-; Highest non-global fan-out                  ; 532                    ;
-; Total fan-out                               ; 7216                   ;
+; Average interconnect usage (total/H/V)      ; 0% / 0% / 1%           ;
+; Peak interconnect usage (total/H/V)         ; 7% / 5% / 10%          ;
+; Maximum fan-out                             ; 1235                   ;
+; Highest non-global fan-out                  ; 534                    ;
+; Total fan-out                               ; 7290                   ;
 ; Average fan-out                             ; 2.81                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
@@ -337,28 +337,28 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 1390 / 22320 ( 6 % ) ; 0 / 22320 ( 0 % )              ;
-;     -- Combinational with no register       ; 156                  ; 0                              ;
-;     -- Register only                        ; 593                  ; 0                              ;
-;     -- Combinational with a register        ; 641                  ; 0                              ;
+; Total logic elements                        ; 1388 / 22320 ( 6 % ) ; 0 / 22320 ( 0 % )              ;
+;     -- Combinational with no register       ; 153                  ; 0                              ;
+;     -- Register only                        ; 561                  ; 0                              ;
+;     -- Combinational with a register        ; 674                  ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 140                  ; 0                              ;
-;     -- 3 input functions                    ; 538                  ; 0                              ;
-;     -- <=2 input functions                  ; 119                  ; 0                              ;
-;     -- Register only                        ; 593                  ; 0                              ;
+;     -- 4 input functions                    ; 132                  ; 0                              ;
+;     -- 3 input functions                    ; 570                  ; 0                              ;
+;     -- <=2 input functions                  ; 125                  ; 0                              ;
+;     -- Register only                        ; 561                  ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 718                  ; 0                              ;
+;     -- normal mode                          ; 748                  ; 0                              ;
 ;     -- arithmetic mode                      ; 79                   ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total registers                             ; 1234                 ; 0                              ;
-;     -- Dedicated logic registers            ; 1234 / 22320 ( 6 % ) ; 0 / 22320 ( 0 % )              ;
+; Total registers                             ; 1235                 ; 0                              ;
+;     -- Dedicated logic registers            ; 1235 / 22320 ( 6 % ) ; 0 / 22320 ( 0 % )              ;
 ;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 94 / 1395 ( 7 % )    ; 0 / 1395 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 90 / 1395 ( 6 % )    ; 0 / 1395 ( 0 % )               ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
-; I/O pins                                    ; 75                   ; 0                              ;
+; I/O pins                                    ; 76                   ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 132 ( 0 % )      ; 0 / 132 ( 0 % )                ;
 ; Total memory bits                           ; 0                    ; 0                              ;
 ; Total RAM block bits                        ; 0                    ; 0                              ;
@@ -371,8 +371,8 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 7216                 ; 0                              ;
-;     -- Registered Connections               ; 2812                 ; 0                              ;
+;     -- Total Connections                    ; 7290                 ; 0                              ;
+;     -- Registered Connections               ; 2854                 ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 0                              ;
@@ -380,7 +380,7 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 ;                                             ;                      ;                                ;
 ; Partition Interface                         ;                      ;                                ;
 ;     -- Input Ports                          ; 73                   ; 0                              ;
-;     -- Output Ports                         ; 2                    ; 0                              ;
+;     -- Output Ports                         ; 3                    ; 0                              ;
 ;     -- Bidir Ports                          ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Registered Ports                            ;                      ;                                ;
@@ -404,7 +404,7 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 +------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+
 ; Name       ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ;
 +------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+
-; CLOCK_50   ; R8    ; 3        ; 27           ; 0            ; 21           ; 1234                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
+; CLOCK_50   ; R8    ; 3        ; 27           ; 0            ; 21           ; 1235                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
 ; GPIO_0_0   ; D3    ; 8        ; 1            ; 34           ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
 ; GPIO_0_1   ; C3    ; 8        ; 1            ; 34           ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
 ; GPIO_0_10  ; B6    ; 8        ; 16           ; 34           ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
@@ -476,7 +476,7 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 ; GPIO_1_9   ; R11   ; 4        ; 34           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
 ; GPIO_1_IN0 ; T9    ; 4        ; 27           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
 ; GPIO_1_IN1 ; R9    ; 4        ; 27           ; 0            ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
-; KEY0       ; J15   ; 5        ; 53           ; 14           ; 0            ; 532                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
+; KEY0       ; J15   ; 5        ; 53           ; 14           ; 0            ; 534                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ;
 +------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+
 
 
@@ -487,6 +487,7 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 +-----------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; GPIO_1_22 ; R14   ; 4        ; 49           ; 0            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; LED0      ; A15   ; 7        ; 38           ; 34           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
+; LED1      ; A13   ; 7        ; 49           ; 34           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 +-----------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
@@ -540,7 +541,7 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 ; 4        ; 20 / 20 ( 100 % ) ; 2.5V          ; --           ;
 ; 5        ; 16 / 18 ( 89 % )  ; 2.5V          ; --           ;
 ; 6        ; 1 / 13 ( 8 % )    ; 2.5V          ; --           ;
-; 7        ; 13 / 24 ( 54 % )  ; 2.5V          ; --           ;
+; 7        ; 14 / 24 ( 58 % )  ; 2.5V          ; --           ;
 ; 8        ; 24 / 24 ( 100 % ) ; 2.5V          ; --           ;
 +----------+-------------------+---------------+--------------+
 
@@ -562,7 +563,7 @@ The pin-out file can be found in C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_qua
 ; A10      ; 198        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; A11      ; 188        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; A12      ; 186        ; 7        ; GPIO_0_30                       ; input  ; 2.5 V        ;         ; Column I/O ; Y               ; no       ; Off          ;
-; A13      ; 179        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
+; A13      ; 179        ; 7        ; LED1                            ; output ; 2.5 V        ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; A14      ; 181        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; A15      ; 191        ; 7        ; LED0                            ; output ; 2.5 V        ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; A16      ;            ; 7        ; VCCIO7                          ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
@@ -816,12 +817,12 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +---------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------+--------------+
 ; Compilation Hierarchy Node      ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                               ; Library Name ;
 +---------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------+--------------+
-; |FK_quadrature_decoder          ; 1390 (1)    ; 1234 (0)                  ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 75   ; 0            ; 156 (1)      ; 593 (0)           ; 641 (0)          ; |FK_quadrature_decoder                            ; work         ;
-;    |boss:boss_inst|             ; 220 (220)   ; 167 (167)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 53 (53)      ; 117 (117)         ; 50 (50)          ; |FK_quadrature_decoder|boss:boss_inst             ; work         ;
+; |FK_quadrature_decoder          ; 1388 (1)    ; 1235 (0)                  ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 76   ; 0            ; 153 (1)      ; 561 (0)           ; 674 (0)          ; |FK_quadrature_decoder                            ; work         ;
+;    |boss:boss_inst|             ; 218 (218)   ; 168 (168)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 50 (50)      ; 85 (85)           ; 83 (83)          ; |FK_quadrature_decoder|boss:boss_inst             ; work         ;
 ;    |uart_out_manager:b2v_inst2| ; 512 (512)   ; 500 (500)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 12 (12)      ; 5 (5)             ; 495 (495)        ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2 ; work         ;
-;    |uart_rx:rxcomp|             ; 100 (100)   ; 42 (42)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 58 (58)      ; 0 (0)             ; 42 (42)          ; |FK_quadrature_decoder|uart_rx:rxcomp             ; work         ;
+;    |uart_rx:rxcomp|             ; 99 (99)     ; 42 (42)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 57 (57)      ; 0 (0)             ; 42 (42)          ; |FK_quadrature_decoder|uart_rx:rxcomp             ; work         ;
 ;    |uart_tx:b2v_inst4|          ; 40 (40)     ; 18 (18)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 18 (18)      ; 0 (0)             ; 22 (22)          ; |FK_quadrature_decoder|uart_tx:b2v_inst4          ; work         ;
-;    |watcher:b2v_inst|           ; 521 (521)   ; 507 (507)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 471 (471)         ; 36 (36)          ; |FK_quadrature_decoder|watcher:b2v_inst           ; work         ;
+;    |watcher:b2v_inst|           ; 522 (522)   ; 507 (507)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 15 (15)      ; 471 (471)         ; 36 (36)          ; |FK_quadrature_decoder|watcher:b2v_inst           ; work         ;
 +---------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -832,6 +833,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name       ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ; TCOE ;
 +------------+----------+---------------+---------------+-----------------------+-----+------+
 ; LED0       ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; LED1       ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO_1_22  ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO_0_0   ; Input    ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO_0_IN0 ; Input    ; --            ; --            ; --                    ; --  ; --   ;
@@ -905,7 +907,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; GPIO_1_26  ; Input    ; --            ; --            ; --                    ; --  ; --   ;
 ; KEY0       ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 ; CLOCK_50   ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; GPIO_1_24  ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; GPIO_1_24  ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 +------------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -1065,34 +1067,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[394]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[393]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[392]           ; 0                 ; 6       ;
+;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[5]        ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:encoderIndex[0]                    ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:encoderIndex[1]                    ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:encoderIndex[2]                    ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:encoderIndex[3]                    ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:encoderIndex[4]                    ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:encoderIndex[5]                    ; 0                 ; 6       ;
-;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[5]        ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[4]        ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[3]        ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[2]        ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[1]        ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[0]        ; 0                 ; 6       ;
+;      - boss:boss_inst|debug~0                                           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|tx_send                               ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_header    ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:state.b_receive_bytes_wait              ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:state.b_send_reply~2                    ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:state.b_wait_for_ack                    ; 0                 ; 6       ;
+;      - boss:boss_inst|boss_data_valid                                   ; 0                 ; 6       ;
+;      - uart_out_manager:b2v_inst2|data_ack                              ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:state.b_idle                            ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:state.m_send             ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:state.m_wait_for_unready ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:state.m_prep_byte        ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|tx_byte[7]~0                          ; 0                 ; 6       ;
-;      - boss:boss_inst|boss_data_valid                                   ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:state.b_id_check                        ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:bytesLeft[4]~4                          ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_start     ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:tempBitCounter[4]~0                     ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:totalBitCounter[6]~2                    ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:dataBitCounter[6]~0                     ; 0                 ; 6       ;
+;      - uart_out_manager:b2v_inst2|\manager_fsm:state.m_ack              ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|data_out_ready                                  ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:state.m_idle             ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:state.m_wait_for_ready   ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_header    ; 0                 ; 6       ;
-;      - boss:boss_inst|boss_data[79]~1                                   ; 0                 ; 6       ;
-;      - watcher:b2v_inst|\watcher_fsm:state.w_align_message              ; 0                 ; 6       ;
-;      - watcher:b2v_inst|\watcher_fsm:state.w_prep_encoder               ; 0                 ; 6       ;
-;      - watcher:b2v_inst|\watcher_fsm:state.w_append_bits_to_message     ; 0                 ; 6       ;
-;      - watcher:b2v_inst|data_out[471]~0                                 ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:state.b_wait_for_ack                    ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:idByte[7]~0                             ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:state.b_reset_encoders                  ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:state.w_ready_message              ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:state.w_wait_for_ack               ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataLen[5]          ; 0                 ; 6       ;
@@ -1101,25 +1112,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataLen[2]          ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataLen[1]          ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedDataLen[0]          ; 0                 ; 6       ;
-;      - uart_out_manager:b2v_inst2|\manager_fsm:state.m_ack              ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:state.b_receive_bytes_wait              ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:state.b_send_reply~0                    ; 0                 ; 6       ;
-;      - uart_out_manager:b2v_inst2|data_ack                              ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:state.b_idle                            ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_start     ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:afterState.b_wait_for_ack~0             ; 0                 ; 6       ;
+;      - boss:boss_inst|boss_data[79]~0                                   ; 0                 ; 6       ;
+;      - watcher:b2v_inst|\watcher_fsm:state.w_align_message              ; 0                 ; 6       ;
+;      - watcher:b2v_inst|\watcher_fsm:state.w_prep_encoder               ; 0                 ; 6       ;
+;      - watcher:b2v_inst|\watcher_fsm:state.w_append_bits_to_message     ; 0                 ; 6       ;
+;      - watcher:b2v_inst|data_out[471]~0                                 ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:configData[0]~1                         ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:state.w_calc_len                   ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:state.w_wait_for_timer             ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:tempBitCounter[4]~0                ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|\watcher_fsm:state.w_fin_encoder                ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:state.b_id_check                        ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:bytesLeft[4]~4                          ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:tempBitCounter[4]~2                     ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:dataBitCounter[6]~0                     ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:state.b_reset_encoders                  ; 0                 ; 6       ;
 ;      - watcher:b2v_inst|data_out_len[5]~18                              ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:idByte[7]~0                             ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_align~0     ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:configData[0]~0                         ; 0                 ; 6       ;
+;      - watcher:b2v_inst|\watcher_fsm:tempBitCounter[4]~1                ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[390]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[388]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[389]           ; 0                 ; 6       ;
@@ -1142,7 +1147,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[373]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[375]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[370]           ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:configData[39]~2                        ; 0                 ; 6       ;
+;      - boss:boss_inst|\boss_fsm:configData[39]~0                        ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[368]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[369]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[371]           ; 0                 ; 6       ;
@@ -1399,7 +1404,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[117]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[119]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[114]           ; 0                 ; 6       ;
-;      - boss:boss_inst|\boss_fsm:configData[7]~0                         ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[112]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[113]           ; 0                 ; 6       ;
 ;      - uart_out_manager:b2v_inst2|\manager_fsm:savedData[115]           ; 0                 ; 6       ;
@@ -1519,43 +1523,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - LED0~output                                                      ; 0                 ; 6       ;
 ; CLOCK_50                                                                ;                   ;         ;
 ; GPIO_1_24                                                               ;                   ;         ;
-;      - uart_rx:rxcomp|rxd_latch~0                                       ; 1                 ; 6       ;
+;      - uart_rx:rxcomp|rxd_latch~0                                       ; 0                 ; 6       ;
 +-------------------------------------------------------------------------+-------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                          ;
-+---------------------------------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
-; Name                                                          ; Location           ; Fan-Out ; Usage                      ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+---------------------------------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50                                                      ; PIN_R8             ; 1234    ; Clock                      ; yes    ; Global Clock         ; GCLK18           ; --                        ;
-; KEY0                                                          ; PIN_J15            ; 532     ; Async. clear, Clock enable ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_align~0  ; LCCOMB_X29_Y24_N10 ; 2       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:bytesLeft[4]~4                       ; LCCOMB_X28_Y24_N14 ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:configData[39]~2                     ; LCCOMB_X31_Y24_N2  ; 32      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:configData[7]~0                      ; LCCOMB_X31_Y23_N22 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:dataBitCounter[6]~0                  ; LCCOMB_X31_Y24_N6  ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:idByte[7]~0                          ; LCCOMB_X29_Y24_N8  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_header ; FF_X32_Y24_N1      ; 16      ; Sync. clear                ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:state.b_receive_bytes                ; FF_X30_Y24_N11     ; 12      ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:state.b_send_reply~8                 ; LCCOMB_X30_Y24_N4  ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:tempBitCounter[4]~2                  ; LCCOMB_X32_Y24_N28 ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|\boss_fsm:totalBitCounter[6]~1                 ; LCCOMB_X30_Y24_N22 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; boss:boss_inst|boss_data[79]~2                                ; LCCOMB_X30_Y24_N30 ; 80      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; uart_out_manager:b2v_inst2|Selector464~0                      ; LCCOMB_X21_Y25_N18 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[1]~1   ; LCCOMB_X21_Y25_N0  ; 478     ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; uart_out_manager:b2v_inst2|\manager_fsm:state.m_prep_byte     ; FF_X21_Y24_N15     ; 474     ; Sync. clear, Sync. load    ; no     ; --                   ; --               ; --                        ;
-; uart_out_manager:b2v_inst2|tx_byte[7]~0                       ; LCCOMB_X23_Y27_N0  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; uart_rx:rxcomp|\prijem:startCounterFail[2]~3                  ; LCCOMB_X31_Y22_N14 ; 16      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; uart_rx:rxcomp|rx_state.rx_start_bit                          ; FF_X31_Y22_N23     ; 30      ; Sync. clear                ; no     ; --                   ; --               ; --                        ;
-; uart_tx:b2v_inst4|Selector0~5                                 ; LCCOMB_X25_Y28_N22 ; 9       ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
-; uart_tx:b2v_inst4|tx_br_cntr[7]~13                            ; LCCOMB_X25_Y28_N20 ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; watcher:b2v_inst|Selector6~0                                  ; LCCOMB_X21_Y22_N26 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; watcher:b2v_inst|\watcher_fsm:tempBitCounter[4]~1             ; LCCOMB_X20_Y22_N4  ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; watcher:b2v_inst|\watcher_fsm:totalBitCounter[8]~1            ; LCCOMB_X20_Y22_N0  ; 9       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; watcher:b2v_inst|data_out[471]~0                              ; LCCOMB_X21_Y22_N8  ; 471     ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; watcher:b2v_inst|data_out_len[5]~18                           ; LCCOMB_X20_Y23_N24 ; 6       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-+---------------------------------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                         ;
++--------------------------------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
+; Name                                                         ; Location           ; Fan-Out ; Usage                      ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++--------------------------------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50                                                     ; PIN_R8             ; 1235    ; Clock                      ; yes    ; Global Clock         ; GCLK18           ; --                        ;
+; KEY0                                                         ; PIN_J15            ; 534     ; Async. clear, Clock enable ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:afterState.b_wait_for_ack~0         ; LCCOMB_X31_Y21_N24 ; 2       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:bytesLeft[4]~4                      ; LCCOMB_X31_Y21_N2  ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:configData[39]~0                    ; LCCOMB_X32_Y20_N22 ; 39      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:dataBitCounter[6]~0                 ; LCCOMB_X32_Y20_N30 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:idByte[7]~0                         ; LCCOMB_X31_Y24_N2  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_start ; FF_X32_Y20_N5      ; 12      ; Sync. clear                ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:state.b_receive_bytes               ; FF_X32_Y21_N29     ; 12      ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:state.b_send_reply~10               ; LCCOMB_X32_Y21_N22 ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:tempBitCounter[4]~0                 ; LCCOMB_X32_Y20_N28 ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|\boss_fsm:totalBitCounter[6]~2                ; LCCOMB_X32_Y21_N30 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; boss:boss_inst|boss_data[79]~0                               ; LCCOMB_X32_Y21_N4  ; 79      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; uart_out_manager:b2v_inst2|Selector464~0                     ; LCCOMB_X28_Y28_N18 ; 478     ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; uart_out_manager:b2v_inst2|\manager_fsm:savedDataLen[5]~0    ; LCCOMB_X28_Y28_N0  ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; uart_out_manager:b2v_inst2|\manager_fsm:state.m_prep_byte    ; FF_X26_Y27_N27     ; 474     ; Sync. clear, Sync. load    ; no     ; --                   ; --               ; --                        ;
+; uart_out_manager:b2v_inst2|tx_byte[7]~0                      ; LCCOMB_X28_Y28_N24 ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; uart_rx:rxcomp|\prijem:startCounterOk[7]~1                   ; LCCOMB_X32_Y23_N20 ; 16      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; uart_rx:rxcomp|rx_state.rx_start_bit                         ; FF_X32_Y22_N29     ; 29      ; Sync. clear                ; no     ; --                   ; --               ; --                        ;
+; uart_tx:b2v_inst4|Selector0~5                                ; LCCOMB_X32_Y25_N6  ; 9       ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
+; uart_tx:b2v_inst4|tx_br_cntr[4]~13                           ; LCCOMB_X32_Y25_N28 ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; watcher:b2v_inst|Selector6~0                                 ; LCCOMB_X25_Y28_N16 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; watcher:b2v_inst|\watcher_fsm:tempBitCounter[4]~2            ; LCCOMB_X25_Y28_N4  ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; watcher:b2v_inst|\watcher_fsm:totalBitCounter[8]~1           ; LCCOMB_X25_Y28_N0  ; 9       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; watcher:b2v_inst|data_out[471]~0                             ; LCCOMB_X25_Y28_N14 ; 471     ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; watcher:b2v_inst|data_out_len[5]~18                          ; LCCOMB_X25_Y29_N30 ; 6       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
++--------------------------------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1563,7 +1566,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name     ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; CLOCK_50 ; PIN_R8   ; 1234    ; 0                                    ; Global Clock         ; GCLK18           ; --                        ;
+; CLOCK_50 ; PIN_R8   ; 1235    ; 0                                    ; Global Clock         ; GCLK18           ; --                        ;
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1572,101 +1575,104 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------+---------+
 ; Name                                                             ; Fan-Out ;
 +------------------------------------------------------------------+---------+
-; KEY0~input                                                       ; 532     ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[1]~1      ; 478     ;
+; KEY0~input                                                       ; 534     ;
+; uart_out_manager:b2v_inst2|Selector464~0                         ; 478     ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:state.m_prep_byte        ; 474     ;
 ; watcher:b2v_inst|data_out[471]~0                                 ; 471     ;
-; boss:boss_inst|boss_data_valid                                   ; 103     ;
-; boss:boss_inst|boss_data[79]~2                                   ; 80      ;
-; boss:boss_inst|\boss_fsm:configData[39]~2                        ; 32      ;
-; uart_rx:rxcomp|rx_state.rx_start_bit                             ; 30      ;
-; boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_data      ; 26      ;
-; uart_rx:rxcomp|\prijem:startCounterFail[2]~3                     ; 16      ;
-; boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_header    ; 16      ;
+; boss:boss_inst|boss_data_valid                                   ; 95      ;
+; boss:boss_inst|boss_data[79]~0                                   ; 79      ;
+; boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_data      ; 57      ;
+; boss:boss_inst|\boss_fsm:configData[39]~0                        ; 39      ;
+; uart_rx:rxcomp|rx_state.rx_start_bit                             ; 29      ;
+; uart_rx:rxcomp|\prijem:startCounterOk[7]~1                       ; 16      ;
 ; uart_rx:rxcomp|rx_bit_cntr[0]                                    ; 15      ;
-; uart_rx:rxcomp|rx_state.rx_receiv                                ; 15      ;
 ; uart_rx:rxcomp|rxd_latch                                         ; 14      ;
 ; uart_rx:rxcomp|rx_bit_cntr[2]                                    ; 13      ;
 ; uart_rx:rxcomp|rx_bit_cntr[1]                                    ; 13      ;
-; boss:boss_inst|\boss_fsm:state.b_receive_bytes                   ; 12      ;
+; uart_rx:rxcomp|rx_state.rx_receiv                                ; 13      ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:state.m_idle             ; 12      ;
-; watcher:b2v_inst|data_out_ready                                  ; 12      ;
-; uart_rx:rxcomp|Selector7~1                                       ; 11      ;
-; uart_rx:rxcomp|rx_state.rx_ready                                 ; 11      ;
+; boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_start     ; 12      ;
+; boss:boss_inst|\boss_fsm:state.b_receive_bytes                   ; 12      ;
+; uart_rx:rxcomp|Selector7~5                                       ; 11      ;
+; watcher:b2v_inst|\watcher_fsm:totalBitCounter[8]~1               ; 9       ;
 ; uart_rx:rxcomp|Equal0~1                                          ; 9       ;
 ; uart_rx:rxcomp|Equal0~0                                          ; 9       ;
-; watcher:b2v_inst|\watcher_fsm:totalBitCounter[8]~1               ; 9       ;
-; boss:boss_inst|\boss_fsm:tempBitCounter[4]                       ; 9       ;
 ; uart_tx:b2v_inst4|Selector0~5                                    ; 9       ;
+; boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_header    ; 9       ;
+; boss:boss_inst|\boss_fsm:state.b_assemble_reply_align            ; 9       ;
 ; uart_tx:b2v_inst4|tx_state.tx_data_bit                           ; 9       ;
-; uart_rx:rxcomp|Equal0~2                                          ; 8       ;
+; watcher:b2v_inst|\watcher_fsm:state.w_align_message              ; 8       ;
+; uart_rx:rxcomp|rx_br_cntr[3]~2                                   ; 8       ;
 ; boss:boss_inst|\boss_fsm:idByte[7]~0                             ; 8       ;
 ; uart_rx:rxcomp|rx_state.rx_stop_bit                              ; 8       ;
-; boss:boss_inst|\boss_fsm:tempBitCounter[3]                       ; 8       ;
-; uart_rx:rxcomp|data_valid                                        ; 8       ;
-; watcher:b2v_inst|\watcher_fsm:state.w_align_message              ; 8       ;
 ; uart_out_manager:b2v_inst2|tx_byte[7]~0                          ; 8       ;
-; uart_tx:b2v_inst4|tx_br_cntr[7]~13                               ; 8       ;
+; uart_tx:b2v_inst4|tx_br_cntr[4]~13                               ; 8       ;
+; uart_rx:rxcomp|data_valid                                        ; 8       ;
+; boss:boss_inst|\boss_fsm:tempBitCounter[3]                       ; 8       ;
 ; uart_tx:b2v_inst4|tx_bit_cntr[0]                                 ; 8       ;
-; boss:boss_inst|\boss_fsm:configData[7]~0                         ; 7       ;
-; boss:boss_inst|\boss_fsm:dataBitCounter[6]~0                     ; 7       ;
-; uart_out_manager:b2v_inst2|Selector464~0                         ; 7       ;
 ; watcher:b2v_inst|Selector6~0                                     ; 7       ;
 ; watcher:b2v_inst|\watcher_fsm:state.w_fin_encoder                ; 7       ;
-; boss:boss_inst|\boss_fsm:totalBitCounter[6]~1                    ; 7       ;
-; boss:boss_inst|\boss_fsm:state.b_assemble_reply_align            ; 7       ;
+; uart_out_manager:b2v_inst2|\manager_fsm:savedDataLen[5]~0        ; 7       ;
+; uart_rx:rxcomp|Equal0~2                                          ; 7       ;
+; uart_rx:rxcomp|rx_state.rx_ready                                 ; 7       ;
+; boss:boss_inst|\boss_fsm:dataBitCounter[6]~0                     ; 7       ;
+; boss:boss_inst|\boss_fsm:totalBitCounter[6]~2                    ; 7       ;
 ; uart_tx:b2v_inst4|Equal0~1                                       ; 7       ;
 ; uart_tx:b2v_inst4|Equal0~0                                       ; 7       ;
 ; uart_tx:b2v_inst4|tx_bit_cntr[1]                                 ; 7       ;
 ; boss:boss_inst|\boss_fsm:bytesLeft[4]                            ; 7       ;
 ; ~GND                                                             ; 6       ;
 ; watcher:b2v_inst|data_out_len[5]~18                              ; 6       ;
-; boss:boss_inst|Equal2~0                                          ; 6       ;
-; boss:boss_inst|\boss_fsm:tempBitCounter[0]                       ; 6       ;
-; boss:boss_inst|Equal0~0                                          ; 6       ;
 ; watcher:b2v_inst|\watcher_fsm:state.w_prep_encoder               ; 6       ;
 ; watcher:b2v_inst|Equal6~1                                        ; 6       ;
-; uart_rx:rxcomp|rx_br_cntr[1]~7                                   ; 5       ;
-; watcher:b2v_inst|\watcher_fsm:tempBitCounter[4]~1                ; 5       ;
-; boss:boss_inst|\boss_fsm:tempBitCounter[4]~2                     ; 5       ;
-; boss:boss_inst|\boss_fsm:bytesLeft[4]~4                          ; 5       ;
+; boss:boss_inst|Equal2~0                                          ; 6       ;
+; boss:boss_inst|\boss_fsm:tempBitCounter[0]                       ; 6       ;
+; boss:boss_inst|\boss_fsm:tempBitCounter[4]                       ; 6       ;
+; boss:boss_inst|Equal0~0                                          ; 6       ;
+; watcher:b2v_inst|\watcher_fsm:tempBitCounter[4]~2                ; 5       ;
 ; watcher:b2v_inst|\watcher_fsm:tempBitCounter[0]                  ; 5       ;
-; boss:boss_inst|\boss_fsm:state.b_send_reply~8                    ; 5       ;
-; uart_out_manager:b2v_inst2|data_ack                              ; 5       ;
-; boss:boss_inst|\boss_fsm:tempBitCounter[1]                       ; 5       ;
-; boss:boss_inst|\boss_fsm:state.b_wait_for_ack                    ; 5       ;
+; uart_rx:rxcomp|rx_br_cntr[3]~7                                   ; 5       ;
+; boss:boss_inst|\boss_fsm:configData[0]                           ; 5       ;
 ; uart_tx:b2v_inst4|ready                                          ; 5       ;
+; boss:boss_inst|\boss_fsm:tempBitCounter[4]~0                     ; 5       ;
+; boss:boss_inst|\boss_fsm:bytesLeft[4]~4                          ; 5       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:state.m_wait_for_unready ; 5       ;
+; boss:boss_inst|\boss_fsm:state.b_send_reply~10                   ; 5       ;
+; uart_out_manager:b2v_inst2|data_ack                              ; 5       ;
+; boss:boss_inst|\boss_fsm:state.b_wait_for_ack                    ; 5       ;
+; boss:boss_inst|\boss_fsm:tempBitCounter[1]                       ; 5       ;
 ; uart_tx:b2v_inst4|Equal1~0                                       ; 5       ;
 ; uart_tx:b2v_inst4|tx_state.tx_ready                              ; 5       ;
 ; uart_rx:rxcomp|LessThan0~14                                      ; 5       ;
-; uart_rx:rxcomp|rx_br_cntr[1]~9                                   ; 4       ;
-; uart_rx:rxcomp|rx_br_cntr[1]~2                                   ; 4       ;
-; uart_rx:rxcomp|Selector6~1                                       ; 4       ;
+; watcher:b2v_inst|\watcher_fsm:tempBitCounter[1]                  ; 4       ;
+; watcher:b2v_inst|\watcher_fsm:tempBitCounter[3]                  ; 4       ;
+; watcher:b2v_inst|\watcher_fsm:state.w_calc_len                   ; 4       ;
+; uart_rx:rxcomp|Selector14~0                                      ; 4       ;
+; uart_rx:rxcomp|Selector8~1                                       ; 4       ;
 ; uart_rx:rxcomp|rx_bit_cntr[3]                                    ; 4       ;
-; boss:boss_inst|\boss_fsm:configData[0]                           ; 4       ;
-; boss:boss_inst|\boss_fsm:tempBitCounter[4]~1                     ; 4       ;
+; uart_out_manager:b2v_inst2|\manager_fsm:state.m_wait_for_ready   ; 4       ;
+; watcher:b2v_inst|data_out_ready                                  ; 4       ;
+; boss:boss_inst|\boss_fsm:tempBitCounter[0]~1                     ; 4       ;
+; boss:boss_inst|Equal1~1                                          ; 4       ;
 ; boss:boss_inst|\boss_fsm:state.b_id_check                        ; 4       ;
 ; boss:boss_inst|Mux7~1                                            ; 4       ;
 ; boss:boss_inst|Mux7~0                                            ; 4       ;
-; boss:boss_inst|\boss_fsm:bytesLeft[3]~3                          ; 4       ;
-; watcher:b2v_inst|\watcher_fsm:tempBitCounter[1]                  ; 4       ;
-; watcher:b2v_inst|\watcher_fsm:tempBitCounter[3]                  ; 4       ;
-; boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_start     ; 4       ;
-; boss:boss_inst|\boss_fsm:state.b_idle                            ; 4       ;
-; boss:boss_inst|\boss_fsm:tempBitCounter[2]                       ; 4       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:state.m_wait_for_ready   ; 4       ;
+; boss:boss_inst|\boss_fsm:bytesLeft[2]~3                          ; 4       ;
 ; uart_tx:b2v_inst4|tx_state.tx_start_bit                          ; 4       ;
 ; uart_tx:b2v_inst4|tx_state.tx_stop_bit                           ; 4       ;
+; boss:boss_inst|\boss_fsm:state.b_idle                            ; 4       ;
+; boss:boss_inst|\boss_fsm:tempBitCounter[2]                       ; 4       ;
 ; uart_tx:b2v_inst4|tx_bit_cntr[2]                                 ; 4       ;
-; boss:boss_inst|\boss_fsm:totalBitCounter[5]                      ; 4       ;
-; boss:boss_inst|\boss_fsm:totalBitCounter[6]                      ; 4       ;
-; boss:boss_inst|\boss_fsm:totalBitCounter[4]                      ; 4       ;
-; uart_rx:rxcomp|rx_bit_cntr[1]~6                                  ; 3       ;
-; boss:boss_inst|Selector29~3                                      ; 3       ;
+; uart_rx:rxcomp|rx_bit_cntr[0]~6                                  ; 3       ;
 ; watcher:b2v_inst|data_out[0]                                     ; 3       ;
 ; boss:boss_inst|boss_data[0]                                      ; 3       ;
-; uart_rx:rxcomp|rx_br_cntr[1]~4                                   ; 3       ;
+; watcher:b2v_inst|Add1~0                                          ; 3       ;
+; watcher:b2v_inst|\watcher_fsm:tempBitCounter[2]                  ; 3       ;
+; watcher:b2v_inst|\watcher_fsm:state.w_wait_for_timer             ; 3       ;
+; watcher:b2v_inst|\watcher_fsm:state.w_append_bits_to_message     ; 3       ;
+; watcher:b2v_inst|data_out_ready~0                                ; 3       ;
+; watcher:b2v_inst|\watcher_fsm:state.w_wait_for_ack               ; 3       ;
+; uart_rx:rxcomp|rx_br_cntr[3]~4                                   ; 3       ;
 ; uart_rx:rxcomp|Equal1~1                                          ; 3       ;
 ; uart_rx:rxcomp|Equal1~0                                          ; 3       ;
 ; uart_rx:rxcomp|rx_data[0]                                        ; 3       ;
@@ -1677,6 +1683,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx:rxcomp|rx_data[5]                                        ; 3       ;
 ; uart_rx:rxcomp|rx_data[6]                                        ; 3       ;
 ; uart_rx:rxcomp|rx_data[7]                                        ; 3       ;
+; uart_out_manager:b2v_inst2|\manager_fsm:state.m_ack              ; 3       ;
+; boss:boss_inst|Equal4~2                                          ; 3       ;
 ; uart_rx:rxcomp|rx_br_cntr[7]                                     ; 3       ;
 ; uart_rx:rxcomp|rx_br_cntr[6]                                     ; 3       ;
 ; uart_rx:rxcomp|rx_br_cntr[5]                                     ; 3       ;
@@ -1685,22 +1693,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx:rxcomp|rx_br_cntr[2]                                     ; 3       ;
 ; uart_rx:rxcomp|rx_br_cntr[1]                                     ; 3       ;
 ; uart_rx:rxcomp|rx_br_cntr[0]                                     ; 3       ;
-; watcher:b2v_inst|Add1~0                                          ; 3       ;
-; watcher:b2v_inst|\watcher_fsm:tempBitCounter[2]                  ; 3       ;
-; watcher:b2v_inst|\watcher_fsm:state.w_calc_len                   ; 3       ;
-; boss:boss_inst|Equal1~0                                          ; 3       ;
-; boss:boss_inst|Equal2~1                                          ; 3       ;
-; boss:boss_inst|\boss_fsm:state.b_receive_bytes_wait              ; 3       ;
+; boss:boss_inst|Selector59~0                                      ; 3       ;
 ; boss:boss_inst|\boss_fsm:state.b_assemble_reply_config_data~0    ; 3       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:state.m_ack              ; 3       ;
-; watcher:b2v_inst|\watcher_fsm:state.w_wait_for_ack               ; 3       ;
-; watcher:b2v_inst|\watcher_fsm:state.w_append_bits_to_message     ; 3       ;
-; boss:boss_inst|Equal4~0                                          ; 3       ;
-; uart_tx:b2v_inst4|tx_bit_cntr[0]~5                               ; 3       ;
+; uart_tx:b2v_inst4|tx_bit_cntr[2]~5                               ; 3       ;
 ; uart_tx:b2v_inst4|Equal0~2                                       ; 3       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:state.m_send             ; 3       ;
+; boss:boss_inst|Equal2~1                                          ; 3       ;
+; boss:boss_inst|\boss_fsm:state.b_receive_bytes_wait              ; 3       ;
 ; uart_tx:b2v_inst4|Selector0~2                                    ; 3       ;
 ; uart_out_manager:b2v_inst2|tx_send                               ; 3       ;
+; boss:boss_inst|\boss_fsm:state.b_send_reply                      ; 3       ;
 ; watcher:b2v_inst|\watcher_fsm:encoderIndex[4]                    ; 3       ;
 ; watcher:b2v_inst|\watcher_fsm:encoderIndex[5]                    ; 3       ;
 ; watcher:b2v_inst|\watcher_fsm:totalBitCounter[5]                 ; 3       ;
@@ -1709,6 +1711,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|\watcher_fsm:totalBitCounter[4]                 ; 3       ;
 ; watcher:b2v_inst|\watcher_fsm:totalBitCounter[8]                 ; 3       ;
 ; watcher:b2v_inst|\watcher_fsm:totalBitCounter[3]                 ; 3       ;
+; boss:boss_inst|\boss_fsm:totalBitCounter[5]                      ; 3       ;
+; boss:boss_inst|\boss_fsm:totalBitCounter[6]                      ; 3       ;
+; boss:boss_inst|\boss_fsm:totalBitCounter[4]                      ; 3       ;
 ; watcher:b2v_inst|data_out[3]                                     ; 2       ;
 ; watcher:b2v_inst|data_out[1]                                     ; 2       ;
 ; watcher:b2v_inst|data_out[2]                                     ; 2       ;
@@ -2015,6 +2020,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[307]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[305]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[304]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[1]                           ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[8]                           ; 2       ;
 ; watcher:b2v_inst|data_out[306]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[311]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[309]                                   ; 2       ;
@@ -2023,6 +2030,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[315]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[313]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[312]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[2]                           ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[9]                           ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[16]                          ; 2       ;
 ; watcher:b2v_inst|data_out[314]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[319]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[317]                                   ; 2       ;
@@ -2031,6 +2041,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[323]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[321]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[320]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[3]                           ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[10]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[17]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[24]                          ; 2       ;
 ; watcher:b2v_inst|data_out[322]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[327]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[325]                                   ; 2       ;
@@ -2039,6 +2053,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[331]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[329]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[328]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[4]                           ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[11]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[18]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[25]                          ; 2       ;
 ; watcher:b2v_inst|data_out[330]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[335]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[333]                                   ; 2       ;
@@ -2047,6 +2065,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[339]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[337]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[336]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[5]                           ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[12]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[19]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[26]                          ; 2       ;
 ; watcher:b2v_inst|data_out[338]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[343]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[341]                                   ; 2       ;
@@ -2055,6 +2077,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[347]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[345]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[344]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[6]                           ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[13]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[20]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[27]                          ; 2       ;
 ; watcher:b2v_inst|data_out[346]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[351]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[349]                                   ; 2       ;
@@ -2063,6 +2089,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[355]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[353]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[352]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[7]                           ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[14]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[21]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[28]                          ; 2       ;
 ; watcher:b2v_inst|data_out[354]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[359]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[357]                                   ; 2       ;
@@ -2071,6 +2101,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[363]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[361]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[360]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[15]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[22]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[29]                          ; 2       ;
 ; watcher:b2v_inst|data_out[362]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[367]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[365]                                   ; 2       ;
@@ -2079,6 +2112,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[371]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[369]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[368]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[23]                          ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[30]                          ; 2       ;
 ; watcher:b2v_inst|data_out[370]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[375]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[373]                                   ; 2       ;
@@ -2087,6 +2122,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[379]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[377]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[376]                                   ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[31]                          ; 2       ;
 ; watcher:b2v_inst|data_out[378]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[383]                                   ; 2       ;
 ; watcher:b2v_inst|data_out[381]                                   ; 2       ;
@@ -2195,12 +2231,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; boss:boss_inst|boss_data[44]                                     ; 2       ;
 ; watcher:b2v_inst|data_out[438]                                   ; 2       ;
 ; boss:boss_inst|boss_data[46]                                     ; 2       ;
-; boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_align~0     ; 2       ;
-; uart_rx:rxcomp|Selector14~0                                      ; 2       ;
-; uart_rx:rxcomp|rx_br_cntr[0]~5                                   ; 2       ;
-; uart_rx:rxcomp|Selector7~0                                       ; 2       ;
-; uart_rx:rxcomp|Selector6~2                                       ; 2       ;
-; uart_rx:rxcomp|Selector6~0                                       ; 2       ;
 ; watcher:b2v_inst|data_out[443]                                   ; 2       ;
 ; boss:boss_inst|boss_data[51]                                     ; 2       ;
 ; watcher:b2v_inst|data_out[441]                                   ; 2       ;
@@ -2218,9 +2248,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; watcher:b2v_inst|data_out[446]                                   ; 2       ;
 ; boss:boss_inst|boss_data[54]                                     ; 2       ;
 ; watcher:b2v_inst|Selector31~0                                    ; 2       ;
-; boss:boss_inst|\boss_fsm:state.b_config_update                   ; 2       ;
-; boss:boss_inst|\boss_fsm:configData[39]~0                        ; 2       ;
-; boss:boss_inst|\boss_fsm:tempBitCounter[4]~0                     ; 2       ;
 ; watcher:b2v_inst|data_out[451]                                   ; 2       ;
 ; boss:boss_inst|boss_data[59]                                     ; 2       ;
 ; watcher:b2v_inst|data_out[449]                                   ; 2       ;
@@ -2239,11 +2266,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; boss:boss_inst|boss_data[62]                                     ; 2       ;
 ; watcher:b2v_inst|Equal4~1                                        ; 2       ;
 ; watcher:b2v_inst|\watcher_fsm:tempBitCounter[4]                  ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:encoderIndex[5]~1                  ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:tempBitCounter[4]~0                ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:state.w_wait_for_timer             ; 2       ;
-; boss:boss_inst|Equal1~1                                          ; 2       ;
-; boss:boss_inst|Selector7~3                                       ; 2       ;
+; watcher:b2v_inst|\watcher_fsm:encoderIndex[3]~1                  ; 2       ;
 ; watcher:b2v_inst|data_out[459]                                   ; 2       ;
 ; boss:boss_inst|boss_data[67]                                     ; 2       ;
 ; watcher:b2v_inst|data_out[457]                                   ; 2       ;
@@ -2258,13 +2281,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; boss:boss_inst|boss_data[69]                                     ; 2       ;
 ; watcher:b2v_inst|data_out[460]                                   ; 2       ;
 ; boss:boss_inst|boss_data[68]                                     ; 2       ;
-; watcher:b2v_inst|data_out_ready~0                                ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:state.w_ready_message              ; 2       ;
 ; watcher:b2v_inst|data_out[462]                                   ; 2       ;
 ; boss:boss_inst|boss_data[70]                                     ; 2       ;
-; boss:boss_inst|\boss_fsm:state.b_send_reply                      ; 2       ;
 ; watcher:b2v_inst|Selector504~0                                   ; 2       ;
 ; watcher:b2v_inst|Equal5~0                                        ; 2       ;
+; boss:boss_inst|Selector148~0                                     ; 2       ;
+; boss:boss_inst|\boss_fsm:afterState.b_wait_for_ack~0             ; 2       ;
+; watcher:b2v_inst|\watcher_fsm:state.w_ready_message              ; 2       ;
+; uart_rx:rxcomp|rx_br_cntr[0]~5                                   ; 2       ;
+; uart_rx:rxcomp|Selector7~4                                       ; 2       ;
+; uart_rx:rxcomp|Selector8~2                                       ; 2       ;
+; uart_rx:rxcomp|Selector8~0                                       ; 2       ;
+; boss:boss_inst|\boss_fsm:state.b_config_update                   ; 2       ;
 ; watcher:b2v_inst|data_out[467]                                   ; 2       ;
 ; boss:boss_inst|boss_data[75]                                     ; 2       ;
 ; watcher:b2v_inst|data_out[465]                                   ; 2       ;
@@ -2279,12 +2307,31 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; boss:boss_inst|boss_data[76]                                     ; 2       ;
 ; watcher:b2v_inst|data_out[470]                                   ; 2       ;
 ; boss:boss_inst|boss_data[78]                                     ; 2       ;
-; uart_tx:b2v_inst4|tx_bit_cntr[0]~3                               ; 2       ;
+; boss:boss_inst|\boss_fsm:configData[0]~0                         ; 2       ;
+; boss:boss_inst|\boss_fsm:tempBitCounter[0]~0                     ; 2       ;
+; uart_tx:b2v_inst4|tx_bit_cntr[2]~3                               ; 2       ;
+; boss:boss_inst|Equal4~0                                          ; 2       ;
+; boss:boss_inst|Equal1~0                                          ; 2       ;
 ; uart_tx:b2v_inst4|Add1~1                                         ; 2       ;
 ; uart_tx:b2v_inst4|Add1~0                                         ; 2       ;
 ; uart_tx:b2v_inst4|tx_bit_cntr[3]                                 ; 2       ;
-; uart_tx:b2v_inst4|tx_br_cntr[7]~8                                ; 2       ;
+; uart_tx:b2v_inst4|tx_br_cntr[4]~8                                ; 2       ;
 ; uart_tx:b2v_inst4|trx                                            ; 2       ;
+; boss:boss_inst|debug                                             ; 2       ;
+; watcher:b2v_inst|\watcher_fsm:encoderIndex[3]                    ; 2       ;
+; watcher:b2v_inst|\watcher_fsm:encoderIndex[2]                    ; 2       ;
+; watcher:b2v_inst|\watcher_fsm:encoderIndex[0]                    ; 2       ;
+; watcher:b2v_inst|\watcher_fsm:encoderIndex[1]                    ; 2       ;
+; watcher:b2v_inst|\watcher_fsm:totalBitCounter[2]                 ; 2       ;
+; watcher:b2v_inst|\watcher_fsm:totalBitCounter[1]                 ; 2       ;
+; watcher:b2v_inst|\watcher_fsm:totalBitCounter[0]                 ; 2       ;
+; uart_out_manager:b2v_inst2|LessThan0~10                          ; 2       ;
+; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[0]        ; 2       ;
+; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[1]        ; 2       ;
+; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[2]        ; 2       ;
+; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[3]        ; 2       ;
+; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[4]        ; 2       ;
+; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[5]        ; 2       ;
 ; uart_rx:rxcomp|\prijem:startCounterOk[0]                         ; 2       ;
 ; uart_rx:rxcomp|\prijem:startCounterFail[0]                       ; 2       ;
 ; uart_rx:rxcomp|\prijem:startCounterOk[1]                         ; 2       ;
@@ -2301,35 +2348,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx:rxcomp|\prijem:startCounterFail[6]                       ; 2       ;
 ; uart_rx:rxcomp|\prijem:startCounterOk[7]                         ; 2       ;
 ; uart_rx:rxcomp|\prijem:startCounterFail[7]                       ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:encoderIndex[3]                    ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:encoderIndex[2]                    ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:encoderIndex[0]                    ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:encoderIndex[1]                    ; 2       ;
-; boss:boss_inst|Add2~12                                           ; 2       ;
-; boss:boss_inst|Add2~10                                           ; 2       ;
-; boss:boss_inst|Add2~8                                            ; 2       ;
-; boss:boss_inst|Add2~6                                            ; 2       ;
-; boss:boss_inst|Add2~4                                            ; 2       ;
-; boss:boss_inst|Add2~2                                            ; 2       ;
-; boss:boss_inst|Add2~0                                            ; 2       ;
-; boss:boss_inst|\boss_fsm:bytesLeft[3]                            ; 2       ;
-; boss:boss_inst|\boss_fsm:bytesLeft[2]                            ; 2       ;
-; boss:boss_inst|\boss_fsm:bytesLeft[1]                            ; 2       ;
-; boss:boss_inst|\boss_fsm:bytesLeft[0]                            ; 2       ;
-; uart_out_manager:b2v_inst2|LessThan0~10                          ; 2       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[0]        ; 2       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[1]        ; 2       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[2]        ; 2       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[3]        ; 2       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[4]        ; 2       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[5]        ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:totalBitCounter[2]                 ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:totalBitCounter[1]                 ; 2       ;
-; watcher:b2v_inst|\watcher_fsm:totalBitCounter[0]                 ; 2       ;
+; boss:boss_inst|Add3~12                                           ; 2       ;
+; boss:boss_inst|Add3~10                                           ; 2       ;
+; boss:boss_inst|Add3~8                                            ; 2       ;
+; boss:boss_inst|Add3~6                                            ; 2       ;
+; boss:boss_inst|Add3~4                                            ; 2       ;
+; boss:boss_inst|Add3~2                                            ; 2       ;
+; boss:boss_inst|Add3~0                                            ; 2       ;
 ; boss:boss_inst|\boss_fsm:totalBitCounter[3]                      ; 2       ;
 ; boss:boss_inst|\boss_fsm:totalBitCounter[2]                      ; 2       ;
 ; boss:boss_inst|\boss_fsm:totalBitCounter[1]                      ; 2       ;
 ; boss:boss_inst|\boss_fsm:totalBitCounter[0]                      ; 2       ;
+; boss:boss_inst|\boss_fsm:bytesLeft[3]                            ; 2       ;
+; boss:boss_inst|\boss_fsm:bytesLeft[2]                            ; 2       ;
+; boss:boss_inst|\boss_fsm:bytesLeft[1]                            ; 2       ;
+; boss:boss_inst|\boss_fsm:bytesLeft[0]                            ; 2       ;
 ; uart_tx:b2v_inst4|tx_br_cntr[7]                                  ; 2       ;
 ; uart_tx:b2v_inst4|tx_br_cntr[6]                                  ; 2       ;
 ; uart_tx:b2v_inst4|tx_br_cntr[5]                                  ; 2       ;
@@ -2343,10 +2376,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; GPIO_1_24~input                                                  ; 1       ;
 ; uart_rx:rxcomp|rxd_latch~0                                       ; 1       ;
 ; uart_tx:b2v_inst4|ready~0                                        ; 1       ;
-; uart_rx:rxcomp|rx_br_cntr[2]~20                                  ; 1       ;
 ; watcher:b2v_inst|Selector29~2                                    ; 1       ;
-; boss:boss_inst|Selector7~4                                       ; 1       ;
-; uart_tx:b2v_inst4|Selector3~3                                    ; 1       ;
+; uart_rx:rxcomp|rx_br_cntr[2]~19                                  ; 1       ;
+; uart_rx:rxcomp|Selector7~9                                       ; 1       ;
+; uart_tx:b2v_inst4|Selector3~4                                    ; 1       ;
 ; uart_tx:b2v_inst4|tx_bit_cntr[1]~8                               ; 1       ;
 ; uart_tx:b2v_inst4|Selector0~6                                    ; 1       ;
 ; watcher:b2v_inst|Selector504~1                                   ; 1       ;
@@ -2492,7 +2525,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[65]            ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector399~0                         ; 1       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[64]            ; 1       ;
-; boss:boss_inst|Selector23~0                                      ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector397~0                         ; 1       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[66]            ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector392~0                         ; 1       ;
@@ -2509,8 +2541,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[73]            ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector391~0                         ; 1       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[72]            ; 1       ;
-; boss:boss_inst|Selector22~0                                      ; 1       ;
-; boss:boss_inst|\boss_fsm:configData[1]                           ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector389~0                         ; 1       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[74]            ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector384~0                         ; 1       ;
@@ -2527,8 +2557,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[81]            ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector383~0                         ; 1       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[80]            ; 1       ;
-; boss:boss_inst|Selector21~0                                      ; 1       ;
-; boss:boss_inst|\boss_fsm:configData[2]                           ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector381~0                         ; 1       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[82]            ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector376~0                         ; 1       ;
@@ -2545,33 +2573,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[89]            ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector375~0                         ; 1       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[88]            ; 1       ;
-; boss:boss_inst|Selector20~0                                      ; 1       ;
-; boss:boss_inst|\boss_fsm:configData[3]                           ; 1       ;
 ; uart_out_manager:b2v_inst2|Selector373~0                         ; 1       ;
 ; uart_out_manager:b2v_inst2|\manager_fsm:savedData[90]            ; 1       ;
-; uart_out_manager:b2v_inst2|Selector368~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[95]            ; 1       ;
-; uart_out_manager:b2v_inst2|Selector370~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[93]            ; 1       ;
-; uart_out_manager:b2v_inst2|Selector371~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[92]            ; 1       ;
-; uart_out_manager:b2v_inst2|Selector369~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[94]            ; 1       ;
-; uart_out_manager:b2v_inst2|Selector364~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[99]            ; 1       ;
-; uart_out_manager:b2v_inst2|Selector366~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[97]            ; 1       ;
-; uart_out_manager:b2v_inst2|Selector367~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[96]            ; 1       ;
-; boss:boss_inst|Selector19~0                                      ; 1       ;
-; boss:boss_inst|\boss_fsm:configData[4]                           ; 1       ;
-; uart_out_manager:b2v_inst2|Selector365~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[98]            ; 1       ;
-; uart_out_manager:b2v_inst2|Selector360~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[103]           ; 1       ;
-; uart_out_manager:b2v_inst2|Selector362~0                         ; 1       ;
-; uart_out_manager:b2v_inst2|\manager_fsm:savedData[101]           ; 1       ;
-; uart_out_manager:b2v_inst2|Selector363~0                         ; 1       ;
 +------------------------------------------------------------------+---------+
 
 
@@ -2580,62 +2583,62 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------+------------------------+
 ; Other Routing Resource Type ; Usage                  ;
 +-----------------------------+------------------------+
-; Block interconnects         ; 1,106 / 71,559 ( 2 % ) ;
+; Block interconnects         ; 1,101 / 71,559 ( 2 % ) ;
 ; C16 interconnects           ; 3 / 2,597 ( < 1 % )    ;
-; C4 interconnects            ; 468 / 46,848 ( < 1 % ) ;
-; Direct links                ; 251 / 71,559 ( < 1 % ) ;
+; C4 interconnects            ; 507 / 46,848 ( 1 % )   ;
+; Direct links                ; 239 / 71,559 ( < 1 % ) ;
 ; Global clocks               ; 1 / 20 ( 5 % )         ;
-; Local interconnects         ; 993 / 24,624 ( 4 % )   ;
-; R24 interconnects           ; 5 / 2,496 ( < 1 % )    ;
-; R4 interconnects            ; 452 / 62,424 ( < 1 % ) ;
+; Local interconnects         ; 979 / 24,624 ( 4 % )   ;
+; R24 interconnects           ; 6 / 2,496 ( < 1 % )    ;
+; R4 interconnects            ; 367 / 62,424 ( < 1 % ) ;
 +-----------------------------+------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 14.79) ; Number of LABs  (Total = 94) ;
+; Number of Logic Elements  (Average = 15.42) ; Number of LABs  (Total = 90) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 2                            ;
+; 1                                           ; 1                            ;
 ; 2                                           ; 0                            ;
 ; 3                                           ; 0                            ;
 ; 4                                           ; 0                            ;
 ; 5                                           ; 0                            ;
 ; 6                                           ; 0                            ;
 ; 7                                           ; 0                            ;
-; 8                                           ; 2                            ;
+; 8                                           ; 1                            ;
 ; 9                                           ; 1                            ;
-; 10                                          ; 2                            ;
+; 10                                          ; 0                            ;
 ; 11                                          ; 2                            ;
-; 12                                          ; 2                            ;
-; 13                                          ; 3                            ;
-; 14                                          ; 5                            ;
-; 15                                          ; 12                           ;
-; 16                                          ; 63                           ;
+; 12                                          ; 1                            ;
+; 13                                          ; 0                            ;
+; 14                                          ; 1                            ;
+; 15                                          ; 6                            ;
+; 16                                          ; 77                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 2.57) ; Number of LABs  (Total = 94) ;
+; LAB-wide Signals  (Average = 2.68) ; Number of LABs  (Total = 90) ;
 +------------------------------------+------------------------------+
-; 1 Async. clear                     ; 56                           ;
-; 1 Clock                            ; 93                           ;
-; 1 Clock enable                     ; 29                           ;
-; 1 Sync. clear                      ; 3                            ;
-; 1 Sync. load                       ; 10                           ;
-; 2 Clock enables                    ; 51                           ;
+; 1 Async. clear                     ; 59                           ;
+; 1 Clock                            ; 90                           ;
+; 1 Clock enable                     ; 23                           ;
+; 1 Sync. clear                      ; 2                            ;
+; 1 Sync. load                       ; 9                            ;
+; 2 Clock enables                    ; 58                           ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 25.56) ; Number of LABs  (Total = 94) ;
+; Number of Signals Sourced  (Average = 26.98) ; Number of LABs  (Total = 90) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 1                            ;
+; 1                                            ; 0                            ;
 ; 2                                            ; 1                            ;
 ; 3                                            ; 0                            ;
 ; 4                                            ; 0                            ;
@@ -2647,89 +2650,88 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 10                                           ; 0                            ;
 ; 11                                           ; 0                            ;
 ; 12                                           ; 0                            ;
-; 13                                           ; 2                            ;
-; 14                                           ; 0                            ;
-; 15                                           ; 2                            ;
-; 16                                           ; 0                            ;
+; 13                                           ; 0                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 1                            ;
 ; 17                                           ; 1                            ;
-; 18                                           ; 4                            ;
-; 19                                           ; 1                            ;
-; 20                                           ; 3                            ;
-; 21                                           ; 4                            ;
-; 22                                           ; 4                            ;
-; 23                                           ; 3                            ;
-; 24                                           ; 3                            ;
-; 25                                           ; 6                            ;
-; 26                                           ; 10                           ;
-; 27                                           ; 6                            ;
-; 28                                           ; 7                            ;
-; 29                                           ; 10                           ;
-; 30                                           ; 10                           ;
+; 18                                           ; 1                            ;
+; 19                                           ; 2                            ;
+; 20                                           ; 2                            ;
+; 21                                           ; 7                            ;
+; 22                                           ; 1                            ;
+; 23                                           ; 1                            ;
+; 24                                           ; 1                            ;
+; 25                                           ; 1                            ;
+; 26                                           ; 6                            ;
+; 27                                           ; 8                            ;
+; 28                                           ; 14                           ;
+; 29                                           ; 11                           ;
+; 30                                           ; 13                           ;
 ; 31                                           ; 7                            ;
-; 32                                           ; 9                            ;
+; 32                                           ; 11                           ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 6.82) ; Number of LABs  (Total = 94) ;
+; Number of Signals Sourced Out  (Average = 7.34) ; Number of LABs  (Total = 90) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 5                            ;
-; 2                                               ; 3                            ;
-; 3                                               ; 5                            ;
-; 4                                               ; 9                            ;
-; 5                                               ; 17                           ;
-; 6                                               ; 21                           ;
-; 7                                               ; 10                           ;
-; 8                                               ; 5                            ;
-; 9                                               ; 3                            ;
-; 10                                              ; 2                            ;
-; 11                                              ; 0                            ;
-; 12                                              ; 1                            ;
-; 13                                              ; 1                            ;
-; 14                                              ; 2                            ;
+; 1                                               ; 3                            ;
+; 2                                               ; 1                            ;
+; 3                                               ; 2                            ;
+; 4                                               ; 10                           ;
+; 5                                               ; 8                            ;
+; 6                                               ; 20                           ;
+; 7                                               ; 16                           ;
+; 8                                               ; 8                            ;
+; 9                                               ; 5                            ;
+; 10                                              ; 3                            ;
+; 11                                              ; 3                            ;
+; 12                                              ; 2                            ;
+; 13                                              ; 0                            ;
+; 14                                              ; 0                            ;
 ; 15                                              ; 2                            ;
-; 16                                              ; 8                            ;
+; 16                                              ; 7                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 11.59) ; Number of LABs  (Total = 94) ;
+; Number of Distinct Inputs  (Average = 12.20) ; Number of LABs  (Total = 90) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
-; 2                                            ; 2                            ;
-; 3                                            ; 8                            ;
-; 4                                            ; 10                           ;
-; 5                                            ; 1                            ;
-; 6                                            ; 5                            ;
-; 7                                            ; 2                            ;
-; 8                                            ; 1                            ;
-; 9                                            ; 1                            ;
-; 10                                           ; 6                            ;
-; 11                                           ; 11                           ;
-; 12                                           ; 8                            ;
-; 13                                           ; 10                           ;
-; 14                                           ; 5                            ;
-; 15                                           ; 6                            ;
-; 16                                           ; 4                            ;
-; 17                                           ; 5                            ;
-; 18                                           ; 1                            ;
-; 19                                           ; 0                            ;
+; 2                                            ; 0                            ;
+; 3                                            ; 5                            ;
+; 4                                            ; 7                            ;
+; 5                                            ; 3                            ;
+; 6                                            ; 2                            ;
+; 7                                            ; 0                            ;
+; 8                                            ; 3                            ;
+; 9                                            ; 3                            ;
+; 10                                           ; 5                            ;
+; 11                                           ; 10                           ;
+; 12                                           ; 18                           ;
+; 13                                           ; 8                            ;
+; 14                                           ; 8                            ;
+; 15                                           ; 2                            ;
+; 16                                           ; 2                            ;
+; 17                                           ; 2                            ;
+; 18                                           ; 2                            ;
+; 19                                           ; 1                            ;
 ; 20                                           ; 0                            ;
 ; 21                                           ; 0                            ;
-; 22                                           ; 0                            ;
+; 22                                           ; 2                            ;
 ; 23                                           ; 0                            ;
-; 24                                           ; 0                            ;
-; 25                                           ; 1                            ;
-; 26                                           ; 0                            ;
-; 27                                           ; 1                            ;
+; 24                                           ; 1                            ;
+; 25                                           ; 0                            ;
+; 26                                           ; 1                            ;
+; 27                                           ; 0                            ;
 ; 28                                           ; 5                            ;
-; 29                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -2790,11 +2792,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
 ; Pin/Rules          ; IO_000001 ; IO_000002    ; IO_000003 ; IO_000004    ; IO_000005    ; IO_000006 ; IO_000007 ; IO_000008    ; IO_000009 ; IO_000010 ; IO_000011    ; IO_000012    ; IO_000013    ; IO_000014    ; IO_000015    ; IO_000018    ; IO_000019    ; IO_000020    ; IO_000021    ; IO_000022    ; IO_000023    ; IO_000024    ; IO_000026    ; IO_000027    ; IO_000045    ; IO_000046    ; IO_000047    ; IO_000033 ; IO_000034    ; IO_000042    ;
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
-; Total Pass         ; 75        ; 0            ; 75        ; 0            ; 0            ; 75        ; 75        ; 0            ; 75        ; 75        ; 1            ; 2            ; 0            ; 0            ; 73           ; 1            ; 2            ; 73           ; 0            ; 0            ; 0            ; 2            ; 3            ; 0            ; 0            ; 0            ; 0            ; 75        ; 0            ; 0            ;
+; Total Pass         ; 76        ; 0            ; 76        ; 0            ; 0            ; 76        ; 76        ; 0            ; 76        ; 76        ; 1            ; 3            ; 0            ; 0            ; 73           ; 1            ; 3            ; 73           ; 0            ; 0            ; 0            ; 3            ; 4            ; 0            ; 0            ; 0            ; 0            ; 76        ; 0            ; 0            ;
 ; Total Unchecked    ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
-; Total Inapplicable ; 0         ; 75           ; 0         ; 75           ; 75           ; 0         ; 0         ; 75           ; 0         ; 0         ; 74           ; 73           ; 75           ; 75           ; 2            ; 74           ; 73           ; 2            ; 75           ; 75           ; 75           ; 73           ; 72           ; 75           ; 75           ; 75           ; 75           ; 0         ; 75           ; 75           ;
+; Total Inapplicable ; 0         ; 76           ; 0         ; 76           ; 76           ; 0         ; 0         ; 76           ; 0         ; 0         ; 75           ; 73           ; 76           ; 76           ; 3            ; 75           ; 73           ; 3            ; 76           ; 76           ; 76           ; 73           ; 72           ; 76           ; 76           ; 76           ; 76           ; 0         ; 76           ; 76           ;
 ; Total Fail         ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
 ; LED0               ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; LED1               ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO_1_22          ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO_0_0           ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO_0_IN0         ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -2990,7 +2993,6 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "I2C_SCLK" is assigned to location or region, but does not exist in design
     Warning (15706): Node "I2C_SDAT" is assigned to location or region, but does not exist in design
     Warning (15706): Node "KEY1" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "LED1" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LED2" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LED3" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LED4" is assigned to location or region, but does not exist in design
@@ -3009,12 +3011,12 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 6% of the available device resources in the region that extends from location X21_Y23 to location X31_Y34
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
+    Info (170196): Router estimated peak interconnect usage is 7% of the available device resources in the region that extends from location X21_Y23 to location X31_Y34
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.28 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.27 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -3022,9 +3024,9 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/projects/aa4cc/AA4CC_FK_model_sensors/FK_quadrature_decoder/FK_quadrature_decoder.fit.smsg
-Info: Quartus II 64-Bit Fitter was successful. 0 errors, 68 warnings
-    Info: Peak virtual memory: 4939 megabytes
-    Info: Processing ended: Wed Jun 02 01:45:53 2021
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 67 warnings
+    Info: Peak virtual memory: 4938 megabytes
+    Info: Processing ended: Wed Jun 02 02:17:43 2021
     Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:07
 
