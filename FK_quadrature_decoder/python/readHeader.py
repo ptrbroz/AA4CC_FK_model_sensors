@@ -38,37 +38,64 @@ def initFpga(encoderVector, resolution, reset):
     c = [reset]                                       #reset bit
     lastByte = arrayToInteger(a + b + c).to_bytes(1, 'big')
     bytesToSend.append(lastByte)
-    print(f"Sending {bytesToSend}")
     for byte in bytesToSend:
         port.write(byte)
 
-#def fpgaReplyToSettings:
+def fpgaReplyToSettings(databytes):
+    settingsArray = []
+    for byte in databytes:
+        byteArray = byteToArray(byte)
+        settingsArray.extend(byteArray[1:]) #discard first separator bit of each byte
+    retVal = []
+    retVal.append(settingsArray[0:35])
+    retVal.append(arrayToInteger(settingsArray[35:39]))
+    retVal.append(settingsArray[39])
+    return retVal
     
     
-    
-    
-
-
 
 
 vector = [0]*35
 vector[0] = 1
 vector[1] = 1
+vector[5] = 1
+vector[20] = 1
+vector[34] = 1
 
+    
+initFpga(vector, 5, 1)
 
-#initFpga(vector, 10, 1)
+while 1:
+    b1 = port.read()
+    if b1 != b'\xff':
+        continue;
+    b2 = port.read()
+    if b2 != b'\xff':
+        continue
+    b3 = port.read()
+    if b3 != b'\xf0':
+        continue
+    dataBytes = []
+    for i in range(6):
+        dataBytes.append(port.read())
+    ret = fpgaReplyToSettings(dataBytes)
+    print(f"Initialization reply from FPGA received! FPGA says:")
+    print(f"My enable vector is {ret[0]}")
+    print(f"I'm running at a resolution of {ret[1]} bits.")
+    if ret[2]:
+        print("I did reset encoder positions.")
+    else:
+        print("I did not reset encoder positions.")
+    break;
+        
 
 #port.write(b'\x04')
 
 
-prevCount = None
-prevRes = None
+print("---== Entering main loop ==---")
 
 flicker = "/"  #just to indicate activity when there are no changes
 while(1):
-    time.sleep(.5)
-    port.flushInput()
-    port.flushOutput() 
     msg = []
 
     b1 = port.read()
@@ -84,15 +111,15 @@ while(1):
     
     b3 = port.read()
 
-    #if b3 == b'\xff':
-    #    print(f"That's not my message! Got {b1} into {b2} into {b3}                                            ")
-    #    continue
+    if b3 == b'\xf0':
+        print(f"That's a config reply! Got {b1} into {b2} into {b3}                                            ")
+        continue
 
     #parse header to determine how many bytes to expect
 
     headerBitArray = byteToArray(b2) + byteToArray(b3) #byte 1 does not carry data
 
-    encoderCount = arrayToInteger(headerBitArray[6:12])
+    encoderCount = arrayToInteger(headerBitArray[6:12]) #first 6 bits of byte 2 don't carry data either
     resolution   = arrayToInteger(headerBitArray[12:16])
 
 
@@ -103,16 +130,6 @@ while(1):
     dataBytes = []
     for i in range(expectedBytes):
         dataBytes.append(port.read())
-
-
-
-    if prevCount == None:
-        prevCount = encoderCount
-        prevRes = resolution
-    else:
-        if prevCount != encoderCount or prevRes != resolution:
-            continue
-
 
 
     bitList = []

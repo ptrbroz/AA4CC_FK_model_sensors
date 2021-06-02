@@ -21,6 +21,7 @@ port(
 		data_out_ack : in std_logic;
 		set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		set_encoder_resolution : in integer range 0 to 13;
+		set_encoder_miliseconds : in integer range 0 to 255;
 		set_enabled : in std_logic
 		);
 end watcher;
@@ -62,6 +63,8 @@ architecture arch1 of watcher is
 	signal inPositions : position_array_t;
 	signal timer_alarm : std_logic;
 	
+	signal timer_consume : std_logic := '0';
+	
 begin
 
 
@@ -85,6 +88,11 @@ begin
 	
 	
 	watcher_timer : process(clock, areset) is
+		
+		variable clockCounter : integer range 0 to 50000 := 0;
+		variable msCounter : integer range 0 to 255 		 := 0;
+		variable targetMs : integer range 0 to 255 		 := 10;
+	
 		constant clocksMax : integer :=    500000;
 		--constant clocksMax : integer := 100000000;
 		variable counter : integer range 0 to clocksMax+1 := 0;
@@ -95,12 +103,20 @@ begin
 		counter := 0; --todo change
 	else
 		if rising_edge(clock) then
-			if counter >= clocksMax then
+			if msCounter >= targetMs then
 				timer_alarm <= '1';
-				counter := 0;
+				if timer_consume then
+					targetMs := set_encoder_miliseconds;
+					msCounter := 0;
+					clockCounter := 0;
+				end if;
 			else
 				timer_alarm <= '0';
-				counter := counter + 1;
+				clockCounter := clockCounter + 1;
+				if clockCounter = 50000 then
+					msCounter := msCounter + 1;
+					clockCounter := 0;
+				end if;
 			end if;
 		end if;
 	end if;
@@ -133,12 +149,14 @@ begin
 		if rising_edge(clock) then
 		
 			data_out_ready <= '0';
+			timer_consume <= '0';
 		
 			case state is
 			
 				when w_wait_for_timer =>
-					if set_enabled = '1' then
+					if set_enabled = '1' and timer_alarm = '1' then
 						state := w_save_positions;
+						timer_consume <= '1';
 					end if;
 					
 				when w_save_positions =>

@@ -21,6 +21,7 @@ port(
 		boss_select : out std_logic;
 		set_encoder_vector : out std_logic_vector(MAX_ENCODERS-1 downto 0);
 		set_encoder_resolution : out integer range 0 to 13;
+		set_encoder_miliseconds : out integer range 0 to 255;
 		set_encoder_reset : out std_logic;
 		set_encoder_enable : out std_logic
 		);
@@ -48,9 +49,10 @@ constant ID_COMM_OFF : std_logic_vector (7 downto 0) := "00000010";
 constant ID_COMM_ON  : std_logic_vector (7 downto 0) := "00000100";
 
 
-signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := --(1 => '1',2 => '1', 33=>'1', others => '0');
+signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := (1 => '1',2 => '1', 33=>'1', others => '0');
 signal encoder_resolution : integer range 0 to 13 := 11;
 signal encoder_enable : std_logic := '1';
+signal encoder_miliseconds : integer range 0 to 255 := 255;
 
 signal debug : std_logic := '0';
 
@@ -61,6 +63,7 @@ begin
 set_encoder_vector <= encoder_vector;
 set_encoder_resolution <= encoder_resolution;
 set_encoder_enable <= encoder_enable;
+set_encoder_miliseconds <= encoder_miliseconds;
 
 debug_led <= debug;	
 
@@ -110,13 +113,13 @@ debug_led <= debug;
 							afterState := b_config_update;
 							enableAfterAck := '1';
 						when ID_COMM_ON =>
-							--encoder_enable <= '1';
+							encoder_enable <= '1';
 							state := b_idle;
 						when ID_COMM_OFF =>
-							--encoder_enable <= '0';
+							encoder_enable <= '0';
 							state := b_idle;
 						when others =>
-							--ignore
+							state := b_idle;
 					end case;
 					
 				when b_receive_bytes =>
@@ -137,8 +140,9 @@ debug_led <= debug;
 					
 				when b_config_update =>
 					encoder_vector <= configData(39 downto 5);
-					if unsigned(configData(3 downto 0)) > 13 then
+					if unsigned(configData(4 downto 1)) > 13 then
 						encoder_resolution <= 13;
+						configData(4 downto 1) := std_logic_vector(to_unsigned(13, 4));
 					else
 						encoder_resolution <= to_integer(unsigned(configData(4 downto 1)));
 					end if;
@@ -158,7 +162,11 @@ debug_led <= debug;
 					state := b_assemble_reply_config_header;
 					
 				when b_assemble_reply_config_header =>
-					boss_data <= boss_data(boss_data'length - 2 downto 0) & '1';
+					if tempBitCounter < 20 then
+						boss_data <= boss_data(boss_data'length - 2 downto 0) & '1';
+					else
+						boss_data <= boss_data(boss_data'length - 2 downto 0) & '0';
+					end if;
 					totalBitCounter := totalBitCounter + 1;
 					tempBitCounter := tempBitCounter + 1;
 					if tempBitCounter = 24 then
@@ -194,16 +202,16 @@ debug_led <= debug;
 					
 				when b_send_reply =>
 					boss_data_valid <= '1';
-					boss_select <= '0'; --todo revert
+					boss_select <= '1'; --todo revert
 					state := b_wait_for_ack;
 					debug <= '1';
 					
 				when b_wait_for_ack =>
 					boss_data_valid <= '1';
-					boss_select <= '0'; --todo revert
+					boss_select <= '1'; --todo revert
 					if boss_data_ack = '1' then
 						state := b_idle;
-						--encoder_enable <= enableAfterAck;
+						encoder_enable <= enableAfterAck;
 					end if;
 				
 					

@@ -1,5 +1,5 @@
 Flow report for FK_quadrature_decoder
-Wed Jun 02 20:16:18 2021
+Thu Jun 03 00:55:55 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Wed Jun 02 20:16:18 2021           ;
+; Flow Status                        ; Successful - Thu Jun 03 00:55:55 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; FK_quadrature_decoder                           ;
 ; Top-level Entity Name              ; FK_quadrature_decoder                           ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Device                             ; EP4CE22F17C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 7,011 / 22,320 ( 31 % )                         ;
-;     Total combinational functions  ; 6,013 / 22,320 ( 27 % )                         ;
-;     Dedicated logic registers      ; 3,367 / 22,320 ( 15 % )                         ;
-; Total registers                    ; 3367                                            ;
+; Total logic elements               ; 7,472 / 22,320 ( 33 % )                         ;
+;     Total combinational functions  ; 6,413 / 22,320 ( 29 % )                         ;
+;     Dedicated logic registers      ; 3,652 / 22,320 ( 16 % )                         ;
+; Total registers                    ; 3652                                            ;
 ; Total pins                         ; 76 / 154 ( 49 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                             ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+-----------------------+
 ; Option            ; Setting               ;
 +-------------------+-----------------------+
-; Start date & time ; 06/02/2021 20:15:25   ;
+; Start date & time ; 06/03/2021 00:55:01   ;
 ; Main task         ; Compilation           ;
 ; Revision Name     ; FK_quadrature_decoder ;
 +-------------------+-----------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 185410939438754.162265772521576       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 185410939438754.162267450110300       ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --             ;
 ; FLOW_ENABLE_POWER_ANALYZER          ; On                                    ; Off           ; --          ; --             ;
@@ -105,13 +105,13 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 4677 MB             ; 00:00:12                           ;
-; Fitter                    ; 00:00:17     ; 1.0                     ; 4990 MB             ; 00:00:17                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 4564 MB             ; 00:00:01                           ;
-; PowerPlay Power Analyzer  ; 00:00:06     ; 1.0                     ; 4626 MB             ; 00:00:06                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 4699 MB             ; 00:00:04                           ;
-; EDA Netlist Writer        ; 00:00:06     ; 1.0                     ; 4574 MB             ; 00:00:06                           ;
-; Total                     ; 00:00:46     ; --                      ; --                  ; 00:00:46                           ;
+; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 4674 MB             ; 00:00:12                           ;
+; Fitter                    ; 00:00:18     ; 1.0                     ; 4997 MB             ; 00:00:18                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 4557 MB             ; 00:00:01                           ;
+; PowerPlay Power Analyzer  ; 00:00:06     ; 1.0                     ; 4619 MB             ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 4703 MB             ; 00:00:04                           ;
+; EDA Netlist Writer        ; 00:00:07     ; 1.0                     ; 4588 MB             ; 00:00:06                           ;
+; Total                     ; 00:00:48     ; --                      ; --                  ; 00:00:47                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

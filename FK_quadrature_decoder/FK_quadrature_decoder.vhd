@@ -124,6 +124,7 @@ port(
 		boss_select : out std_logic;
 		set_encoder_vector : out std_logic_vector(MAX_ENCODERS-1 downto 0);
 		set_encoder_resolution : out integer range 0 to 13;
+		set_encoder_miliseconds : out integer range 0 to 255;
 		set_encoder_reset : out std_logic;
 		set_encoder_enable : out std_logic
 		);
@@ -145,6 +146,7 @@ GENERIC (CLK_IN_FREQ : INTEGER;
 		 data_out_len : OUT STD_LOGIC_VECTOR(5 DOWNTO 0);
 		 set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		 set_encoder_resolution : in integer range 0 to 13;
+		 set_encoder_miliseconds : in integer range 0 to 255;
 		 set_enabled : in std_logic
 	);
 END COMPONENT;
@@ -231,6 +233,7 @@ signal wire_boss_select : std_logic;
 
 signal wire_set_encoder_vector : std_logic_vector(35-1 downto 0);
 signal wire_set_encoder_resolution : integer range 0 to 13;
+signal wire_set_encoder_miliseconds : integer range 0 to 255;
 signal wire_set_encoder_reset : std_logic;
 signal wire_set_encoder_enabled : std_logic;
 
@@ -258,6 +261,7 @@ port map(
 		boss_select => wire_boss_select,
 		set_encoder_vector => wire_set_encoder_vector,
 		set_encoder_resolution => wire_set_encoder_resolution,
+		set_encoder_miliseconds => wire_set_encoder_miliseconds,
 		set_encoder_reset => wire_set_encoder_reset,
 		set_encoder_enable => wire_set_encoder_enabled
 		);
@@ -270,7 +274,7 @@ GENERIC MAP(CLK_IN_FREQ => 50000000,
 			MAX_ENCODERS => 35
 			)
 PORT MAP(clock => CLOCK_50,
-		 areset => SYNTHESIZED_WIRE_11,
+		 areset => wire_set_encoder_reset,
 		 data_out_ack => SYNTHESIZED_WIRE_1,
 		 gpio_a_channels => achans,
 		 gpio_b_channels => bchans,
@@ -279,6 +283,7 @@ PORT MAP(clock => CLOCK_50,
 		 data_out_len => SYNTHESIZED_WIRE_8,
 		 set_encoder_vector => wire_set_encoder_vector,
 		 set_encoder_resolution => wire_set_encoder_resolution,
+		 set_encoder_miliseconds => wire_set_encoder_miliseconds,
 		 set_enabled => wire_set_encoder_enabled
 		 );
 		 
