@@ -24,7 +24,7 @@ def arrayToInteger(arr):
         power = power * 2
     return integer
 
-def initFpga(encoderVector, resolution, reset):
+def initFpga(encoderVector, resolution, reset, miliseconds):
     bytesToSend = []
     bytesToSend.append(b'\x01') #initialization command id
     #first four data bytes contain just encoder vector
@@ -36,8 +36,10 @@ def initFpga(encoderVector, resolution, reset):
     a = encoderVector[4*8:]                           #last 3 bits of encoder vector
     b = byteToArray(resolution.to_bytes(1,'big'))[4:] #resolution represented as 4-bit unsigned
     c = [reset]                                       #reset bit
-    lastByte = arrayToInteger(a + b + c).to_bytes(1, 'big')
-    bytesToSend.append(lastByte)
+    combinedByte = arrayToInteger(a + b + c).to_bytes(1, 'big')
+    bytesToSend.append(combinedByte)
+    bytesToSend.append(miliseconds.to_bytes(1, 'big')) #last byte represents minimum number of ms between encoder data messages
+    print(f"sent {bytesToSend}")
     for byte in bytesToSend:
         port.write(byte)
 
@@ -46,16 +48,18 @@ def fpgaReplyToSettings(databytes):
     for byte in databytes:
         byteArray = byteToArray(byte)
         settingsArray.extend(byteArray[1:]) #discard first separator bit of each byte
+    print(f"got {settingsArray}")
     retVal = []
     retVal.append(settingsArray[0:35])
     retVal.append(arrayToInteger(settingsArray[35:39]))
     retVal.append(settingsArray[39])
+    retVal.append(arrayToInteger(settingsArray[40:48]))
     return retVal
     
     
 
 
-vector = [1]*35
+vector = [0]*35
 vector[0] = 1
 vector[1] = 1
 vector[5] = 1
@@ -63,7 +67,7 @@ vector[20] = 1
 vector[34] = 1
 
     
-initFpga(vector, 15, 1)
+initFpga(vector, 10, 1, 4)
 
 
 
@@ -78,7 +82,8 @@ while 1:
     if b3 != b'\xf0':
         continue
     dataBytes = []
-    for i in range(6):
+    for i in range(7):
+        print(i)
         dataBytes.append(port.read())
     ret = fpgaReplyToSettings(dataBytes)
     print(f"Initialization reply from FPGA received! FPGA says:")
@@ -88,6 +93,7 @@ while 1:
         print("I did reset encoder positions.")
     else:
         print("I did not reset encoder positions.")
+    print(f"My minimum wait time is {ret[3]} ms.")
     break;
         
 

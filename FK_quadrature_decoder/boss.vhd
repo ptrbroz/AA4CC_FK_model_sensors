@@ -77,7 +77,7 @@ debug_led <= debug;
 		variable idByte : std_logic_vector(7 downto 0) := (others => '0');
 		variable bytesLeft : integer range 0 to 30 := 0;
 		
-		variable configData : std_logic_vector(39 downto 0) := (others => '0');
+		variable configData : std_logic_vector(47 downto 0) := (others => '0');
 		
 		variable tempBitCounter : integer range 0 to 30 := 0;
 		variable dataBitCounter : integer range 0 to 100 := 0;
@@ -108,7 +108,7 @@ debug_led <= debug;
 					enableAfterAck := encoder_enable; 	
 					case idByte is
 						when ID_CONFIG =>
-							bytesLeft := 5;
+							bytesLeft := 6;
 							state := b_receive_bytes_wait;
 							afterState := b_config_update;
 							enableAfterAck := '1';
@@ -127,7 +127,7 @@ debug_led <= debug;
 						state := afterState;
 					else
 						if byte_in_valid = '1' then
-							configData := configData(31 downto 0) & byte_in;
+							configData := configData(39 downto 0) & byte_in;
 							bytesLeft := bytesLeft - 1;
 							state := b_receive_bytes_wait;
 						end if;
@@ -139,18 +139,20 @@ debug_led <= debug;
 					end if;
 					
 				when b_config_update =>
-					encoder_vector <= configData(39 downto 5);
-					if unsigned(configData(4 downto 1)) > 13 then
+					encoder_vector <= configData(47 downto 13);
+					if unsigned(configData(12 downto 9)) > 13 then
 						encoder_resolution <= 13;
-						configData(4 downto 1) := std_logic_vector(to_unsigned(13, 4));
+						configData(12 downto 9) := std_logic_vector(to_unsigned(13, 4));
 					else
-						encoder_resolution <= to_integer(unsigned(configData(4 downto 1)));
+						encoder_resolution <= to_integer(unsigned(configData(12 downto 9)));
 					end if;
-					if configData(0) = '1' then
+					if configData(8) = '1' then
 						state := b_reset_encoders;
 					else
 						state := b_assemble_reply_config_start;
 					end if;
+					encoder_miliseconds <= to_integer(unsigned(configData(7 downto 0)));
+					
 				
 				when b_reset_encoders =>
 					set_encoder_reset <= '1';
@@ -181,14 +183,14 @@ debug_led <= debug;
 						tempBitCounter := 0;
 						totalBitCounter := totalBitCounter + 1;
 					else
-						boss_data <= boss_data(boss_data'length - 2 downto 0) & configData(39);
+						boss_data <= boss_data(boss_data'length - 2 downto 0) & configData(47);
 						tempBitCounter := tempBitCounter + 1;
 						dataBitCounter := dataBitCounter + 1;
 						totalBitCounter := totalBitCounter + 1;
-						configData := configData(38 downto 0) & '0';
-						if dataBitCounter = 40 then
+						configData := configData(46 downto 0) & '0';
+						if dataBitCounter = 48 then
 							state := b_assemble_reply_align;
-							boss_data_len <= std_logic_vector(to_unsigned(9, boss_data_len'length));
+							boss_data_len <= std_logic_vector(to_unsigned(10, boss_data_len'length));
 						end if;
 					end if;
 				
@@ -202,13 +204,13 @@ debug_led <= debug;
 					
 				when b_send_reply =>
 					boss_data_valid <= '1';
-					boss_select <= '1'; --todo revert
+					boss_select <= '1';
 					state := b_wait_for_ack;
 					debug <= '1';
 					
 				when b_wait_for_ack =>
 					boss_data_valid <= '1';
-					boss_select <= '1'; --todo revert
+					boss_select <= '1';
 					if boss_data_ack = '1' then
 						state := b_idle;
 						encoder_enable <= enableAfterAck;

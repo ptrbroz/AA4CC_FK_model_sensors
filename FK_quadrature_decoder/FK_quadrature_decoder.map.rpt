@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FK_quadrature_decoder
-Thu Jun 03 01:22:23 2021
+Thu Jun 03 01:33:52 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -94,15 +94,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jun 03 01:22:23 2021           ;
+; Analysis & Synthesis Status        ; Successful - Thu Jun 03 01:33:52 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; FK_quadrature_decoder                           ;
 ; Top-level Entity Name              ; FK_quadrature_decoder                           ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 8,041                                           ;
-;     Total combinational functions  ; 6,993                                           ;
-;     Dedicated logic registers      ; 3,752                                           ;
-; Total registers                    ; 3752                                            ;
+; Total logic elements               ; 8,078                                           ;
+;     Total combinational functions  ; 7,020                                           ;
+;     Dedicated logic registers      ; 3,775                                           ;
+; Total registers                    ; 3775                                            ;
 ; Total pins                         ; 76                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -233,28 +233,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 8,041          ;
+; Estimated Total logic elements              ; 8,078          ;
 ;                                             ;                ;
-; Total combinational functions               ; 6993           ;
+; Total combinational functions               ; 7020           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 2753           ;
-;     -- 3 input functions                    ; 2207           ;
-;     -- <=2 input functions                  ; 2033           ;
+;     -- 4 input functions                    ; 2771           ;
+;     -- 3 input functions                    ; 2209           ;
+;     -- <=2 input functions                  ; 2040           ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 5763           ;
-;     -- arithmetic mode                      ; 1230           ;
+;     -- normal mode                          ; 5783           ;
+;     -- arithmetic mode                      ; 1237           ;
 ;                                             ;                ;
-; Total registers                             ; 3752           ;
-;     -- Dedicated logic registers            ; 3752           ;
+; Total registers                             ; 3775           ;
+;     -- Dedicated logic registers            ; 3775           ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 76             ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 3752           ;
-; Total fan-out                               ; 33175          ;
-; Average fan-out                             ; 3.04           ;
+; Maximum fan-out                             ; 3775           ;
+; Total fan-out                               ; 33342          ;
+; Average fan-out                             ; 3.05           ;
 +---------------------------------------------+----------------+
 
 
@@ -263,47 +263,47 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                          ; Library Name ;
 +--------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
-; |FK_quadrature_decoder                                       ; 6993 (1)          ; 3752 (0)     ; 0           ; 0            ; 0       ; 0         ; 76   ; 0            ; |FK_quadrature_decoder                                                                       ; work         ;
-;    |boss:boss_inst|                                          ; 143 (143)         ; 210 (210)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|boss:boss_inst                                                        ; work         ;
+; |FK_quadrature_decoder                                       ; 7020 (1)          ; 3775 (0)     ; 0           ; 0            ; 0       ; 0         ; 76   ; 0            ; |FK_quadrature_decoder                                                                       ; work         ;
+;    |boss:boss_inst|                                          ; 153 (153)         ; 226 (226)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|boss:boss_inst                                                        ; work         ;
 ;    |uart_out_manager:b2v_inst2|                              ; 554 (554)         ; 550 (550)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2                                            ; work         ;
 ;    |uart_rx:rxcomp|                                          ; 93 (93)           ; 42 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|uart_rx:rxcomp                                                        ; work         ;
 ;    |uart_tx:b2v_inst4|                                       ; 37 (37)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|uart_tx:b2v_inst4                                                     ; work         ;
-;    |watcher:b2v_inst|                                        ; 6165 (1072)       ; 2932 (1112)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst                                                      ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|  ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx| ; 148 (148)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx| ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx ; work         ;
+;    |watcher:b2v_inst|                                        ; 6182 (1074)       ; 2939 (1119)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst                                                      ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|  ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx| ; 149 (149)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx| ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx| ; 150 (150)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx| ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx ; work         ;
 ;       |quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx| ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx| ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx|  ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx| ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx| ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx|  ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx| ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx ; work         ;
 ;       |quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx ; work         ;
 ;       |quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx| ; 143 (143)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx|  ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx| ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx| ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx| ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx| ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx| ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx|  ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx| ; 144 (144)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx ; work         ;
 ;       |quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx| ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx| ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx| ; 149 (149)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx ; work         ;
 ;       |quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx| ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx|  ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx|  ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx|  ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|  ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx|  ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx|  ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx  ; work         ;
-;       |quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx|  ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx|  ; 147 (147)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx|  ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx|  ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|  ; 146 (146)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx|  ; 150 (150)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx|  ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx  ; work         ;
+;       |quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx|  ; 145 (145)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx  ; work         ;
 +--------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -428,15 +428,12 @@ Encoding Type:  One-Hot
 +--------------------------------------------------------------------+------------------------------------------------------------------------+
 ; Register name                                                      ; Reason for Removal                                                     ;
 +--------------------------------------------------------------------+------------------------------------------------------------------------+
-; watcher:b2v_inst|\watcher_timer:targetMs[4..7]                     ; Stuck at GND due to stuck port data_in                                 ;
 ; boss:boss_inst|boss_data_len[4,5]                                  ; Stuck at GND due to stuck port data_in                                 ;
 ; boss:boss_inst|boss_data_len[3]                                    ; Stuck at VCC due to stuck port data_in                                 ;
-; boss:boss_inst|boss_data_len[1,2]                                  ; Stuck at GND due to stuck port data_in                                 ;
-; boss:boss_inst|boss_data_len[0]                                    ; Stuck at VCC due to stuck port data_in                                 ;
-; watcher:b2v_inst|\watcher_timer:targetMs[3]                        ; Merged with watcher:b2v_inst|\watcher_timer:targetMs[1]                ;
-; watcher:b2v_inst|\watcher_timer:targetMs[2]                        ; Merged with watcher:b2v_inst|\watcher_timer:targetMs[0]                ;
+; boss:boss_inst|boss_data_len[2]                                    ; Stuck at GND due to stuck port data_in                                 ;
+; boss:boss_inst|boss_data_len[1]                                    ; Stuck at VCC due to stuck port data_in                                 ;
+; boss:boss_inst|boss_data_len[0]                                    ; Stuck at GND due to stuck port data_in                                 ;
 ; boss:boss_inst|boss_select                                         ; Merged with boss:boss_inst|boss_data_valid                             ;
-; watcher:b2v_inst|\watcher_timer:targetMs[0]                        ; Merged with watcher:b2v_inst|\watcher_timer:targetMs[1]                ;
 ; boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_config_data   ; Merged with boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_align ;
 ; boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_config_header ; Merged with boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_align ;
 ; boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_config_start  ; Merged with boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_align ;
@@ -447,7 +444,7 @@ Encoding Type:  One-Hot
 ; boss:boss_inst|\boss_fsm:afterState.b_send_reply                   ; Merged with boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_align ;
 ; boss:boss_inst|\boss_fsm:afterState.b_wait_for_ack                 ; Merged with boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_align ;
 ; boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_align         ; Stuck at GND due to stuck port data_in                                 ;
-; Total Number of Removed Registers = 24                             ;                                                                        ;
+; Total Number of Removed Registers = 17                             ;                                                                        ;
 +--------------------------------------------------------------------+------------------------------------------------------------------------+
 
 
@@ -456,12 +453,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 3752  ;
-; Number of registers using Synchronous Clear  ; 46    ;
+; Total registers                              ; 3775  ;
+; Number of registers using Synchronous Clear  ; 54    ;
 ; Number of registers using Synchronous Load   ; 145   ;
 ; Number of registers using Asynchronous Clear ; 1784  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1942  ;
+; Number of registers using Clock Enable       ; 1970  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -517,12 +514,26 @@ Encoding Type:  One-Hot
 ; boss:boss_inst|encoder_resolution[1]                                                              ; 1       ;
 ; boss:boss_inst|encoder_resolution[0]                                                              ; 1       ;
 ; boss:boss_inst|encoder_resolution[3]                                                              ; 1       ;
-; watcher:b2v_inst|\watcher_timer:targetMs[1]                                                       ; 2       ;
+; watcher:b2v_inst|\watcher_timer:targetMs[3]                                                       ; 1       ;
+; watcher:b2v_inst|\watcher_timer:targetMs[1]                                                       ; 1       ;
+; boss:boss_inst|encoder_miliseconds[2]                                                             ; 1       ;
+; boss:boss_inst|encoder_miliseconds[0]                                                             ; 1       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:positionCounter[12] ; 2       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[10]       ; 9       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[3]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[9]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[8]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[7]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[6]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[5]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[4]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[2]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[1]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[0]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[10]       ; 9       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[7]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[9]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[8]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[7]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[6]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[5]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[4]        ; 3       ;
@@ -530,29 +541,7 @@ Encoding Type:  One-Hot
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[2]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[1]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Adebounce[0]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[10]       ; 10      ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[8]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[9]        ; 4       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[7]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[6]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[5]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[4]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[3]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[2]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[1]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[0]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:positionCounter[12] ; 2       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[10]       ; 10      ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[9]        ; 4       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[8]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[7]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[6]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[5]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[4]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[3]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[2]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[1]        ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[0]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[10]       ; 9       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[9]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[8]        ; 3       ;
@@ -564,14 +553,22 @@ Encoding Type:  One-Hot
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[2]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[1]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[0]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[10]       ; 10      ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[5]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[9]        ; 4       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[8]        ; 4       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[7]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[6]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[4]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[3]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[2]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[1]        ; 3       ;
+; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Adebounce[0]        ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|\decode:positionCounter[12]  ; 2       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|\decode:Adebounce[10]        ; 9       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|\decode:Adebounce[9]         ; 3       ;
 ; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|\decode:Adebounce[8]         ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|\decode:Adebounce[7]         ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|\decode:Adebounce[6]         ; 3       ;
-; watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|\decode:Adebounce[5]         ; 3       ;
-; Total number of inverted registers = 852*                                                         ;         ;
+; Total number of inverted registers = 855*                                                         ;         ;
 +---------------------------------------------------------------------------------------------------+---------+
 * Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
@@ -581,65 +578,65 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_timer:msCounter[2]                                                ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_timer:clockCounter[3]                                             ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[1]                                   ;
-; 4:1                ; 432 bits  ; 864 LEs       ; 432 LEs              ; 432 LEs                ; Yes        ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2|\manager_fsm:savedData[122]                                      ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:encoderCount[5]                                               ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:encoderCountArray[1]                                          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_timer:msCounter[7]                                                ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_timer:clockCounter[11]                                            ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2|\manager_fsm:savedDataIndex[6]                                   ;
+; 4:1                ; 432 bits  ; 864 LEs       ; 432 LEs              ; 432 LEs                ; Yes        ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2|\manager_fsm:savedData[173]                                      ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:encoderCount[3]                                               ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:encoderCountArray[2]                                          ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:resolutionArray[1]                                            ;
-; 4:1                ; 79 bits   ; 158 LEs       ; 0 LEs                ; 158 LEs                ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|boss_data[4]                                                                 ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_rx:rxcomp|\prijem:startCounterOk[7]                                                    ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:dataBitCounter[6]                                                  ;
-; 5:1                ; 80 bits   ; 240 LEs       ; 160 LEs              ; 80 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2|\manager_fsm:savedData[509]                                      ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |FK_quadrature_decoder|uart_tx:b2v_inst4|tx_bit_cntr[2]                                                            ;
-; 6:1                ; 519 bits  ; 2076 LEs      ; 0 LEs                ; 2076 LEs               ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|data_out[489]                                                              ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:bytesLeft[0]                                                       ;
-; 6:1                ; 35 bits   ; 140 LEs       ; 35 LEs               ; 105 LEs                ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:configData[6]                                                      ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:tempBitCounter[1]                                                  ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:totalBitCounter[2]                                                 ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_rx:rxcomp|rx_bit_cntr[0]                                                               ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_tx:b2v_inst4|tx_br_cntr[4]                                                             ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:configData[2]                                                      ;
-; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_rx:rxcomp|rx_br_cntr[3]                                                                ;
-; 38:1               ; 12 bits   ; 300 LEs       ; 288 LEs              ; 12 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:tempPosition[7]                                               ;
-; 9:1                ; 6 bits    ; 36 LEs        ; 6 LEs                ; 30 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:encoderIndex[5]                                               ;
-; 10:1               ; 10 bits   ; 60 LEs        ; 10 LEs               ; 50 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:totalBitCounter[8]                                            ;
-; 13:1               ; 5 bits    ; 40 LEs        ; 5 LEs                ; 35 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:tempBitCounter[2]                                             ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx|\decode:Bdebounce[6]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[0]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx|\decode:Bdebounce[0]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx|\decode:Bdebounce[2]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx|\decode:Bdebounce[5]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx|\decode:Bdebounce[2]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx|\decode:Bdebounce[9]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx|\decode:Bdebounce[10] ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx|\decode:Bdebounce[6]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx|\decode:Bdebounce[3]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx|\decode:Bdebounce[2]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx|\decode:Bdebounce[5]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx|\decode:Bdebounce[10] ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx|\decode:Bdebounce[2]  ;
+; 4:1                ; 79 bits   ; 158 LEs       ; 0 LEs                ; 158 LEs                ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|boss_data[41]                                                                ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_rx:rxcomp|\prijem:startCounterOk[6]                                                    ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:dataBitCounter[4]                                                  ;
+; 5:1                ; 80 bits   ; 240 LEs       ; 160 LEs              ; 80 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2|\manager_fsm:savedData[463]                                      ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |FK_quadrature_decoder|uart_tx:b2v_inst4|tx_bit_cntr[1]                                                            ;
+; 6:1                ; 519 bits  ; 2076 LEs      ; 0 LEs                ; 2076 LEs               ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|data_out[300]                                                              ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:bytesLeft[3]                                                       ;
+; 6:1                ; 43 bits   ; 172 LEs       ; 43 LEs               ; 129 LEs                ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:configData[35]                                                     ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:tempBitCounter[4]                                                  ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:totalBitCounter[5]                                                 ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_rx:rxcomp|rx_bit_cntr[2]                                                               ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_tx:b2v_inst4|tx_br_cntr[5]                                                             ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:configData[10]                                                     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |FK_quadrature_decoder|uart_rx:rxcomp|rx_br_cntr[4]                                                                ;
+; 38:1               ; 12 bits   ; 300 LEs       ; 288 LEs              ; 12 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:tempPosition[12]                                              ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 6 LEs                ; 30 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:encoderIndex[3]                                               ;
+; 10:1               ; 10 bits   ; 60 LEs        ; 10 LEs               ; 50 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:totalBitCounter[2]                                            ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 5 LEs                ; 35 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|\watcher_fsm:tempBitCounter[1]                                             ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx|\decode:Bdebounce[1]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|\decode:Bdebounce[8]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx|\decode:Bdebounce[3]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx|\decode:Bdebounce[7]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx|\decode:Bdebounce[9]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx|\decode:Bdebounce[9]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx|\decode:Bdebounce[7]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx|\decode:Bdebounce[6]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx|\decode:Bdebounce[8]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx|\decode:Bdebounce[1]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx|\decode:Bdebounce[8]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx|\decode:Bdebounce[7]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx|\decode:Bdebounce[9]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx|\decode:Bdebounce[10] ;
 ; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx|\decode:Bdebounce[9]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx|\decode:Bdebounce[6]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx|\decode:Bdebounce[1]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx|\decode:Bdebounce[1]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx|\decode:Bdebounce[1]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx|\decode:Bdebounce[9]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx|\decode:Bdebounce[10] ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx|\decode:Bdebounce[6]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx|\decode:Bdebounce[1]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx|\decode:Bdebounce[7]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[7]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx|\decode:Bdebounce[7]   ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx|\decode:Bdebounce[9]   ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx|\decode:Bdebounce[10]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|\decode:Bdebounce[6]   ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx|\decode:Bdebounce[3]   ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx|\decode:Bdebounce[10]  ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx|\decode:Bdebounce[7]   ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx|\decode:Bdebounce[4]   ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx|\decode:Bdebounce[3]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx|\decode:Bdebounce[10] ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx|\decode:Bdebounce[8]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx|\decode:Bdebounce[2]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx|\decode:Bdebounce[7]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx|\decode:Bdebounce[4]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx|\decode:Bdebounce[8]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx|\decode:Bdebounce[2]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx|\decode:Bdebounce[0]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx|\decode:Bdebounce[0]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx|\decode:Bdebounce[10] ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx|\decode:Bdebounce[4]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx|\decode:Bdebounce[1]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx|\decode:Bdebounce[7]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx|\decode:Bdebounce[5]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx|\decode:Bdebounce[0]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx|\decode:Bdebounce[3]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx|\decode:Bdebounce[3]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx|\decode:Bdebounce[0]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx|\decode:Bdebounce[0]   ;
 ; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|\decode:Bdebounce[9]   ;
 ; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx|Adebounce             ;
 ; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx|Bdebounce             ;
@@ -711,7 +708,7 @@ Encoding Type:  One-Hot
 ; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx|Bdebounce              ;
 ; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|Adebounce              ;
 ; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|Bdebounce              ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:afterState.b_assemble_reply_config_header                          ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:afterState.b_wait_for_ack                                          ;
 ; 5:1                ; 13 bits   ; 39 LEs        ; 39 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx|positionCounter       ;
 ; 5:1                ; 13 bits   ; 39 LEs        ; 39 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx|positionCounter       ;
 ; 5:1                ; 13 bits   ; 39 LEs        ; 39 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx|positionCounter       ;
@@ -747,14 +744,14 @@ Encoding Type:  One-Hot
 ; 5:1                ; 13 bits   ; 39 LEs        ; 39 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx|positionCounter        ;
 ; 5:1                ; 13 bits   ; 39 LEs        ; 39 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx|positionCounter        ;
 ; 5:1                ; 13 bits   ; 39 LEs        ; 39 LEs               ; 0 LEs                  ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx|positionCounter        ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2|Selector530                                                      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2|Selector528                                                      ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |FK_quadrature_decoder|uart_tx:b2v_inst4|Selector4                                                                 ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |FK_quadrature_decoder|uart_rx:rxcomp|Selector6                                                                    ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |FK_quadrature_decoder|uart_tx:b2v_inst4|Selector3                                                                 ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |FK_quadrature_decoder|uart_rx:rxcomp|Selector7                                                                    ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 20 LEs               ; 30 LEs                 ; No         ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:state.b_assemble_reply_align                                       ;
-; 19:1               ; 6 bits    ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|Selector11                                                                 ;
-; 20:1               ; 2 bits    ; 26 LEs        ; 4 LEs                ; 22 LEs                 ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|Selector12                                                                 ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |FK_quadrature_decoder|uart_rx:rxcomp|Selector8                                                                    ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |FK_quadrature_decoder|uart_tx:b2v_inst4|Selector1                                                                 ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |FK_quadrature_decoder|uart_rx:rxcomp|Selector5                                                                    ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 20 LEs               ; 30 LEs                 ; No         ; |FK_quadrature_decoder|boss:boss_inst|\boss_fsm:state.b_send_reply                                                 ;
+; 19:1               ; 6 bits    ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|Selector7                                                                  ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 4 LEs                ; 22 LEs                 ; No         ; |FK_quadrature_decoder|watcher:b2v_inst|Selector0                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
 
 
@@ -1248,7 +1245,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jun 03 01:22:08 2021
+    Info: Processing started: Thu Jun 03 01:33:38 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FK_quadrature_decoder -c FK_quadrature_decoder
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file uart_out_manager.vhd
@@ -1290,7 +1287,6 @@ Info (12127): Elaborating entity "FK_quadrature_decoder" for the top level hiera
 Warning (10036): Verilog HDL or VHDL warning at FK_quadrature_decoder.vhd(217): object "zeroconst" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at FK_quadrature_decoder.vhd(222): object "SYNTHESIZED_WIRE_12" assigned a value but never read
 Info (12128): Elaborating entity "boss" for hierarchy "boss:boss_inst"
-Warning (10540): VHDL Signal Declaration warning at boss.vhd(55): used explicit default value for signal "encoder_miliseconds" because signal was never assigned a value
 Info (12128): Elaborating entity "watcher" for hierarchy "watcher:b2v_inst"
 Warning (10036): Verilog HDL or VHDL warning at watcher.vhd(98): object "counter" assigned a value but never read
 Info (12128): Elaborating entity "quadrature_decoder_pb" for hierarchy "watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx"
@@ -1312,14 +1308,14 @@ Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal 
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 8682 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 8718 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 73 input pins
     Info (21059): Implemented 3 output pins
-    Info (21061): Implemented 8606 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4669 megabytes
-    Info: Processing ended: Thu Jun 03 01:22:23 2021
-    Info: Elapsed time: 00:00:15
+    Info (21061): Implemented 8642 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4677 megabytes
+    Info: Processing ended: Thu Jun 03 01:33:52 2021
+    Info: Elapsed time: 00:00:14
     Info: Total CPU time (on all processors): 00:00:14
 
 
