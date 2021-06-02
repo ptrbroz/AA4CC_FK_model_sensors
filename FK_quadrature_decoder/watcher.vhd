@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 entity watcher IS
 generic(
 			MAX_ENCODERS : integer := 35;
-			DATA_MAX_BYTES : integer := 59;
+			DATA_MAX_BYTES : integer := 65;
 			CLK_IN_FREQ : integer := 50000000
 			);
 port(
@@ -16,7 +16,7 @@ port(
 		gpio_b_channels : in std_logic_vector(MAX_ENCODERS-1 downto 0);
 		--todo settings
 		data_out : buffer std_logic_vector(DATA_MAX_BYTES*8 - 1 downto 0);
-		data_out_len : out std_logic_vector(5 downto 0); 
+		data_out_len : out std_logic_vector(6 downto 0); 
 		data_out_ready : out std_logic;
 		data_out_ack : in std_logic;
 		set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');

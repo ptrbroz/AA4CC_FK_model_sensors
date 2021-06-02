@@ -15,7 +15,7 @@ port(
 		tx_byte : out std_logic_vector(7 downto 0);
 		tx_is_ready : in std_logic;
 		watcher_data : in std_logic_vector(DATA_MAX_BYTES*8-1 downto 0); 
-		watcher_data_len : in std_logic_vector(5 downto 0); 
+		watcher_data_len : in std_logic_vector(6 downto 0); 
 		watcher_data_valid : in std_logic;
 		watcher_data_ack : out std_logic;
 		boss_data : in std_logic_vector(DATA_SMALL_BYTES*8-1 downto 0); 

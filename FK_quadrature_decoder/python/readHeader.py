@@ -55,7 +55,7 @@ def fpgaReplyToSettings(databytes):
     
 
 
-vector = [0]*35
+vector = [1]*35
 vector[0] = 1
 vector[1] = 1
 vector[5] = 1
@@ -63,7 +63,9 @@ vector[20] = 1
 vector[34] = 1
 
     
-initFpga(vector, 5, 1)
+initFpga(vector, 15, 1)
+
+
 
 while 1:
     b1 = port.read()
@@ -93,26 +95,31 @@ while 1:
 
 
 print("---== Entering main loop ==---")
+discardedBytes = 0
 
 flicker = "/"  #just to indicate activity when there are no changes
 while(1):
+    print(f"Bytes discarded: {discardedBytes}\r")
+
     msg = []
 
     b1 = port.read()
 
     if b1 != b'\xff':
+        discardedBytes += 1
         continue
 
     b2 = port.read()
     if b2 not in [b'\xfc', b'\xfd', b'\xfe', b'\xff']:
+        discardedBytes += 2
         continue
 
     #if we got this far, we caught start of message correctly
     
     b3 = port.read()
 
-    if b3 == b'\xf0':
-        print(f"That's a config reply! Got {b1} into {b2} into {b3}                                            ")
+    if b3 == b'\xf0': #signifying that this is a config reply. This should not happen, but let's check anyway.
+        discardedBytes += 3 
         continue
 
     #parse header to determine how many bytes to expect
@@ -154,7 +161,7 @@ while(1):
     #print(f"Bytes: {b1} {b2} {b3}   {dataBytes}                                  ")
     print(f"[{flicker}] I'm reading {encoderCount} encoders running at resolution of {resolution} bits.                       ")   
     for i, position in enumerate(positionsList):
-        print(f"Encoder index {i+1}'s position: [{position:04d}/{maxVal}]")
+        print(f"Encoder index {(i+1):02d}'s position: [{position:04d}/{maxVal}]")
     print("")
 
     
@@ -162,6 +169,7 @@ while(1):
     print("\x1B[2A")
     for position in positionsList:
         print("\x1B[2A")
+    print("\x1B[2A")
     print("\x1B[2A")
     print("\x1B[2A")
 

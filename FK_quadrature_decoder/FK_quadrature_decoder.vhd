@@ -142,8 +142,8 @@ GENERIC (CLK_IN_FREQ : INTEGER;
 		 gpio_a_channels : IN STD_LOGIC_VECTOR(34 DOWNTO 0);
 		 gpio_b_channels : IN STD_LOGIC_VECTOR(34 DOWNTO 0);
 		 data_out_ready : OUT STD_LOGIC;
-		 data_out : OUT STD_LOGIC_VECTOR(471 DOWNTO 0);
-		 data_out_len : OUT STD_LOGIC_VECTOR(5 DOWNTO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(519 DOWNTO 0);
+		 data_out_len : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		 set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		 set_encoder_resolution : in integer range 0 to 13;
 		 set_encoder_miliseconds : in integer range 0 to 255;
@@ -163,8 +163,8 @@ GENERIC (DATA_MAX_BYTES : INTEGER;
 		 boss_select : IN STD_LOGIC;
 		 boss_data : IN STD_LOGIC_VECTOR(DATA_SMALL_BYTES*8 - 1 DOWNTO 0);
 		 boss_data_len : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
-		 watcher_data : IN STD_LOGIC_VECTOR(471 DOWNTO 0);
-		 watcher_data_len : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
+		 watcher_data : IN STD_LOGIC_VECTOR(DATA_MAX_BYTES*8 -1 DOWNTO 0);
+		 watcher_data_len : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
 		 tx_send : OUT STD_LOGIC;
 		 watcher_data_ack : OUT STD_LOGIC;
 		 boss_data_ack : OUT STD_LOGIC;
@@ -220,8 +220,8 @@ SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC_VECTOR(471 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC_VECTOR(5 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC_VECTOR(519 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC_VECTOR(6 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
 
@@ -270,7 +270,7 @@ port map(
 
 b2v_inst : watcher
 GENERIC MAP(CLK_IN_FREQ => 50000000,
-			DATA_MAX_BYTES => 59,
+			DATA_MAX_BYTES => 65,
 			MAX_ENCODERS => 35
 			)
 PORT MAP(clock => CLOCK_50,
@@ -290,7 +290,7 @@ PORT MAP(clock => CLOCK_50,
 
 
 b2v_inst2 : uart_out_manager
-GENERIC MAP(DATA_MAX_BYTES => 59,
+GENERIC MAP(DATA_MAX_BYTES => 65,
 			DATA_SMALL_BYTES => 10
 			)
 PORT MAP(clock => CLOCK_50,
