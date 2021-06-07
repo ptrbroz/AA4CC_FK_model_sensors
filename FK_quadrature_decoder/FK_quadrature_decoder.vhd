@@ -416,7 +416,7 @@ achans(32) <= GPIO_1_29;
 achans(33) <= GPIO_1_31;
 achans(34) <= GPIO_1_33;
 
-GPIO_2_1 <= wire_uart_tx; --lower gpio header pin - for easier inspection
+GPIO_2_1 <= wire_uart_tx; --lower gpio header pin - for inspection of uart output
 GPIO_1_22 <= wire_uart_tx;
 
 END bdf_type;
