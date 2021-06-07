@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22F17) Path("C:/Users/petr/code/AA4CC_FK_model_sensors/FK_quadrature_decoder/") File("FK_quadrature_decoder.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE22) Path("C:/Users/petr/code/AA4CC_FK_model_sensors/FK_quadrature_decoder/") File("output_file.jic") MfrSpec(OpMask(1) SEC_Device(EPCS64) Child_OpMask(1 3));
 
 ChainEnd;
 

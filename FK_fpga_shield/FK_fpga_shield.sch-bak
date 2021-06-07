@@ -3854,8 +3854,6 @@ F 3 "" H 14250 3050 50  0001 C CNN
 $EndComp
 Text Label 14250 2950 0    50   ~ 0
 3V3
-Text Notes 16650 7750 0    1181 ~ 0
-TODO:\nsilkscreen
 $Comp
 L FK_fpga_shield_custom_symbols:BNX016-01 FL1
 U 1 1 60741E39

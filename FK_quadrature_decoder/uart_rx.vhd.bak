@@ -10,6 +10,7 @@ UART_BAUD_RATE : integer := 230400;
 TARGET_MCLK : integer := 50000000);
 port (
      clock : in std_logic; 
+     --reset : in std_logic; 
       data : out std_logic_vector(DATA_BITS-1 downto 0); 
       data_valid : out std_logic; 
       rxd  : in std_logic

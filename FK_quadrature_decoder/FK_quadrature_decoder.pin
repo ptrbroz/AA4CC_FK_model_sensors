@@ -80,9 +80,9 @@ GND+                         : A9        :        :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : A10       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A11       :        :                   :         : 7         :                
 GPIO_0_30                    : A12       : input  : 2.5 V             :         : 7         : Y              
-LED1                         : A13       : output : 2.5 V             :         : 7         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A13       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A14       :        :                   :         : 7         :                
-LED0                         : A15       : output : 2.5 V             :         : 7         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A15       :        :                   :         : 7         :                
 VCCIO7                       : A16       : power  :                   : 2.5V    : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B1        :        :                   :         : 1         :                
 GND                          : B2        : gnd    :                   :         :           :                
@@ -210,7 +210,7 @@ GND                          : J11       : gnd    :                   :         
 VCCINT                       : J12       : power  :                   : 1.2V    :           :                
 GPIO_1_32                    : J13       : input  : 2.5 V             :         : 5         : Y              
 GPIO_1_33                    : J14       : input  : 2.5 V             :         : 5         : Y              
-KEY0                         : J15       : input  : 2.5 V             :         : 5         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : J15       :        :                   :         : 5         :                
 GPIO_1_30                    : J16       : input  : 2.5 V             :         : 5         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : K1        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K2        :        :                   :         : 2         :                

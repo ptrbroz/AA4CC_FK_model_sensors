@@ -14,7 +14,6 @@ port(
 		areset : in std_logic;
 		gpio_a_channels : in std_logic_vector(MAX_ENCODERS-1 downto 0);
 		gpio_b_channels : in std_logic_vector(MAX_ENCODERS-1 downto 0);
-		--todo settings
 		data_out : buffer std_logic_vector(DATA_MAX_BYTES*8 - 1 downto 0);
 		data_out_len : out std_logic_vector(6 downto 0); 
 		data_out_ready : out std_logic;
@@ -45,7 +44,6 @@ architecture arch1 of watcher is
 	type position_array_t is array (MAX_ENCODERS-1 downto 0) of std_logic_vector(12 downto 0);
 	
 	type watcher_fsm_state_t is ( w_wait_for_timer,
-											--w_check_for_change, todo
 											w_save_positions,
 											w_assemble_header_ones,
 											w_assemble_header_calc_encoders,
@@ -94,14 +92,14 @@ begin
 		variable targetMs : integer range 0 to 255 		 := 10;
 	
 		constant clocksMax : integer :=    500000;
-		--constant clocksMax : integer := 100000000;
 		variable counter : integer range 0 to clocksMax+1 := 0;
 
 	begin
 	
 	if areset = '1' then
-		counter := 0; --todo change
-	else
+			targetMs := set_encoder_miliseconds;
+			msCounter := 0;
+			clockCounter := 0;	else
 		if rising_edge(clock) then
 			if msCounter >= targetMs then
 				timer_alarm <= '1';
@@ -142,8 +140,6 @@ begin
 	
 	if areset = '1' then
 		state := w_wait_for_timer; 
-		encoderIndex := 0;
-		--encoderEnableVector := (1 => '1', 3 => '1', 4 => '1', 7 => '1', others => '1');
 	else
 		if rising_edge(clock) then
 		

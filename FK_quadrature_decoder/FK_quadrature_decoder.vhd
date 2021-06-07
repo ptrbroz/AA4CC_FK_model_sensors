@@ -25,9 +25,6 @@ ENTITY FK_quadrature_decoder IS
 	PORT
 	(
 		CLOCK_50 :  IN  STD_LOGIC;
-		KEY0 :  IN  STD_LOGIC;
-		LED0 :  OUT  STD_LOGIC;
-		LED1 :  out std_logic;
 		GPIO_0_IN0 :  IN  STD_LOGIC;
 		GPIO_0_IN1 :  IN  STD_LOGIC;
 		GPIO_1_IN0 :  IN  STD_LOGIC;
@@ -113,9 +110,7 @@ generic(
 		DATA_SMALL_BYTES : integer
 );
 port(
-		debug_led : out std_logic;
 		clock : in std_logic;
-		areset : in std_logic;
 		byte_in : in std_logic_vector(7 downto 0);
 		byte_in_valid : in std_logic;
 		boss_data : buffer std_logic_vector(DATA_SMALL_BYTES*8-1 downto 0); 
@@ -157,7 +152,6 @@ GENERIC (DATA_MAX_BYTES : INTEGER;
 			DATA_SMALL_BYTES : INTEGER
 			);
 	PORT(clock : IN STD_LOGIC;
-		 areset : IN STD_LOGIC;
 		 tx_is_ready : IN STD_LOGIC;
 		 watcher_data_valid : IN STD_LOGIC;
 		 boss_data_valid : IN STD_LOGIC;
@@ -199,7 +193,6 @@ UART_BAUD_RATE : integer;
 TARGET_MCLK : integer);
 port (
      clock : in std_logic; 
-     --reset : in std_logic; 
       data : out std_logic_vector(DATA_BITS-1 downto 0); 
       data_valid : out std_logic; 
       rxd  : in std_logic
@@ -244,7 +237,6 @@ signal wire_rx_valid : std_logic;
 signal wire_uart_tx : std_logic;
 
 BEGIN 
-LED0 <= KEY0;
 
 boss_inst : boss
 generic map(
@@ -252,9 +244,7 @@ generic map(
 		DATA_SMALL_BYTES => 10
 )
 port map(
-		debug_led => LED1,
 		clock => CLOCK_50,
-		areset => SYNTHESIZED_WIRE_11,
 		byte_in => wire_rx_byte,
 		byte_in_valid => wire_rx_valid,
 		boss_data => wire_boss_data,
@@ -297,7 +287,6 @@ GENERIC MAP(DATA_MAX_BYTES => 65,
 			DATA_SMALL_BYTES => 10
 			)
 PORT MAP(clock => CLOCK_50,
-		 areset => SYNTHESIZED_WIRE_11,
 		 tx_is_ready => SYNTHESIZED_WIRE_3,
 		 watcher_data_valid => SYNTHESIZED_WIRE_4,
 		 boss_data_valid => wire_boss_data_valid,
@@ -342,7 +331,6 @@ port map(
 		);
 
 
-SYNTHESIZED_WIRE_11 <= NOT(KEY0);
 
 
 
@@ -412,9 +400,6 @@ bchans(32) <= GPIO_1_28;
 bchans(33) <= GPIO_1_30;
 bchans(34) <= GPIO_1_32;
 
---uart tx => GPIO_1_24 see uart_tx entity above
---uart rx todo to GPIO_1_22
-
 achans(30) <= GPIO_1_25;
 bchans(30) <= GPIO_1_23;
 
@@ -435,7 +420,7 @@ achans(32) <= GPIO_1_29;
 achans(33) <= GPIO_1_31;
 achans(34) <= GPIO_1_33;
 
-GPIO_2_1 <= wire_uart_tx;
+GPIO_2_1 <= wire_uart_tx; --lower gpio header pin - for easier inspection
 GPIO_1_22 <= wire_uart_tx;
 
 END bdf_type;

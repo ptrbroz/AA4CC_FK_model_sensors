@@ -221,10 +221,8 @@ set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulati
 set_instance_assignment -name CURRENT_STRENGTH_NEW 16MA -to GPIO_1_24
 set_global_assignment -name VHDL_FILE uart_out_manager.vhd
 set_global_assignment -name VHDL_FILE FK_quadrature_decoder.vhd
-set_global_assignment -name VHDL_FILE quadrature_decoder_digikey.vhd
 set_global_assignment -name VHDL_FILE quadrature_decoder_pb.vhd
 set_global_assignment -name VHDL_FILE uart_tx.vhd
-set_global_assignment -name VHDL_FILE uart_spammer.vhd
 set_global_assignment -name VHDL_FILE watcher.vhd
 set_global_assignment -name QIP_FILE constant1.qip
 set_global_assignment -name QIP_FILE constant64.qip

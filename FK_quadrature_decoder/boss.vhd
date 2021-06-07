@@ -9,9 +9,7 @@ generic(
 		DATA_SMALL_BYTES : integer := 10
 );
 port(
-		debug_led : out std_logic;
 		clock : in std_logic;
-		areset : in std_logic;
 		byte_in : in std_logic_vector(7 downto 0);
 		byte_in_valid : in std_logic;
 		boss_data : buffer std_logic_vector(DATA_SMALL_BYTES*8-1 downto 0); 
@@ -54,7 +52,6 @@ signal encoder_resolution : integer range 0 to 13 := 11;
 signal encoder_enable : std_logic := '1';
 signal encoder_miliseconds : integer range 0 to 255 := 5;
 
-signal debug : std_logic := '0';
 
 									
 begin
@@ -65,12 +62,11 @@ set_encoder_resolution <= encoder_resolution;
 set_encoder_enable <= encoder_enable;
 set_encoder_miliseconds <= encoder_miliseconds;
 
-debug_led <= debug;	
 
 
 
 
-	boss_fsm : process(clock, areset) is
+	boss_fsm : process(clock) is
 	
 		variable state : boss_fsm_state_t := b_idle;
 		variable afterState : boss_fsm_state_t := b_idle;
@@ -87,9 +83,6 @@ debug_led <= debug;
 		
 	begin
 	
-	if areset = '1' then
-		
-	else
 		if rising_edge(clock) then
 			
 			set_encoder_reset <= '0';
@@ -206,7 +199,6 @@ debug_led <= debug;
 					boss_data_valid <= '1';
 					boss_select <= '1';
 					state := b_wait_for_ack;
-					debug <= '1';
 					
 				when b_wait_for_ack =>
 					boss_data_valid <= '1';
@@ -219,7 +211,6 @@ debug_led <= debug;
 					
 			end case;
 		end if;
-	end if;
 
 	
 	end process boss_fsm;

@@ -10,7 +10,6 @@ generic(
 		);
 port(
 		clock : in std_logic;
-		areset : in std_logic;
 		tx_send : out std_logic;
 		tx_byte : out std_logic_vector(7 downto 0);
 		tx_is_ready : in std_logic;
@@ -50,20 +49,13 @@ begin
 	watcher_data_ack 	<= data_ack				   when (boss_select = '0') else '0';
 	boss_data_ack 		<= data_ack 				when (boss_select = '1') else '0';
 
-	manager_fsm : process(clock, areset) is
+	manager_fsm : process(clock) is
 		variable state : manager_state_t := m_idle;
 		variable savedData : std_logic_vector(DATA_MAX_BYTES*8-1 downto 0) := (others => '0');
 		variable savedDataLen : integer range 0 to DATA_MAX_BYTES := 0;
 		variable savedDataIndex : integer range 0 to DATA_MAX_BYTES := 0;
 	begin
-	
-		if areset = '1' then
-			state := m_idle;
-			savedData := (others => '0');
-			savedDataLen := 0;
-			savedDataIndex := 0;
-	else
-		
+			
 		if rising_edge(clock) then
 			
 			data_ack <= '0';
@@ -114,7 +106,6 @@ begin
 			
 			
 		end if;
-	end if;
 		
 	end process manager_fsm;
 	
