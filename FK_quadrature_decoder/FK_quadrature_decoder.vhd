@@ -99,7 +99,8 @@ ENTITY FK_quadrature_decoder IS
 		GPIO_1_30 :  IN  STD_LOGIC;
 		GPIO_1_31 :  IN  STD_LOGIC;
 		GPIO_1_32 :  IN  STD_LOGIC;
-		GPIO_1_33 :  IN  STD_LOGIC
+		GPIO_1_33 :  IN  STD_LOGIC;
+		GPIO_2_1  :  OUT STD_LOGIC
 	);
 END FK_quadrature_decoder;
 
@@ -240,6 +241,8 @@ signal wire_set_encoder_enabled : std_logic;
 signal wire_rx_byte : std_logic_vector(7 downto 0);
 signal wire_rx_valid : std_logic;
 
+signal wire_uart_tx : std_logic;
+
 BEGIN 
 LED0 <= KEY0;
 
@@ -322,7 +325,7 @@ GENERIC MAP(DATA_BITS => 8,
 PORT MAP(clock => CLOCK_50,
 		 start => SYNTHESIZED_WIRE_9,
 		 data => SYNTHESIZED_WIRE_10,
-		 trx => GPIO_1_22,
+		 trx => wire_uart_tx,
 		 ready => SYNTHESIZED_WIRE_3);
 		 
 		 
@@ -432,6 +435,7 @@ achans(32) <= GPIO_1_29;
 achans(33) <= GPIO_1_31;
 achans(34) <= GPIO_1_33;
 
-
+GPIO_2_1 <= wire_uart_tx;
+GPIO_1_22 <= wire_uart_tx;
 
 END bdf_type;

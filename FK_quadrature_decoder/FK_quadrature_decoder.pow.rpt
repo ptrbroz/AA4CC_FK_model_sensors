@@ -1,5 +1,5 @@
 PowerPlay Power Analyzer report for FK_quadrature_decoder
-Thu Jun 03 01:34:22 2021
+Thu Jun 03 12:08:38 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -45,17 +45,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------------------+
 ; PowerPlay Power Analyzer Summary                                                          ;
 +----------------------------------------+--------------------------------------------------+
-; PowerPlay Power Analyzer Status        ; Successful - Thu Jun 03 01:34:22 2021            ;
+; PowerPlay Power Analyzer Status        ; Successful - Thu Jun 03 12:08:38 2021            ;
 ; Quartus II 64-Bit Version              ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition  ;
 ; Revision Name                          ; FK_quadrature_decoder                            ;
 ; Top-level Entity Name                  ; FK_quadrature_decoder                            ;
 ; Family                                 ; Cyclone IV E                                     ;
 ; Device                                 ; EP4CE22F17C6                                     ;
 ; Power Models                           ; Final                                            ;
-; Total Thermal Power Dissipation        ; 157.85 mW                                        ;
-; Core Dynamic Thermal Power Dissipation ; 39.18 mW                                         ;
-; Core Static Thermal Power Dissipation  ; 78.36 mW                                         ;
-; I/O Thermal Power Dissipation          ; 40.31 mW                                         ;
+; Total Thermal Power Dissipation        ; 158.27 mW                                        ;
+; Core Dynamic Thermal Power Dissipation ; 39.29 mW                                         ;
+; Core Static Thermal Power Dissipation  ; 78.37 mW                                         ;
+; I/O Thermal Power Dissipation          ; 40.62 mW                                         ;
 ; Power Estimation Confidence            ; Low: user provided insufficient toggle rate data ;
 +----------------------------------------+--------------------------------------------------+
 
@@ -124,10 +124,10 @@ applicable agreement for further details.
 +---------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
 ; Block Type          ; Total Thermal Power by Block Type ; Block Thermal Dynamic Power ; Block Thermal Static Power (1) ; Routing Thermal Dynamic Power ; Block Average Toggle Rate (millions of transitions / sec) ;
 +---------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
-; Combinational cell  ; 9.31 mW                           ; 5.93 mW                     ; --                             ; 3.38 mW                       ;    5.193                                                  ;
-; Clock control block ; 7.68 mW                           ; 0.00 mW                     ; --                             ; 7.68 mW                       ;   53.125                                                  ;
-; Register cell       ; 21.49 mW                          ; 15.46 mW                    ; --                             ; 6.04 mW                       ;    6.250                                                  ;
-; I/O                 ; 21.50 mW                          ; 1.33 mW                     ; 19.48 mW                       ; 0.69 mW                       ;    7.319                                                  ;
+; Combinational cell  ; 9.07 mW                           ; 5.69 mW                     ; --                             ; 3.38 mW                       ;    5.022                                                  ;
+; Clock control block ; 7.78 mW                           ; 0.00 mW                     ; --                             ; 7.78 mW                       ;   53.125                                                  ;
+; Register cell       ; 21.70 mW                          ; 15.54 mW                    ; --                             ; 6.16 mW                       ;    6.250                                                  ;
+; I/O                 ; 21.86 mW                          ; 1.39 mW                     ; 19.73 mW                       ; 0.74 mW                       ;    7.305                                                  ;
 +---------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
 (1) The "Block Thermal Static Power" for all block types except Pins and the Voltage Regulator, if one exists, is part of the "Core Static Thermal Power Dissipation" value found on the PowerPlay Power Analyzer-->Summary report panel. The "Core Static Thermal Power Dissipation" also contains the thermal static power dissipated by the routing.
 
@@ -137,50 +137,50 @@ applicable agreement for further details.
 +---------------------------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+----------------------------------------------------------------------------------------------+
 ; Compilation Hierarchy Node                                    ; Total Thermal Power by Hierarchy (1) ; Block Thermal Dynamic Power (1) ; Block Thermal Static Power (1)(2) ; Routing Thermal Dynamic Power (1) ; Full Hierarchy Name                                                                          ;
 +---------------------------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+----------------------------------------------------------------------------------------------+
-; |FK_quadrature_decoder                                        ; 59.99 mW (28.79 mW)                  ; 22.72 mW (1.33 mW)              ; 19.48 mW (19.48 mW)               ; 17.79 mW (7.99 mW)                ; |FK_quadrature_decoder                                                                       ;
+; |FK_quadrature_decoder                                        ; 60.41 mW (29.22 mW)                  ; 22.63 mW (1.39 mW)              ; 19.73 mW (19.73 mW)               ; 18.05 mW (8.10 mW)                ; |FK_quadrature_decoder                                                                       ;
 ;     |hard_block:auto_generated_inst                           ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |FK_quadrature_decoder|hard_block:auto_generated_inst                                        ;
-;     |watcher:b2v_inst                                         ; 26.34 mW (5.71 mW)                   ; 18.24 mW (4.24 mW)              ; --                                ; 8.10 mW (1.48 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst                                                      ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx  ; 0.61 mW (0.61 mW)                    ; 0.41 mW (0.41 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx  ; 0.63 mW (0.63 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.24 mW (0.24 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx  ; 0.58 mW (0.58 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx  ; 0.63 mW (0.63 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.21 mW (0.21 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx  ; 0.58 mW (0.58 mW)                    ; 0.38 mW (0.38 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx  ; 0.59 mW (0.59 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx  ; 0.65 mW (0.65 mW)                    ; 0.44 mW (0.44 mW)               ; --                                ; 0.21 mW (0.21 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx  ; 0.57 mW (0.57 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.18 mW (0.18 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx  ; 0.54 mW (0.54 mW)                    ; 0.38 mW (0.38 mW)               ; --                                ; 0.16 mW (0.16 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx  ; 0.58 mW (0.58 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx  ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx ; 0.58 mW (0.58 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx ; 0.64 mW (0.64 mW)                    ; 0.43 mW (0.43 mW)               ; --                                ; 0.21 mW (0.21 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx ; 0.50 mW (0.50 mW)                    ; 0.34 mW (0.34 mW)               ; --                                ; 0.16 mW (0.16 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx ; 0.56 mW (0.56 mW)                    ; 0.41 mW (0.41 mW)               ; --                                ; 0.15 mW (0.15 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx ; 0.61 mW (0.61 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx ; 0.56 mW (0.56 mW)                    ; 0.38 mW (0.38 mW)               ; --                                ; 0.18 mW (0.18 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx ; 0.58 mW (0.58 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx ; 0.64 mW (0.64 mW)                    ; 0.46 mW (0.46 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx ; 0.56 mW (0.56 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.17 mW (0.17 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx ; 0.57 mW (0.57 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.18 mW (0.18 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx ; 0.59 mW (0.59 mW)                    ; 0.38 mW (0.38 mW)               ; --                                ; 0.21 mW (0.21 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx ; 0.58 mW (0.58 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx ; 0.55 mW (0.55 mW)                    ; 0.41 mW (0.41 mW)               ; --                                ; 0.15 mW (0.15 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx ; 0.57 mW (0.57 mW)                    ; 0.37 mW (0.37 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx ; 0.61 mW (0.61 mW)                    ; 0.43 mW (0.43 mW)               ; --                                ; 0.17 mW (0.17 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx ; 0.60 mW (0.60 mW)                    ; 0.41 mW (0.41 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx ;
+;     |watcher:b2v_inst                                         ; 26.26 mW (5.45 mW)                   ; 18.09 mW (4.05 mW)              ; --                                ; 8.17 mW (1.40 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst                                                      ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx  ; 0.66 mW (0.66 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.26 mW (0.26 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:0:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx  ; 0.58 mW (0.58 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:1:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx  ; 0.59 mW (0.59 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:2:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx  ; 0.70 mW (0.70 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.28 mW (0.28 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:3:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx  ; 0.61 mW (0.61 mW)                    ; 0.41 mW (0.41 mW)               ; --                                ; 0.21 mW (0.21 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:4:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx  ; 0.64 mW (0.64 mW)                    ; 0.44 mW (0.44 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:5:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx  ; 0.63 mW (0.63 mW)                    ; 0.45 mW (0.45 mW)               ; --                                ; 0.18 mW (0.18 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:6:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx  ; 0.62 mW (0.62 mW)                    ; 0.41 mW (0.41 mW)               ; --                                ; 0.21 mW (0.21 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:7:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx  ; 0.58 mW (0.58 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:8:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx  ; 0.58 mW (0.58 mW)                    ; 0.38 mW (0.38 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:9:decoderx  ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx ; 0.59 mW (0.59 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.17 mW (0.17 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:10:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx ; 0.61 mW (0.61 mW)                    ; 0.41 mW (0.41 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:11:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx ; 0.62 mW (0.62 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:12:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx ; 0.59 mW (0.59 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:13:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx ; 0.56 mW (0.56 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.17 mW (0.17 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:14:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx ; 0.61 mW (0.61 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.22 mW (0.22 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:15:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx ; 0.54 mW (0.54 mW)                    ; 0.36 mW (0.36 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:16:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx ; 0.57 mW (0.57 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.18 mW (0.18 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:17:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx ; 0.62 mW (0.62 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:18:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx ; 0.58 mW (0.58 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.18 mW (0.18 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:19:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx ; 0.56 mW (0.56 mW)                    ; 0.37 mW (0.37 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:20:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx ; 0.58 mW (0.58 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.17 mW (0.17 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:21:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx ; 0.55 mW (0.55 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.16 mW (0.16 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:22:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx ; 0.61 mW (0.61 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:23:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx ; 0.63 mW (0.63 mW)                    ; 0.44 mW (0.44 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:24:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx ; 0.61 mW (0.61 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.21 mW (0.21 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:25:decoderx ;
 ;         |quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx ; 0.61 mW (0.61 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:26:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx ; 0.62 mW (0.62 mW)                    ; 0.43 mW (0.43 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx ; 0.56 mW (0.56 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.17 mW (0.17 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx ; 0.59 mW (0.59 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx ; 0.63 mW (0.63 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.23 mW (0.23 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx ; 0.58 mW (0.58 mW)                    ; 0.36 mW (0.36 mW)               ; --                                ; 0.21 mW (0.21 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx ; 0.59 mW (0.59 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.17 mW (0.17 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx ;
-;         |quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx ; 0.61 mW (0.61 mW)                    ; 0.42 mW (0.42 mW)               ; --                                ; 0.20 mW (0.20 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx ; 0.59 mW (0.59 mW)                    ; 0.41 mW (0.41 mW)               ; --                                ; 0.18 mW (0.18 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:27:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx ; 0.62 mW (0.62 mW)                    ; 0.41 mW (0.41 mW)               ; --                                ; 0.21 mW (0.21 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:28:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx ; 0.61 mW (0.61 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.22 mW (0.22 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:29:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx ; 0.58 mW (0.58 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.19 mW (0.19 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:30:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx ; 0.50 mW (0.50 mW)                    ; 0.35 mW (0.35 mW)               ; --                                ; 0.15 mW (0.15 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:31:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx ; 0.59 mW (0.59 mW)                    ; 0.40 mW (0.40 mW)               ; --                                ; 0.18 mW (0.18 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:32:decoderx ;
+;         |quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx ; 0.56 mW (0.56 mW)                    ; 0.39 mW (0.39 mW)               ; --                                ; 0.17 mW (0.17 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:33:decoderx ;
 ;         |quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx ; 0.55 mW (0.55 mW)                    ; 0.37 mW (0.37 mW)               ; --                                ; 0.18 mW (0.18 mW)                 ; |FK_quadrature_decoder|watcher:b2v_inst|quadrature_decoder_pb:\GENERATE_DECODERS:34:decoderx ;
-;     |uart_out_manager:b2v_inst2                               ; 2.61 mW (2.61 mW)                    ; 2.08 mW (2.08 mW)               ; --                                ; 0.54 mW (0.54 mW)                 ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2                                            ;
+;     |uart_out_manager:b2v_inst2                               ; 2.65 mW (2.65 mW)                    ; 2.09 mW (2.09 mW)               ; --                                ; 0.56 mW (0.56 mW)                 ; |FK_quadrature_decoder|uart_out_manager:b2v_inst2                                            ;
 ;     |constant1:b2v_inst3                                      ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |FK_quadrature_decoder|constant1:b2v_inst3                                                   ;
-;     |uart_tx:b2v_inst4                                        ; 0.13 mW (0.13 mW)                    ; 0.11 mW (0.11 mW)               ; --                                ; 0.03 mW (0.03 mW)                 ; |FK_quadrature_decoder|uart_tx:b2v_inst4                                                     ;
+;     |uart_tx:b2v_inst4                                        ; 0.13 mW (0.13 mW)                    ; 0.10 mW (0.10 mW)               ; --                                ; 0.03 mW (0.03 mW)                 ; |FK_quadrature_decoder|uart_tx:b2v_inst4                                                     ;
 ;     |constant64:b2v_inst6                                     ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |FK_quadrature_decoder|constant64:b2v_inst6                                                  ;
-;     |boss:boss_inst                                           ; 1.77 mW (1.77 mW)                    ; 0.71 mW (0.71 mW)               ; --                                ; 1.06 mW (1.06 mW)                 ; |FK_quadrature_decoder|boss:boss_inst                                                        ;
-;     |uart_rx:rxcomp                                           ; 0.33 mW (0.33 mW)                    ; 0.26 mW (0.26 mW)               ; --                                ; 0.08 mW (0.08 mW)                 ; |FK_quadrature_decoder|uart_rx:rxcomp                                                        ;
+;     |boss:boss_inst                                           ; 1.82 mW (1.82 mW)                    ; 0.71 mW (0.71 mW)               ; --                                ; 1.11 mW (1.11 mW)                 ; |FK_quadrature_decoder|boss:boss_inst                                                        ;
+;     |uart_rx:rxcomp                                           ; 0.33 mW (0.33 mW)                    ; 0.24 mW (0.24 mW)               ; --                                ; 0.08 mW (0.08 mW)                 ; |FK_quadrature_decoder|uart_rx:rxcomp                                                        ;
 +---------------------------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+----------------------------------------------------------------------------------------------+
 (1) Value in parentheses is the power consumed at that level of hierarchy. Value not in parentheses is the power consumed at that level of hierarchy plus the power consumed by all levels of hierarchy below it.
 
@@ -192,7 +192,7 @@ applicable agreement for further details.
 +--------------+-----------------------+--------------------------+
 ; Clock Domain ; Clock Frequency (MHz) ; Total Core Dynamic Power ;
 +--------------+-----------------------+--------------------------+
-; CLOCK_50     ; 50.00                 ; 39.18                    ;
+; CLOCK_50     ; 50.00                 ; 39.29                    ;
 +--------------+-----------------------+--------------------------+
 
 
@@ -201,8 +201,8 @@ applicable agreement for further details.
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; Voltage Supply ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; VCCINT         ; 54.57 mA                ; 33.14 mA                  ; 21.43 mA                 ; 54.57 mA                         ;
-; VCCIO          ; 8.30 mA                 ; 0.21 mA                   ; 8.10 mA                  ; 8.30 mA                          ;
+; VCCINT         ; 54.87 mA                ; 33.24 mA                  ; 21.63 mA                 ; 54.87 mA                         ;
+; VCCIO          ; 8.33 mA                 ; 0.23 mA                   ; 8.10 mA                  ; 8.33 mA                          ;
 ; VCCA           ; 27.54 mA                ; 0.00 mA                   ; 27.54 mA                 ; 27.54 mA                         ;
 ; VCCD           ; 2.11 mA                 ; 0.00 mA                   ; 2.11 mA                  ; 2.11 mA                          ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
@@ -220,7 +220,7 @@ applicable agreement for further details.
 ; 3        ; 2.5V          ; 1.01 mA             ; 0.03 mA               ; 0.98 mA              ;
 ; 4        ; 2.5V          ; 1.11 mA             ; 0.06 mA               ; 1.05 mA              ;
 ; 5        ; 2.5V          ; 1.07 mA             ; 0.03 mA               ; 1.04 mA              ;
-; 6        ; 2.5V          ; 0.98 mA             ; 0.00 mA               ; 0.98 mA              ;
+; 6        ; 2.5V          ; 1.00 mA             ; 0.02 mA               ; 0.98 mA              ;
 ; 7        ; 2.5V          ; 1.07 mA             ; 0.04 mA               ; 1.03 mA              ;
 ; 8        ; 2.5V          ; 1.11 mA             ; 0.04 mA               ; 1.07 mA              ;
 +----------+---------------+---------------------+-----------------------+----------------------+
@@ -231,7 +231,7 @@ applicable agreement for further details.
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; VCCIO Voltage ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; 2.5V          ; 8.30 mA                 ; 0.21 mA                   ; 8.10 mA                  ; 8.30 mA                          ;
+; 2.5V          ; 8.33 mA                 ; 0.23 mA                   ; 8.10 mA                  ; 8.33 mA                          ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 (1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
 (2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
@@ -251,13 +251,13 @@ applicable agreement for further details.
 ;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 1 (0.0%)      ; 1 (1.3%)   ; 0 (0.0%)      ; 0 (0.0%)      ;
 ;                                                                                        ;               ;            ;               ;               ;
 ; Vectorless estimation                                                                  ;               ;            ;               ;               ;
-;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 12551 (99.4%) ; 4 (5.3%)   ; 3775 (100.0%) ; 8772 (100.0%) ;
+;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 12561 (99.4%) ; 5 (6.5%)   ; 3775 (100.0%) ; 8781 (100.0%) ;
 ;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 3 (0.0%)      ; 0 (0.0%)   ; 0 (0.0%)      ; 3 (0.0%)      ;
-;     -- Number of signals with Static Probability from Vectorless estimation            ; 12551 (99.4%) ; 4 (5.3%)   ; 3775 (100.0%) ; 8772 (100.0%) ;
+;     -- Number of signals with Static Probability from Vectorless estimation            ; 12561 (99.4%) ; 5 (6.5%)   ; 3775 (100.0%) ; 8781 (100.0%) ;
 ;                                                                                        ;               ;            ;               ;               ;
 ; Default assignment                                                                     ;               ;            ;               ;               ;
-;     -- Number of signals with Toggle Rate from Default assignment                      ; 71 (0.6%)     ; 71 (93.4%) ; 0 (0.0%)      ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Default assignment               ; 71 (0.6%)     ; 71 (93.4%) ; 0 (0.0%)      ; 0 (0.0%)      ;
+;     -- Number of signals with Toggle Rate from Default assignment                      ; 71 (0.6%)     ; 71 (92.2%) ; 0 (0.0%)      ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Default assignment               ; 71 (0.6%)     ; 71 (92.2%) ; 0 (0.0%)      ; 0 (0.0%)      ;
 ;                                                                                        ;               ;            ;               ;               ;
 ; Assumed 0                                                                              ;               ;            ;               ;               ;
 ;     -- Number of signals with Toggle Rate assumed 0                                    ; 0 (0.0%)      ; 0 (0.0%)   ; 0 (0.0%)      ; 0 (0.0%)      ;
@@ -278,7 +278,7 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit PowerPlay Power Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jun 03 01:34:16 2021
+    Info: Processing started: Thu Jun 03 12:08:28 2021
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off FK_quadrature_decoder -c FK_quadrature_decoder
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -288,12 +288,12 @@ Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQue
 Info (223000): Starting Vectorless Power Activity Estimation
 Info (223001): Completed Vectorless Power Activity Estimation
 Info (218000): Using Advanced I/O Power to simulate I/O buffers with the specified board trace model
-Info (215049): Average toggle rate for this design is 5.532 millions of transitions / sec
-Info (215031): Total thermal power estimate for the design is 157.85 mW
+Info (215049): Average toggle rate for this design is 5.413 millions of transitions / sec
+Info (215031): Total thermal power estimate for the design is 158.27 mW
 Info: Quartus II 64-Bit PowerPlay Power Analyzer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4633 megabytes
-    Info: Processing ended: Thu Jun 03 01:34:22 2021
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 4632 megabytes
+    Info: Processing ended: Thu Jun 03 12:08:38 2021
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:10
 
 

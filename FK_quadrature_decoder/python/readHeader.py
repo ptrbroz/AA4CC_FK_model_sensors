@@ -4,7 +4,7 @@ import math
 import time
 
 
-port = serial.Serial('COM6', 230400, parity= serial.PARITY_NONE)
+port = serial.Serial('COM7', 230400, parity= serial.PARITY_NONE)
 
 
 def access_bit(data, num):
@@ -48,7 +48,6 @@ def fpgaReplyToSettings(databytes):
     for byte in databytes:
         byteArray = byteToArray(byte)
         settingsArray.extend(byteArray[1:]) #discard first separator bit of each byte
-    print(f"got {settingsArray}")
     retVal = []
     retVal.append(settingsArray[0:35])
     retVal.append(arrayToInteger(settingsArray[35:39]))
@@ -59,15 +58,10 @@ def fpgaReplyToSettings(databytes):
     
 
 
-vector = [0]*35
-vector[0] = 1
-vector[1] = 1
-vector[5] = 1
-vector[20] = 1
-vector[34] = 1
+vector = [1]*10 + [0]*15 + [1]*10
 
     
-initFpga(vector, 10, 1, 4)
+initFpga(vector, 12, 1, 10)
 
 
 
@@ -168,14 +162,11 @@ while(1):
     print(f"[{flicker}] I'm reading {encoderCount} encoders running at resolution of {resolution} bits.                       ")   
     for i, position in enumerate(positionsList):
         print(f"Encoder index {(i+1):02d}'s position: [{position:04d}/{maxVal}]")
-    print("")
-
-    
+     
     print("\r")
     print("\x1B[2A")
     for position in positionsList:
         print("\x1B[2A")
-    print("\x1B[2A")
     print("\x1B[2A")
     print("\x1B[2A")
 

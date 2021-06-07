@@ -63,7 +63,7 @@ architecture arch1 of watcher is
 	signal inPositions : position_array_t;
 	signal timer_alarm : std_logic;
 	
-	signal timer_consume : std_logic := '0';
+	signal timer_reset : std_logic := '0';
 	
 begin
 
@@ -105,7 +105,7 @@ begin
 		if rising_edge(clock) then
 			if msCounter >= targetMs then
 				timer_alarm <= '1';
-				if timer_consume then
+				if timer_reset then
 					targetMs := set_encoder_miliseconds;
 					msCounter := 0;
 					clockCounter := 0;
@@ -138,7 +138,6 @@ begin
 		variable encoderCountArray : std_logic_vector(5 downto 0) := (others => '0');
 		variable resolutionArray : std_logic_vector(3 downto 0) := (others => '0');
 		
-		
 	begin
 	
 	if areset = '1' then
@@ -149,14 +148,14 @@ begin
 		if rising_edge(clock) then
 		
 			data_out_ready <= '0';
-			timer_consume <= '0';
+			timer_reset <= '0';
 		
 			case state is
 			
 				when w_wait_for_timer =>
 					if set_enabled = '1' and timer_alarm = '1' then
 						state := w_save_positions;
-						timer_consume <= '1';
+						timer_reset <= '1';
 					end if;
 					
 				when w_save_positions =>
