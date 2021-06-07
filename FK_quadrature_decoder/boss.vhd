@@ -18,7 +18,7 @@ port(
 		boss_data_ack : in std_logic;
 		boss_select : out std_logic;
 		set_encoder_vector : out std_logic_vector(MAX_ENCODERS-1 downto 0);
-		set_encoder_resolution : out integer range 0 to 13;
+		set_encoder_resolution : out integer range 0 to 15;
 		set_encoder_miliseconds : out integer range 0 to 255;
 		set_encoder_reset : out std_logic;
 		set_encoder_enable : out std_logic
@@ -48,7 +48,7 @@ constant ID_COMM_ON  : std_logic_vector (7 downto 0) := "00000100";
 
 
 signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := "1111111111" & "000000000000000" & "1111111111";
-signal encoder_resolution : integer range 0 to 13 := 10;
+signal encoder_resolution : integer range 0 to 15 := 10;
 signal encoder_enable : std_logic := '0';
 signal encoder_miliseconds : integer range 0 to 255 := 5;
 
@@ -133,9 +133,9 @@ set_encoder_miliseconds <= encoder_miliseconds;
 					
 				when b_config_update =>
 					encoder_vector <= configData(47 downto 13);
-					if unsigned(configData(12 downto 9)) > 13 then
-						encoder_resolution <= 13;
-						configData(12 downto 9) := std_logic_vector(to_unsigned(13, 4));
+					if unsigned(configData(12 downto 9)) = 0 then
+						encoder_resolution <= 1;
+						configData(12 downto 9) := std_logic_vector(to_unsigned(1, 4));
 					else
 						encoder_resolution <= to_integer(unsigned(configData(12 downto 9)));
 					end if;

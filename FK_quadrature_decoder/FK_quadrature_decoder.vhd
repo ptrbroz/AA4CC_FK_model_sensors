@@ -119,7 +119,7 @@ port(
 		boss_data_ack : in std_logic;
 		boss_select : out std_logic;
 		set_encoder_vector : out std_logic_vector(MAX_ENCODERS-1 downto 0);
-		set_encoder_resolution : out integer range 0 to 13;
+		set_encoder_resolution : out integer range 0 to 15;
 		set_encoder_miliseconds : out integer range 0 to 255;
 		set_encoder_reset : out std_logic;
 		set_encoder_enable : out std_logic
@@ -138,10 +138,10 @@ GENERIC (CLK_IN_FREQ : INTEGER;
 		 gpio_a_channels : IN STD_LOGIC_VECTOR(34 DOWNTO 0);
 		 gpio_b_channels : IN STD_LOGIC_VECTOR(34 DOWNTO 0);
 		 data_out_ready : OUT STD_LOGIC;
-		 data_out : OUT STD_LOGIC_VECTOR(519 DOWNTO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(DATA_MAX_BYTES*8 - 1 DOWNTO 0);
 		 data_out_len : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		 set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
-		 set_encoder_resolution : in integer range 0 to 13;
+		 set_encoder_resolution : in integer range 0 to 15;
 		 set_encoder_miliseconds : in integer range 0 to 255;
 		 set_enabled : in std_logic
 	);
@@ -209,15 +209,13 @@ END COMPONENT;
 SIGNAL	achans :  STD_LOGIC_VECTOR(34 DOWNTO 0);
 SIGNAL	bchans :  STD_LOGIC_VECTOR(34 DOWNTO 0);
 SIGNAL	zeroconst :  STD_LOGIC_VECTOR(63 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC_VECTOR(519 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC_VECTOR(6 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL	wire_watcher_ack :  STD_LOGIC;
+SIGNAL	wire_tx_ready :  STD_LOGIC;
+SIGNAL	wire_watcher_data_valid :  STD_LOGIC;
+SIGNAL	wire_watcher_data :  STD_LOGIC_VECTOR(583 DOWNTO 0);
+SIGNAL	wire_watcher_data_len :  STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL	wire_tx_start :  STD_LOGIC;
+SIGNAL	wire_tx_byte :  STD_LOGIC_VECTOR(7 DOWNTO 0);
 
 signal wire_boss_data : std_logic_vector(10*8-1 downto 0); 
 signal wire_boss_data_len : std_logic_vector(5 downto 0); 
@@ -226,7 +224,7 @@ signal wire_boss_data_ack : std_logic;
 signal wire_boss_select : std_logic;
 
 signal wire_set_encoder_vector : std_logic_vector(35-1 downto 0);
-signal wire_set_encoder_resolution : integer range 0 to 13;
+signal wire_set_encoder_resolution : integer range 0 to 15;
 signal wire_set_encoder_miliseconds : integer range 0 to 255;
 signal wire_set_encoder_reset : std_logic;
 signal wire_set_encoder_enabled : std_logic;
@@ -263,17 +261,17 @@ port map(
 
 b2v_inst : watcher
 GENERIC MAP(CLK_IN_FREQ => 50000000,
-			DATA_MAX_BYTES => 65,
+			DATA_MAX_BYTES => 73,
 			MAX_ENCODERS => 35
 			)
 PORT MAP(clock => CLOCK_50,
 		 areset => wire_set_encoder_reset,
-		 data_out_ack => SYNTHESIZED_WIRE_1,
+		 data_out_ack => wire_watcher_ack,
 		 gpio_a_channels => achans,
 		 gpio_b_channels => bchans,
-		 data_out_ready => SYNTHESIZED_WIRE_4,
-		 data_out => SYNTHESIZED_WIRE_7,
-		 data_out_len => SYNTHESIZED_WIRE_8,
+		 data_out_ready => wire_watcher_data_valid,
+		 data_out => wire_watcher_data,
+		 data_out_len => wire_watcher_data_len,
 		 set_encoder_vector => wire_set_encoder_vector,
 		 set_encoder_resolution => wire_set_encoder_resolution,
 		 set_encoder_miliseconds => wire_set_encoder_miliseconds,
@@ -283,26 +281,24 @@ PORT MAP(clock => CLOCK_50,
 
 
 b2v_inst2 : uart_out_manager
-GENERIC MAP(DATA_MAX_BYTES => 65,
+GENERIC MAP(DATA_MAX_BYTES => 73,
 			DATA_SMALL_BYTES => 10
 			)
 PORT MAP(clock => CLOCK_50,
-		 tx_is_ready => SYNTHESIZED_WIRE_3,
-		 watcher_data_valid => SYNTHESIZED_WIRE_4,
+		 tx_is_ready => wire_tx_ready,
+		 watcher_data_valid => wire_watcher_data_valid,
 		 boss_data_valid => wire_boss_data_valid,
 		 boss_select => wire_boss_select,
 		 boss_data => wire_boss_data,
 		 boss_data_len => wire_boss_data_len,
-		 watcher_data => SYNTHESIZED_WIRE_7,
-		 watcher_data_len => SYNTHESIZED_WIRE_8,
-		 tx_send => SYNTHESIZED_WIRE_9,
-		 watcher_data_ack => SYNTHESIZED_WIRE_1,
+		 watcher_data => wire_watcher_data,
+		 watcher_data_len => wire_watcher_data_len,
+		 tx_send => wire_tx_start,
+		 watcher_data_ack => wire_watcher_ack,
 		 boss_data_ack => wire_boss_data_ack,
-		 tx_byte => SYNTHESIZED_WIRE_10);
+		 tx_byte => wire_tx_byte);
 
 
-b2v_inst3 : constant1
-PORT MAP(		 result(0) => SYNTHESIZED_WIRE_12);
 
 
 b2v_inst4 : uart_tx
@@ -312,10 +308,10 @@ GENERIC MAP(DATA_BITS => 8,
 			UART_BAUD_RATE => 230400
 			)
 PORT MAP(clock => CLOCK_50,
-		 start => SYNTHESIZED_WIRE_9,
-		 data => SYNTHESIZED_WIRE_10,
+		 start => wire_tx_start,
+		 data => wire_tx_byte,
 		 trx => wire_uart_tx,
-		 ready => SYNTHESIZED_WIRE_3);
+		 ready => wire_tx_ready);
 		 
 		 
 rxcomp : uart_rx 

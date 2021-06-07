@@ -19,7 +19,7 @@ port(
 		data_out_ready : out std_logic;
 		data_out_ack : in std_logic;
 		set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0);
-		set_encoder_resolution : in integer range 0 to 13;
+		set_encoder_resolution : in integer range 0 to 15;
 		set_encoder_miliseconds : in integer range 0 to 255;
 		set_enabled : in std_logic
 		);
@@ -128,7 +128,7 @@ begin
 		variable encoderIndex : integer range 0 to MAX_ENCODERS := 0;
 		variable encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		variable savedPositions : position_array_t;
-		variable bitResolution : integer range 0 to 13 := 10	;
+		variable bitResolution : integer range 0 to 15 := 10	;
 		variable totalBitCounter : integer range 0 to data_out'length := 0;
 		variable tempBitCounter  : integer range 0 to 31 := 0;
 		variable tempPosition : std_logic_vector(12 downto 0);

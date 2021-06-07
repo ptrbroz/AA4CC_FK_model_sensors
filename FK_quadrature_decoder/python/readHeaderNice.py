@@ -1,18 +1,18 @@
 import serial
 import math
 
-
 port = serial.Serial('COM7', 230400, parity= serial.PARITY_NONE)
-
 
 def access_bit(data, num):
     base = int(num // 8)
     shift = int(num % 8)
     return (data[base] & (1<<shift)) >> shift
 
+#returns a list of ones and zeroes
 def byteToArray(byte):
     return [access_bit(byte,i) for i in reversed(range(8))]
 
+#turns a list of ones and zeroes to integer
 def arrayToInteger(arr):
     power = 1
     integer = 0
@@ -25,46 +25,45 @@ def arrayToInteger(arr):
 def initFpga(encoderVector, resolution, reset, miliseconds):
     bytesToSend = []
     bytesToSend.append(b'\x01') #initialization command id
-    #first four data bytes contain just encoder vector
+    #first four data bytes contain first 32 bits of encoder vector
     for i in range(4):
         subVector = encoderVector[i*8:(i+1)*8]
         subByte = arrayToInteger(subVector).to_bytes(1, 'big')
         bytesToSend.append(subByte)
     #fifth data byte combines end of encoder vector and other settings
-    a = encoderVector[4*8:]                           #last 3 bits of encoder vector
-    b = byteToArray(resolution.to_bytes(1,'big'))[4:] #resolution represented as 4-bit unsigned
-    c = [reset]                                       #reset bit
-    combinedByte = arrayToInteger(a + b + c).to_bytes(1, 'big')
-    bytesToSend.append(combinedByte)
+    fifth_a = encoderVector[4*8:]                           #last 3 bits of encoder vector
+    fifth_b = byteToArray(resolution.to_bytes(1,'big'))[4:] #resolution represented as 4-bit unsigned
+    fifth_c = [reset]                                       #reset bit
+    fifthByte = arrayToInteger(fifth_a + fifth_b + fifth_c).to_bytes(1, 'big')
+    bytesToSend.append(fifthByte)
     bytesToSend.append(miliseconds.to_bytes(1, 'big')) #last byte represents minimum number of ms between encoder data messages
-    print(f"sent {bytesToSend}")
+    print(f"sending {bytesToSend}")
     for byte in bytesToSend:
         port.write(byte)
 
-def fpgaReplyToSettings(databytes):
+def parseFpgaReply(databytes):
     settingsArray = []
     for byte in databytes:
         byteArray = byteToArray(byte)
-        settingsArray.extend(byteArray[1:]) #discard first separator bit of each byte
+        settingsArray.extend(byteArray[1:])
     retVal = []
-    retVal.append(settingsArray[0:35])
-    retVal.append(arrayToInteger(settingsArray[35:39]))
-    retVal.append(settingsArray[39])
-    retVal.append(arrayToInteger(settingsArray[40:48]))
+    retVal.append(settingsArray[0:35])                      #encoder enable vector
+    retVal.append(arrayToInteger(settingsArray[35:39]))     #resolution in bits
+    retVal.append(settingsArray[39])                        #bit signifying whether encoder position reset was performed
+    retVal.append(arrayToInteger(settingsArray[40:48]))     #minimum wait time between messages
     return retVal
     
     
 
 
-vector = [1]*10 + [0]*15 + [1]*10
-#vector = 35*[0]
-#vector[0] = 1
+#initialise fpga
+vector = [1]*10 + [0]*15 + [1]*10 #35 bit vector. 1 enables reading corresponding encoder, 0 disables it.
+resolution      = 0              #1 to 13. Position resolution in bits. While settings 14 and 15 are also supported, don't use them unless you have a good reason to do so - see user manual (maximum resolution used internally is 13 bits, 14 and 15 just multiplies the output)
+performReset    = 1               #1 or 0. When 1, positions will be reset; when 0, positions will be kept as they are
+waitTimeMs      = 3             #0 to 255. Minimum time between starts of messages in milliseconds. You might need to experiment with this one
+initFpga(vector, resolution, performReset, waitTimeMs)
 
-    
-initFpga(vector, 15, 1, 10)
-
-
-
+#try to catch fpga reply - it should start with a header of 0xfffff0 and be followed by 7 data bytes
 while 1:
     b1 = port.read()
     if b1 != b'\xff':
@@ -75,11 +74,11 @@ while 1:
     b3 = port.read()
     if b3 != b'\xf0':
         continue
+    #if we reached here, we caught the reply header
     dataBytes = []
     for i in range(7):
-        print(i)
         dataBytes.append(port.read())
-    ret = fpgaReplyToSettings(dataBytes)
+    ret = parseFpgaReply(dataBytes)
     print(f"Initialization reply from FPGA received! FPGA says:")
     print(f"My enable vector is {ret[0]}")
     print(f"I'm running at a resolution of {ret[1]} bits.")
@@ -91,22 +90,17 @@ while 1:
     break;
         
 
-#port.write(b'\x04')
-
-
+discardedBytes = 0 #counter signyfing how many bytes were discarded while looking for start of header
+flicker = "/"  #character printed to indicate activity when no changes are happening
 
 
 print("---== Entering main loop ==---")
-discardedBytes = 0
-
-flicker = "/"  #just to indicate activity when there are no changes
 while(1):
     print(f"Bytes discarded: {discardedBytes}\r")
 
+    #try to catch fpga message - it's header should begin with byte 0xff, followed by a byte between 0xfc and 0xff, and end with a byte that is not 0xf0.
     msg = []
-
     b1 = port.read()
-
     if b1 != b'\xff':
         discardedBytes += 1
         continue
@@ -116,31 +110,29 @@ while(1):
         discardedBytes += 2
         continue
 
-    #if we got this far, we caught start of message correctly
-    
     b3 = port.read()
 
     if b3 == b'\xf0': #signifying that this is a config reply. This should not happen, but let's check anyway.
         discardedBytes += 3 
         continue
 
-    #parse header to determine how many bytes to expect
+    #if we got this far, we caught start of message correctly
+    #parse header to determine how many data bytes to expect
 
-    headerBitArray = byteToArray(b2) + byteToArray(b3) #byte 1 does not carry data
+    headerBitArray = byteToArray(b2) + byteToArray(b3) #byte 1 is always 0xff and doesn't carry further useful info
 
     encoderCount = arrayToInteger(headerBitArray[6:12]) #first 6 bits of byte 2 don't carry data either
     resolution   = arrayToInteger(headerBitArray[12:16])
-
-
-    expectedDataBits = encoderCount*(resolution + 1) #+1 because of separator bits
-    expectedBytes = math.ceil(expectedDataBits/8)
+    
+    expectedDataBits = encoderCount*(resolution + 1) #+1 because of separator bits at start of every position
+    expectedBytes = math.ceil(expectedDataBits/8)    #don't forget to round up
 
     
     dataBytes = []
     for i in range(expectedBytes):
         dataBytes.append(port.read())
 
-
+    #turn received bytes into an array of bits
     bitList = []
     for byte in dataBytes:
         bitList.extend(byteToArray(byte))
@@ -149,9 +141,8 @@ while(1):
     positionsList = []
 
     for i in range(encoderCount):
-        positionsList.append(arrayToInteger(bitList[i*x+1:(i+1)*x])) #start at i+1 to skip separator bit
+        positionsList.append(arrayToInteger(bitList[(i*x)+1:(i+1)*x])) #start at i*x+1 to skip separator bit
     
-         
     maxVal = (2**(resolution)) - 1
 
 
@@ -159,11 +150,12 @@ while(1):
         flicker = "\\"
     else:
         flicker = "/"
-    #print(f"Bytes: {b1} {b2} {b3}   {dataBytes}                                  ")
     print(f"[{flicker}] I'm reading {encoderCount} encoders running at resolution of {resolution} bits.                       ")   
     for i, position in enumerate(positionsList):
-        print(f"Encoder index {(i+1):02d}'s position: [{position:04d}/{maxVal}]")
-     
+        print(f"Encoder index {(i+1):02d}'s position: [{position:04d}/{maxVal}] ≈ {(position*360/maxVal):5.2f}°")
+
+    #carriage return / go up a line control codes to redraw printed data. Tested on Windows Terminal on windows 10. (available: https://github.com/microsoft/terminal)
+    #does NOT work in idle nor in the default windows cmd!!! 
     print("\r")
     print("\x1B[2A")
     for position in positionsList:
