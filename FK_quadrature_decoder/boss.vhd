@@ -47,9 +47,9 @@ constant ID_COMM_OFF : std_logic_vector (7 downto 0) := "00000010";
 constant ID_COMM_ON  : std_logic_vector (7 downto 0) := "00000100";
 
 
-signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := (1 => '1',2 => '1', 33=>'1', others => '0');
-signal encoder_resolution : integer range 0 to 13 := 11;
-signal encoder_enable : std_logic := '1';
+signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := "1111111111" & "000000000000000" & "1111111111";
+signal encoder_resolution : integer range 0 to 13 := 10;
+signal encoder_enable : std_logic := '0';
 signal encoder_miliseconds : integer range 0 to 255 := 5;
 
 

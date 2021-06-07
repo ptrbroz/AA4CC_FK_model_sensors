@@ -59,9 +59,11 @@ def fpgaReplyToSettings(databytes):
 
 
 vector = [1]*10 + [0]*15 + [1]*10
+#vector = 35*[0]
+#vector[0] = 1
 
     
-initFpga(vector, 12, 1, 10)
+initFpga(vector, 11, 1, 10)
 
 
 
@@ -92,6 +94,8 @@ while 1:
         
 
 #port.write(b'\x04')
+
+
 
 
 print("---== Entering main loop ==---")
@@ -152,7 +156,6 @@ while(1):
          
     maxVal = (2**(resolution)) - 1
 
-    
 
     if flicker == "/":
         flicker = "\\"

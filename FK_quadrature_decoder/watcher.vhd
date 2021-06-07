@@ -18,7 +18,7 @@ port(
 		data_out_len : out std_logic_vector(6 downto 0); 
 		data_out_ready : out std_logic;
 		data_out_ack : in std_logic;
-		set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
+		set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0);
 		set_encoder_resolution : in integer range 0 to 13;
 		set_encoder_miliseconds : in integer range 0 to 255;
 		set_enabled : in std_logic
@@ -210,7 +210,7 @@ begin
 					end if;
 				
 				when w_prep_encoder =>
-					if encoderEnableVector(encoderIndex) = '0' then
+					if encoderEnableVector(MAX_ENCODERS - encoderIndex - 1) = '0' then
 						if encoderIndex = MAX_ENCODERS - 1 then
 							state := w_calc_len;
 						else 
