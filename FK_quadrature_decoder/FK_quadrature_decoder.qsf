@@ -224,8 +224,6 @@ set_global_assignment -name VHDL_FILE FK_quadrature_decoder.vhd
 set_global_assignment -name VHDL_FILE quadrature_decoder_pb.vhd
 set_global_assignment -name VHDL_FILE uart_tx.vhd
 set_global_assignment -name VHDL_FILE watcher.vhd
-set_global_assignment -name QIP_FILE constant1.qip
-set_global_assignment -name QIP_FILE constant64.qip
 set_global_assignment -name VHDL_FILE uart_rx.vhd
 set_global_assignment -name VHDL_FILE boss.vhd
 set_location_assignment PIN_B16 -to GPIO_2_1
