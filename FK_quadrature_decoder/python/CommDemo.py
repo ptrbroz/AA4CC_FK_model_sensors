@@ -1,7 +1,7 @@
 import serial
 import math
 
-port = serial.Serial('COM7', 230400, parity= serial.PARITY_NONE)
+port = serial.Serial('COM7', 230400, parity= serial.PARITY_NONE) #edit to your COM
 
 #-------------------------------------
 #----byte / bits conversion utils-----
@@ -160,7 +160,7 @@ while(1):
         print(f"Encoder index {(i+1):02d}'s position: [{position:04d}/{maxVal}] ≈ {(position*360/maxVal):5.2f}°")
 
     #carriage return / go up a line control codes to redraw printed data. Tested on Windows Terminal on windows 10. (available: https://github.com/microsoft/terminal)
-    #does NOT work in idle nor in the default windows cmd!!! 
+    #does NOT work in Idle nor in the default windows cmd!!! 
     print("\r")
     print("\x1B[2A")
     for position in positionsList:
