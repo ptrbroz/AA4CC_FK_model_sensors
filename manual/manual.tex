@@ -117,7 +117,7 @@ The first byte of the command must be 0x01. The remaining 6 bytes are best thoug
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figs/bits}
+	\includegraphics[width=1.0\textwidth]{figs/bits}
 	\caption{Configure command illustration}
 	\label{fig:config}
 \end{figure}
@@ -156,8 +156,9 @@ The device can send two types of messages to the user. Both begin with a header 
 
 This message is sent only as a reply to the configure command sent by the user. It's header always consists of bytes 0xff, 0xff, 0xf0 in this order. Following them are 7 data bytes -- those carry within them the same array of 48 bits that the user provided in their configure command, with the exception that the first bit of each data byte is instead reserved as a separator bit and is always zero.
 
+\newpage{}
 \textbf{Example: Config reply message}
-\begin{figure}[htb]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figs/reply1}
 	\caption{Configure reply illustration (Only first 5 bytes are shown)}
@@ -182,15 +183,13 @@ The header is followed by a number of data bytes, which carry the positions of e
 
 The number of encoders and resolution should fall within certain constraints. In particular, the number of enabled encoders needs to be at most 35, and the resolution needs to be between 1 and 15 bits, otherwise the 3 bytes do not form a valid data message header. Note that the header for Config reply message appears as 63 encoders running at resolution of zero bits, and thus can be differentiated from data message headers.
 
-\newpage{}
+
 \textbf{Example: Data message}
-
-
-\begin{figure}[htb]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{figs/reply2}
 	\caption{Data message illustration}
-	\label{fig:JpgEpsCompare}
+
 \end{figure}
 
 Figure above shows what a data message might look like. Upon parsing the header, the user computer performs the calculation $\frac{(6+1)\cdot{}3}{8} \approx 2.6$. Rounding (always) up, we arrive at 3 -- the number of data bytes we need to receive. The last 3 bits of the third data byte do not carry any information.

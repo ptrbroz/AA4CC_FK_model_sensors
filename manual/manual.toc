@@ -4,7 +4,7 @@
 \contentsline {subsection}{\numberline {2.2}Communication}{2}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}User to device communication}{2}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Settings constraints}{3}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Device to user communication}{4}{subsubsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.3}Communications demo}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.3}Device to user communication}{3}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}Communications demo}{4}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Reconfiguring on the fly}{5}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Technical manual}{6}{section.3}%
