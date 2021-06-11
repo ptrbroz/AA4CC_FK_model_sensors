@@ -92,6 +92,8 @@ To set up the device, follow theese steps:
 \item Connect the pcb shield to your computer via the mini-usb port located next to the barrel jack.
 \end{enumerate}
 
+\newpage{}
+
 \subsection{Communication}
 
 \par The device communicates with the user via bidirectional UART with following parameters: Baudrate 230400, 8 data bits, no parity. Apart from going to the usb-serial converter IC, the fpga's transmit line is also routed to pin B16 (located on the bottom gpio header)\footnote{I reccomend this site for locating pins on DE0-Nano: https://sites.google.com/site/fpgaandco/de0-nano-pinout} where a oscilloscope probe can be attached for inspection.
@@ -156,7 +158,6 @@ The device can send two types of messages to the user. Both begin with a header 
 
 This message is sent only as a reply to the configure command sent by the user. It's header always consists of bytes 0xff, 0xff, 0xf0 in this order. Following them are 7 data bytes -- those carry within them the same array of 48 bits that the user provided in their configure command, with the exception that the first bit of each data byte is instead reserved as a separator bit and is always zero.
 
-\newpage{}
 \textbf{Example: Config reply message}
 \begin{figure}[h!]
 	\centering
@@ -218,7 +219,45 @@ As a last note: the device keeps count of the positions of all  encoders at all 
 
 You don't need to read any further unless you're planning to modify or extend the firmware or hardware of the device.
 
-todo
+\subsection{Cabling}
+
+The cable used for interconnecting the pcb shield and the AMT132S encoders is 24AWG, 4-wire UTP. Wire gauge selected as only intersection that's within specs of crimp terminals on both sides.
+
+The cable is terminated with a microclasp connector on one side and a zpd connector on the other. Since the encoders use a 18-path zpd connector (which was not available for purchase), 20-path zpd connectors cut down with a hobby knife are used instead.
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{figs/conn_molex.jpg}
+		\caption{Molex microclasp connector}
+		\label{fig:molex}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{figs/conn_jst.jpg}
+		\caption{JST zpd connector}
+		\label{fig:jst}
+	\end{subfigure}
+	\caption{Cable connectors}
+	\label{fig:JpgEpsCompare}
+\end{figure}
+
+The figure above shows how the wires are assigned to individual sockets of the connectors. In the photos, the wires are: 
+
+\begin{itemize}
+\item White = GND
+\item Brown = Quadrature channel A
+\item Yellow = +5V
+\item Green = Quadrature channel B
+\end{itemize}
+
+The pairs of wires used are choosen to ensure that the quadrature channels are not twisted together.
+
+\noindent\textbf{A note on cable assembly:} Crimping the SZPD-002T-P0.3 contacts and inserting them into the zpd housings is challenging and frustrating -- if you happen to have an idle buddhist monk at hand, this would be an ideal job to assign to them. When using the 22 AWG crimping tool I found in the lab, I had to finish the job with a pair of pliers every time, and the results were not great. Maybe try to find a 24AWG tool and/or look for a jst crimping tool\footnote{Connector datasheet http://www.farnell.com/datasheets/2261947.pdf lists some industrial-looking crimping machines.}.
+
+\newpage{}
+\subsection{Todo}
+\subsection{Todo}
+
 
 
 \end{document}

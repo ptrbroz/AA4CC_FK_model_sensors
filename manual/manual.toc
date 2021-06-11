@@ -1,10 +1,13 @@
 \contentsline {section}{\numberline {1}Intro}{2}{section.1}%
 \contentsline {section}{\numberline {2}User manual}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Setting up}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Communication}{2}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}User to device communication}{2}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Settings constraints}{3}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Device to user communication}{3}{subsubsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.3}Communications demo}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.2}Communication}{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}User to device communication}{3}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Settings constraints}{4}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Device to user communication}{4}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}Communications demo}{5}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Reconfiguring on the fly}{5}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Technical manual}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Cabling}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Todo}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Todo}{7}{subsection.3.3}%
