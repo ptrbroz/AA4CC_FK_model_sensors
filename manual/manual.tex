@@ -55,9 +55,9 @@ pdfpagemode=UseNone,backref=false,colorlinks=true] {hyperref}
 
 \fancyhf[FLE,FRO]{\thepage}
 
-% údaje o autorovi
+% ï¿½daje o autorovi
 \title{FK Quadrature Decoder Manual}
-\author{Petr Brož}
+\author{Petr Broï¿½}
 \date{\today}
 
 \begin{document}
@@ -91,6 +91,14 @@ To set up the device, follow theese steps:
 \item Connect a 5V DC power source via the barrel jack.
 \item Connect the pcb shield to your computer via the mini-usb port located next to the barrel jack.
 \end{enumerate}
+
+\subsection{Turning off the device}
+
+Ideally, when turning off the device, unplug the usb cable first and only then unplug the 5V power adapter.
+
+Alternatively, it is enough to turn off the computer to which the usb cable is connected instead of unplugging it (if the usb port to which it connects turns off with the computer).
+
+Due to an oversight in the pcb design, unpluggin the 5V power source while a usb cable is connected places the FT232R (uart-usb converter) chip outside its maximum ratings. 
 
 \newpage{}
 
