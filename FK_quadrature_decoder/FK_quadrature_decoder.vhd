@@ -120,6 +120,7 @@ port(
 		boss_select : out std_logic;
 		set_encoder_vector : out std_logic_vector(MAX_ENCODERS-1 downto 0);
 		set_encoder_resolution : out integer range 0 to 15;
+		set_encoder_rev_resolution : out integer range 0 to 8;
 		set_encoder_miliseconds : out integer range 0 to 255;
 		set_encoder_reset : out std_logic;
 		set_encoder_enable : out std_logic
@@ -142,6 +143,7 @@ GENERIC (CLK_IN_FREQ : INTEGER;
 		 data_out_len : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		 set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		 set_encoder_resolution : in integer range 0 to 15;
+		 set_encoder_revolution_resolution : in integer range 0 to 8;
 		 set_encoder_miliseconds : in integer range 0 to 255;
 		 set_enabled : in std_logic
 	);
@@ -225,6 +227,7 @@ signal wire_boss_select : std_logic;
 
 signal wire_set_encoder_vector : std_logic_vector(35-1 downto 0);
 signal wire_set_encoder_resolution : integer range 0 to 15;
+signal wire_set_encoder_rev_resolution : integer range 0 to 8;
 signal wire_set_encoder_miliseconds : integer range 0 to 255;
 signal wire_set_encoder_reset : std_logic;
 signal wire_set_encoder_enabled : std_logic;
@@ -252,6 +255,7 @@ port map(
 		boss_select => wire_boss_select,
 		set_encoder_vector => wire_set_encoder_vector,
 		set_encoder_resolution => wire_set_encoder_resolution,
+		set_encoder_rev_resolution => wire_set_encoder_rev_resolution,
 		set_encoder_miliseconds => wire_set_encoder_miliseconds,
 		set_encoder_reset => wire_set_encoder_reset,
 		set_encoder_enable => wire_set_encoder_enabled
@@ -274,6 +278,7 @@ PORT MAP(clock => CLOCK_50,
 		 data_out_len => wire_watcher_data_len,
 		 set_encoder_vector => wire_set_encoder_vector,
 		 set_encoder_resolution => wire_set_encoder_resolution,
+		 set_encoder_revolution_resolution => wire_set_encoder_rev_resolution,
 		 set_encoder_miliseconds => wire_set_encoder_miliseconds,
 		 set_enabled => wire_set_encoder_enabled
 		 );

@@ -192,8 +192,7 @@ begin
 					savedRevolutions := inRevolutions;
 					encoderEnableVector := set_encoder_vector;
 					bitResolution := set_encoder_resolution;
-					--TODO uncomment
-					--bitResolutionRev := set_encoder_revolution_resolution;
+					bitResolutionRev := set_encoder_revolution_resolution;
 					state := w_assemble_header_ones;
 					encoderIndex := 0;
 					totalBitCounter := 0;
