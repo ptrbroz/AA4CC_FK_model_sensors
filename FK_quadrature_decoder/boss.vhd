@@ -19,6 +19,7 @@ port(
 		boss_select : out std_logic;
 		set_encoder_vector : out std_logic_vector(MAX_ENCODERS-1 downto 0);
 		set_encoder_resolution : out integer range 0 to 15;
+		set_encoder_rev_resolution : out integer range 0 to 8;
 		set_encoder_miliseconds : out integer range 0 to 255;
 		set_encoder_reset : out std_logic;
 		set_encoder_enable : out std_logic
@@ -49,6 +50,7 @@ constant ID_COMM_ON  : std_logic_vector (7 downto 0) := "00000100";
 
 signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := "1111111111" & "000000000000000" & "1111111111";
 signal encoder_resolution : integer range 0 to 15 := 10;
+signal encoder_rev_resolution : integer range 0 to 8 := 0;
 signal encoder_enable : std_logic := '0';
 signal encoder_miliseconds : integer range 0 to 255 := 5;
 
@@ -59,6 +61,7 @@ begin
 
 set_encoder_vector <= encoder_vector;
 set_encoder_resolution <= encoder_resolution;
+set_encoder_rev_resolution <= encoder_rev_resolution;
 set_encoder_enable <= encoder_enable;
 set_encoder_miliseconds <= encoder_miliseconds;
 
@@ -79,6 +82,9 @@ set_encoder_miliseconds <= encoder_miliseconds;
 		variable dataBitCounter : integer range 0 to 100 := 0;
 		variable totalBitCounter : integer range 0 to 100 := 0;
 		
+		variable revResolution : integer range 0 to 15 := 0;
+		constant maxRevResolution : integer := 8;
+		
 		variable enableAfterAck : std_logic := '0';
 		
 	begin
@@ -98,22 +104,25 @@ set_encoder_miliseconds <= encoder_miliseconds;
 					end if;
 				
 				when b_id_check =>
-					enableAfterAck := encoder_enable; 	
-					case idByte is
-						when ID_CONFIG =>
-							bytesLeft := 6;
-							state := b_receive_bytes_wait;
-							afterState := b_config_update;
-							enableAfterAck := '1';
-						when ID_COMM_ON =>
-							encoder_enable <= '1';
-							state := b_idle;
-						when ID_COMM_OFF =>
-							encoder_enable <= '0';
-							state := b_idle;
-						when others =>
-							state := b_idle;
-					end case;
+					enableAfterAck := encoder_enable;
+					if idByte(0) = '1' then
+						bytesLeft := 6;
+						afterState := b_config_update;
+						enableAfterAck := '1';
+						revResolution := to_integer(unsigned(idByte(7 downto 4)));
+						if revResolution > 8 then
+							revResolution := 8;
+						end if;
+						state := b_receive_bytes_wait;
+					elsif idByte = ID_COMM_ON then
+						encoder_enable <= '1';
+						state := b_idle;
+					elsif idByte = ID_COMM_OFF then
+						encoder_enable <= '0';
+						state := b_idle;
+					else
+						state := b_idle;
+					end if;
 					
 				when b_receive_bytes =>
 					if bytesLeft = 0 then
@@ -133,6 +142,7 @@ set_encoder_miliseconds <= encoder_miliseconds;
 					
 				when b_config_update =>
 					encoder_vector <= configData(47 downto 13);
+					encoder_rev_resolution <= revResolution;
 					if unsigned(configData(12 downto 9)) = 0 then
 						encoder_resolution <= 1;
 						configData(12 downto 9) := std_logic_vector(to_unsigned(1, 4));

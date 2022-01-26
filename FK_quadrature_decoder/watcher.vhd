@@ -62,6 +62,7 @@ architecture arch1 of watcher is
 											w_prep_encoder_revolution,
 											w_recalc_revolution_by_resolution_step1,
 											w_recalc_revolution_by_resolution_step2,
+											w_discard_revolution_msbs,
 											w_append_revolution_bits_to_message,
 											w_fin_resolution,
 											w_calc_len,
@@ -145,13 +146,16 @@ begin
 	
 	
 	watcher_fsm : process(clock, areset) is
+	
+		constant bitResolutionRevMax : integer := 8;
+	
 		variable state : watcher_fsm_state_t := w_wait_for_timer;
 		variable encoderIndex : integer range 0 to MAX_ENCODERS := 0;
 		variable encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		variable savedPositions : position_array_t;
 		variable savedRevolutions : revolution_array_t;
 		variable bitResolution : integer range 0 to 15 := 10	;
-		variable bitResolutionRev : integer range 0 to 8 := 7;
+		variable bitResolutionRev : integer range 0 to bitResolutionRevMax := 7;
 		variable totalBitCounter : integer range 0 to data_out'length := 0;
 		variable tempBitCounter  : integer range 0 to 31 := 0;
 		variable tempPosition : std_logic_vector(12 downto 0);
@@ -161,6 +165,8 @@ begin
 		variable encoderCountArray : std_logic_vector(5 downto 0) := (others => '0');
 		variable resolutionArray : std_logic_vector(3 downto 0) := (others => '0');
 		variable revResolutionArray : std_logic_vector(3 downto 0) := (others => '0');
+		
+		
 		
 		
 	begin
@@ -183,6 +189,7 @@ begin
 					
 				when w_save_positions =>
 					savedPositions := inPositions;
+					savedRevolutions := inRevolutions;
 					encoderEnableVector := set_encoder_vector;
 					bitResolution := set_encoder_resolution;
 					--TODO uncomment
@@ -315,8 +322,18 @@ begin
 				
 				when w_recalc_revolution_by_resolution_step2 =>
 					tempRevolution := std_logic_vector(to_unsigned(tempRevolutionDec, tempRevolution'length));
-					state := w_append_revolution_bits_to_message;
+					tempBitCounter := 0;
+					state := w_discard_revolution_msbs;
 					
+				when w_discard_revolution_msbs =>
+					if tempBitCounter = (bitResolutionRevMax - bitResolutionRev) then
+						tempBitCounter := 0;
+						state := w_append_revolution_bits_to_message;
+					else
+						tempBitCounter := tempBitCounter + 1;
+						tempRevolution := tempRevolution(tempRevolution'length - 2 downto 0) & '0';
+					end if;
+				
 				when w_append_revolution_bits_to_message =>
 					data_out <= data_out(data_out'length - 2 downto 0) & tempRevolution(tempRevolution'length - 1);
 					tempRevolution := tempRevolution(tempRevolution'length - 2 downto 0) & '0';

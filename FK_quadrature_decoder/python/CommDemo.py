@@ -1,7 +1,7 @@
 import serial
 import math
 
-port = serial.Serial('COM7', 230400, parity= serial.PARITY_NONE) #edit to your COM
+port = serial.Serial('COM6', 230400, parity= serial.PARITY_NONE) #edit to your COM
 
 #-------------------------------------
 #----byte / bits conversion utils-----
@@ -62,7 +62,7 @@ def parseFpgaReply(databytes):
     
 
 #initialise fpga
-vector = [1]*10 + [0]*15 + [1]*10 #35 bit vector. 1 enables reading corresponding encoder, 0 disables it.
+vector = [0]*1 + [0]*9 + [0]*15 + [1]*1 + [0]*9 #35 bit vector. 1 enables reading corresponding encoder, 0 disables it.
 resolution      = 12              #1 to 13. Position resolution in bits. While settings 14 and 15 are also supported, don't use them unless you have a good reason to do so - see user manual (maximum resolution used internally is 13 bits, 14 and 15 just multiplies the output)
 performReset    = 1               #1 or 0. When 1, positions will be reset; when 0, positions will be kept as they are
 waitTimeMs      = 10             #0 to 255. Minimum time between starts of messages in milliseconds. You might need to experiment with this one
