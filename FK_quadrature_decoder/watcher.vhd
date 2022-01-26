@@ -30,14 +30,16 @@ architecture arch1 of watcher is
 	component quadrature_decoder_pb IS
 	generic(
 		DEBOUNCE_COUNT : integer := 1000;
-		RESOLUTION : integer := 8192
+		RESOLUTION_POS : integer := 8192;
+		RESOLUTION_REV : integer := 256
 		);
 	port(
 		clock : in std_logic;
 		areset : in std_logic;
 		Ain : in std_logic;
 		Bin : in std_logic;
-		position : out std_logic_vector(12 downto 0)
+		position : out std_logic_vector(12 downto 0);
+		revolution : out std_logic_vector(7 downto 0)
 		);
 	end component;
 	
@@ -68,10 +70,12 @@ begin
 
 	GENERATE_DECODERS: for I in 0 to MAX_ENCODERS - 1 generate
 	
+	
 			decoderx : quadrature_decoder_pb 
 				generic map(
 				1000, 
-				8192
+				8192,
+				128
 				)
 				port map(
 				clock,
@@ -86,6 +90,7 @@ begin
 	
 	
 	watcher_timer : process(clock, areset) is
+	
 		
 		variable clockCounter : integer range 0 to 50000 := 0;
 		variable msCounter : integer range 0 to 255 		 := 0;

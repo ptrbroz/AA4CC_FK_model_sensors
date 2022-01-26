@@ -6,32 +6,39 @@ use ieee.numeric_std.all;
 entity quadrature_decoder_pb IS
 generic(
 		DEBOUNCE_COUNT : integer := 1000;
-		RESOLUTION : integer := 8192
+		RESOLUTION_POS : integer := 8192;
+		RESOLUTION_REV : integer := 256
 		);
 port(
 		clock : in std_logic;
 		areset : in std_logic;
 		Ain : in std_logic;
 		Bin : in std_logic;
-		position : out std_logic_vector(12 downto 0)
+		position : out std_logic_vector(12 downto 0);
+		revolution : out std_logic_vector(7 downto 0)
 		);
 end quadrature_decoder_pb;
 
 architecture arch1 of quadrature_decoder_pb is
 
-signal counterSignal : integer range 0 to RESOLUTION := 0; 
+signal counterSignal : integer range 0 to RESOLUTION_POS := 0; 
+signal revolutionSignal : integer range 0 to RESOLUTION_REV := 0;
 constant MIN_POS : integer := 0;
-constant MAX_POS : integer := RESOLUTION-1;
+constant MAX_POS : integer := RESOLUTION_POS-1;
+constant MIN_REV : integer := 0;
+constant MAX_REV : integer := RESOLUTION_REV-1;
 
 
 begin
 
 
 	position <= std_logic_vector(to_signed(counterSignal, position'length)); 
+	revolution <= std_logic_vector(to_signed(revolutionSignal, revolution'length)); 
 
 	decode : process(clock, areset) is
 		
-		variable positionCounter : integer range MIN_POS to MAX_POS := RESOLUTION/2;
+		variable positionCounter : integer range MIN_POS to MAX_POS := RESOLUTION_POS/2;
+		variable revolutionCounter : integer range MIN_REV to MAX_REV := RESOLUTION_REV/2;
 		variable Aprev : std_logic := '0';
 		variable Anew : std_logic := '0';
 		variable Bprev : std_logic := '0';
@@ -46,7 +53,8 @@ begin
 	
 	if areset = '1' then
 	
-		positionCounter := RESOLUTION/2;
+		positionCounter := RESOLUTION_POS/2;
+		revolutionCounter := RESOLUTION_REV/2;
 		--Aprev := Ain;
 		--Bprev := Bin;
 		Adebounce := -1;
@@ -107,6 +115,7 @@ begin
 					--increment
 					if positionCounter = MAX_POS then
 						positionCounter := MIN_POS;
+						revolutionCounter := revolutionCounter + 1; --Maybe todo: handle overflow/saturation explicitly?
 					else
 						positionCounter := positionCounter + 1;
 					end if;
@@ -114,6 +123,7 @@ begin
 					--decrement
 					if positionCounter = MIN_POS then
 						positionCounter := MAX_POS;
+						revolutionCounter := revolutionCounter - 1; --Maybe todo: handle overflow/saturation explicitly?
 					else
 						positionCounter := positionCounter - 1;
 					end if;
@@ -126,6 +136,7 @@ begin
 			--end of transition management logic
 			
 			counterSignal <= positionCounter;
+			revolutionSignal <= revolutionCounter;
 		
 		
 		end if;
