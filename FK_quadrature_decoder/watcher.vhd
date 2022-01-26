@@ -6,8 +6,10 @@ use ieee.numeric_std.all;
 entity watcher IS
 generic(
 			MAX_ENCODERS : integer := 35;
-			DATA_MAX_BYTES : integer := 65;
-			CLK_IN_FREQ : integer := 50000000
+			DATA_MAX_BYTES : integer := 113;
+			CLK_IN_FREQ : integer := 50000000;
+			W_RESOLUTION_POS : integer := 8192;
+			W_RESOLUTION_REV : integer := 256
 			);
 port(
 		clock : in std_logic;
@@ -20,6 +22,7 @@ port(
 		data_out_ack : in std_logic;
 		set_encoder_vector : in std_logic_vector(MAX_ENCODERS - 1 downto 0);
 		set_encoder_resolution : in integer range 0 to 15;
+		set_encoder_revolution_resolution : in integer range 0 to 8;
 		set_encoder_miliseconds : in integer range 0 to 255;
 		set_enabled : in std_logic
 		);
@@ -44,6 +47,7 @@ architecture arch1 of watcher is
 	end component;
 	
 	type position_array_t is array (MAX_ENCODERS-1 downto 0) of std_logic_vector(12 downto 0);
+	type revolution_array_t is array(MAX_ENCODERS-1 downto 0) of std_logic_vector(7 downto 0);
 	
 	type watcher_fsm_state_t is ( w_wait_for_timer,
 											w_save_positions,
@@ -54,6 +58,11 @@ architecture arch1 of watcher is
 											w_prep_encoder,
 											w_append_bits_to_message,
 											w_fin_encoder,
+											w_assemble_secondary_header_append_revresolution;
+											w_prep_encoder_revolution,
+											w_recalc_revolution_by_resolution,
+											w_append_revolution_bits_to_message,
+											w_fin_resolution,
 											w_calc_len,
 											w_align_message,
 											w_ready_message,
@@ -61,9 +70,13 @@ architecture arch1 of watcher is
 											);
 											
 	signal inPositions : position_array_t;
+	
+	signal inRevolutions : revolution_array_t;
+	
 	signal timer_alarm : std_logic;
 	
 	signal timer_reset : std_logic := '0';
+	
 	
 begin
 
@@ -74,15 +87,16 @@ begin
 			decoderx : quadrature_decoder_pb 
 				generic map(
 				1000, 
-				8192,
-				128
+				W_RESOLUTION_POS,
+				W_RESOLUTION_REV
 				)
 				port map(
 				clock,
 				areset,
 				gpio_a_channels(I),
 				gpio_b_channels(I),
-				inPositions(I)
+				inPositions(I),
+				inRevolutions(I)
 				);
 	
 	end generate GENERATE_DECODERS;
@@ -133,13 +147,17 @@ begin
 		variable encoderIndex : integer range 0 to MAX_ENCODERS := 0;
 		variable encoderEnableVector : std_logic_vector(MAX_ENCODERS - 1 downto 0) := (others => '1');
 		variable savedPositions : position_array_t;
+		variable savedRevolutions : revolution_array_t;
 		variable bitResolution : integer range 0 to 15 := 10	;
+		variable bitResolutionRev : integer range 0 to 8 := 7;
 		variable totalBitCounter : integer range 0 to data_out'length := 0;
 		variable tempBitCounter  : integer range 0 to 31 := 0;
 		variable tempPosition : std_logic_vector(12 downto 0);
+		variable tempRevolution : std_logic_vector(7 downto 0);
 		variable encoderCount : integer range 0 to MAX_ENCODERS := 0;
 		variable encoderCountArray : std_logic_vector(5 downto 0) := (others => '0');
 		variable resolutionArray : std_logic_vector(3 downto 0) := (others => '0');
+		variable revResolutionArray : std_logic_vector(3 downto 0) := (others => '0');
 		
 	begin
 	
@@ -163,6 +181,8 @@ begin
 					savedPositions := inPositions;
 					encoderEnableVector := set_encoder_vector;
 					bitResolution := set_encoder_resolution;
+					--TODO uncomment
+					--bitResolutionRev := set_encoder_revolution_resolution;
 					state := w_assemble_header_ones;
 					encoderIndex := 0;
 					totalBitCounter := 0;
@@ -201,6 +221,7 @@ begin
 					if tempBitCounter = encoderCountArray'length then
 						tempBitCounter := 0;
 						resolutionArray := std_logic_vector(to_unsigned(bitResolution, 4));
+						revResolutionArray := std_logic_vector(to_unsigned(bitResolutionRev, 4));
 						state := w_assemble_header_append_resolution;
 					end if;
 					
@@ -217,7 +238,12 @@ begin
 				when w_prep_encoder =>
 					if encoderEnableVector(MAX_ENCODERS - encoderIndex - 1) = '0' then
 						if encoderIndex = MAX_ENCODERS - 1 then
-							state := w_calc_len;
+							if bitResolutionRev = 0 then
+								state := w_calc_len;
+							else
+								state := w_assemble_secondary_header_append_revresolution;
+								tempBitCounter := 0;
+							end if;
 						else 
 							encoderIndex := encoderIndex + 1;
 						end if;
@@ -241,10 +267,62 @@ begin
 				when w_fin_encoder =>
 					tempBitCounter := 0;
 					if encoderIndex = MAX_ENCODERS - 1 then
-						state := w_calc_len;
+						if bitResolutionRev = 0 then
+							state := w_calc_len;
+						else
+							state := w_assemble_secondary_header_append_revresolution;
+							tempBitCounter := 0;
+						end if;
 					else
 						encoderIndex := encoderIndex + 1;
 						state := w_prep_encoder;
+					end if;
+					
+				when w_assemble_secondary_header_append_revresolution =>
+					data_out <= data_out(data_out'length - 2 downto 0) & revResolutionArray(revResolutionArray'length - 1);
+					revResolutionArray := revResolutionArray(revResolutionArray'length - 2 downto 0) & '0';
+					totalBitCounter := totalBitCounter + 1;
+					tempBitCounter := tempBitCounter + 1;
+					if tempBitCounter = revResolutionArray'length then
+						tempBitCounter := 0;
+						encoderIndex := 0;
+						state := w_prep_encoder_revolution;
+						
+				when w_prep_encoder_revolution =>
+					if encoderEnableVector(MAX_ENCODERS - encoderIndex - 1) = '0' then
+						if encoderIndex = MAX_ENCODERS - 1 then
+							state := w_calc_len;
+						else
+							encoderIndex := encoderIndex + 1;
+						end if;
+					else
+						tempRevolution := savedRevolutions(encoderIndex);
+						tempBitCounter := 0;
+						data_out <= data_out(data_out'length - 2 downto 0) & '0'; --separator
+						totalBitCounter := totalBitCounter + 1;
+						state := w_recalc_revolution_by_resolution
+					end if;
+					
+				when w_recalc_revolution_by_resolution =>
+					tempRevolution := tempRevolution - (W_RESOLUTION_REV/2) + (2**(bitResolutionRev-1));
+					state := w_append_revolution_bits_to_message;
+					
+				when w_append_revolution_bits_to_message =>
+					data_out <= data_out(data_out'length - 2 downto 0) & tempRevolution(tempRevolution'length - 1);
+					tempRevolution := tempRevolution(tempRevolution'length - 2 downto 0) & '0';
+					tempBitCounter := tempBitCounter + 1;
+					totalBitCounter := totalBitCounter + 1;
+					if tempBitCounter = bitResolutionRev then
+						state := w_fin_resolution;
+					end if;
+				
+				when w_fin_resolution =>
+					tempBitCounter := 0;
+					if encoderIndex = MAX_ENCODERS - 1 then
+						state := w_calc_len;
+					else
+						encoderIndex := encoderIndex + 1;
+						state := w_prep_encoder_revolution;
 					end if;
 					
 				when w_calc_len =>

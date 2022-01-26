@@ -261,7 +261,7 @@ port map(
 
 b2v_inst : watcher
 GENERIC MAP(CLK_IN_FREQ => 50000000,
-			DATA_MAX_BYTES => 73,
+			DATA_MAX_BYTES => 113,
 			MAX_ENCODERS => 35
 			)
 PORT MAP(clock => CLOCK_50,
@@ -281,7 +281,7 @@ PORT MAP(clock => CLOCK_50,
 
 
 b2v_inst2 : uart_out_manager
-GENERIC MAP(DATA_MAX_BYTES => 73,
+GENERIC MAP(DATA_MAX_BYTES => 113,
 			DATA_SMALL_BYTES => 10
 			)
 PORT MAP(clock => CLOCK_50,
