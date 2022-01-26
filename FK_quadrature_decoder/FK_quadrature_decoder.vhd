@@ -212,7 +212,7 @@ SIGNAL	zeroconst :  STD_LOGIC_VECTOR(63 DOWNTO 0);
 SIGNAL	wire_watcher_ack :  STD_LOGIC;
 SIGNAL	wire_tx_ready :  STD_LOGIC;
 SIGNAL	wire_watcher_data_valid :  STD_LOGIC;
-SIGNAL	wire_watcher_data :  STD_LOGIC_VECTOR(583 DOWNTO 0);
+SIGNAL	wire_watcher_data :  STD_LOGIC_VECTOR(903 DOWNTO 0);
 SIGNAL	wire_watcher_data_len :  STD_LOGIC_VECTOR(6 DOWNTO 0);
 SIGNAL	wire_tx_start :  STD_LOGIC;
 SIGNAL	wire_tx_byte :  STD_LOGIC_VECTOR(7 DOWNTO 0);

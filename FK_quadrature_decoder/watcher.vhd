@@ -305,9 +305,7 @@ begin
 						tempBitCounter := 0;
 						data_out <= data_out(data_out'length - 2 downto 0) & '0'; --separator
 						totalBitCounter := totalBitCounter + 1;
-						
 						tempRevolutionDec := to_integer(unsigned(tempRevolution));
-						
 						state := w_recalc_revolution_by_resolution_step1;
 					end if;
 					
