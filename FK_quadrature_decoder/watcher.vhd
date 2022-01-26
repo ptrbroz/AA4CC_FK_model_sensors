@@ -58,9 +58,10 @@ architecture arch1 of watcher is
 											w_prep_encoder,
 											w_append_bits_to_message,
 											w_fin_encoder,
-											w_assemble_secondary_header_append_revresolution;
+											w_assemble_secondary_header_append_revresolution,
 											w_prep_encoder_revolution,
-											w_recalc_revolution_by_resolution,
+											w_recalc_revolution_by_resolution_step1,
+											w_recalc_revolution_by_resolution_step2,
 											w_append_revolution_bits_to_message,
 											w_fin_resolution,
 											w_calc_len,
@@ -111,6 +112,7 @@ begin
 		variable targetMs : integer range 0 to 255 		 := 10;
 	
 		constant clocksMax : integer :=    500000;
+		
 		variable counter : integer range 0 to clocksMax+1 := 0;
 
 	begin
@@ -154,10 +156,12 @@ begin
 		variable tempBitCounter  : integer range 0 to 31 := 0;
 		variable tempPosition : std_logic_vector(12 downto 0);
 		variable tempRevolution : std_logic_vector(7 downto 0);
+		variable tempRevolutionDec :integer range 0 to W_RESOLUTION_REV;
 		variable encoderCount : integer range 0 to MAX_ENCODERS := 0;
 		variable encoderCountArray : std_logic_vector(5 downto 0) := (others => '0');
 		variable resolutionArray : std_logic_vector(3 downto 0) := (others => '0');
 		variable revResolutionArray : std_logic_vector(3 downto 0) := (others => '0');
+		
 		
 	begin
 	
@@ -287,6 +291,7 @@ begin
 						tempBitCounter := 0;
 						encoderIndex := 0;
 						state := w_prep_encoder_revolution;
+					end if;
 						
 				when w_prep_encoder_revolution =>
 					if encoderEnableVector(MAX_ENCODERS - encoderIndex - 1) = '0' then
@@ -300,11 +305,18 @@ begin
 						tempBitCounter := 0;
 						data_out <= data_out(data_out'length - 2 downto 0) & '0'; --separator
 						totalBitCounter := totalBitCounter + 1;
-						state := w_recalc_revolution_by_resolution
+						
+						tempRevolutionDec := to_integer(unsigned(tempRevolution));
+						
+						state := w_recalc_revolution_by_resolution_step1;
 					end if;
 					
-				when w_recalc_revolution_by_resolution =>
-					tempRevolution := tempRevolution - (W_RESOLUTION_REV/2) + (2**(bitResolutionRev-1));
+				when w_recalc_revolution_by_resolution_step1 =>
+					tempRevolutionDec := tempRevolutionDec - W_RESOLUTION_REV/2 + (2**(bitResolutionRev-1));
+					state := w_recalc_revolution_by_resolution_step2;
+				
+				when w_recalc_revolution_by_resolution_step2 =>
+					tempRevolution := std_logic_vector(to_unsigned(tempRevolutionDec, tempRevolution'length));
 					state := w_append_revolution_bits_to_message;
 					
 				when w_append_revolution_bits_to_message =>
