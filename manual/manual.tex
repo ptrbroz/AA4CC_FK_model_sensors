@@ -120,10 +120,14 @@ There are three types of commands the user can send to the device. Two of them c
 
 The \textbf{CONFIGURE} command consists of 7 bytes. It is used to choose which encoders will be reported by the device, at what resolution, how often, and lastly it allows the positions of the encoders to be reset. Upon receiving the configure command, the device will send a reply (see next section), reconfigure itself and start transmitting data.
 
-The first byte of the command must be 0x01. The remaining 6 bytes are best thought of as an array of bits. The first 35 bits form the encoder enable vector -- when a bit in the enable vector is set to one, the corresponding encoder's position will be reported\footnote{The encoder connectors on the pcb are enumerated clockwise, starting next to the barrel jack. Their numbers are also printed on the silkscreen as JX, where X is the number.}. Bits 36 to 39 form an unsigned integer, used to represent the desired resolution in bits. Bit 40 is the position reset bit -- when it is set to one, all positions will be reset to their default value of $2^{r-1}$, where $r$ denotes the resolution in bits. The last 8 bits form another unsigned integer, this time representing the minimum time the device should wait between sending its messages, in milliseconds.
+The first nibble of the first byte encodes the desired revolution resolution in bits. When set to 0, the device does not report the number of revolutions. The second nibble of the first byte must be 0x1. 
+
+The remaining 6 bytes are best thought of as an array of bits. The first 35 bits form the encoder enable vector -- when a bit in the enable vector is set to one, the corresponding encoder's position (and possibly number of revolutions) will be reported\footnote{The encoder connectors on the pcb are enumerated clockwise, starting next to the barrel jack. Their numbers are also printed on the silkscreen as JX, where X is the number.}. Bits 36 to 39 form an unsigned integer, used to represent the desired position resolution in bits. Bit 40 is the position and  reset bit -- when it is set to one, all positions will be reset to their default value of $2^{r-1}$, where $r$ denotes the position resolution in bits. The last 8 bits form another unsigned integer, this time representing the minimum time the device should wait between sending its messages, in milliseconds.
 
 
 \textbf{Example: Configure command}
+
+TODO update example!
 
 \begin{figure}[htb]
 	\centering
@@ -150,12 +154,11 @@ Following settings are valid:
 
 \begin{itemize}
 \item \textbf{Encoder enable vector} -- Any combination of ones and zeros.
-\item \textbf{Resolution} -- Any integer from 1 to 13. If a zero is sent, it will be interpreted as one. 13 is the maximum resolution used within the device -- while resolution options of 14 and 15 bits are also supported, they only pad the sent data with zeros and you shouldn't use them unless you know exactly why you're doing it. (See TODO)
+\item \textbf{Position resolution} -- Any integer from 1 to 13. If a zero is sent, it will be interpreted as one. 13 is the maximum resolution used within the device -- while resolution options of 14 and 15 bits are also supported, they only pad the sent data with zeros and you shouldn't use them unless you know exactly why you're doing it. (See TODO)
+\item \textbf{Revolution resolution} -- Any integer from 0 to 8. Setting a zero disables revolution reporting altogether. Integers greater than 8 are reduced to 7.
 \item \textbf{Reset bit} -- Either 1 or 0.
-\item \textbf{Minimum time between messages} -- Any integer between 0 and 255. Be aware that this is the minimum time -- the actual time between messages will always be at least as long as it takes to transmit all the data. Formula for minimum time it takes to transmit: $(ceil(\frac{(r+1)\cdot{}E}{8}) + 3)\cdot{}\frac{10}{B}$, where r is resolution in bits, E is the number of enabled encoders and B is Baud = 230400.
+\item \textbf{Minimum time between messages} -- Any integer between 0 and 255. Be aware that this is the minimum time -- the actual time between messages will always be at least as long as it takes to transmit all the data. Formula for minimum time it takes to transmit (assuming revolution data is not sent): $(ceil(\frac{(r+1)\cdot{}E}{8}) + 3)\cdot{}\frac{10}{B}$, where r is resolution in bits, E is the number of enabled encoders and B is Baud = 230400. If revolution data is enabled, the minimum time will increase to  $(ceil(\frac{4+(r+R+2)\cdot{}E}{8}) + 3)\cdot{}\frac{10}{B}$, where R is the revolution resolution.
 \end{itemize}
-
-
 
 
 \subsubsection{Device to user communication}
@@ -165,6 +168,8 @@ The device can send two types of messages to the user. Both begin with a header 
 \noindent\emph{\textbf{Configure reply message}}
 
 This message is sent only as a reply to the configure command sent by the user. It's header always consists of bytes 0xff, 0xff, 0xf0 in this order. Following them are 7 data bytes -- those carry within them the same array of 48 bits that the user provided in their configure command, with the exception that the first bit of each data byte is instead reserved as a separator bit and is always zero.
+
+The configure reply message does not currently report the revolution resolution.
 
 \textbf{Example: Config reply message}
 \begin{figure}[h!]
@@ -176,9 +181,11 @@ This message is sent only as a reply to the configure command sent by the user. 
 
 The figure above illustrates how a reply to the configuration reply message to the message show in figure \ref{fig:config} would begin. \\\\
 
-\noindent{}\emph{\textbf{Data message}}
+\noindent{}\emph{\textbf{Data message (without revolutions)}}
 
-This is the most important message -- it is used by the device to report the positions of encoders to the user.
+This section assumes that revolution resolution is set to zero, meaning that revolution data is not reported by the device. See below for how the message changes when revolutions are reported.
+
+This is the most important message -- it is used by the device to report the positions (and revolutions) of encoders to the user.
 
 The header of this message is a little more complex, as it carries data. Its first byte is always 0xff, its second byte is one of \{0xfc, 0xfd, 0xfe, 0xff\}, and its last byte can have many different values. When viewed as an array of 24 bits, it can be parsed thus:
 
@@ -206,6 +213,20 @@ Figure above shows what a data message might look like. Upon parsing the header,
 Reading the positions, we see that the third encoder is in the default position, encoder number one has moved somewhat in one direction from the default and number two has moved significantly in the opposite direction.
 
 Note that there is no indication of the actual index of the encoders -- the user needs to keep in mind which encoders they have enabled. The message above might represent the positions of encoders 1, 2 and 3. But it may also represent the positions of encoders 5, 26 and 31, if those happen to be the ones that are enabled.
+
+\noindent{}\emph{\textbf{Data message (with revolutions reported)}}
+
+When revolution resolution is nonzero, the positions data is followed by a section of revolution data. 
+
+The revolution data section begins with a secondary header consisting of 4 bits which encode the revolution resolution used. Following the header is an array of bits in a similar format to the positions section: each revolution counter is preceded by a separation bit (always zero). Thus revolutions reporting prolongs the data message by 4+(1+R)*E bits, where R is is the revolution resolution and E is the number of encoders.
+
+The total number of bytes of the data message with revolutions is calculated as  $ceil(\frac{4+(r+R+2)\cdot{}E}{8})$, where r is the position resolution. 
+
+Revolutions are represented as integers with offset zero. No revolutions corresponds to a value of $2^R$. This value is incremented whenever the position of the encoder in question overflows and decremented whenever it underflows.
+
+
+
+
 \subsection{Communications demo}
 
 \noindent{}A terminal demo script written in python is located within this repository:\\ FK\_quadrature\_decoder\textbackslash{}python\textbackslash{}CommDemo.py.
@@ -263,8 +284,6 @@ The pairs of wires used are choosen to ensure that the quadrature channels are n
 \noindent\textbf{A note on cable assembly:} Crimping the SZPD-002T-P0.3 contacts and inserting them into the zpd housings is challenging and frustrating -- if you happen to have an idle buddhist monk at hand, this would be an ideal job to assign to them. When using the 22 AWG crimping tool I found in the lab, I had to finish the job with a pair of pliers every time, and the results were not great. Maybe try to find a 24AWG tool and/or look for a jst crimping tool\footnote{Connector datasheet http://www.farnell.com/datasheets/2261947.pdf lists some industrial-looking crimping machines.}.
 
 \newpage{}
-\subsection{Todo}
-\subsection{Todo}
 
 
 
