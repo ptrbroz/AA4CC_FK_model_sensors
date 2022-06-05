@@ -120,14 +120,12 @@ There are three types of commands the user can send to the device. Two of them c
 
 The \textbf{CONFIGURE} command consists of 7 bytes. It is used to choose which encoders will be reported by the device, at what resolution, how often, and lastly it allows the positions of the encoders to be reset. Upon receiving the configure command, the device will send a reply (see next section), reconfigure itself and start transmitting data.
 
-The first nibble of the first byte encodes the desired revolution resolution in bits. When set to 0, the device does not report the number of revolutions. The second nibble of the first byte must be 0x1. 
+The first nibble of the first byte encodes the desired revolution counter bit-depth. When set to 0, the device does not report the number of revolutions. The second nibble of the first byte must be 0x1. 
 
-The remaining 6 bytes are best thought of as an array of bits. The first 35 bits form the encoder enable vector -- when a bit in the enable vector is set to one, the corresponding encoder's position (and possibly number of revolutions) will be reported\footnote{The encoder connectors on the pcb are enumerated clockwise, starting next to the barrel jack. Their numbers are also printed on the silkscreen as JX, where X is the number.}. Bits 36 to 39 form an unsigned integer, used to represent the desired position resolution in bits. Bit 40 is the position and  reset bit -- when it is set to one, all positions will be reset to their default value of $2^{r-1}$, where $r$ denotes the position resolution in bits. The last 8 bits form another unsigned integer, this time representing the minimum time the device should wait between sending its messages, in milliseconds.
+The remaining 6 bytes are best thought of as an array of bits. The first 35 bits form the encoder enable vector -- when a bit in the enable vector is set to one, the corresponding encoder's position (and possibly number of revolutions) will be reported\footnote{The encoder connectors on the pcb are enumerated clockwise, starting next to the barrel jack. Their numbers are also printed on the silkscreen as JX, where X is the number.}. Bits 36 to 39 form an unsigned integer, used to represent the desired position resolution in bits. Bit 40 is the position  reset bit -- when it is set to one, all positions will be reset to their default value of $2^{r-1}$, where $r$ denotes the position resolution in bits. The last 8 bits form another unsigned integer, this time representing the minimum time the device should wait between sending its messages, in milliseconds.
 
 
 \textbf{Example: Configure command}
-
-TODO update example!
 
 \begin{figure}[htb]
 	\centering
@@ -139,6 +137,7 @@ TODO update example!
 The figure on this page illustrates how the configure command is assembled. The values show therein are choosen to configure the device to:
 
 \begin{itemize}
+\item Set revolution counter bit depth to 5 bits
 \item Enable reading encoders 1 through 10 and 26 through 35
 \item Disable reading encoders 11 through 25
 \item Read them using a resolution of 12 bits
@@ -146,7 +145,7 @@ The figure on this page illustrates how the configure command is assembled. The 
 \item Transmit data once every 10 milliseconds.
 \end{itemize}
 
-To achieve theese settings, the user needs to send following bytes (in this order) to the device: 0x01, 0xFF, 0xC0, 0x00, 0x7F, 0xF9, 0x0A.
+To achieve theese settings, the user needs to send following bytes (in this order) to the device: 0x51, 0xFF, 0xC0, 0x00, 0x7F, 0xF9, 0x0A.
 
 \subsubsection{Settings constraints}
 
@@ -155,9 +154,9 @@ Following settings are valid:
 \begin{itemize}
 \item \textbf{Encoder enable vector} -- Any combination of ones and zeros.
 \item \textbf{Position resolution} -- Any integer from 1 to 13. If a zero is sent, it will be interpreted as one. 13 is the maximum resolution used within the device -- while resolution options of 14 and 15 bits are also supported, they only pad the sent data with zeros and you shouldn't use them unless you know exactly why you're doing it. (See TODO)
-\item \textbf{Revolution resolution} -- Any integer from 0 to 8. Setting a zero disables revolution reporting altogether. Integers greater than 8 are reduced to 7.
+\item \textbf{Revolution counter bit depth} -- Any integer from 0 to 7. Setting a zero disables revolution reporting altogether. If a value greater than 7 is sent, it will be reduced to 7.
 \item \textbf{Reset bit} -- Either 1 or 0.
-\item \textbf{Minimum time between messages} -- Any integer between 0 and 255. Be aware that this is the minimum time -- the actual time between messages will always be at least as long as it takes to transmit all the data. Formula for minimum time it takes to transmit (assuming revolution data is not sent): $(ceil(\frac{(r+1)\cdot{}E}{8}) + 3)\cdot{}\frac{10}{B}$, where r is resolution in bits, E is the number of enabled encoders and B is Baud = 230400. If revolution data is enabled, the minimum time will increase to  $(ceil(\frac{4+(r+R+2)\cdot{}E}{8}) + 3)\cdot{}\frac{10}{B}$, where R is the revolution resolution.
+\item \textbf{Minimum time between messages} -- Any integer between 0 and 255. Be aware that this is the minimum time -- the actual time between messages will always be at least as long as it takes to transmit all the data. Formula for minimum time it takes to transmit (assuming revolution data is not sent): $(ceil(\frac{(r+1)\cdot{}E}{8}) + 3)\cdot{}\frac{10}{B}$, where r is resolution in bits, E is the number of enabled encoders and B is Baud = 230400. If revolution data is enabled, the minimum time will increase to  $(ceil(\frac{4+(r+R+2)\cdot{}E}{8}) + 3)\cdot{}\frac{10}{B}$, where R is the revolution counter bit depth.
 \end{itemize}
 
 
@@ -169,7 +168,7 @@ The device can send two types of messages to the user. Both begin with a header 
 
 This message is sent only as a reply to the configure command sent by the user. It's header always consists of bytes 0xff, 0xff, 0xf0 in this order. Following them are 7 data bytes -- those carry within them the same array of 48 bits that the user provided in their configure command, with the exception that the first bit of each data byte is instead reserved as a separator bit and is always zero.
 
-The configure reply message does not currently report the revolution resolution.
+The configure reply message does not currently report the revolution counter bit depth.
 
 \textbf{Example: Config reply message}
 \begin{figure}[h!]
@@ -183,24 +182,27 @@ The figure above illustrates how a reply to the configuration reply message to t
 
 \noindent{}\emph{\textbf{Data message (without revolutions)}}
 
-This section assumes that revolution resolution is set to zero, meaning that revolution data is not reported by the device. See below for how the message changes when revolutions are reported.
+This section assumes that revolution counter bit depth is set to zero, meaning that revolution data is not reported by the device. See below for how the message changes when revolutions are reported.
 
-This is the most important message -- it is used by the device to report the positions (and revolutions) of encoders to the user.
+This is the most important message -- it is used by the device to report the positions of encoders to the user.
 
 The header of this message is a little more complex, as it carries data. Its first byte is always 0xff, its second byte is one of \{0xfc, 0xfd, 0xfe, 0xff\}, and its last byte can have many different values. When viewed as an array of 24 bits, it can be parsed thus:
 
+\newpage{}
 \begin{itemize}
 \item Bits 1 to 14 -- Reserved, will always be ones.
 \item Bits 15 to 20 -- Integer representing how many encoders are enabled
 \item Bits 20 to 24 -- Integer representing the resolution in bits
 \end{itemize}
 
+The purpose of the reserved bits is to facilitate identification of the beginning of the message. Due to presence of separator bits (which are always zero) and maximum position resolution being 13 bits, the only situation in which 14 consecutive ones appear in data sent by the device is a message beginning.
+
 The header is followed by a number of data bytes, which carry the positions of each enabled encoder. Each position is sent as an integer preceded by a separator bit (which will always be zero). Thus the number of bytes you should expect can be calculated after parsing the header as $ceil(\frac{(r+1)\cdot{}E}{8})$, where r is resolution in bits and E is the number of enabled encoders. The positions are sent starting in ascending order of encoder indices.
 
 The number of encoders and resolution should fall within certain constraints. In particular, the number of enabled encoders needs to be at most 35, and the resolution needs to be between 1 and 15 bits, otherwise the 3 bytes do not form a valid data message header. Note that the header for Config reply message appears as 63 encoders running at resolution of zero bits, and thus can be differentiated from data message headers.
 
 
-\textbf{Example: Data message}
+\textbf{Example: Data message (revolution reporting disabled)}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{figs/reply2}
@@ -216,17 +218,26 @@ Note that there is no indication of the actual index of the encoders -- the user
 
 \noindent{}\emph{\textbf{Data message (with revolutions reported)}}
 
-When revolution resolution is nonzero, the positions data is followed by a section of revolution data. 
+Currently, it is not possible to differentiate between data messages with revolutions and without revolutions based just on the initial header. It is recommended for the user to note if they configured revolution counter bit depth to a nonzero value and to expect messages with revolution data if they did so.
 
-The revolution data section begins with a secondary header consisting of 4 bits which encode the revolution resolution used. Following the header is an array of bits in a similar format to the positions section: each revolution counter is preceded by a separation bit (always zero). Thus revolutions reporting prolongs the data message by 4+(1+R)*E bits, where R is is the revolution resolution and E is the number of encoders.
+When revolution counter bit depth is nonzero, the positions data is followed by a section of revolution data. The data section is the same as in case of data message without revolutions (see above).
+
+The revolution data section begins with a secondary header consisting of 4 bits which encode the revolution counter bit depth used. Following the header is an array of bits in a similar format to the positions section: each revolution counter is preceded by a separation bit (always zero). Thus revolutions reporting prolongs the data message by 4+(1+R)*E bits, where R is is the revolution counter bit depth and E is the number of encoders.
 
 The total number of bytes of the data message with revolutions is calculated as  $ceil(\frac{4+(r+R+2)\cdot{}E}{8})$, where r is the position resolution. 
 
 Revolutions are represented as integers with offset zero. No revolutions corresponds to a value of $2^R$. This value is incremented whenever the position of the encoder in question overflows and decremented whenever it underflows.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{figs/reply3}
+	\caption{Data message illustration}
+\label{fig:3}
+\end{figure}
 
+Example message is shown in figure \ref{fig:3}. Note that due to the zero offset, counter value of 6 for encoder 1 should be interpreted as that encoder performing a sum of two revolutions in one direction, while encoder 2 (counter value 3) has performed a sum of one revolution in the opposite direction. A counter value of 4 would correspond to a sum zero revolutions.
 
-
+\newpage{}
 \subsection{Communications demo}
 
 \noindent{}A terminal demo script written in python is located within this repository:\\ FK\_quadrature\_decoder\textbackslash{}python\textbackslash{}CommDemo.py.
