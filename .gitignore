@@ -13,7 +13,7 @@ FK_fpga_shield/sym-lib-table
 *.hex
 *.html
 *.jdi
-*.jpg
+
 # *.mif
 *.pin
 *.pof
