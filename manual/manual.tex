@@ -93,12 +93,15 @@ To set up the device, follow theese steps:
 \end{enumerate}
 
 \subsection{Turning off the device}
+\label{turnoff}
 
 Ideally, when turning off the device, unplug the usb cable first and only then unplug the 5V power adapter.
 
 Alternatively, it is enough to turn off the computer to which the usb cable is connected instead of unplugging it (if the usb port to which it connects turns off with the computer).
 
 Due to an oversight in the pcb design, unpluggin the 5V power source while a usb cable is connected places the FT232R (uart-usb converter) chip outside its maximum ratings. 
+
+A solution to this oversight is described in \ref{hwbug}.
 
 \newpage{}
 
@@ -294,7 +297,11 @@ The pairs of wires used are choosen to ensure that the quadrature channels are n
 
 \noindent\textbf{A note on cable assembly:} Crimping the SZPD-002T-P0.3 contacts and inserting them into the zpd housings is challenging and frustrating -- if you happen to have an idle buddhist monk at hand, this would be an ideal job to assign to them. When using the 22 AWG crimping tool I found in the lab, I had to finish the job with a pair of pliers every time, and the results were not great. Maybe try to find a 24AWG tool and/or look for a jst crimping tool\footnote{Connector datasheet http://www.farnell.com/datasheets/2261947.pdf lists some industrial-looking crimping machines.}.
 
-\newpage{}
+
+\subsection{PCB bug (turning off & FT232)}
+\label{hwbug}
+
+There is an error in the first version of the pcb design, necessitating a specific order in which the power and usb cables can be unplugged from the device when turning it off, as described in \ref{turnoff}. 
 
 
 
