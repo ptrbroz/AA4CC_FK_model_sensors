@@ -44,3 +44,6 @@ incremental_db/
 db/
 _output_files/
 PLLJ_PLLSPE_INFO.txt
+FK_quadrature_decoder/matlab/FK_reader/fkReader.asv
+FK_quadrature_decoder/matlab/FK_reader/slprj/_cgxe/untitled/info/report.mldatx
+FK_quadrature_decoder/matlab/FK_reader/untitled.slx.autosave

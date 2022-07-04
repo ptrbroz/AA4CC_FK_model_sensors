@@ -1,7 +1,7 @@
 import serial
 import math
 
-port = serial.Serial('COM7', 230400, parity= serial.PARITY_NONE) #edit to your COM
+port = serial.Serial('COM4', 230400, parity= serial.PARITY_NONE) #edit to your COM
 
 #-------------------------------------
 #----byte / bits conversion utils-----
@@ -66,7 +66,7 @@ def parseFpgaReply(databytes):
     
 
 #initialise fpga
-vector = [0]*1 + [1]*1 + [0]*8 + [0]*15 + [0]*1 + [0]*9 #35 bit vector. 1 enables reading corresponding encoder, 0 disables it.
+vector = [1]*1 + [1]*1 + [0]*8 + [0]*15 + [0]*1 + [0]*9 #35 bit vector. 1 enables reading corresponding encoder, 0 disables it.
 resolution      = 12              #1 to 13. Position resolution in bits. While settings 14 and 15 are also supported, don't use them unless you have a good reason to do so - see user manual (maximum resolution used internally is 13 bits, 14 and 15 just multiplies the output)
 revResolution   = 5             #0 to 8. Bit length of revolution counter representation. When 0, revolution counters are not sent.
 performReset    = 1               #1 or 0. When 1, positions will be reset; when 0, positions will be kept as they are
