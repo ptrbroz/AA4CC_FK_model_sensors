@@ -18,11 +18,11 @@ classdef fkReader < matlab.System
     properties(Nontunable)
         Baudrate {mustBeNonnegative, mustBeInteger} = 230400
         Port = 'COM4'
-        EncoderVector = ones(1, 25)
+        EncoderVector = [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
         Resolution {mustBeNonnegative, mustBeInteger} = 12 
         RevBitDepth {mustBeNonnegative, mustBeInteger} = 5
         Reset = 1
-        PeriodMs {mustBeNonnegative, mustBeInteger} = 0
+        PeriodMs {mustBeNonnegative, mustBeInteger} = 10
     end
 
     properties(DiscreteState)
@@ -67,8 +67,8 @@ classdef fkReader < matlab.System
 
     methods(Access = protected)
         function validatePropertiesImpl(obj)
-            if ~(isequal(size(obj.EncoderVector), [1 25]))
-                error('Unexpected dimensions of EncoderVector. Need a 1x25 vector.')
+            if ~(isequal(size(obj.EncoderVector), [1 35]) | isequal(size(obj.EncoderVector), [35 1]))
+                error('Unexpected dimensions of EncoderVector. Need a 1x35 vector.')
             end
             if obj.Resolution == 0
                warning('Supplied resolution of 0 bits will be interpreted as resolution of 1 bit by the device.') 
@@ -101,35 +101,51 @@ classdef fkReader < matlab.System
             
             obj.Positions = zeros(1, obj.EncoderCount, 'uint16');
             obj.Revolutions = zeros(1, obj.EncoderCount, 'uint8');
-            
-            
             obj.validatePropertiesImpl() %call this again to check against variables initialized in setupImpl()
+            
+            obj.configureFpga()
             
         end
 
-        function [y1, y2] = stepImpl(obj)
+        function [Positions, Revolutions] = stepImpl(obj)
             % Implement algorithm. Calculate y as a function of input u and
             % discrete states.
 
             newByte = read(obj.Serial, 1, 'uint8');
             
             if obj.HeaderBytesCount < 3
+                Positions = obj.Positions;
+                Revolutions = obj.Revolutions;
                 obj.HeaderBytesCount = obj.HeaderBytesCount + 1;
                 a = obj.HeaderBytesCount;
+                %ensure that correct header is received:
+                %first byte = 0xff
+                %second byte = one of {0xFC 0xFD 0xFE 0xFF}
+                %third byte = don't care, always valid
+                if obj.HeaderBytesCount == 1
+                   if newByte ~=  0xff
+                      obj.HeaderBytesCount = 0;
+                      return  
+                   end
+                end
+                if obj.HeaderBytesCount == 2
+                   if newByte ~= 0xfc & newByte ~= 0xfd & newByte ~= 0xfe & newByte ~= 0xff
+                      obj.HeaderBytesCount = 0 ;
+                      return
+                   end
+                end
                 obj.HeaderBytes(obj.HeaderBytesCount) = newByte;
-                y1 = obj.Positions;
-                y2 = obj.Revolutions;
                 return
             end
             
             
             if obj.DataBytesCount < obj.DataLen
                 obj.DataBytesCount = obj.DataBytesCount + 1;
-                b = obj.DataBytesCount
+                b = obj.DataBytesCount;
                 obj.DataBytes(obj.DataBytesCount) = newByte;
                 if ~(obj.DataBytesCount == obj.DataLen)
-                   y1 = obj.Positions;
-                   y2 = obj.Revolutions;
+                   Positions = obj.Positions;
+                   Revolutions = obj.Revolutions;
                    return;
                 end
             end 
@@ -144,18 +160,29 @@ classdef fkReader < matlab.System
                bitArr(1 + (i-1)*8 : 8 + (i-1)*8) = bits;
             end
             
-            bitArr
             
-            %for i = 1:obj.EncoderCount
-            positionBits = bitArr(1 + 1 : 1 + obj.Resolution)
-            obj.Positions(1) = bin2dec(positionBits)
-            %end
+            for i = 1:obj.EncoderCount
+                %positionBits = bitArr(2 : 1 + obj.Resolution)
+                positionBits = bitArr(i + 1 + (i-1)*obj.Resolution : i + i*obj.Resolution);
+                obj.Positions(i) = bin2dec(positionBits);
+            end
             
-            y1 = obj.Positions;
-            y2 = obj.Revolutions;
+            if obj.RevolutionsEnabled
+                revHeaderStart = obj.EncoderCount + obj.EncoderCount*obj.Resolution;
+                revDataStart = revHeaderStart + 4;
+                for i = 1: obj.EncoderCount
+                    revBits = bitArr(revDataStart + i + (i-1)*obj.RevBitDepth : revDataStart + i + i*obj.RevBitDepth);
+                    obj.Revolutions(i) = bin2dec(revBits);
+                end
+            end
+            
+            Positions = obj.Positions;
+            Revolutions = obj.Revolutions;
             
             obj.HeaderBytesCount = 0;
             obj.DataBytesCount = 0;
+            
+            flush(obj.Serial) %todo remove? Added because interpreted mode simulink seems sluggish
             return
         end
 
@@ -275,6 +302,41 @@ classdef fkReader < matlab.System
     
     end
 
+    methods (Access = private)
+        function configureFpga(obj)
+            bitArray = dec2bin(0, 56); %init array of zeros
+            
+            revResBits = dec2bin(obj.RevBitDepth, 4);
+            bitArray(1:4) = revResBits;
+            bitArray(8) = '1'
+            
+            %this is ugly, but it's only going to run once at startup,
+            %so whatever...
+            for i = 1:35
+                if obj.EncoderVector(i)
+                   bitArray(8+i) = '1';
+                end
+            end
+            
+            resolutionBits = dec2bin(obj.Resolution, 4);
+            bitArray(44:47) = resolutionBits;
+            
+            if(obj.Reset)
+                bitArray(48) = '1';
+            end
+            
+            periodBits = dec2bin(obj.PeriodMs, 8);
+            bitArray(49:56) = periodBits;
+            
+            %split array into bytes and send them
+            
+            for i = 1:7
+                byte = bin2dec(bitArray(1 + (i-1)*8 : i*8))
+                write(obj.Serial, byte, 'uint8');
+            end
+            
+        end
+    end
 
     
 end
