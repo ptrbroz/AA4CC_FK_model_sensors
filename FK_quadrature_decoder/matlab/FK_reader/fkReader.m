@@ -84,7 +84,7 @@ classdef fkReader < matlab.System
         %% Common functions
         function setupImpl(obj)
             % Perform one-time calculations, such as computing constants
-            obj.Serial = serialport(obj.Port, obj.Baudrate);
+            obj.Serial = serialport(obj.Port, obj.Baudrate); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (Open serial)
             obj.HeaderBytes = zeros(1, 3);
             obj.HeaderBytesCount = 0;
             obj.EncoderCount = nnz(obj.EncoderVector);
@@ -111,7 +111,7 @@ classdef fkReader < matlab.System
             % Implement algorithm. Calculate y as a function of input u and
             % discrete states.
 
-            newByte = read(obj.Serial, 1, 'uint8');
+            newByte = read(obj.Serial, 1, 'uint8'); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (Read 1 byte from serial)
             
             if obj.HeaderBytesCount < 3
                 Positions = obj.Positions;
@@ -182,7 +182,7 @@ classdef fkReader < matlab.System
             obj.HeaderBytesCount = 0;
             obj.DataBytesCount = 0;
             
-            flush(obj.Serial) %todo remove? Added because interpreted mode simulink seems sluggish
+            flush(obj.Serial) %TODO - REMOVE
             return
         end
 
@@ -332,7 +332,7 @@ classdef fkReader < matlab.System
             
             for i = 1:7
                 byte = bin2dec(bitArray(1 + (i-1)*8 : i*8))
-                write(obj.Serial, byte, 'uint8');
+                write(obj.Serial, byte, 'uint8'); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (write byte variable to serial)
             end
             
         end
