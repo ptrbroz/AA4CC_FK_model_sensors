@@ -37,7 +37,7 @@ classdef fkReader < matlab.System
     properties(Access = private)
         EncoderCount
         RevolutionsEnabled
-        MinimumCommTime = 0 %when not initia
+        MinimumCommTime
         Serial
         
         %for accumulating incoming data
@@ -52,9 +52,6 @@ classdef fkReader < matlab.System
         Positions
         Revolutions
         
-        %flag to determine whether to send config data or zeroes over
-        %serial
-        FpgaConfiguredFlag 
         
     end
 
@@ -69,29 +66,25 @@ classdef fkReader < matlab.System
     end
 
     methods(Access = protected)
-        
         function validatePropertiesImpl(obj)
-            %if ~(isequal(size(obj.EncoderVector), [1 35]) | isequal(size(obj.EncoderVector), [35 1]))
-            %    error('Unexpected dimensions of EncoderVector. Need a 1x35 vector.')
-            %end
-            if isempty(coder.target)
-                %warnings are not supported in code generation
-                if obj.Resolution == 0
-                   warning('Supplied resolution of 0 bits will be interpreted as resolution of 1 bit by the device.') 
-                end
-                if obj.RevBitDepth > 7
-                   warning('Revolution bit depths greater than 7 not supported by the device. Device will use bit depth of 7.')
-                end 
-                if (obj.PeriodMs/1000) < obj.MinimumCommTime
-                   warning('Requested communication period is shorter than minimum time required to send data. With current settings, actual period will never go below %s ms', 1000*obj.MinimumCommTime) 
-                end
+            if ~(isequal(size(obj.EncoderVector), [1 35]) | isequal(size(obj.EncoderVector), [35 1]))
+                error('Unexpected dimensions of EncoderVector. Need a 1x35 vector.')
+            end
+            if obj.Resolution == 0
+               warning('Supplied resolution of 0 bits will be interpreted as resolution of 1 bit by the device.') 
+            end
+            if obj.RevBitDepth > 7
+               warning('Revolution bit depths greater than 7 not supported by the device. Device will use bit depth of 7.')
+            end 
+            if (obj.PeriodMs/1000) < obj.MinimumCommTime
+               warning('Requested communication period is shorter than minimum time required to send data. With current settings, actual period will never go below %s ms', 1000*obj.MinimumCommTime) 
             end
         end
         
         %% Common functions
         function setupImpl(obj)
             % Perform one-time calculations, such as computing constants
-            %obj.Serial = serialport(obj.Port, obj.Baudrate); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (Open serial)
+            obj.Serial = serialport(obj.Port, obj.Baudrate); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (Open serial)
             obj.HeaderBytes = zeros(1, 3);
             obj.HeaderBytesCount = 0;
             obj.EncoderCount = nnz(obj.EncoderVector);
@@ -110,37 +103,16 @@ classdef fkReader < matlab.System
             obj.Revolutions = zeros(1, obj.EncoderCount, 'uint8');
             obj.validatePropertiesImpl() %call this again to check against variables initialized in setupImpl()
             
-            FpgaConfiguredFlag = 1; %todo change!
-            %obj.configureFpga()
+            obj.configureFpga()
             
         end
 
-        function [Positions, Revolutions, SerialOut] = stepImpl(obj, SerialIn, SerialStatus)
+        function [Positions, Revolutions] = stepImpl(obj)
+            % Implement algorithm. Calculate y as a function of input u and
+            % discrete states.
 
-            %todo: configure fpga at start here? Or wait for some warmup
-            %period to make sure fpga is configured?
+            newByte = read(obj.Serial, 1, 'uint8'); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (Read 1 byte from serial)
             
-            %SerialIn = read(obj.Serial, 1, 'uint8'); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (Read 1 byte from serial)
-            
-            %output previous values in case 
-            Positions = obj.Positions;
-            Revolutions = obj.Revolutions;
-            
-            testData = 0
-            testData = SerialIn
-            
-            if ~obj.FpgaConfiguredFlag
-                SerialOut = zeros(1,7)
-            else
-                SerialOut = zeros(1,7) %todo change!
-                return
-            end
-            
-            if ~(SerialStatus)
-               return %SerialIn holds old data, nothing to do. 
-            end
-            
-          
             if obj.HeaderBytesCount < 3
                 Positions = obj.Positions;
                 Revolutions = obj.Revolutions;
@@ -151,18 +123,18 @@ classdef fkReader < matlab.System
                 %second byte = one of {0xFC 0xFD 0xFE 0xFF}
                 %third byte = don't care, always valid
                 if obj.HeaderBytesCount == 1
-                   if SerialIn ~=  0xff
+                   if newByte ~=  0xff
                       obj.HeaderBytesCount = 0;
                       return  
                    end
                 end
                 if obj.HeaderBytesCount == 2
-                   if SerialIn ~= 0xfc & SerialIn ~= 0xfd & SerialIn ~= 0xfe & SerialIn ~= 0xff
+                   if newByte ~= 0xfc & newByte ~= 0xfd & newByte ~= 0xfe & newByte ~= 0xff
                       obj.HeaderBytesCount = 0 ;
                       return
                    end
                 end
-                obj.HeaderBytes(obj.HeaderBytesCount) = SerialIn;
+                obj.HeaderBytes(obj.HeaderBytesCount) = newByte;
                 return
             end
             
@@ -170,7 +142,7 @@ classdef fkReader < matlab.System
             if obj.DataBytesCount < obj.DataLen
                 obj.DataBytesCount = obj.DataBytesCount + 1;
                 b = obj.DataBytesCount;
-                obj.DataBytes(obj.DataBytesCount) = SerialIn;
+                obj.DataBytes(obj.DataBytesCount) = newByte;
                 if ~(obj.DataBytesCount == obj.DataLen)
                    Positions = obj.Positions;
                    Revolutions = obj.Revolutions;
@@ -250,11 +222,10 @@ classdef fkReader < matlab.System
             flag = false;
         end
 
-        function [out1, out2, out3] = getOutputSizeImpl(obj)
+        function [out1, out2] = getOutputSizeImpl(obj)
             % Return size for each output port
             out1 = [1, nnz(obj.EncoderVector)]; %can't use the encoder count variable because this gets called before it is initialized
             out2 = [1, nnz(obj.EncoderVector)];
-            out3 = 7;
             % Example: inherit size from first input port
             % out = propagatedInputSize(obj,1);
         end
@@ -267,28 +238,24 @@ classdef fkReader < matlab.System
             % icon = matlab.system.display.Icon("myicon.jpg"); % Example: image file icon
         end
 
-        function [n1, n2] = getInputNamesImpl(obj)
+        function name = getInputNamesImpl(obj)
             % Return input port names for System block
-            n1 = 'Serial Data In';
-            n2 = 'Serial Status';
+            name = 'u';
         end
         
-        function [flag_1,flag_2,flag_3] = isOutputFixedSizeImpl(obj)
+        function [flag_1,flag_2] = isOutputFixedSizeImpl(obj)
             flag_1 = true;
             flag_2 = true;
-            flag_3 = true;
         end
         
-        function [dt_1,dt_2,dt_3] = getOutputDataTypeImpl(obj)
+        function [dt_1,dt_2] = getOutputDataTypeImpl(obj)
             dt_1 = 'uint16';
             dt_2 = 'uint8';
-            dt_3 = 'uint8';
         end
         
-        function [c1, c2, c3] = isOutputComplexImpl(obj)
+        function [c1, c2] = isOutputComplexImpl(obj)
            c1 = false;
            c2 = false;
-           c3 = false;
         end
     end
 
@@ -364,7 +331,7 @@ classdef fkReader < matlab.System
             
             for i = 1:7
                 byte = bin2dec(bitArray(1 + (i-1)*8 : i*8))
-                %write(obj.Serial, byte, 'uint8'); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (write byte variable to serial)
+                write(obj.Serial, byte, 'uint8'); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (write byte variable to serial)
             end
             
         end
