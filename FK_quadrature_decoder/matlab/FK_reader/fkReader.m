@@ -134,11 +134,11 @@ classdef fkReader < matlab.System
             end
             
             if ~(SerialStatus)
-               disp("no data")
+               %disp("no data")
                return %SerialIn holds old data, nothing to do. 
             end
             
-            disp("ook")
+            %disp("ook")
           
             if obj.HeaderBytesCount < 3
                 
