@@ -110,7 +110,7 @@ classdef fkReader < matlab.System
             obj.Revolutions = zeros(1, obj.EncoderCount, 'uint8');
             obj.validatePropertiesImpl() %call this again to check against variables initialized in setupImpl()
             
-            FpgaConfiguredFlag = 1; %todo change!
+            obj.FpgaConfiguredFlag = true; %todo change!
             %obj.configureFpga()
             
         end
@@ -126,22 +126,22 @@ classdef fkReader < matlab.System
             Positions = obj.Positions;
             Revolutions = obj.Revolutions;
             
-            testData = 0
-            testData = SerialIn
-            
-            if ~obj.FpgaConfiguredFlag
-                SerialOut = zeros(1,7)
+            if obj.FpgaConfiguredFlag
+                SerialOut = zeros(1,7, 'uint8');
             else
-                SerialOut = zeros(1,7) %todo change!
+                SerialOut = zeros(1,7, 'uint8'); %todo change!
                 return
             end
             
             if ~(SerialStatus)
+               disp("no data")
                return %SerialIn holds old data, nothing to do. 
             end
             
+            disp("ook")
           
             if obj.HeaderBytesCount < 3
+                
                 Positions = obj.Positions;
                 Revolutions = obj.Revolutions;
                 obj.HeaderBytesCount = obj.HeaderBytesCount + 1;
@@ -209,7 +209,7 @@ classdef fkReader < matlab.System
             obj.HeaderBytesCount = 0;
             obj.DataBytesCount = 0;
             
-            flush(obj.Serial) %TODO - REMOVE (I added this because my simulink was too slow when running in interpreted mode)
+            %flush(obj.Serial) %TODO - REMOVE (I added this because my simulink was too slow when running in interpreted mode)
             return
         end
 
@@ -254,7 +254,7 @@ classdef fkReader < matlab.System
             % Return size for each output port
             out1 = [1, nnz(obj.EncoderVector)]; %can't use the encoder count variable because this gets called before it is initialized
             out2 = [1, nnz(obj.EncoderVector)];
-            out3 = 7;
+            out3 = [1, 7];
             % Example: inherit size from first input port
             % out = propagatedInputSize(obj,1);
         end
@@ -274,8 +274,8 @@ classdef fkReader < matlab.System
         end
         
         function [flag_1,flag_2,flag_3] = isOutputFixedSizeImpl(obj)
-            flag_1 = true;
-            flag_2 = true;
+            flag_1 = false;
+            flag_2 = false;
             flag_3 = true;
         end
         
