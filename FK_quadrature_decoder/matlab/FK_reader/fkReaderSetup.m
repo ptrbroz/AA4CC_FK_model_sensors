@@ -8,7 +8,8 @@
 %------------------------------------------
 
 FKR_baudrate = 230400
-FKR_port = "COM4"
+% COM port name cannot be set from here (?), please set it manually in
+% simulink subsystem
 
 %1 enables reading corresponding encoder, 0 disables it.
 FKR_encoder_vector = [ 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
