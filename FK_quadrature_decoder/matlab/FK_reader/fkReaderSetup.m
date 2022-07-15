@@ -35,6 +35,12 @@ end
 if FKR_minimum_comm_time > FKR_period*10^(-3)
    warning("Requested FKR_period cannot be met, communication will take at least %s ms.", FKR_minimum_comm_time*1000);
 end
+if FKR_resolution == 0
+   warning('Supplied resolution of 0 bits will be interpreted as resolution of 1 bit by the device.') 
+end
+if FKR_revolution_bit_depth > 7
+   warning('Revolution bit depths greater than 7 not supported by the device. Device will use bit depth of 7.')
+end 
 
 headerbyte1 = 0xff;
 headerbyte2 = 0xfc;
@@ -60,7 +66,7 @@ resolutionBits = dec2bin(FKR_resolution, 4);
 bitArray(44:47) = resolutionBits;
 
 if(FKR_reset)
-    bitArray(48) = dec2bin(1,1)
+    bitArray(48) = dec2bin(1,1);
 end
 
 periodBits = dec2bin(FKR_period, 8);

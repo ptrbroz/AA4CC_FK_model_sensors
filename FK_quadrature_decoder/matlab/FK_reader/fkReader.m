@@ -16,13 +16,10 @@ classdef fkReader < matlab.System
 
     % Public, non-tunable properties
     properties(Nontunable)
-        Baudrate {mustBeNonnegative, mustBeInteger} = 230400
-        Port = 'COM4'
         EncoderVector = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
         Resolution {mustBeNonnegative, mustBeInteger} = 12 
         RevBitDepth {mustBeNonnegative, mustBeInteger} = 5
-        Reset = 1
-        PeriodMs {mustBeNonnegative, mustBeInteger} = 10
+        DataLen {mustBeNonnegative, mustBeInteger} = 0
         ConfigMessage = zeros(1,7,'uint8')
     end
 
@@ -38,16 +35,6 @@ classdef fkReader < matlab.System
     properties(Access = private)
         EncoderCount
         RevolutionsEnabled
-        MinimumCommTime = 0 %when not initia
-        Serial
-        
-        %for accumulating incoming data
-        HeaderBytes
-        HeaderBytesCount
-        HeaderLen = 3
-        DataBytes
-        DataBytesCount
-        DataLen
         
         %to hold output values between calls to stepImpl()
         Positions
@@ -75,54 +62,25 @@ classdef fkReader < matlab.System
             %if ~(isequal(size(obj.EncoderVector), [1 35]) | isequal(size(obj.EncoderVector), [35 1]))
             %    error('Unexpected dimensions of EncoderVector. Need a 1x35 vector.')
             %end
-            if isempty(coder.target)
-                %warnings are not supported in code generation
-                if obj.Resolution == 0
-                   warning('Supplied resolution of 0 bits will be interpreted as resolution of 1 bit by the device.') 
-                end
-                if obj.RevBitDepth > 7
-                   warning('Revolution bit depths greater than 7 not supported by the device. Device will use bit depth of 7.')
-                end 
-                if (obj.PeriodMs/1000) < obj.MinimumCommTime
-                   warning('Requested communication period is shorter than minimum time required to send data. With current settings, actual period will never go below %s ms', 1000*obj.MinimumCommTime) 
-                end
-            end
+            
         end
         
         %% Common functions
         function setupImpl(obj)
             % Perform one-time calculations, such as computing constants
             %obj.Serial = serialport(obj.Port, obj.Baudrate); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (Open serial)
-            obj.HeaderBytes = zeros(1, 3);
-            obj.HeaderBytesCount = 0;
             obj.EncoderCount = nnz(obj.EncoderVector);
             obj.RevolutionsEnabled = (obj.RevBitDepth > 0);
-            if obj.RevolutionsEnabled == 1;
-                obj.DataLen = ceil((4+(obj.RevBitDepth + obj.Resolution + 2)*obj.EncoderCount)/8);
-                obj.MinimumCommTime = (ceil((4 + (obj.Resolution + obj.RevBitDepth + 2)*obj.EncoderCount)/8) + 3)*(10/obj.Baudrate);
-            else
-                obj.DataLen = ceil(((obj.Resolution+1)*obj.EncoderCount)/8);
-                obj.MinimumCommTime = (ceil((obj.Resolution + 1)*obj.EncoderCount) + 3)*(10/obj.Baudrate);
-            end
-            obj.DataBytes = zeros(1, obj.DataLen);
-            obj.DataBytesCount = 0;
-            
+              
             obj.Positions = zeros(1, obj.EncoderCount, 'uint16');
             obj.Revolutions = zeros(1, obj.EncoderCount, 'uint8');
-            obj.validatePropertiesImpl() %call this again to check against variables initialized in setupImpl()
-            
+             
             obj.FpgaRepliedFlag = false; 
             
         end
 
         function [Positions, Revolutions, SerialOut] = stepImpl(obj, SerialIn, SerialStatus)
 
-            %todo: configure fpga at start here? Or wait for some warmup
-            %period to make sure fpga is configured?
-            
-            %SerialIn = read(obj.Serial, 1, 'uint8'); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (Read 1 byte from serial)
-            
-            
             %output previous values in case 
             Positions = obj.Positions;
             Revolutions = obj.Revolutions;
@@ -132,7 +90,6 @@ classdef fkReader < matlab.System
             else
                 if SerialStatus
                    obj.FpgaRepliedFlag = true; 
-                   %SerialOut = zeros(1,7, 'uint8');
                 end
                 SerialOut = obj.ConfigMessage;
                 return
@@ -294,39 +251,7 @@ classdef fkReader < matlab.System
     end
 
     methods (Access = private)
-        function configureFpga(obj)
-            bitArray = dec2bin(0, 56); %init array of zeros
-            
-            revResBits = dec2bin(obj.RevBitDepth, 4);
-            bitArray(1:4) = revResBits;
-            bitArray(8) = '1'
-            
-            %this is ugly, but it's only going to run once at startup,
-            %so whatever...
-            for i = 1:35
-                if obj.EncoderVector(i)
-                   bitArray(8+i) = '1';
-                end
-            end
-            
-            resolutionBits = dec2bin(obj.Resolution, 4);
-            bitArray(44:47) = resolutionBits;
-            
-            if(obj.Reset)
-                bitArray(48) = '1';
-            end
-            
-            periodBits = dec2bin(obj.PeriodMs, 8);
-            bitArray(49:56) = periodBits;
-            
-            %split array into bytes and send them
-            
-            for i = 1:7
-                byte = bin2dec(bitArray(1 + (i-1)*8 : i*8))
-                %write(obj.Serial, byte, 'uint8'); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (write byte variable to serial)
-            end
-            
-        end
+       
     end
 
     
