@@ -18,7 +18,7 @@ classdef fkReader < matlab.System
     properties(Nontunable)
         Baudrate {mustBeNonnegative, mustBeInteger} = 230400
         Port = 'COM4'
-        EncoderVector = [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+        EncoderVector = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
         Resolution {mustBeNonnegative, mustBeInteger} = 12 
         RevBitDepth {mustBeNonnegative, mustBeInteger} = 5
         Reset = 1
@@ -122,6 +122,7 @@ classdef fkReader < matlab.System
             
             %SerialIn = read(obj.Serial, 1, 'uint8'); %TODO - REPLACE WITH CODEGEN FRIENDLY CALL (Read 1 byte from serial)
             
+            
             %output previous values in case 
             Positions = obj.Positions;
             Revolutions = obj.Revolutions;
@@ -133,58 +134,16 @@ classdef fkReader < matlab.System
                 return
             end
             
-            if ~(SerialStatus)
-               %disp("no data")
-               return %SerialIn holds old data, nothing to do. 
-            end
-            
-            %disp("ook")
-          
-            if obj.HeaderBytesCount < 3
-                
-                Positions = obj.Positions;
-                Revolutions = obj.Revolutions;
-                obj.HeaderBytesCount = obj.HeaderBytesCount + 1;
-                a = obj.HeaderBytesCount;
-                %ensure that correct header is received:
-                %first byte = 0xff
-                %second byte = one of {0xFC 0xFD 0xFE 0xFF}
-                %third byte = don't care, always valid
-                if obj.HeaderBytesCount == 1
-                   if SerialIn ~=  0xff
-                      obj.HeaderBytesCount = 0;
-                      return  
-                   end
-                end
-                if obj.HeaderBytesCount == 2
-                   if SerialIn ~= 0xfc & SerialIn ~= 0xfd & SerialIn ~= 0xfe & SerialIn ~= 0xff
-                      obj.HeaderBytesCount = 0 ;
-                      return
-                   end
-                end
-                obj.HeaderBytes(obj.HeaderBytesCount) = SerialIn;
+            if ~SerialStatus
                 return
             end
-            
-            
-            if obj.DataBytesCount < obj.DataLen
-                obj.DataBytesCount = obj.DataBytesCount + 1;
-                b = obj.DataBytesCount;
-                obj.DataBytes(obj.DataBytesCount) = SerialIn;
-                if ~(obj.DataBytesCount == obj.DataLen)
-                   Positions = obj.Positions;
-                   Revolutions = obj.Revolutions;
-                   return;
-                end
-            end 
-            
-            %if this line is reached, then all data has been received
-            
+                   
+            dataBytes = SerialIn(2:end) %First 2 header bytes are not included in input. This discards 3rd header byte.
             
             bitArr = dec2bin(0, obj.DataLen*8);
             
-            for i = 1:numel(obj.DataBytes)
-               bits = dec2bin(obj.DataBytes(i), 8);
+            for i = 1:numel(dataBytes)
+               bits = dec2bin(dataBytes(i), 8);
                bitArr(1 + (i-1)*8 : 8 + (i-1)*8) = bits;
             end
             
@@ -206,10 +165,6 @@ classdef fkReader < matlab.System
             Positions = obj.Positions;
             Revolutions = obj.Revolutions;
             
-            obj.HeaderBytesCount = 0;
-            obj.DataBytesCount = 0;
-            
-            %flush(obj.Serial) %TODO - REMOVE (I added this because my simulink was too slow when running in interpreted mode)
             return
         end
 
