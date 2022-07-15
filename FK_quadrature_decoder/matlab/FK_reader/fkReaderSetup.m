@@ -11,12 +11,11 @@ FKR_baudrate = 230400
 FKR_port = "COM4"
 
 %1 enables reading corresponding encoder, 0 disables it.
-FKR_encoder_vector = [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+FKR_encoder_vector = [ 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
 FKR_resolution = 12                 %bit resolution of encoder position
 FKR_revolution_bit_depth = 5        %bit depth of revolution counter. Set to 0 to disable revolution reporting
 FKR_reset = 1                       %when 1, encoder positions and revolutions are reset on startup. When 0, they are not.
 FKR_period = 10                     %Minimum delay in miliseconds between reports.
-FKR_idle_cycles = 30
 
 %-----------------------------------------
 % CALCULATED VARIABLES
@@ -39,11 +38,14 @@ end
 
 headerbyte1 = 0xff;
 headerbyte2 = 0xfc;
-temp = bitsra(FKR_encoder_count, 4);
+temp = bitsrl(uint8(FKR_encoder_count), 4);
 temp = bitand(uint8(temp), 0x03);
 headerbyte2 = headerbyte2 + temp;
+temp = bitand(uint8(FKR_encoder_count), 0x0f);
+temp = bitsll(temp, 4);
+headerbyte3 = temp + bitand(uint8(FKR_resolution),0x0f);
 
-FKR_header = [uint8(headerbyte1), uint8(headerbyte2)]; %header for data messages sent by fpga
+FKR_header = [uint8(headerbyte1), uint8(headerbyte2), uint8(headerbyte3)]; %header for data messages sent by fpga
 
 %calculate message used to configure fpga
 bitArray = dec2bin(0, 56); %init array of zeros

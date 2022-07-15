@@ -142,7 +142,7 @@ classdef fkReader < matlab.System
                 return
             end
                    
-            dataBytes = SerialIn(2:end) %First 2 header bytes are not included in input. This discards 3rd header byte.
+            dataBytes = SerialIn
             
             bitArr = dec2bin(0, obj.DataLen*8);
             
