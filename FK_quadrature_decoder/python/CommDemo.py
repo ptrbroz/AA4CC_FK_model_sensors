@@ -47,6 +47,11 @@ def initFpga(encoderVector, resolution, revResolution, reset, miliseconds):
     bytesToSend.append(fifthByte)
     bytesToSend.append(miliseconds.to_bytes(1, 'big')) #last byte represents minimum number of ms between encoder data messages
     print(f"sending {bytesToSend}")
+    intsReport = []
+    for b in bytesToSend:
+        intsReport.append(int.from_bytes(b, "big"))
+    print(f"In other words: {intsReport}")
+    
     for byte in bytesToSend:
         port.write(byte)
 

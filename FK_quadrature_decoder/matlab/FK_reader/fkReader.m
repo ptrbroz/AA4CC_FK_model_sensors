@@ -23,6 +23,7 @@ classdef fkReader < matlab.System
         RevBitDepth {mustBeNonnegative, mustBeInteger} = 5
         Reset = 1
         PeriodMs {mustBeNonnegative, mustBeInteger} = 10
+        ConfigMessage = zeros(1,7,'uint8')
     end
 
     properties(DiscreteState)
@@ -54,7 +55,7 @@ classdef fkReader < matlab.System
         
         %flag to determine whether to send config data or zeroes over
         %serial
-        FpgaConfiguredFlag 
+        FpgaRepliedFlag 
         
     end
 
@@ -110,8 +111,7 @@ classdef fkReader < matlab.System
             obj.Revolutions = zeros(1, obj.EncoderCount, 'uint8');
             obj.validatePropertiesImpl() %call this again to check against variables initialized in setupImpl()
             
-            obj.FpgaConfiguredFlag = true; %todo change!
-            %obj.configureFpga()
+            obj.FpgaRepliedFlag = false; 
             
         end
 
@@ -126,11 +126,15 @@ classdef fkReader < matlab.System
             %output previous values in case 
             Positions = obj.Positions;
             Revolutions = obj.Revolutions;
-            
-            if obj.FpgaConfiguredFlag
+                       
+            if obj.FpgaRepliedFlag
                 SerialOut = zeros(1,7, 'uint8');
             else
-                SerialOut = zeros(1,7, 'uint8'); %todo change!
+                if SerialStatus
+                   obj.FpgaRepliedFlag = true; 
+                   %SerialOut = zeros(1,7, 'uint8');
+                end
+                SerialOut = obj.ConfigMessage;
                 return
             end
             
