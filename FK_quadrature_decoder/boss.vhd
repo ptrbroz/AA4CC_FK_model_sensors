@@ -30,6 +30,7 @@ architecture arch1 of boss is
 
 type boss_fsm_state_t is ( b_idle,
 									b_id_check,
+									b_single_after,
 									b_receive_bytes,
 									b_receive_bytes_wait,
 									b_config_update,
@@ -46,6 +47,7 @@ type boss_fsm_state_t is ( b_idle,
 constant ID_CONFIG   : std_logic_vector (7 downto 0) := "00000001";
 constant ID_COMM_OFF : std_logic_vector (7 downto 0) := "00000010";
 constant ID_COMM_ON  : std_logic_vector (7 downto 0) := "00000100";
+constant ID_SINGLE_MSG : std_logic_vector (7 downto 0) := "11110000";
 
 
 signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := "1111111111" & "000000000000000" & "1111111111";
@@ -87,6 +89,8 @@ set_encoder_miliseconds <= encoder_miliseconds;
 		
 		variable enableAfterAck : std_logic := '0';
 		
+		variable singleKeepUpCounter : integer range 0 to 15 := 0;
+		
 	begin
 	
 		if rising_edge(clock) then
@@ -120,8 +124,24 @@ set_encoder_miliseconds <= encoder_miliseconds;
 					elsif idByte = ID_COMM_OFF then
 						encoder_enable <= '0';
 						state := b_idle;
+					elsif idByte = ID_SINGLE_MSG then
+						--if encoder_miliseconds = 0 then
+							encoder_enable <= '1';
+							singleKeepUpCounter := 10;
+							state := b_single_after;
+						--else
+							--state := b_idle;
+						--end if;
 					else
 						state := b_idle;
+					end if;
+					
+				when b_single_after =>
+					encoder_enable <= '1';
+					singleKeepUpCounter := singleKeepUpCounter - 1;
+					if singleKeepUpCounter = 0 then
+						state := b_idle;
+						encoder_enable <= '0';
 					end if;
 					
 				when b_receive_bytes =>
@@ -155,7 +175,9 @@ set_encoder_miliseconds <= encoder_miliseconds;
 						state := b_assemble_reply_config_start;
 					end if;
 					encoder_miliseconds <= to_integer(unsigned(configData(7 downto 0)));
-					
+					if unsigned(configData(7 downto 0)) = 0 then
+						enableAfterAck := '0'; -- single message mode
+					end if;
 				
 				when b_reset_encoders =>
 					set_encoder_reset <= '1';

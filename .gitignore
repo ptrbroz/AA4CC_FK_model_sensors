@@ -104,3 +104,5 @@ slprj/sim/varcache/schema/checksumOfCache.mat
 slprj/sim/varcache/schema/tmwinternal/simulink_cache.xml
 slprj/sim/varcache/schema/varInfo.mat
 schema.slxc
+FK_quadrature_decoder/wait_twice.map
+FK_quadrature_decoder/wait_twice.jic

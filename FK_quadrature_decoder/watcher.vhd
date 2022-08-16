@@ -193,6 +193,7 @@ begin
 					if set_enabled = '1' and timer_alarm = '1' then
 						state := w_save_positions;
 						timer_reset <= '1';
+					
 					end if;
 					
 				when w_save_positions =>
@@ -376,7 +377,7 @@ begin
 					end if;
 									
 				when w_ready_message =>
-					if set_enabled = '0' then
+					if set_enabled = '0' and set_encoder_miliseconds > 0 then
 						state := w_wait_for_timer;
 					else
 						data_out_ready <= '1';
@@ -384,7 +385,7 @@ begin
 					end if;
 					
 				when w_wait_for_ack =>
-					if set_enabled = '0' then
+					if set_enabled = '0' and set_encoder_miliseconds > 0 then
 						state := w_wait_for_timer;
 					else
 						data_out_ready <= '1';
