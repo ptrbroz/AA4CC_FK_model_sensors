@@ -111,24 +111,32 @@ begin
 		variable clockCounter : integer range 0 to 50000 := 0;
 		variable msCounter : integer range 0 to 255 		 := 0;
 		variable targetMs : integer range 0 to 255 		 := 10;
-	
 		constant clocksMax : integer :=    500000;
-		
 		variable counter : integer range 0 to clocksMax+1 := 0;
-
+		
+		variable alarmSkipCounter : integer range 0 to 1 := 0;
+		
 	begin
 	
 	if areset = '1' then
 			targetMs := set_encoder_miliseconds;
 			msCounter := 0;
-			clockCounter := 0;	else
+			clockCounter := 0;
+			alarmSkipCounter := 1; else
 		if rising_edge(clock) then
 			if msCounter >= targetMs then
-				timer_alarm <= '1';
-				if timer_reset then
+				if alarmSkipCounter > 0 then
+					alarmSkipCounter := alarmSkipCounter - 1;
 					targetMs := set_encoder_miliseconds;
 					msCounter := 0;
 					clockCounter := 0;
+				else
+					timer_alarm <= '1';
+					if timer_reset then
+						targetMs := set_encoder_miliseconds;
+						msCounter := 0;
+						clockCounter := 0;
+					end if;
 				end if;
 			else
 				timer_alarm <= '0';

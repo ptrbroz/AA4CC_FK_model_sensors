@@ -1,7 +1,7 @@
 import serial
 import math
 
-port = serial.Serial('COM4', 230400, parity= serial.PARITY_NONE) #edit to your COM
+port = serial.Serial('COM5', 230400, parity= serial.PARITY_NONE) #edit to your COM
 
 #-------------------------------------
 #----byte / bits conversion utils-----
@@ -77,6 +77,9 @@ revResolution   = 5             #0 to 8. Bit length of revolution counter repres
 performReset    = 1               #1 or 0. When 1, positions will be reset; when 0, positions will be kept as they are
 waitTimeMs      = 10             #0 to 255. Minimum time between starts of messages in milliseconds. You might need to experiment with this one
 initFpga(vector, resolution, revResolution, performReset, waitTimeMs)
+
+print("RETURNING PREMATURELY, TODO REMOVE")
+quit() #todo remove
 
 #try to catch fpga reply - it should start with a header of 0xfffff0 and be followed by 7 data bytes
 while 1:

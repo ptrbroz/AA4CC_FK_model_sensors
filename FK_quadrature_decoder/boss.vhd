@@ -51,7 +51,7 @@ constant ID_COMM_ON  : std_logic_vector (7 downto 0) := "00000100";
 signal encoder_vector : std_logic_vector(MAX_ENCODERS-1 downto 0) := "1111111111" & "000000000000000" & "1111111111";
 signal encoder_resolution : integer range 0 to 15 := 10;
 signal encoder_rev_resolution : integer range 0 to 8 := 0;
-signal encoder_enable : std_logic := '0';
+signal encoder_enable : std_logic := '0'; 
 signal encoder_miliseconds : integer range 0 to 255 := 5;
 
 
@@ -105,7 +105,7 @@ set_encoder_miliseconds <= encoder_miliseconds;
 				
 				when b_id_check =>
 					enableAfterAck := encoder_enable;
-					if idByte(0) = '1' then
+					if idByte(0) = '1' and idByte(1) = '0' and idByte(2) = '0' and idByte(3) = '0' then
 						bytesLeft := 6;
 						afterState := b_config_update;
 						enableAfterAck := '1';
