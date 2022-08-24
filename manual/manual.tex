@@ -101,7 +101,7 @@ Alternatively, it is enough to turn off the computer to which the usb cable is c
 
 Due to an oversight in the pcb design, unpluggin the 5V power source while a usb cable is connected places the FT232R (uart-usb converter) chip outside its maximum ratings. 
 
-A solution to this oversight is described in \ref{hwbug}.
+A solution (which eliminates the need to unplug cables in specific order) to this oversight is described in \ref{hwbug}.
 
 \newpage{}
 
@@ -258,7 +258,7 @@ The script was tested on windows 10 machines, using Windows Terminal\footnote{ht
 As a last note: the device keeps count of the positions of all  encoders at all times; not just the ones that are currently enabled for reporting. You can, therefore, begin your experiment with only some of the encoders enabled and switch to a different set of enabled encoders later -- no position reset is necessary.
 
 \newpage{}
-\section{Technical manual}
+\section{Various technical details}
 
 You don't need to read any further unless you're planning to modify or extend the firmware or hardware of the device.
 
@@ -301,7 +301,43 @@ The pairs of wires used are choosen to ensure that the quadrature channels are n
 \subsection{PCB bug (turning off & FT232)}
 \label{hwbug}
 
-There is an error in the first version of the pcb design, necessitating a specific order in which the power and usb cables can be unplugged from the device when turning it off, as described in \ref{turnoff}. 
+There is an error in the the pcb design, necessitating a specific order in which the power and usb cables can be unplugged from the device when turning it off, as described in \ref{turnoff}. 
+
+To fix this issue, 3 components need to be added to the pcb - two resistors (80k, 4k) and a generic NPN transistor. Those components, as well as their placement in the circuit, have been added to the kicad schematic of the PCB (see blue box next to the FT232 symbol).
+
+If you don't want to add the components to the PCB itself, you can still solve the problem (we have solved it this way). To solder the components, you will need to make use of pads originally intended for the R1 resistor (which is now left unpopulated, see schematic). The third needed solder point is the 5V power rail. This is easily accesible via the unpopulated J37 2x4 connector, next to the usb connector.
+
+\subsection{Firmware structure}
+
+The fpga firmware is provided as a quartus II project. The design is split into several entities:
+
+\subsubsection{FK quadrature decoder}
+
+This is the top-level entity, dealing with interconnections between all other entities and with GPIO mappings.
+
+\subsubsection{Uart TX / Uart RX}
+
+Simple entities implementing uart transmitter and receiver. Input/output is a single byte, buffering etc. is handled in other entities.
+
+\subsubsection{Uart out manager}
+
+This entity takes a series of bytes and feeds them in order into the Uart TX entity, which transmits them. The bytes are provided to the manager either by the Watcher or by the Boss entity, with Boss entity having precedence.
+
+\subsubsection{Boss}
+
+This entity receives and interprets communication from the user into the fpga, and is also responsible for changing configuration of the Watcher entity when a config message is received from the user. Additionally, it also creates the config reply message and passes it to Uart out manager.
+
+\subsubsection{Watcher}
+
+This entity is responsible for periodically sampling all connected quadrature encoders and assembling data messages (which it passes to uart out manager). It holds within itself an array of 35 Quadrature Decoder Pb entities. The parameters of the data message (such as resolution or which encoders are reported) as well as the frequency with which data messages are created is governed by inputs driven by the Boss entity.
+
+\subsubsection{Quadrature Decoder Pb}
+
+This is a simple entity handling the decoding of quadrature signals for a single encoder. It takes in the two quadrature signals and outputs position and number of resolutions (to the Watcher entity).
+
+
+
+
 
 
 

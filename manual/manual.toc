@@ -8,5 +8,13 @@
 \contentsline {subsubsection}{\numberline {2.3.3}Device to user communication}{4}{subsubsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.4}Communications demo}{6}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Reconfiguring on the fly}{6}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Technical manual}{7}{section.3}%
+\contentsline {section}{\numberline {3}Various technical details}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Cabling}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}PCB bug (turning off & FT232)}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Firmware structure}{8}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}FK quadrature decoder}{8}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Uart TX / Uart RX}{8}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Uart out manager}{8}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Boss}{8}{subsubsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Watcher}{8}{subsubsection.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.6}Quadrature Decoder Pb}{8}{subsubsection.3.3.6}%

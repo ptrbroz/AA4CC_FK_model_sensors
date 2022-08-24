@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.24)  6 JUN 2022 00:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.24)  25 AUG 2022 01:47
 entering extended mode
 **./manual.tex
 (manual.tex
@@ -930,89 +930,106 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 3.
+
+! Misplaced alignment tab character &.
+<argument> ...mberline {3.2}PCB bug (turning off &
+                                                   FT232)}\hyper@linkend 
+l.13 ... (turning off & FT232)}{7}{subsection.3.2}
+                                                  %
+? 
 )
 \tf@toc=\write5
 \openout5 = `manual.toc'.
 
  [1
 
-{C:/Users/Nouth/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-[2]
-<figs/bits.pdf, id=121, 3422.36183pt x 509.43036pt>
+{C:/Users/Nouth/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2]
+<figs/bits.pdf, id=162, 3422.36183pt x 509.43036pt>
 File: figs/bits.pdf Graphic file (type pdf)
 <use figs/bits.pdf>
-Package pdftex.def Info: figs/bits.pdf  used on input line 132.
+Package pdftex.def Info: figs/bits.pdf  used on input line 135.
 (pdftex.def)             Requested size: 483.69687pt x 71.99603pt.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-40.
- (C:\Users\Nouth\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+43.
+
+(C:\Users\Nouth\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-[3 <./figs/bits.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+) [3 <./figs/bits.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
-<figs/reply1.pdf, id=147, 2484.27194pt x 535.58658pt>
+<figs/reply1.pdf, id=188, 2484.27194pt x 535.58658pt>
 File: figs/reply1.pdf Graphic file (type pdf)
 <use figs/reply1.pdf>
-Package pdftex.def Info: figs/reply1.pdf  used on input line 176.
+Package pdftex.def Info: figs/reply1.pdf  used on input line 179.
 (pdftex.def)             Requested size: 386.95897pt x 83.42368pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
 [4 <./figs/reply1.pdf>]
-<figs/reply2.pdf, id=165, 2928.10294pt x 517.94247pt>
+<figs/reply2.pdf, id=206, 2928.10294pt x 517.94247pt>
 File: figs/reply2.pdf Graphic file (type pdf)
 <use figs/reply2.pdf>
-Package pdftex.def Info: figs/reply2.pdf  used on input line 208.
+Package pdftex.def Info: figs/reply2.pdf  used on input line 211.
 (pdftex.def)             Requested size: 435.32422pt x 77.00044pt.
-<figs/reply3.pdf, id=166, 3411.00815pt x 517.94247pt>
+<figs/reply3.pdf, id=207, 3411.00815pt x 517.94247pt>
 File: figs/reply3.pdf Graphic file (type pdf)
 <use figs/reply3.pdf>
-Package pdftex.def Info: figs/reply3.pdf  used on input line 233.
+Package pdftex.def Info: figs/reply3.pdf  used on input line 236.
 (pdftex.def)             Requested size: 435.32422pt x 66.10199pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5 <./figs/reply2.pdf>] [6 <./figs/reply3.pdf>]
-<figs/conn_molex.jpg, id=196, 602.25pt x 507.39563pt>
+<figs/conn_molex.jpg, id=237, 602.25pt x 507.39563pt>
 File: figs/conn_molex.jpg Graphic file (type jpg)
 <use figs/conn_molex.jpg>
-Package pdftex.def Info: figs/conn_molex.jpg  used on input line 271.
+Package pdftex.def Info: figs/conn_molex.jpg  used on input line 274.
 (pdftex.def)             Requested size: 217.66211pt x 183.38231pt.
-<figs/conn_jst.jpg, id=197, 975.645pt x 829.59938pt>
+<figs/conn_jst.jpg, id=238, 975.645pt x 829.59938pt>
 File: figs/conn_jst.jpg Graphic file (type jpg)
 <use figs/conn_jst.jpg>
-Package pdftex.def Info: figs/conn_jst.jpg  used on input line 276.
+Package pdftex.def Info: figs/conn_jst.jpg  used on input line 279.
 (pdftex.def)             Requested size: 217.66211pt x 185.06947pt.
- [7 <./figs/conn_molex.jpg> <./figs/conn_jst.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 301.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 301.
+
+! Misplaced alignment tab character &.
+<argument> PCB bug (turning off &
+                                  FT232)
+l.301 \subsection{PCB bug (turning off & FT232)}
+                                                
+? 
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `alignment tab' on input line 301.
+
+[7 <./figs/conn_molex.jpg> <./figs/conn_jst.jpg>] [8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 344.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 344.
  (manual.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 301.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 301.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 344.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 344.
 Package rerunfilecheck Info: File `manual.out' has not changed.
-(rerunfilecheck)             Checksum: D9F68F765514BB85E79F4DD604289F6A;2017.
+(rerunfilecheck)             Checksum: 38F54A4F46FF643CFB93D5A8635CD52C;3547.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 301.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 344.
  ) 
 Here is how much of TeX's memory you used:
- 22463 strings out of 480790
- 409881 string characters out of 2897301
- 632233 words of memory out of 3000000
- 37968 multiletter control sequences out of 15000+200000
+ 22482 strings out of 480790
+ 410203 string characters out of 2897301
+ 632348 words of memory out of 3000000
+ 37978 multiletter control sequences out of 15000+200000
  620082 words of font info for 87 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,11n,83p,901b,585s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1036,9 +1053,9 @@ pData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/Nouth/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Nouth/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Nouth/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb>
-Output written on manual.pdf (7 pages, 826273 bytes).
+Output written on manual.pdf (8 pages, 839498 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
- 235 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 322 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
+ 299 words of extra memory for PDF output out of 10000 (max. 10000000)
 
