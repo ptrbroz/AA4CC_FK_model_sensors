@@ -1,7 +1,9 @@
 import serial
 import math
 
-port = serial.Serial('COM5', 230400, parity= serial.PARITY_NONE) #edit to your COM
+#Communication demo using on-demand communication instead of periodic
+
+port = serial.Serial('COM4', 230400, parity= serial.PARITY_NONE) #edit to your COM
 
 #-------------------------------------
 #----byte / bits conversion utils-----
@@ -71,15 +73,15 @@ def parseFpgaReply(databytes):
     
 
 #initialise fpga
-vector = [1]*1 + [1]*1 + [1]*8 + [0]*15 + [0]*1 + [0]*9 #35 bit vector. 1 enables reading corresponding encoder, 0 disables it.
+vector = [0]*30 + [1]*5 #35 bit vector. 1 enables reading corresponding encoder, 0 disables it.
 resolution      = 12              #1 to 13. Position resolution in bits. While settings 14 and 15 are also supported, don't use them unless you have a good reason to do so - see user manual (maximum resolution used internally is 13 bits, 14 and 15 just multiplies the output)
 revResolution   = 5             #0 to 8. Bit length of revolution counter representation. When 0, revolution counters are not sent.
 performReset    = 1               #1 or 0. When 1, positions will be reset; when 0, positions will be kept as they are
 waitTimeMs      = 0             #0 to 255. Minimum time between starts of messages in milliseconds. You might need to experiment with this one
 initFpga(vector, resolution, revResolution, performReset, waitTimeMs)
 
-print("RETURNING PREMATURELY, TODO REMOVE")
-quit() #todo remove
+#print("RETURNING PREMATURELY, TODO REMOVE")
+#quit() #todo remove
 
 #try to catch fpga reply - it should start with a header of 0xfffff0 and be followed by 7 data bytes
 while 1:
@@ -116,6 +118,13 @@ print("---== Entering main loop ==---")
 while(1):
     print(f"Bytes discarded: {discardedBytes}\r")
 
+    #request data message by writing 0xf0
+    requestByte = 0xf0
+    requestByte = requestByte.to_bytes(1, 'big')
+    port.write(requestByte)
+
+    #continuing as before.
+    
     #try to catch fpga message - it's header should begin with byte 0xff, followed by a byte between 0xfc and 0xff, and end with a byte that is not 0xf0.
     msg = []
     b1 = port.read()

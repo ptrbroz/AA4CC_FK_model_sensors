@@ -106,3 +106,5 @@ slprj/sim/varcache/schema/varInfo.mat
 schema.slxc
 FK_quadrature_decoder/wait_twice.map
 FK_quadrature_decoder/wait_twice.jic
+FK_quadrature_decoder/single_message.jic
+FK_quadrature_decoder/single_message.map
