@@ -3,7 +3,7 @@ import math
 
 #Communication demo using on-demand communication instead of periodic
 
-port = serial.Serial('COM4', 230400, parity= serial.PARITY_NONE) #edit to your COM
+port = serial.Serial('COM5', 230400, parity= serial.PARITY_NONE) #edit to your COM
 
 #-------------------------------------
 #----byte / bits conversion utils-----

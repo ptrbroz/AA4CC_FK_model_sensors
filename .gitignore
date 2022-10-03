@@ -108,3 +108,11 @@ FK_quadrature_decoder/wait_twice.map
 FK_quadrature_decoder/wait_twice.jic
 FK_quadrature_decoder/single_message.jic
 FK_quadrature_decoder/single_message.map
+FK_quadrature_decoder/uart_dole.jic
+FK_quadrature_decoder/uart_dole.map
+FK_quadrature_decoder/uart_dole_pull.jic
+FK_quadrature_decoder/uart_dole_pull.map
+FK_quadrature_decoder/output_file_wtf.map
+FK_quadrature_decoder/output_file_wtf.jic
+FK_quadrature_decoder/output_file.map
+FK_quadrature_decoder/output_file.jic

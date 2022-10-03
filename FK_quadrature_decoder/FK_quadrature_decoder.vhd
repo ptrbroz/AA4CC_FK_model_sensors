@@ -97,7 +97,8 @@ ENTITY FK_quadrature_decoder IS
 		GPIO_1_31 :  IN  STD_LOGIC;
 		GPIO_1_32 :  IN  STD_LOGIC;
 		GPIO_1_33 :  IN  STD_LOGIC;
-		GPIO_2_1  :  OUT STD_LOGIC
+		GPIO_2_1  :  OUT STD_LOGIC;
+		GPIO_2_0  :  IN  STD_LOGIC
 	);
 END FK_quadrature_decoder;
 
@@ -236,6 +237,7 @@ signal wire_rx_byte : std_logic_vector(7 downto 0);
 signal wire_rx_valid : std_logic;
 
 signal wire_uart_tx : std_logic;
+signal wire_uart_rx : std_logic;
 
 BEGIN 
 
@@ -328,7 +330,7 @@ port map(
      clock => CLOCK_50,
       data => wire_rx_byte,
       data_valid => wire_rx_valid, 
-      rxd  => GPIO_1_24
+      rxd  => wire_uart_rx
 		);
 
 
@@ -421,6 +423,8 @@ achans(32) <= GPIO_1_29;
 achans(33) <= GPIO_1_31;
 achans(34) <= GPIO_1_33;
 
+
+wire_uart_rx <= GPIO_1_24 and GPIO_2_0; --assumes that either usb-uart (via 1_24) or direct uart (via 2_0) is used. It'll fail if you use both at the same time.
 GPIO_2_1 <= wire_uart_tx; --lower gpio header pin - for inspection of uart output
 GPIO_1_22 <= wire_uart_tx;
 
